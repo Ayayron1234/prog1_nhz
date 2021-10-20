@@ -1,8 +1,2 @@
-﻿  Game.c
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(15,3): warning C4033: 'initGame' must return a value
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(18,111): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(18,131): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(22,3): warning C4033: 'initGame' must return a value
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(29,3): warning C4033: 'initGame' must return a value
-D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(46): warning C4715: 'initGame': not all control paths return a value
+﻿  main.c
   NZH1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NZH1\x64\Debug\NZH1.exe

@@ -4,6 +4,7 @@
 #include <math.h>
 #include <time.h>
 #include <SDL_image.h>
+#include <stdlib.h>
 #include "Texture.h"
 #include "ECS.h"
 
@@ -15,13 +16,10 @@ typedef struct RGBAColor {
 	int a;
 } RGBAColor;
 
-typedef struct ElapsedTime {
-	long int start;
-	long int stop;
-} ElapsedTime;
-
 typedef struct Game
 {
+	bool isLoaded;
+
 	ComponentLists components;
 	int ENTITIES;
 
@@ -29,7 +27,6 @@ typedef struct Game
 	SDL_Window* window;
 	SDL_Surface* windowSurface;
 	SDL_Renderer* renderer;
-	ElapsedTime t;
 	RGBAColor backgroundColor;
 } Game;
 
@@ -39,7 +36,5 @@ void renderGameElements(Game* game);
 
 void handleSDLEvents(Game *game);
 void quitGame(Game *game);
-
-long int updateGameTime(ElapsedTime *t);
 
 #endif

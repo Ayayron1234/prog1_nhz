@@ -1,0 +1,10 @@
+﻿  Game.c
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(24,3): warning C4033: 'initGame' must return a value
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(27,111): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(27,131): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(31,3): warning C4033: 'initGame' must return a value
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(38,3): warning C4033: 'initGame' must return a value
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(13,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'Texture *'
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(13,1): warning C4047: 'initializing': 'int' differs in levels of indirection from 'Position *'
+D:\Projects\BME\Prog 1\_nhz\NZH1\Game.c(67): warning C4715: 'initGame': not all control paths return a value
+  NZH1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NZH1\x64\Debug\NZH1.exe

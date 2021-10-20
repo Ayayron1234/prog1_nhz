@@ -1,4 +1,6 @@
+#pragma warning(disable : 4996)
 #include <SDL.h>
+#include <string.h>
 #include "ECS.h"
 
 
@@ -20,6 +22,13 @@ int ECS_attachTextureComponent(ComponentLists* components, int entityID, Texture
 
 	return 0;
 }
+void ECS_serialiseTextureComponents(ComponentLists* components, char filePath[255])
+{
+}
+void ECS_deserialiseTextureComponents(ComponentLists* components, char filePath[255])
+{
+
+}
 
 Position* ECS_getPositionComponent(ComponentLists* components, int entityID)
 {
@@ -40,9 +49,50 @@ int ECS_attachPositionComponent(ComponentLists* components, int entityID, Positi
 
 	return 0;
 }
+void ECS_serialisePositionComponents(ComponentLists* components, char filePath[255])
+{
+	SDL_Log("Saving Position components to file: %s...", filePath);
+	FILE* f;
+	fopen_s(&f, filePath, "wb");
+	if (f != 0) fwrite(&components->positionComponents, sizeof(struct Position), 255, f);
+	if (f != 0) fclose(f);
+}
+void ECS_deserialisePositionComponents(ComponentLists* components, char filePath[255])
+{
+	SDL_Log("Loading Position components from file: %s...", filePath);
+	FILE* ifp;
+	fopen_s(&ifp, filePath, "rb");
+	if (ifp != NULL) 
+		if (ifp != 0) {
+			fread(&(components->positionComponents), sizeof(struct Position), 255, ifp);
+		}
+	if (ifp != 0) fclose(ifp);
+}
 
 int ECS_createEntity(int* ENTITIES)
 {
 	int id = (*ENTITIES)++;
 	return id;
+}
+
+void ECS_serialiseAllComponents(ComponentLists* components, char directory[255])
+{
+	char full[255];
+	// serialise position components
+	strcpy(full, directory);
+	ECS_serialisePositionComponents(&components, strcat(full, "position.data"));
+	// serialise texture components
+	strcpy(full, directory);
+	ECS_serialiseTextureComponents(&components, strcat(full, "texture.data"));
+}
+
+void ECS_deserialiseAllComponents(ComponentLists* components, char *directory)
+{
+	char full[255];
+	// deserialise texture components
+	strcpy(full, directory);
+	ECS_deserialiseTextureComponents(&components, strcat(full, "texture.data"));
+	// deserialise position components
+	strcpy(full, directory);
+	ECS_deserialisePositionComponents(&components, strcat(full, "position.data"));
 }

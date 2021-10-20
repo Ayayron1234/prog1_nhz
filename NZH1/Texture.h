@@ -12,6 +12,7 @@ typedef struct Texture {
 
 	SDL_Texture *image;
 	Vec2Int size;
+	double scale;
 
 	bool isVisible;
 } Texture;
