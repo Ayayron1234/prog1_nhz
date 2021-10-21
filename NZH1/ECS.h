@@ -14,6 +14,7 @@ typedef struct ComponentLists {
 } ComponentLists;
 
 ComponentLists ECS_init(bool doDeserialisation);
+void ECS_close(ComponentLists* components);
 
 int ECS_createEntity(int* ENTITIES);
 void ECS_serialiseAllComponents(ComponentLists* components, char directory[255]);

@@ -11,10 +11,7 @@ void ps(Game* game) {
 
 Game initGame(char* windowName, Vec2 windowDimentions, bool isFullScreen, RGBAColor backgroundColor)
 {
-	Game game = { .isLoaded = false, .isRunning = true, .renderer = NULL, .backgroundColor = backgroundColor, .ENTITIES = 1, .components = {
-		.positionComponents = (Position*) malloc(255 * sizeof(struct Position)),
-		.textureComponents = (Texture*) malloc(255 * sizeof(struct Texture))
-	} };
+	Game game = { .isLoaded = false, .isRunning = true, .renderer = NULL, .backgroundColor = backgroundColor, .ENTITIES = 1, .components = ECS_init(false) };
 
 	int flags = SDL_WINDOW_RESIZABLE;
 	flags = (isFullScreen) ? flags | SDL_WINDOW_FULLSCREEN : flags;
@@ -59,11 +56,11 @@ Game initGame(char* windowName, Vec2 windowDimentions, bool isFullScreen, RGBACo
 
 	int entity4 = ECS_createEntity(&game.ENTITIES);
 	ECS_attachTextureComponent(&game.components, entity4, &texr3);
-	ECS_attachPositionComponent(&game.components, entity0, &(Position) {.value = {128, 128}});
-	ECS_attachPositionComponent(&game.components, entity1, &(Position) {.value = { 128, 176 }});
-	ECS_attachPositionComponent(&game.components, entity2, &(Position) {.value = { 176, 176 }});
-	ECS_attachPositionComponent(&game.components, entity3, &(Position) {.value = { 128, 320 }});
-	ECS_attachPositionComponent(&game.components, entity4, &(Position) {.value = { 176, 320 }});
+	//ECS_attachPositionComponent(&game.components, entity0, &(Position) {.value = {128, 128}});
+	//ECS_attachPositionComponent(&game.components, entity1, &(Position) {.value = { 128, 176 }});
+	//ECS_attachPositionComponent(&game.components, entity2, &(Position) {.value = { 176, 176 }});
+	//ECS_attachPositionComponent(&game.components, entity3, &(Position) {.value = { 128, 320 }});
+	//ECS_attachPositionComponent(&game.components, entity4, &(Position) {.value = { 176, 320 }});
 
 	return game;
 }
@@ -90,21 +87,11 @@ void handleSDLEvents(Game *game)
 	SDL_Event event;
 	SDL_PollEvent(&event);
 
-	int i = 0;
-	switch (i)
-	{
-	case 0:
-		break;
-	default:
-		break;
-	}
-
 	switch (event.type)
 	{
 	case SDL_QUIT:
 		ECS_serialiseAllComponents(&game->components, "./saves/");
-		//free(game->components.positionComponents);
-		//free(game->components.textureComponents);
+		ECS_close(&game->components);
 		game->isRunning = false;
 		break;
 	case SDL_KEYDOWN:

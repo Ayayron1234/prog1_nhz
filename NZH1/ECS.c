@@ -1,6 +1,8 @@
 #pragma warning(disable : 4996)
 #include <SDL.h>
 #include <string.h>
+#include <stdlib.h>
+#include <memory.h>
 #include "ECS.h"
 
 
@@ -27,7 +29,6 @@ void ECS_serialiseTextureComponents(ComponentLists* components, char filePath[25
 }
 void ECS_deserialiseTextureComponents(ComponentLists* components, char filePath[255])
 {
-
 }
 
 Position* ECS_getPositionComponent(ComponentLists* components, int entityID)
@@ -69,6 +70,29 @@ void ECS_deserialisePositionComponents(ComponentLists* components, char filePath
 	if (ifp != 0) fclose(ifp);
 }
 
+ComponentLists ECS_init(bool doDeserialisation)
+{
+	Texture* textures = (Texture*)calloc(255, sizeof(Texture));
+	if (NULL == textures)
+		exit(1);
+	Position* positions = (Position*)calloc(255, sizeof(Position));
+	if (NULL == positions)
+		exit(1);
+
+	ComponentLists components = {
+		.total_textureComponents = 0,
+		.textureComponents = textures,
+		.total_positionComponents = 0,
+		.positionComponents = positions,
+	};
+
+	return components;
+}
+void ECS_close(ComponentLists* components) {
+	//free(components->positionComponents);
+	//free(components->textureComponents);
+}
+
 int ECS_createEntity(int* ENTITIES)
 {
 	int id = (*ENTITIES)++;
@@ -85,7 +109,6 @@ void ECS_serialiseAllComponents(ComponentLists* components, char directory[255])
 	strcpy(full, directory);
 	ECS_serialiseTextureComponents(&components, strcat(full, "texture.data"));
 }
-
 void ECS_deserialiseAllComponents(ComponentLists* components, char *directory)
 {
 	char full[255];
