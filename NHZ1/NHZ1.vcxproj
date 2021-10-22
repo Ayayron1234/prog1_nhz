@@ -145,16 +145,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.c" />
+    <ClCompile Include="AnimationSystems.c" />
     <ClCompile Include="ECS.c" />
+    <ClCompile Include="Editor.c" />
+    <ClCompile Include="EditorSystems.c" />
     <ClCompile Include="Game.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Position.c" />
+    <ClCompile Include="Sprite.c" />
+    <ClCompile Include="SpriteSystems.c" />
+    <ClCompile Include="Tile.c" />
+    <ClCompile Include="Tilemap.c" />
+    <ClCompile Include="TileSystems.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="AnimationSystems.h" />
     <ClInclude Include="ECS.h" />
+    <ClInclude Include="Editor.h" />
+    <ClInclude Include="EditorSystems.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="misc.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="PositionSystems.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteSystems.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="TileSystems.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

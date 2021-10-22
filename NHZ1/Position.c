@@ -1,12 +1,12 @@
 #include "Position.h"
 
-Position* Position_init(Position* dest, Vec2 value)
+void Position_init(int entityID, int *total_positionComponents, Position* dest, Vec2 value)
 {
-	*dest = (Position){ .value = (Vec2){.x = value.x, .y = value.y}, .ENTITY_ID = 0 };
-	return dest;
+	dest[(*total_positionComponents)++].ENTITY_ID = entityID;
+	dest[*total_positionComponents-1].value = value;
 }
 
-void Position_deserialise(Position *position, int *total_PositionComponents, int maxNumberOfComponents, char path[255])
+void Position_deserialise(Position *positions, int *total_PositionComponents, int maxNumberOfComponents, char path[255])
 {
 	SDL_Log("Loading %d Position components from file: %s...", maxNumberOfComponents, path);
 	Position* loadedPositions;
@@ -22,15 +22,15 @@ void Position_deserialise(Position *position, int *total_PositionComponents, int
 	}
 
 	for (int i = 0; i < maxNumberOfComponents; i++) {
-		position[i] = loadedPositions[i];
 		if (loadedPositions[i].ENTITY_ID != 0)
 			*total_PositionComponents += 1;
 		else break;
+		positions[i] = loadedPositions[i];
 	}
 	free(loadedPositions);
 	if (ifp != 0) fclose(ifp);
 }
-void Position_serialise(Position* positions, int maxNumberOfComponents, char path[255])
+void Position_serialise(Position *positions, int maxNumberOfComponents, char path[255])
 {
 	SDL_Log("Saving %d Position components to file: %s...", maxNumberOfComponents, path);
 
@@ -45,6 +45,8 @@ void Position_serialise(Position* positions, int maxNumberOfComponents, char pat
 
 void Position_moveBy(Position* position, Vec2 amount)
 {
-	position->value.x += amount.x;
-	position->value.y += amount.y;
+	if (position != NULL && position->ENTITY_ID != NULL && position->ENTITY_ID != 0) {
+		position->value.x += amount.x;
+		position->value.y += amount.y;
+	}
 }

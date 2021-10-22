@@ -1,2 +1,5 @@
 ﻿  Game.c
+  main.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\main.c(6,16): warning C4026: function declared with formal parameter list
+  Generating Code...
   NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe
