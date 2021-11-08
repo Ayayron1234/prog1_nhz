@@ -119,13 +119,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_image\include;D:\Projects\BME\Prog 1\_nhz\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_ttf\include;D:\Projects\BME\Prog 1\_nhz\SDL2_image\include;D:\Projects\BME\Prog 1\_nhz\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_image\lib\x64;D:\Projects\BME\Prog 1\_nhz\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_ttf\lib\x64;D:\Projects\BME\Prog 1\_nhz\SDL2_image\lib\x64;D:\Projects\BME\Prog 1\_nhz\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,34 +147,52 @@
   <ItemGroup>
     <ClCompile Include="Animation.c" />
     <ClCompile Include="AnimationSystems.c" />
+    <ClCompile Include="Collider.c" />
+    <ClCompile Include="ColliderSystems.c" />
+    <ClCompile Include="CollisionBox.c" />
+    <ClCompile Include="CollisionBoxSystems.c" />
     <ClCompile Include="ECS.c" />
     <ClCompile Include="Editor.c" />
     <ClCompile Include="EditorSystems.c" />
     <ClCompile Include="Game.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Math.c" />
+    <ClCompile Include="PhysicsBody.c" />
+    <ClCompile Include="PhysicsBodySystems.c" />
     <ClCompile Include="Position.c" />
     <ClCompile Include="Sprite.c" />
     <ClCompile Include="SpriteSystems.c" />
+    <ClCompile Include="Text.c" />
+    <ClCompile Include="TextSystems.c" />
     <ClCompile Include="Tile.c" />
     <ClCompile Include="Tilemap.c" />
     <ClCompile Include="TileSystems.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="ColliderSystems.h" />
+    <ClInclude Include="CollisionBox.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationSystems.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CollisionBoxSystems.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="EditorSystems.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="misc.h" />
+    <ClInclude Include="PhysicsBody.h" />
+    <ClInclude Include="PhysicsBodySystems.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="PositionSystems.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteSystems.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextSystems.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="TileSystems.h" />
-    <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,9 +1,23 @@
 #include "Position.h"
 
+
 void Position_init(int entityID, int *total_positionComponents, Position* dest, Vec2 value)
 {
+	Position_delete(entityID, total_positionComponents, dest);
 	dest[(*total_positionComponents)++].ENTITY_ID = entityID;
 	dest[*total_positionComponents-1].value = value;
+}
+
+void Position_delete(int entityID, int* total_positionComponents, Position* positions)
+{
+	bool found = false;
+	for (int i = 0; i < *total_positionComponents; i++) {
+		if (!found && positions[i].ENTITY_ID == entityID)
+			found = true;
+		if (found)
+			positions[i] = (i < *total_positionComponents - 1) ? positions[i + 1] : (Position) { 0, 0 };
+	}
+	if (found) (*total_positionComponents)--;
 }
 
 void Position_deserialise(Position *positions, int *total_PositionComponents, int maxNumberOfComponents, char path[255])

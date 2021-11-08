@@ -2,10 +2,22 @@
 
 void Sprite_init(Sprite* dest, int entityID, int* total_spriteComponents, Tilemap* tilemap, Vec2Int tilePosition)
 {
+	Sprite_delete(dest, entityID, total_spriteComponents);
 	dest[*total_spriteComponents].ENTITY_ID = entityID;
 	dest[*total_spriteComponents].tilemap = tilemap;
 	dest[*total_spriteComponents].tilePosition = tilePosition;
 	dest[(*total_spriteComponents)++].renderProps = (RenderProperties){ .isVisible = true, .opacity = 1.0, .scale = 1.0 };
+}
+
+void Sprite_delete(Sprite* sprites, int entityID, int* total_spriteComponents) {
+	bool found = false;
+	for (int i = 0; i < *total_spriteComponents; i++) {
+		if (!found && sprites[i].ENTITY_ID == entityID)
+			found = true;
+		if (found)
+			sprites[i] = (i < *total_spriteComponents - 1) ? sprites[i + 1] : (Sprite) { 0 };
+	}
+	if (found) (*total_spriteComponents)--;
 }
 
 void Sprite_deserialise(Sprite* sprites, int* total_spriteComponents, int maxNumberOfComponents, char path[255], Tilemap *tilemap)

@@ -8,8 +8,11 @@ typedef struct Editor {
 	int ENTITY_ID;
 
 	bool isSelected;
+	bool copied;
 } Editor;
 
 void Editor_init(Editor* editors, int entityID, int* total_editorComponents);
+void Editor_delete(Editor* editors, int entityID, int* total_editorComponents);
+
 void Editor_deserialise(Editor* editors, int* total_EditorComponents, int maxNumberOfComponents, char path[255]);
 void Editor_serialise(Editor* editors, int maxNumberOfComponents, char path[255]);

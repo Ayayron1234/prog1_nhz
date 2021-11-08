@@ -4,8 +4,21 @@
 void Editor_init(Editor *editors, int entityID, int* total_editorComponents)
 {
 	editors[*total_editorComponents].ENTITY_ID = entityID;
+	editors[*total_editorComponents].copied = false;
 	editors[(*total_editorComponents)++].isSelected = false;
 }
+
+void Editor_delete(Editor* editors, int entityID, int* total_editorComponents) {
+	bool found = false;
+	for (int i = 0; i < *total_editorComponents; i++) {
+		if (!found && editors[i].ENTITY_ID == entityID)
+			found = true;
+		if (found)
+			editors[i] = (i < *total_editorComponents - 1) ? editors[i + 1] : (Editor) { 0 };
+	}
+	if (found) (*total_editorComponents)--;
+}
+
 
 void Editor_deserialise(Editor* editors, int* total_EditorComponents, int maxNumberOfComponents, char path[255])
 {
@@ -27,6 +40,7 @@ void Editor_deserialise(Editor* editors, int* total_EditorComponents, int maxNum
 		else break;
 		editors[i] = loadedEditors[i];
 		editors[i].isSelected = false;
+		editors[i].copied = false;
 	}
 	free(loadedEditors);
 	if (file != 0) fclose(file);

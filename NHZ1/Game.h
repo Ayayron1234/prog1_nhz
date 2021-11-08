@@ -1,14 +1,19 @@
 #pragma once
 #include <stdbool.h>
 #include <SDL.h>
+#include "SDL_ttf.h"
 #include <string.h>
 #include "ECS.h"
 #include "misc.h"
+#include "Math.h"
 #include "SpriteSystems.h"
 #include "PositionSystems.h"
 #include "AnimationSystems.h"
 #include "Tile.h"
 #include "TileSystems.h"
+#include "TextSystems.h"
+#include "CollisionBoxSystems.h"
+#include "PhysicsBodySystems.h"
 
 
 typedef struct GameAppearance {
@@ -19,18 +24,25 @@ typedef struct GameAppearance {
 	RGBAColor backgroundColor;
 } GameAppearance;
 
+typedef struct GameTime {
+	long int lastUpdateTime;
+	long int deltaT;
+} GameTime;
+
 typedef struct Game
 {
 	ComponentLists components;
-	int ENTITIES;
 
 	SDL_Window* window;
 	SDL_Surface* windowSurface;
 	SDL_Renderer* renderer;
 
+	int state;
 	bool isRunning;
 	GameAppearance appearance;
 	Tilemap tilemap;
+	Vec2 camera;
+	GameTime time;
 } Game;
 
 void Game_init(Game *game, char windowName[255], Vec2Int windowDimensions, bool isFullScreen, RGBAColor backgroundColor);

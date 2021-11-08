@@ -1,6 +1,6 @@
 #pragma once
 #include <stdbool.h>
-#include "Vec2.h"
+#include "Math.h"
 #include "SDL.h"
 #include "SDL_image.h"
 

@@ -1,5 +1,3 @@
 ﻿  Game.c
-  main.c
-D:\Projects\BME\Prog 1\_nhz\NHZ1\main.c(6,16): warning C4026: function declared with formal parameter list
-  Generating Code...
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(136,60): warning C4133: 'function': incompatible types - from 'PhysicsBody *' to 'Collider *'
   NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe

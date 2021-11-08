@@ -1,32 +1,32 @@
 #include "Game.h"
 
 
-Position* fillTestArray() {
-	Position* arr;
-	arr = (Position*)calloc(100, sizeof(struct Position));
-
-	return arr;
-}
-
 void Game_init(Game *game, char windowName[255], Vec2Int windowDimensions, bool isFullScreen, RGBAColor backgroundColor)
 {
-	game->appearance = (GameAppearance){ .backgroundColor = backgroundColor, .isFullScrean = isFullScreen, .windowDimensions = windowDimensions };
+	game->appearance = (GameAppearance){ .backgroundColor = backgroundColor, .isFullScrean = isFullScreen, .windowDimensions = windowDimensions};
 	strcpy_s(game->appearance.windowName, 255, windowName);
+	game->camera = (Vec2){ 0, 0 };
 
 	// load components to heap
 	game->components = ECS_init(128, true, "./saves/", &game->tilemap);
-	// find componentlist with most components and set entities to it's length
-	game->ENTITIES = 0;
-	if (game->components.total_positionComponents > game->ENTITIES) game->ENTITIES = game->components.total_positionComponents;
-	if (game->components.total_spriteComponents > game->ENTITIES) game->ENTITIES = game->components.total_spriteComponents;
-	if (game->components.total_editorComponents > game->ENTITIES) game->ENTITIES = game->components.total_editorComponents;
-	if (game->components.total_animationComponents > game->ENTITIES) game->ENTITIES = game->components.total_animationComponents;
-	if (game->components.total_tileComponents > game->ENTITIES) game->ENTITIES = game->components.total_tileComponents;
+
+	// set gamestate
+	game->state = EDIT_MODE;
+
+	ECS_getPositionComponent(&game->components, 4)->value = (Vec2){ 768, 336 };
+	ECS_getPhysicsBodyComponent(&game->components, 4)->velocity = (Vec2){ 100, 0 };
+	//ECS_getPhysicsBodyComponent(&game->components, 4)->mass = 90;
+	//ECS_getPhysicsBodyComponent(&game->components, 3)->gravitationalAcceleration = (Vec2){ 0, 0 };
+	//ECS_getPhysicsBodyComponent(&game->components, 4)->gravitationalAcceleration = (Vec2){ 0, 16 };
+	//ECS_getPhysicsBodyComponent(&game->components, 3)->acceleration = (Vec2){ 0, 0 };
 
 	// initialise sdl
 	Game_sdlInit(game);
 	// load tilemap
 	Tilemap_init(&game->tilemap, (Vec2Int) { 48, 48 }, game->renderer, "./saves/tilemap.png");
+	// init game time
+	game->time.deltaT = 1;
+	game->time.lastUpdateTime = SDL_GetTicks();
 }
 
 void Game_sdlInit(Game *game) {
@@ -58,10 +58,21 @@ void Game_sdlInit(Game *game) {
 	}
 	SDL_SetRenderDrawBlendMode(game->renderer, SDL_BLENDMODE_BLEND);
 	SDL_RenderClear(game->renderer);
+
+	// Init TTF
+	if (TTF_Init() == -1) {
+		printf("TTF_Init: %s\n", TTF_GetError());
+		exit(2);
+	}
 }
 
 void Game_update(Game* game)
 {
+	// update game time
+	long int now = SDL_GetTicks();
+	game->time.deltaT = now - game->time.lastUpdateTime;
+	game->time.lastUpdateTime = now;
+
 	// deselect everything if nothing was clicked
 	int x, y;
 	Uint32 buttons;
@@ -81,12 +92,26 @@ void Game_update(Game* game)
 			Editor_deselectAll(&game->components);
 	}
 
-	// update components
-	for (int i = 0; i < game->components.total_spriteComponents; i++)
-		Sprite_edit_update(&game->components, &game->components.spriteComponents[i], game->renderer);
-	for (int i = 0; i < game->components.total_tileComponents; i++)
-		Tile_edit_update(&game->components, &game->components.tileComponents[i], game->renderer);
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT] != 0)
+		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = -300;
+	else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] != 0)
+		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = 300;
+	else
+		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = 0;
 
+	// update components
+	if (game->state == EDIT_MODE) {
+		for (int i = 0; i < game->components.total_spriteComponents; i++)
+			Sprite_edit_update(&game->components, &game->components.spriteComponents[i], game->renderer);
+		for (int i = 0; i < game->components.total_tileComponents; i++)
+			Tile_edit_update(&game->components, &game->components.tileComponents[i], game->renderer);
+	}
+	if (game->state == GAME_MODE) {
+		for (int i = 0; i < game->components.total_physicsBodyComponents; i++)
+			PhysicsBody_update(&game->components, &game->components.physicsBodyComponents[i], game->time.deltaT / 1000.0);
+	}
+	for (int i = 0; i < game->components.total_collisionBoxComponents; i++)
+		CollisionBox_update(game->state, &game->components, &game->components.collisionBoxComponents[i]);
 	for (int i = 0; i < game->components.total_animationComponents; i++)
 		Animation_update(&game->components, &game->components.animationComponents[i]);
 }
@@ -105,36 +130,101 @@ void Game_handleSDLEvents(Game* game)
 		Editor_serialise(game->components.editorComponents, 128, "./saves/editor.data");
 		Animation_serialise(game->components.animationComponents, 128, "./saves/animation.data");
 		Tile_serialise(game->components.tileComponents, 128, "./saves/tile.data");
+		Text_serialise(game->components.textComponents, 128, "./saves/text.data");
+		CollisionBox_serialise(game->components.collisionBoxComponents, 128, "./saves/collisionBox.data");
+		Collider_serialise(game->components.colliderComponents, 128, "./saves/collider.data");
+		Collider_serialise(game->components.physicsBodyComponents, 128, "./saves/physicsBody.data");
 		// stop game
 		game->isRunning = false;
 		break;
 	case SDL_KEYDOWN:
 		switch (event.key.keysym.sym)
 		{
+		case SDLK_F5:
+			game->state = (game->state == EDIT_MODE) ? GAME_MODE : EDIT_MODE;
+			break;
 		case SDLK_LEFT:
-			Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),
-				(Vec2) { -3, 0 });
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->size.x = (tile->size.x > 1) ? tile->size.x - 1 : 1;
+				}
+				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->tilePosition.x = (tile->tilePosition.x > 0) ? tile->tilePosition.x - 1 : 0;
+				}
+				else {
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { -12, 0 });
+				}
+			}
 			break;
 		case SDLK_UP:
-			Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),
-				(Vec2) { 0, -3 });
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->size.y = (tile->size.y > 1) ? tile->size.y - 1 : 1;
+				}
+				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->tilePosition.y = (tile->tilePosition.y > 0) ? tile->tilePosition.y - 1 : 0;
+				}
+				else {
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),(Vec2) { 0, -12 });
+				}
+			}
+			else {
+				ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.y = -600;
+			}
 			break;
 		case SDLK_RIGHT:
-			Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),
-				(Vec2) { 3, 0 });
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->size.x = tile->size.x + 1;
+				}
+				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->tilePosition.x = tile->tilePosition.x + 1;
+				}
+				else {
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { 12, 0 });
+				}
+			}
 			break;
 		case SDLK_DOWN:
-			Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),
-				(Vec2) { 0, 3 });
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->size.y = tile->size.y + 1;
+				}
+				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					if (NULL != tile) tile->tilePosition.y = tile->tilePosition.y + 1;
+				}
+				else {
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { 0, 12 });
+				}
+			}
 			break;
-		case SDLK_p: {
-			//Position test[128];
-			//for (int i = 0; i < game->components.total_positionComponents; i++) {
-			//	test[i] = game->components.positionComponents[i];
-			//	printf("Entity#%d: Vec2(%g,%g)\n", game->components.positionComponents[i].ENTITY_ID, game->components.positionComponents[i].value.x, game->components.positionComponents[i].value.y);
-			//}
+		case SDLK_c:
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					Editor_copy(&game->components, Editor_getSelected(&game->components));
+				}
+			}
 			break;
-		}
+		case SDLK_v:
+			if (game->state == EDIT_MODE) {
+				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
+					int newEntity = ECS_createEntity(&game->components, 128);
+					Editor_paste(&game->components, newEntity);
+				}
+			}
+			break;
+		case SDLK_DELETE:
+			if (game->state == EDIT_MODE) {
+				ECS_deleteEntity(&game->components, Editor_getSelected(&game->components));
+			}
 		default:
 			break;
 		}
@@ -145,7 +235,7 @@ void Game_handleSDLEvents(Game* game)
 
 void Game_renderElements(Game* game)
 {
-	SDL_SetRenderDrawColor(game->renderer, game->appearance.backgroundColor.r, game->appearance.backgroundColor.g, game->appearance.backgroundColor.b, game->appearance.backgroundColor.a );
+	SDL_SetRenderDrawColor(game->renderer, game->appearance.backgroundColor.r, game->appearance.backgroundColor.g, game->appearance.backgroundColor.b, game->appearance.backgroundColor.a);
 	SDL_RenderClear(game->renderer);
 
 	for (int i = 0; i < game->components.total_tileComponents; i++) {
@@ -154,9 +244,29 @@ void Game_renderElements(Game* game)
 	for (int i = 0; i < game->components.total_spriteComponents; i++) {
 		Sprite_render(&game->components, &game->components.spriteComponents[i], game->renderer);
 	}
-	for (int i = 0; i < game->components.total_editorComponents; i++) {
-		Editor_render(&game->components, &game->components.editorComponents[i], game->renderer);
+	for (int i = 0; i < game->components.total_textComponents; i++) {
+		Text_render(&game->components, &game->components.textComponents[i], game->renderer);
 	}
+	for (int i = 0; i < game->components.total_editorComponents; i++) {
+		Editor_render(game->state, &game->components, &game->components.editorComponents[i], game->renderer);
+	}
+
+	//int x, y;
+	//Vec2 contactPoint;
+	//Vec2 contactNormal;
+	//double t;
+	//SDL_PumpEvents();
+	//Uint32 buttons = SDL_GetMouseState(&x, &y);
+	//Position* physcsPos = ECS_getPositionComponent(&game->components, 3);
+	//Ray2 ray = (Ray2){ (Vec2) { x, y }, (Vec2) { physcsPos->value.x, physcsPos->value.y } };
+	//if (buttons & SDL_BUTTON_LMASK) {
+	//	ECS_getPhysicsBodyComponent(&game->components, 3)->velocity = (Vec2){ x - physcsPos->value.x, y - physcsPos->value.y };
+	//	SDL_SetRenderDrawColor(game->renderer, 255, 0, 0, 255);
+	//}
+	//else
+	//	SDL_SetRenderDrawColor(game->renderer, 255, 255, 255, 255);
+	//SDL_RenderDrawLine(game->renderer, ray.origin.x, ray.origin.y, ray.destination.x, ray.destination.y);
+
 
 	SDL_RenderPresent(game->renderer);
 }

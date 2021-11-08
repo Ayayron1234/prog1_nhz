@@ -1,0 +1,34 @@
+﻿  Animation.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Animation.h(6,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  AnimationSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Animation.h(6,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  CollisionBox.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\CollisionBox.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  CollisionBoxSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\CollisionBoxSystems.h(3,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  ECS.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Position.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Editor.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Editor.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  EditorSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Position.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Game.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.h(3,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  main.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\main.c(1,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Position.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Position.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Sprite.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Tilemap.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  SpriteSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Tilemap.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Text.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Text.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  TextSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.h(3,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Tile.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Tilemap.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Tilemap.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Tilemap.h(4,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  TileSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Position.h(5,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
