@@ -158,6 +158,28 @@ void ECS_printEntityData(ComponentLists* components, int entityID) {
 		printf("\n   >Editor\n     .copied=%s\n", (editor->copied) ? "true": "false");
 }
 
+void ECS_serialise(int nComponentLists, ComponentLists* components) {
+	SerialisationMapFragment componentsMap = { .total_components = 0, .componentSize = sizeof(Position) };
+	componentsMap.layoutMaps = (Layout*)calloc(nComponentLists, sizeof(Layout));
+
+	for (componentsMap.total_layouts = 0; componentsMap.total_layouts < nComponentLists; componentsMap.total_layouts++) {
+		componentsMap.layoutMaps[componentsMap.total_layouts].start = componentsMap.total_components;
+		componentsMap.total_components += components[componentsMap.total_layouts].total_positionComponents;
+		componentsMap.layoutMaps[componentsMap.total_layouts].end = componentsMap.total_components - 1;
+	}
+	
+	Position* sumComponents = (void*)calloc(componentsMap.total_components, componentsMap.componentSize);
+	if (NULL == sumComponents) exit(1);
+
+	for (int i = 0; i < componentsMap.total_layouts; i++) {
+		for (int j = 0; j < componentsMap.layoutMaps[i].end; j++) {
+			sumComponents[componentsMap.layoutMaps[i].start + j] = components[i].positionComponents[j];
+		}
+	}
+
+	return;
+}
+
 Position* ECS_getPositionComponent(ComponentLists* components, int entityID)
 {
 	for (int i = 0; i < components->total_positionComponents; i++) {

@@ -33,11 +33,37 @@ typedef struct ComponentLists {
 	PhysicsBody* physicsBodyComponents;
 } ComponentLists;
 
+typedef struct Layer {
+	int zIndex;
+	Vec2 parallax;
+} Layer;
+
+typedef struct Layout {
+	ComponentLists* components;
+	Layer* layers;
+	Vec2 camera;
+} Layout;
+
+typedef struct LayoutMap {
+	int start;
+	int end;
+} LayoutMap;
+typedef struct SerialisationMapFragment {
+	char componentType[255];     // eg.: Position, Sprite, ...
+	int total_components;        // number of components of a certain type
+	size_t componentSize;        // sizeof(ComponentTypeX)
+
+	int total_layouts;           // number of layouts
+	LayoutMap* layoutMaps;       // array of serialised layouts
+} SerialisationMapFragment;
+
 ComponentLists ECS_init(int maxNumberOfComponents, bool doDeserialisation, char saveDirectory[255], Tilemap *tilemap);
 
 int ECS_createEntity(ComponentLists* components, int maxNumberOfComponents);
 void ECS_deleteEntity(ComponentLists* components, int entityID);
 void ECS_printEntityData(ComponentLists* components, int entityID);
+
+void ECS_serialise(int nComponentLists, ComponentLists* components);
 
 Position* ECS_getPositionComponent(ComponentLists* components, int entityID);
 Sprite* ECS_getSpriteComponent(ComponentLists* components, int entityID);

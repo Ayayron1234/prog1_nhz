@@ -35,6 +35,8 @@ int main(void) {
 
 	}
 
+	ECS_serialise(2, (ComponentLists[2]) { game.components, game.components });
+
 	//Sprite spr[128];
 	//for (int i = 0; i < 128; i++) {
 	//	spr[i] = game.components.spriteComponents[i];

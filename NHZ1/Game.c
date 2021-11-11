@@ -92,12 +92,36 @@ void Game_update(Game* game)
 			Editor_deselectAll(&game->components);
 	}
 
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT] != 0)
-		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = -300;
-	else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] != 0)
-		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = 300;
-	else
-		ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.x = 0;
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT] != 0) {
+		ECS_getAnimationComponent(&game->components, 1)->tilePosition.x = 2;
+		ECS_getAnimationComponent(&game->components, 1)->frameCount = 3;
+		ECS_getPhysicsBodyComponent(&game->components, 1)->velocity.x = -300;
+	}
+	else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] != 0) {
+		ECS_getAnimationComponent(&game->components, 1)->tilePosition.x = 7;
+		ECS_getAnimationComponent(&game->components, 1)->frameCount = 3;
+		ECS_getPhysicsBodyComponent(&game->components, 1)->velocity.x = 300;
+	}
+	else {
+		ECS_getAnimationComponent(&game->components, 1)->tilePosition.x = 5;
+		ECS_getAnimationComponent(&game->components, 1)->frameCount = 1;
+		ECS_getPhysicsBodyComponent(&game->components, 1)->velocity.x = 0;
+	}
+	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP] != 0) {
+		Vec2 pos = ECS_getPositionComponent(&game->components, 1)->value;
+		Vec2 size = ECS_getCollisionBoxComponent(&game->components, 1)->size;
+		Vec2 a = { pos.x, pos.y + size.y + 1 };
+		Vec2 b = { pos.x + size.x, pos.y + size.y + 1 };
+
+		bool isOnFloor = false;
+		for (int i = 0; i < game->components.total_colliderComponents; i++) {
+			CollisionBox* box = ECS_getCollisionBoxComponent(&game->components, game->components.colliderComponents[i].ENTITY_ID);
+			if (NULL == box) continue;
+			if (CollisionBox_isPointInside(&game->components, box, a) || CollisionBox_isPointInside(&game->components, box, b)) isOnFloor = true;
+		}
+		if (isOnFloor)
+			ECS_getPhysicsBodyComponent(&game->components, 1)->velocity.y = -800;
+	}
 
 	// update components
 	if (game->state == EDIT_MODE) {
@@ -171,9 +195,6 @@ void Game_handleSDLEvents(Game* game)
 				else {
 					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),(Vec2) { 0, -12 });
 				}
-			}
-			else {
-				ECS_getPhysicsBodyComponent(&game->components, 3)->velocity.y = -600;
 			}
 			break;
 		case SDLK_RIGHT:
@@ -249,6 +270,23 @@ void Game_renderElements(Game* game)
 	}
 	for (int i = 0; i < game->components.total_editorComponents; i++) {
 		Editor_render(game->state, &game->components, &game->components.editorComponents[i], game->renderer);
+	}
+
+	if (game->state == EDIT_MODE) {
+		Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+		if (NULL != tile && SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
+			SDL_Rect rect = { 40, 40, game->tilemap.tileSize.x / 0.2, game->tilemap.tileSize.y / 0.2 };
+			SDL_RenderCopy(game->renderer, game->tilemap.texture, NULL, &rect);
+
+			SDL_Rect selRect = {
+				40 + tile->tilePosition.x * game->tilemap.tileSize.x / 2, 40 + tile->tilePosition.y * game->tilemap.tileSize.y / 2,
+				game->tilemap.tileSize.x / 2, game->tilemap.tileSize.y / 2
+			};
+			SDL_SetRenderDrawColor(game->renderer, 255, 180, 130, 255);
+			SDL_RenderDrawRect(game->renderer, &selRect);
+			SDL_SetRenderDrawColor(game->renderer, 255, 180, 130, 100);
+			SDL_RenderFillRect(game->renderer, &selRect);
+		}
 	}
 
 	//int x, y;
