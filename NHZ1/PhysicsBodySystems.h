@@ -3,4 +3,4 @@
 #include "PositionSystems.h"
 #include "ColliderSystems.h"
 
-void PhysicsBody_update(ComponentLists* components, PhysicsBody* physicsBody, double deltaT);
+void PhysicsBody_update(Layout* currentLayout, PhysicsBody* physicsBody, double deltaT);

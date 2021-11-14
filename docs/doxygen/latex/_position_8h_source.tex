@@ -1,0 +1,25 @@
+\hypertarget{_position_8h_source}{}\doxysection{Position.\+h}
+\label{_position_8h_source}\index{D:/Projects/\_nhz/NHZ1/Position.h@{D:/Projects/\_nhz/NHZ1/Position.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_position}{Position}} \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} ENTITY\_ID;}
+\DoxyCodeLine{11     \mbox{\hyperlink{struct_vec2}{Vec2}} value;}
+\DoxyCodeLine{12 \} \mbox{\hyperlink{struct_position}{Position}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keywordtype}{void} Position\_init(\textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_positionComponents, \mbox{\hyperlink{struct_position}{Position}}* dest, \mbox{\hyperlink{struct_vec2}{Vec2}} value);}
+\DoxyCodeLine{15 \textcolor{keywordtype}{void} Position\_delete(\textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_positionComponents, \mbox{\hyperlink{struct_position}{Position}}* positions);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} Position\_deserialise(\mbox{\hyperlink{struct_position}{Position}}* positions, \textcolor{keywordtype}{int}* total\_PositionComponents, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{18 \textcolor{keywordtype}{void} Position\_serialise(\mbox{\hyperlink{struct_position}{Position}}* positions, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

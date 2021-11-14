@@ -1,9 +1,9 @@
 #include "TileSystems.h"
 
 
-void Tile_render(ComponentLists* components, Tile* tile, SDL_Renderer* renderer) {
+void Tile_render(Layout* currentLayout, Tile* tile, SDL_Renderer* renderer) {
 	if (tile->renderProps.isVisible) {
-		Position* position = ECS_getPositionComponent(components, tile->ENTITY_ID);
+		Position* position = ECS_getComponent(POSITION, *currentLayout, tile->ENTITY_ID);
 		if (NULL == position) {
 			SDL_Log("To render a tile, the tile's parent entity has to have a position component. ");
 			exit(1);

@@ -158,27 +158,27 @@ void ECS_printEntityData(ComponentLists* components, int entityID) {
 		printf("\n   >Editor\n     .copied=%s\n", (editor->copied) ? "true": "false");
 }
 
-void ECS_serialise(int nComponentLists, ComponentLists* components) {
-	SerialisationMapFragment componentsMap = { .total_components = 0, .componentSize = sizeof(Position) };
-	componentsMap.layoutMaps = (Layout*)calloc(nComponentLists, sizeof(Layout));
-
-	for (componentsMap.total_layouts = 0; componentsMap.total_layouts < nComponentLists; componentsMap.total_layouts++) {
-		componentsMap.layoutMaps[componentsMap.total_layouts].start = componentsMap.total_components;
-		componentsMap.total_components += components[componentsMap.total_layouts].total_positionComponents;
-		componentsMap.layoutMaps[componentsMap.total_layouts].end = componentsMap.total_components - 1;
-	}
-	
-	Position* sumComponents = (void*)calloc(componentsMap.total_components, componentsMap.componentSize);
-	if (NULL == sumComponents) exit(1);
-
-	for (int i = 0; i < componentsMap.total_layouts; i++) {
-		for (int j = 0; j < componentsMap.layoutMaps[i].end; j++) {
-			sumComponents[componentsMap.layoutMaps[i].start + j] = components[i].positionComponents[j];
-		}
-	}
-
-	return;
-}
+//void ECS_serialise(int nComponentLists, ComponentLists* components) {
+//	SerialisationMapFragment componentsMap = { .total_components = 0, .componentSize = sizeof(Position) };
+//	componentsMap.layoutMaps = (Layout*)calloc(nComponentLists, sizeof(Layout));
+//
+//	for (componentsMap.total_layouts = 0; componentsMap.total_layouts < nComponentLists; componentsMap.total_layouts++) {
+//		componentsMap.layoutMaps[componentsMap.total_layouts].start = componentsMap.total_components;
+//		componentsMap.total_components += components[componentsMap.total_layouts].total_positionComponents;
+//		componentsMap.layoutMaps[componentsMap.total_layouts].end = componentsMap.total_components - 1;
+//	}
+//	
+//	Position* sumComponents = (void*)calloc(componentsMap.total_components, componentsMap.componentSize);
+//	if (NULL == sumComponents) exit(1);
+//
+//	for (int i = 0; i < componentsMap.total_layouts; i++) {
+//		for (int j = 0; j < componentsMap.layoutMaps[i].end; j++) {
+//			sumComponents[componentsMap.layoutMaps[i].start + j] = components[i].positionComponents[j];
+//		}
+//	}
+//
+//	return;
+//}
 
 Position* ECS_getPositionComponent(ComponentLists* components, int entityID)
 {
@@ -227,7 +227,6 @@ Text* ECS_getTextComponent(ComponentLists* components, int entityID)
 	}
 	return NULL;
 }
-
 CollisionBox* ECS_getCollisionBoxComponent(ComponentLists* components, int entityID)
 {
 	for (int i = 0; i < components->total_collisionBoxComponents; i++) {
@@ -236,7 +235,6 @@ CollisionBox* ECS_getCollisionBoxComponent(ComponentLists* components, int entit
 	}
 	return NULL;
 }
-
 Collider* ECS_getColliderComponent(ComponentLists* components, int entityID)
 {
 	for (int i = 0; i < components->total_colliderComponents; i++) {
@@ -245,7 +243,6 @@ Collider* ECS_getColliderComponent(ComponentLists* components, int entityID)
 	}
 	return NULL;
 }
-
 PhysicsBody* ECS_getPhysicsBodyComponent(ComponentLists* components, int entityID)
 {
 	for (int i = 0; i < components->total_physicsBodyComponents; i++) {
@@ -253,4 +250,195 @@ PhysicsBody* ECS_getPhysicsBodyComponent(ComponentLists* components, int entityI
 			return &components->physicsBodyComponents[i];
 	}
 	return NULL;
+}
+
+void ECS_deserialise(Layout** layouts, int numberOfLayouts, void*** componentLists, SerialisationMapFragment* serialisationMapFragments, int numberOfComponentTypes) {
+	for (int layoutIndex = 0; layoutIndex < numberOfLayouts; layoutIndex++) {
+		(*layouts)[layoutIndex].componentMaps = (LayoutMap*)calloc(NUMBER_OF_COMPONENT_TYPES, sizeof(LayoutMap));
+
+		if (NULL == (*layouts)[layoutIndex].componentMaps) exit(1);
+
+		for (int componentTypeIndex = 0; componentTypeIndex < numberOfComponentTypes; componentTypeIndex++) {
+			(*layouts)[layoutIndex].componentListsPointers[componentTypeIndex] = (*componentLists)[componentTypeIndex];
+			(*layouts)[layoutIndex].componentMaps[componentTypeIndex] = serialisationMapFragments[componentTypeIndex].layoutMaps[layoutIndex];
+
+			// handle difference in number of components (a new component type has been implemented)
+			if (numberOfComponentTypes < NUMBER_OF_COMPONENT_TYPES) 
+				for (componentTypeIndex = componentTypeIndex; componentTypeIndex < NUMBER_OF_COMPONENT_TYPES; componentTypeIndex++) {
+					(*componentLists)[componentTypeIndex] = malloc(sizeof(void*));
+
+					(*layouts)[layoutIndex].componentListsPointers[componentTypeIndex] = (*componentLists)[componentTypeIndex];
+					(*layouts)[layoutIndex].componentMaps[componentTypeIndex].start = 0;
+					(*layouts)[layoutIndex].componentMaps[componentTypeIndex].end = 0;
+				}
+		}
+	}
+
+	for (int i = 0; i < numberOfComponentTypes; i++) {
+		free(serialisationMapFragments[i].layoutMaps);
+	}
+	free(serialisationMapFragments);
+}
+
+void ECS_load(Layout** layoutsPtr, void*** componentListsPtr, char path[255], GameResources* resources) {
+	// open file
+	FILE* f;
+	fopen_s(&f, path, "rb");
+	if (NULL == f) exit(1);
+
+	// get number of component types in save file
+	int numberOfComponentTypes;
+	fread(&numberOfComponentTypes, sizeof(int), 1, f);
+	if (numberOfComponentTypes != NUMBER_OF_COMPONENT_TYPES) exit(1);
+	void** componentLists = (void**)malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*));
+
+	// get number of layouts in save file
+	int numberOfLayouts;
+	fread(&numberOfLayouts, sizeof(int), 1, f);
+	Layout* layouts = (Layout*)calloc(numberOfLayouts, sizeof(Layout));
+	if (NULL == layouts) exit(1);
+	for (int i = 0; i < numberOfLayouts; i++)
+		layouts[i].componentListsPointers = calloc(NUMBER_OF_COMPONENT_TYPES, sizeof(void*));
+
+	// load serialisation fragments from file
+	SerialisationMapFragment* serialisationMapFragments;
+	serialisationMapFragments = (SerialisationMapFragment*)calloc(numberOfComponentTypes, sizeof(SerialisationMapFragment));
+	if (NULL == serialisationMapFragments) exit(1);
+	for (int componentTypeIndex = 0; componentTypeIndex < numberOfComponentTypes; componentTypeIndex++) {
+		serialisationMapFragments[componentTypeIndex].layoutMaps = (LayoutMap*)calloc(numberOfLayouts, sizeof(LayoutMap));
+		if (NULL == serialisationMapFragments[componentTypeIndex].layoutMaps) exit(1);
+
+		fread(&serialisationMapFragments[componentTypeIndex].componentSize, sizeof(size_t), 1, f);
+		fread(&serialisationMapFragments[componentTypeIndex].componentType, sizeof(int), 1, f);
+		fread(serialisationMapFragments[componentTypeIndex].layoutMaps, sizeof(LayoutMap), numberOfLayouts, f);
+		fread(&serialisationMapFragments[componentTypeIndex].total_components, sizeof(int), 1, f);
+		fread(&serialisationMapFragments[componentTypeIndex].total_layouts, sizeof(int), 1, f);
+	}
+
+	if (NULL == componentLists) exit(1);
+	for (int componentTypeIndex = 0; componentTypeIndex < numberOfComponentTypes; componentTypeIndex++) {
+		int total_components = serialisationMapFragments[componentTypeIndex].total_components;
+		size_t componentSize = serialisationMapFragments[componentTypeIndex].componentSize;
+		if (componentSize != ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL)) exit(1);
+
+		componentLists[componentTypeIndex] = (void*)malloc(total_components * componentSize);
+		if (NULL == componentLists[componentTypeIndex]) exit(1);
+
+		fread(componentLists[componentTypeIndex], componentSize, total_components, f);
+
+		// some components contain pointers or have values which should not be the same as before saving, so these have to be set to their desired values. 
+		// sadly I couldn't think of a solution where this isn't hardcoded. :(
+		if (componentTypeIndex == TILE) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
+			((Tile*)componentLists[componentTypeIndex])[i].tilemap = &resources->tilemap;
+		if (componentTypeIndex == SPRITE) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
+			((Sprite*)componentLists[componentTypeIndex])[i].tilemap = &resources->tilemap;
+		//if (componentTypeIndex == EDITOR) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
+		//	((Editor*)componentLists[componentTypeIndex])[i].copied = false;
+		if (componentTypeIndex == ANIMATION) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++) {
+			((Animation*)componentLists[componentTypeIndex])[i].currentFrame = 0;
+			((Animation*)componentLists[componentTypeIndex])[i].lastUpdateTime = SDL_GetTicks();
+		}
+	}
+	fclose(f);
+
+	ECS_deserialise(&layouts, numberOfLayouts, &componentLists, serialisationMapFragments, numberOfComponentTypes);
+
+	*layoutsPtr = layouts;
+	*componentListsPtr = componentLists;
+
+	//Position test[61];
+	//for (int i = 0; i < serialisationMapFragments[POSITION].total_components; i++)
+	//	test[i] = ((Position*)layouts->componentListsPointers[POSITION])[i];
+}
+
+SerialisationMapFragment* ECS_serialise(Layout* layouts, int numberOfLayouts) {
+	SerialisationMapFragment* serialisationMapFragments;
+	serialisationMapFragments = (SerialisationMapFragment*)malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(SerialisationMapFragment));
+	if (NULL == serialisationMapFragments) exit(1);
+
+	for (int componentTypeIndex = 0; componentTypeIndex < NUMBER_OF_COMPONENT_TYPES; componentTypeIndex++) {
+		serialisationMapFragments[componentTypeIndex].componentSize = ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL);
+		serialisationMapFragments[componentTypeIndex].total_layouts = numberOfLayouts;
+		serialisationMapFragments[componentTypeIndex].total_components = 0;
+		serialisationMapFragments[componentTypeIndex].componentType = componentTypeIndex;
+
+		for (int layoutIndex = 0; layoutIndex < numberOfLayouts; layoutIndex++) {
+			serialisationMapFragments[componentTypeIndex].total_components += ECS_getNumberOfComponents(componentTypeIndex, layouts[layoutIndex]);
+
+			serialisationMapFragments[componentTypeIndex].layoutMaps = (LayoutMap*)malloc(numberOfLayouts * sizeof(LayoutMap));
+			if (NULL == serialisationMapFragments[componentTypeIndex].layoutMaps) exit(1);
+			serialisationMapFragments[componentTypeIndex].layoutMaps[layoutIndex] = layouts[layoutIndex].componentMaps[componentTypeIndex];
+		}
+	}
+
+	return serialisationMapFragments;
+}
+
+void* ECS_getComponent(ComponentType componentType, Layout currentLayout, int entity_ID) {
+	// get the number of components of a certain type in a given layout
+	int numOfComponents = ECS_getNumberOfComponents(componentType, currentLayout);
+	// get the components of the given type
+	void* components = ECS_getComponentList(componentType, currentLayout);
+
+	Position test[100];
+	for (int i = 0; i < numOfComponents; i++)
+		test[i] = ((Position*)components)[i];
+
+	for (int i = 0; i < numOfComponents; i++) {
+		switch (componentType)
+		{
+		case POSITION: if (((Position*)components)[i].ENTITY_ID == entity_ID) return &((Position*)components)[i]; break;
+		case SPRITE: if (((Sprite*)components)[i].ENTITY_ID == entity_ID) return &((Sprite*)components)[i]; break;
+		case TILE: if (((Tile*)components)[i].ENTITY_ID == entity_ID) return &((Tile*)components)[i]; break;
+		case EDITOR: if (((Editor*)components)[i].ENTITY_ID == entity_ID) return &((Editor*)components)[i]; break;
+		case ANIMATION: if (((Animation*)components)[i].ENTITY_ID == entity_ID) return &((Animation*)components)[i]; break;
+		case TEXT: if (((Text*)components)[i].ENTITY_ID == entity_ID) return &((Text*)components)[i]; break;
+		case COLLIDER: if (((Collider*)components)[i].ENTITY_ID == entity_ID) return &((Collider*)components)[i]; break;
+		case PHYSICS_BODY: if (((PhysicsBody*)components)[i].ENTITY_ID == entity_ID) return &((PhysicsBody*)components)[i]; break;
+		case COLLISION_BOX: if (((CollisionBox*)components)[i].ENTITY_ID == entity_ID) return &((CollisionBox*)components)[i]; break;
+		default:
+			break;
+		}
+	}
+	return NULL;
+}
+
+size_t ECS_getSizeAndTypeOfComponent(ComponentType componentType, char* componentTypePtr) {
+	switch (componentType)
+	{
+	case POSITION: if (componentTypePtr != NULL) strcpy(componentTypePtr, "position"); return sizeof(Position); break;
+	case SPRITE: if (componentTypePtr != NULL) strcpy(componentTypePtr, "sprite"); return sizeof(Sprite); break;
+	case TILE: if (componentTypePtr != NULL) strcpy(componentTypePtr, "tile"); return sizeof(Tile); break;
+	case EDITOR: if (componentTypePtr != NULL) strcpy(componentTypePtr, "editor"); return sizeof(Editor); break;
+	case ANIMATION: if (componentTypePtr != NULL) strcpy(componentTypePtr, "animation"); return sizeof(Animation); break;
+	case TEXT: if (componentTypePtr != NULL) strcpy(componentTypePtr, "text"); return sizeof(Text); break;
+	case COLLIDER: if (componentTypePtr != NULL) strcpy(componentTypePtr, "collider"); return sizeof(Collider); break;
+	case PHYSICS_BODY: if (componentTypePtr != NULL) strcpy(componentTypePtr, "physics_body"); return sizeof(PhysicsBody); break;
+	case COLLISION_BOX: if (componentTypePtr != NULL) strcpy(componentTypePtr, "collision_box"); return sizeof(CollisionBox); break;
+	default:
+		return 0; break;
+	}
+}
+
+void* ECS_getComponentList(ComponentType componentType, Layout currentLayout) {
+	return (Position*)currentLayout.componentListsPointers[componentType] + currentLayout.componentMaps[componentType].start * ECS_getSizeAndTypeOfComponent(componentType, NULL);
+}
+
+void* ECS_getNthComponent(ComponentType componentType, Layout* currentLayout, int index) {
+	return (char*)ECS_getComponentList(componentType, *currentLayout) + index * ECS_getSizeAndTypeOfComponent(componentType, NULL);
+}
+
+int ECS_getNumberOfComponents(ComponentType componentType, Layout currentLayout) {
+	return currentLayout.componentMaps[componentType].end - currentLayout.componentMaps[componentType].start;
+}
+
+char** ECS_getEntity(Layout currentLayout, int enitity_ID) {
+	char** components = (char**)malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*));
+	if (NULL == components) exit(1);
+
+	for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
+		components[i] = ECS_getComponent(i, currentLayout, enitity_ID);
+	}
+
+	return components;
 }

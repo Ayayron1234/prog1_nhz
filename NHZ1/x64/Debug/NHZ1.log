@@ -1,3 +1,6 @@
-﻿  main.c
-D:\Projects\BME\Prog 1\_nhz\NHZ1\main.c(6,16): warning C4026: function declared with formal parameter list
-  NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe
+﻿  Game.c
+D:\Projects\_nhz\NHZ1\Game.c(225,60): warning C4133: 'function': incompatible types - from 'PhysicsBody *' to 'Collider *'
+D:\Projects\_nhz\NHZ1\Game.c(334,34): warning C4133: 'function': incompatible types - from 'Layout *' to 'ComponentLists *'
+D:\Projects\_nhz\NHZ1\Game.c(346,55): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\_nhz\NHZ1\Game.c(346,87): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  NHZ1.vcxproj -> D:\Projects\_nhz\NHZ1\x64\Debug\NHZ1.exe

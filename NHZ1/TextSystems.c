@@ -1,9 +1,9 @@
 #include "TextSystems.h"
 
 
-void Text_render(ComponentLists* components, Text* text, SDL_Renderer* renderer) {
+void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer) {
 	// get position of text
-	Position* position = ECS_getPositionComponent(components, text->ENTITY_ID);
+	Position* position = ECS_getComponent(POSITION, *currentLayout, text->ENTITY_ID);
 	if (NULL == position) {
 		printf("To render a text, the text's parent entity has to have a position component. ");
 		exit(1);

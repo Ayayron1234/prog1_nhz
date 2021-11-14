@@ -34,6 +34,25 @@
 	- systems: XSystems.c, XSystems.h
 - **Függvény nevek**: (Amennyiben X a komponens neve)
 	- X_függvényNév(...)
+#### ECS.h függvényeinek használata
+Az *#1* ID-jú entity *position* komponensére mutató pointer megszerzése: 
+```c
+Position* pos = ((Position*)ECS_getComponent(POSITION, game->currentLayout, 1));
+```
+Egy layout *position* komponensein végig loop-olás:
+```c
+for(int i = 0; i < ECS_getNumberOfComponents(POSITION, game->currentLayout); i++)
+	dummy(ECS_getNthComponent(POSITION, game->currentLayout, i));
+```
+Egy entity-hez tartozó összes komponens megszerzése:
+```c
+void** comps = ECS_getEntity(*game->currentLayout, 1);
+
+Position* pos = (Position*)comps[POSITION];
+Sprite* sprite = (Sprite*)comps[SPRITE];
+...
+free(comps)		// !!!
+```
 ---
 ### Game: fő struktúra [[#A játék alap struktúrája|^]]
 ^structGame
@@ -41,8 +60,11 @@
 az alábbi kódrészlet nem tartalmazza az egész *Game* struktúrát, csak a fontosabb és összetett elemeit. 
 ```c
 typedef struct Game {
-	Layouts* layouts;
+	char playerName[255];		// name of the current player
 
+	Layouts* layouts;			// list of layouts (more on layouts later)
+	void** componentLists;		// list of all components in all layouts
+	
 	Tilemap tilemap;
 	GameTime time;
 } Game;
@@ -54,31 +76,29 @@ typedef struct Game {
 ### Layout: különböző map-ek és képernyők [[#A játék alap struktúrája|^]]
 ^structLayout
 
-Egy-egy map-hez tartozó komponensek összefogása a feladata. A főmenü is egy Layout
+Az a feladata, hogy adatot tároljon arról, hogy a komponens típusok szerinti komponens listákon belül melyek tartoznak egy layout-ba (egy map-re). A játék menüje is egy layout.
 ```c
 typedef struct Layout {
-	ComponentLists* components;
-	
-	Layer* layers;
+	char LAYOUT_NAME[255];
 	Vec2 camera;
+	Layer* layers;
+	
+	LayoutMap* componentMaps; 	// list of LayoutMaps
+	void** componentLists;  	// pointer to the game's componentLists
+	...
 } Layout;
 ```
-- **components**: A layout-hoz tartozó entity-k komponenseinek tárolására való
-- **layers**: A renderelés rétegeit határozza meg, valamint hogy az egyes entity-k mennyire legyenek transformálva a kamera által (parallax). Egy layer nem tudja, hogy melyik entity-k tartoznak hozzá, csak az entity tudja, hogy melyik layer-en van. 
+- **LAYOUT_NAME**: A layout neve. Ennek a változónak a layoutok azonosításában  van szerepe, például ha layout-ot akarunk váltani, azt a LAYOUT_NAME alapján tehetjük meg. 
 - **camera**: A vizuális komponensek renderelés előtti transformációjához használt vektor
----
-### ComponentLists: komponensek tárolója [[#A játék alap struktúrája|^]]
-^structComponentLists
-
-```c
-typedef struct ComponentLists {
-	int total_xComponents; 	// ide tartozó x komponensek száma
-	X* xComponents;		 	// x komponensek listája
-	int total_yComponents;	// ide tartozó y komponensek száma
-	Y* yComponents;			// y komponensek listája
-	...
-} ComponentLists;
-```
+- **layers**: A renderelés rétegeit határozza meg, valamint hogy az egyes entity-k mennyire legyenek transformálva a kamera által (parallax). Egy layer nem tudja, hogy melyik entity-k tartoznak hozzá, csak az entity tudja, hogy melyik layer-en van. 
+- **componentMaps**: Arról tárol adatot, hogy a game struktúrán belüli komponens listákon belül melyek tartoznak ehhez a layout-hoz. 
+	```c
+	struct LayoutMap {
+		int start; 		// index of the first element in it's parent layout
+		int end;		// index of the last element in it's parent layout
+	}
+	```
+- **componentLists**: Egy pointer a játék komponens listáihoz. Ennek csak az a létjogosultsága, hogy ha egy függvénynek hozzá kell férnie egy layout-on belüli komponensekhez, akkor elég legyen paraméterként egy layout-ot adni neki. 
 ---
 ## Magyarázat a komplikáltabb folyamatokhoz
 - [[#^saveAndLoad|Mentés és betöltés]] 
@@ -87,17 +107,15 @@ typedef struct ComponentLists {
 ^saveAndLoad
 
 #### Mentés:
-A mentés során a játék ComponentLists-jein belüli összes adat kiíródik a jelenlegi játékoshoz tartozó save mappába. Ehhez kell egy memóriaterület ahol jelen van az összes Layout összes komponense ömlesztve és egy "map" ami leírja, hogy az adat melyik szakasza melyik layout-hoz tartozik és milyen komponensből van. Ez a map késöbb a file elejére kerül. 
+A mentés során a játék komponens listáiból kiíródnak az adatok egy file-ba. Ehhez kellenek a különböző komponens típusok listái és egy "map" ami leírja, hogy az adat melyik szakasza melyik layout-hoz tartozik és milyen komponensből van. Ez a map késöbb a file elejére kerül. 
 A map-hez használt struktúra: *SerialisationMapFragment*
 ```c
 typedef struct SerialisationMapFragment {
-	char componentType[255];     // pl.: Position, Sprite, ...
+	int componentType;     		 // id of the component type
 	int total_components;   	 // az ilyen típusú komponensek száma
 	size_t componentSize		 // sizeof(ComponentTypeX)
 	
-	LayoutMap layoutMaps[64];    // layout-ok map-jei (késöbb bővebben)
-	// azért nem dinamikus tömböt használok, mert a LayoutMap kevés
-	// helyet foglal, viszont sokkal bonyolultabb lenne lementeni
+	LayoutMap* layoutMaps;    // layout-ok map-jei (késöbb bővebben)
 } SerialisationMapFragment;
 ```
 A *SerialisationMapFragment* összegyűjti az egyes komponensekhez tartozó adatokat az összes layout-ról. Ez a struktúra még nem használható mentésre, mert itt a komponensek még egymástól függetlenűl léteznek. 
@@ -110,14 +128,14 @@ typedef struct LayoutMap {
 	int end;					 // a layout-hoz tartozó utolsó komponens indexe
 } LayoutMap;
 ```
-A *SerialisationMapFragment* és a benne tárolt *LayoutMap* struktúrák létrehozása a komponensek feladata lesz. Ez a művelet egyesével van implementálva minden komponens moduljában. 
 
-Amikor megvan minden komponens típusnak a hozzá tartozó *SerialisationMapFragment* és egy pointer egy memória területre ahol ömlesztve van az összes létrehozott komponens a saját típusából, akkor a további adatfeldolgozást átveszi az ECS.c modul.
+Amikor megvan minden komponens típusnak a hozzá tartozó *SerialisationMapFragment* és egy pointer egy memória területre ahol ömlesztve van az összes létrehozott komponens a saját típusából, akkor jön a következő lépés: az adatok file-ba kiírása. Az hogy az adatok melyik file-ba kerülnek az azon múlik, hogy melyik játékos állását akarjuk elmenteni, ezért a file neve is: *<játékosNév>.data*. Ha a játék kezdeti helyzetén változtattunk és ezt szeretnénk elmenteni, akkor az *original.data* file-ba kell írnunk. 
 
-Mentés után a save file felépítése:
+Mentés után a save file felépítése: (az alábbi kód csak magyarázat, valójában bináris file-ban lesznek tárolva az adatok)
 ```c
 "saveFile": {
-	"numberOfSerialisationFragments": int,
+	"numberOfComponentTypes": int,	// same as number of serialisationFragments
+	"numberOfLayouts": int,
 	"serialisationFragments": [
 		0: struct SerialisationFragment: {
 			"componentType": char[255],
@@ -152,3 +170,14 @@ Mentés után a save file felépítése:
 	]
 }
 ```
+#### betöltés
+A betöltés során a program beolvassa a kívánt mentés file-ból az egyes komponensekhez tartozó adatokat és felépíti a layout-ok struktúráját. 
+
+Az első lépés beolvasni a file elején lévő két egészet, melyekből kiderül, hogy mentés elött hány komponens típus volt és hogy hány layout volt a játékban. 
+Ha tudjuk ezt a két számot akkor be tudjuk olvasni a szintén a file eléjén lévő *serialisationMapFragment*-eket. Egyesével kell őket olvasni, mert nem konstans a méretük. Az hogy hány fragment-et kell beolvasni, az a beolvasott komponens típus mennyiségből derül ki, az meg hogy hány *layoutMap* tartozik egy *serialisationMapFragment*-be az meg a layout-ok mennyiségéből. 
+
+Ha megvannak a *serialisationMapFragment*-ek akkor ezek alapján be tudjuk olvasni a file maradék részéből a komponenseket és fel tudjuk építeni a layout struktúrát. 
+
+##### Néhány probléma a betöltés kapcsán
+- Figyelni kell arra, hogy a beolvasott komponensek mérete megegyezzen a jelenlegi komponens méretekkel. Ez akkor tud hibás lenni, ha a mentés óta megváltozott az egyik komponens struktúrája. 
+- Néhány komponens adatait felül kell írni mentés után. Ilyenek lehetnek azok a komponensek amikben pointer van egy másik adathalmazra, például egy tilemap-re, vagy azok a komponensek amik időpillanatot tárolnak magukban (pl.: Animation)

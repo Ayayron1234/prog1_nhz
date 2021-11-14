@@ -1,7 +1,7 @@
 #include "AnimationSystems.h"
 
 
-void Animation_update(ComponentLists* components, Animation* animation)
+void Animation_update(Layout currentLayout , Animation* animation)
 {
 	if (animation->lastUpdateTime == 0) {
 		animation->lastUpdateTime = SDL_GetTicks();
@@ -11,7 +11,7 @@ void Animation_update(ComponentLists* components, Animation* animation)
 	if (SDL_GetTicks() - animation->lastUpdateTime > 1000 / animation->animationSpeed) {
 		animation->lastUpdateTime = SDL_GetTicks();
 		
-		Sprite* sprite = ECS_getSpriteComponent(components, animation->ENTITY_ID);
+		Sprite* sprite = ECS_getComponent(SPRITE, currentLayout, animation->ENTITY_ID);
 		if (NULL == sprite) exit(1);
 
 		if (animation->currentFrame < animation->frameCount - 1)

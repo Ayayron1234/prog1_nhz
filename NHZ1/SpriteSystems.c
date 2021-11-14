@@ -1,9 +1,9 @@
 #include "SpriteSystems.h"
 
 
-void Sprite_render(ComponentLists* components, Sprite* sprite, SDL_Renderer* renderer) {
+void Sprite_render(Layout* currentLayout, Sprite* sprite, SDL_Renderer* renderer) {
 	if (sprite->renderProps.isVisible) {
-		Position* position = ECS_getPositionComponent(components, sprite->ENTITY_ID);
+		Position* position = ECS_getComponent(POSITION, *currentLayout, sprite->ENTITY_ID);
 		if (NULL == position) {
 			SDL_Log("To render a sprite, the sprite's parent entity has to have a position component. ");
 			exit(1);

@@ -1,0 +1,25 @@
+\hypertarget{_editor_8h_source}{}\doxysection{Editor.\+h}
+\label{_editor_8h_source}\index{D:/Projects/\_nhz/NHZ1/Editor.h@{D:/Projects/\_nhz/NHZ1/Editor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_editor}{Editor}} \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} ENTITY\_ID;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordtype}{bool} isSelected;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{bool} copied;}
+\DoxyCodeLine{14 \} \mbox{\hyperlink{struct_editor}{Editor}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} Editor\_init(\mbox{\hyperlink{struct_editor}{Editor}}* editors, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_editorComponents);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} Editor\_delete(\mbox{\hyperlink{struct_editor}{Editor}}* editors, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_editorComponents);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// temp}}
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} Editor\_deserialise(\mbox{\hyperlink{struct_editor}{Editor}}* editors, \textcolor{keywordtype}{int}* total\_EditorComponents, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{34 \textcolor{keywordtype}{void} Editor\_serialise(\mbox{\hyperlink{struct_editor}{Editor}}* editors, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+
+\end{DoxyCode}

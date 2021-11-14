@@ -1,0 +1,147 @@
+\hypertarget{_e_c_s_8h_source}{}\doxysection{ECS.\+h}
+\label{_e_c_s_8h_source}\index{D:/Projects/\_nhz/NHZ1/ECS.h@{D:/Projects/\_nhz/NHZ1/ECS.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Position.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Sprite.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Editor.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Animation.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}Tile.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Text.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}CollisionBox.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Collider.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}PhysicsBody.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_component_lists}{ComponentLists}} \{}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} total\_positionComponents;}
+\DoxyCodeLine{17     \mbox{\hyperlink{struct_position}{Position}} *positionComponents;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} total\_spriteComponents;}
+\DoxyCodeLine{19     \mbox{\hyperlink{struct_sprite}{Sprite}} *spriteComponents;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} total\_editorComponents;}
+\DoxyCodeLine{21     \mbox{\hyperlink{struct_editor}{Editor}}* editorComponents;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} total\_animationComponents;}
+\DoxyCodeLine{23     \mbox{\hyperlink{struct_animation}{Animation}}* animationComponents;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} total\_tileComponents;}
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_tile}{Tile}}* tileComponents;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} total\_textComponents;}
+\DoxyCodeLine{27     \mbox{\hyperlink{struct_text}{Text}}* textComponents;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} total\_collisionBoxComponents;}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBoxComponents;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} total\_colliderComponents;}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct_collider}{Collider}}* colliderComponents;}
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} total\_physicsBodyComponents;}
+\DoxyCodeLine{33     \mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodyComponents;}
+\DoxyCodeLine{34 \} \mbox{\hyperlink{struct_component_lists}{ComponentLists}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layer}{Layer}} \{}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} zIndex;}
+\DoxyCodeLine{38     \mbox{\hyperlink{struct_vec2}{Vec2}} parallax;}
+\DoxyCodeLine{39 \} \mbox{\hyperlink{struct_layer}{Layer}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{//typedef struct Layout \{}}
+\DoxyCodeLine{42 \textcolor{comment}{//  ComponentLists* components;}}
+\DoxyCodeLine{43 \textcolor{comment}{//  Layer* layers;}}
+\DoxyCodeLine{44 \textcolor{comment}{//  Vec2 camera;}}
+\DoxyCodeLine{45 \textcolor{comment}{//\} Layout;}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define NUMBER\_OF\_COMPONENT\_TYPES 9}}
+\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} ComponentType \{}
+\DoxyCodeLine{49     POSITION = 0,}
+\DoxyCodeLine{50     EDITOR = 1,}
+\DoxyCodeLine{51     SPRITE = 2,}
+\DoxyCodeLine{52     TILE = 3,}
+\DoxyCodeLine{53     TEXT = 4,}
+\DoxyCodeLine{54     ANIMATION = 5,}
+\DoxyCodeLine{55     COLLIDER = 6,}
+\DoxyCodeLine{56     COLLISION\_BOX = 7,}
+\DoxyCodeLine{57     PHYSICS\_BODY = 8}
+\DoxyCodeLine{58 \} ComponentType;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layout_map}{LayoutMap}} \{}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} start;}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} end;}
+\DoxyCodeLine{63 \} \mbox{\hyperlink{struct_layout_map}{LayoutMap}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layout}{Layout}} \{}
+\DoxyCodeLine{66     \textcolor{keywordtype}{char} LAYOUT\_NAME[255];}
+\DoxyCodeLine{67     \mbox{\hyperlink{struct_vec2}{Vec2}} camera;}
+\DoxyCodeLine{68     \mbox{\hyperlink{struct_layer}{Layer}} layers;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \mbox{\hyperlink{struct_layout_map}{LayoutMap}}* componentMaps;}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void}** componentListsPointers;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// all position components are stored together, it does not matter which layout thay are in. }}
+\DoxyCodeLine{74     \mbox{\hyperlink{struct_position}{Position}}* positionComponents;}
+\DoxyCodeLine{75     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} positionComponentsMap;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{struct_sprite}{Sprite}}* spriteComponents;}
+\DoxyCodeLine{78     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} spriteComponentsMap;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{struct_tile}{Tile}}* tileComponents;}
+\DoxyCodeLine{81     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} tileComponentsMap;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \mbox{\hyperlink{struct_editor}{Editor}}* editorComponents;}
+\DoxyCodeLine{84     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} editorComponentsMap;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \mbox{\hyperlink{struct_text}{Text}}* textComponents;}
+\DoxyCodeLine{87     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} textComponentsMap;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \mbox{\hyperlink{struct_animation}{Animation}}* animationComponents;}
+\DoxyCodeLine{90     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} animationComponentsMap;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBoxComponents;}
+\DoxyCodeLine{93     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} collisionBoxComponentsMap;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \mbox{\hyperlink{struct_collider}{Collider}}* colliderComponents;}
+\DoxyCodeLine{96     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} colliderComponentsMap;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodyComponents;}
+\DoxyCodeLine{99     \mbox{\hyperlink{struct_layout_map}{LayoutMap}} physicsBodyComponentsMap;}
+\DoxyCodeLine{100 \} \mbox{\hyperlink{struct_layout}{Layout}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}} \{}
+\DoxyCodeLine{103     ComponentType componentType; \textcolor{comment}{// eg.: Position, Sprite, ...}}
+\DoxyCodeLine{104     \textcolor{keywordtype}{int} total\_components;        \textcolor{comment}{// number of components of a certain type}}
+\DoxyCodeLine{105     \textcolor{keywordtype}{size\_t} componentSize;        \textcolor{comment}{// sizeof(ComponentTypeX)}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{int} total\_layouts;           \textcolor{comment}{// number of layouts}}
+\DoxyCodeLine{108     \mbox{\hyperlink{struct_layout_map}{LayoutMap}}* layoutMaps;       \textcolor{comment}{// array of serialised layouts}}
+\DoxyCodeLine{109 \} \mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \mbox{\hyperlink{struct_component_lists}{ComponentLists}} ECS\_init(\textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{bool} doDeserialisation, \textcolor{keywordtype}{char} saveDirectory[255], \mbox{\hyperlink{struct_tilemap}{Tilemap}} *tilemap);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keywordtype}{int} ECS\_createEntity(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} maxNumberOfComponents);}
+\DoxyCodeLine{114 \textcolor{keywordtype}{void} ECS\_deleteEntity(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{115 \textcolor{keywordtype}{void} ECS\_printEntityData(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{comment}{//void ECS\_serialise(int nComponentLists, ComponentLists* components);}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{// temp -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{120 \mbox{\hyperlink{struct_position}{Position}}* ECS\_getPositionComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{121 \mbox{\hyperlink{struct_sprite}{Sprite}}* ECS\_getSpriteComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{122 \mbox{\hyperlink{struct_editor}{Editor}}* ECS\_getEditorComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{123 \mbox{\hyperlink{struct_animation}{Animation}}* ECS\_getAnimationComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{124 \mbox{\hyperlink{struct_tile}{Tile}}* ECS\_getTileComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{125 \mbox{\hyperlink{struct_text}{Text}}* ECS\_getTextComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{126 \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* ECS\_getCollisionBoxComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{127 \mbox{\hyperlink{struct_collider}{Collider}}* ECS\_getColliderComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{128 \mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* ECS\_getPhysicsBodyComponent(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{129 \textcolor{comment}{// temp -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{137 \mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}}* ECS\_serialise(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts);}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{145 \textcolor{keywordtype}{size\_t} ECS\_getSizeAndTypeOfComponent(ComponentType componentType, \textcolor{keywordtype}{char}* componentTypePtr);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{150 \textcolor{keywordtype}{void}* ECS\_getComponent(ComponentType componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout, \textcolor{keywordtype}{int} entity\_ID);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{155 \textcolor{keywordtype}{void}* ECS\_getComponentList(ComponentType componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout);}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{160 \textcolor{keywordtype}{int} ECS\_getNumberOfComponents(ComponentType componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout);}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{165 \textcolor{keywordtype}{void}** ECS\_getEntity(\mbox{\hyperlink{struct_layout}{Layout}} currentLayout, \textcolor{keywordtype}{int} enitity\_ID);}
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\hypertarget{_collision_box_systems_8h_source}{}\doxysection{Collision\+Box\+Systems.\+h}
+\label{_collision_box_systems_8h_source}\index{D:/Projects/\_nhz/NHZ1/CollisionBoxSystems.h@{D:/Projects/\_nhz/NHZ1/CollisionBoxSystems.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}ECS.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}EditorSystems.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_ray2}{Ray2}} \{}
+\DoxyCodeLine{10     \mbox{\hyperlink{struct_vec2}{Vec2}} origin;}
+\DoxyCodeLine{11     \mbox{\hyperlink{struct_vec2}{Vec2}} destination;}
+\DoxyCodeLine{12 \} \mbox{\hyperlink{struct_ray2}{Ray2}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keywordtype}{void} CollisionBox\_update(\textcolor{keywordtype}{int} gameState, \mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keywordtype}{bool} CollisionBox\_isPointInside(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox, \mbox{\hyperlink{struct_vec2}{Vec2}} point);}
+\DoxyCodeLine{17 \textcolor{keywordtype}{bool} CollisionBox\_checkForOverlapp(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBoxA, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBoxB);}
+\DoxyCodeLine{18 \textcolor{keywordtype}{bool} CollisionBox\_checkIfRayOverlapps(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox, \mbox{\hyperlink{struct_ray2}{Ray2}} ray, \mbox{\hyperlink{struct_vec2}{Vec2}}* contactPoint, \mbox{\hyperlink{struct_vec2}{Vec2}}* contactNormal, \textcolor{keywordtype}{double}* tHitNear);}
+
+\end{DoxyCode}

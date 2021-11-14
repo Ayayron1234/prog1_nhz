@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{eeb2081d-9fec-4ff9-aecf-48f89a5116b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{e6f0bc5d-58e4-4771-a957-d3555b4112c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{cb395229-d991-483f-ba30-be718a63cb9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{989bd871-a300-4da9-bf6a-cc4231945bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems">
+      <UniqueIdentifier>{22c0fbbd-5aaf-493b-ad3b-6635c10adeaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{b2479546-b582-4404-a793-3987654b5454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Visual">
+      <UniqueIdentifier>{5d7a4363-c1c3-4ea6-8902-caa4f3db2965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Core">
+      <UniqueIdentifier>{2422a0d1-40fb-445e-9c1d-f1faca0845fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Physics">
+      <UniqueIdentifier>{82ad2679-5422-4da8-92ba-81781da1bead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems\Core">
+      <UniqueIdentifier>{c7352ba9-70ac-4868-b7d3-f4c2fee53602}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems\Visual">
+      <UniqueIdentifier>{06fcc97c-7ac8-46d6-adc5-01b720cf8533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Systems\Physics">
+      <UniqueIdentifier>{4a91e0c0-1588-4479-b1d6-1667bc5dd687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Visual">
+      <UniqueIdentifier>{8b6f0178-81e3-4eb5-aa2a-219982978ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Core">
+      <UniqueIdentifier>{60fc9a6c-d388-48bf-820d-da454bfc0b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Physics">
+      <UniqueIdentifier>{d18e2d6c-160c-4aeb-a2ee-60137e434f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems\Core">
+      <UniqueIdentifier>{f2049ed9-470c-4e0f-b542-ee44315d95d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems\Visual">
+      <UniqueIdentifier>{1c9b7cac-1a92-4942-9570-bdfe1523e086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems\Physics">
+      <UniqueIdentifier>{e04a6537-b3e4-4c3e-9bb7-f6fb342e35f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.c">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.c">
+      <Filter>Source Files\Components\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.c">
+      <Filter>Source Files\Components\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.c">
+      <Filter>Source Files\Components\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.c">
+      <Filter>Source Files\Components\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBox.c">
+      <Filter>Source Files\Components\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.c">
+      <Filter>Source Files\Components\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.c">
+      <Filter>Source Files\Components\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.c">
+      <Filter>Source Files\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationSystems.c">
+      <Filter>Source Files\Systems\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="TileSystems.c">
+      <Filter>Source Files\Systems\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSystems.c">
+      <Filter>Source Files\Systems\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSystems.c">
+      <Filter>Source Files\Systems\Visual</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionBoxSystems.c">
+      <Filter>Source Files\Systems\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorSystems.c">
+      <Filter>Source Files\Systems\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderSystems.c">
+      <Filter>Source Files\Systems\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsBody.c">
+      <Filter>Source Files\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsBodySystems.c">
+      <Filter>Source Files\Systems\Physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBox.h">
+      <Filter>Header Files\Components\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Components\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files\Components\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsBody.h">
+      <Filter>Header Files\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationSystems.h">
+      <Filter>Header Files\Systems\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSystems.h">
+      <Filter>Header Files\Systems\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSystems.h">
+      <Filter>Header Files\Systems\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="TileSystems.h">
+      <Filter>Header Files\Systems\Visual</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorSystems.h">
+      <Filter>Header Files\Systems\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionBoxSystems.h">
+      <Filter>Header Files\Systems\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionSystems.h">
+      <Filter>Header Files\Systems\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderSystems.h">
+      <Filter>Header Files\Systems\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsBodySystems.h">
+      <Filter>Header Files\Systems\Physics</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

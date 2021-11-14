@@ -1,0 +1,31 @@
+\hypertarget{_animation_8h_source}{}\doxysection{Animation.\+h}
+\label{_animation_8h_source}\index{D:/Projects/\_nhz/NHZ1/Animation.h@{D:/Projects/\_nhz/NHZ1/Animation.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_animation}{Animation}} \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} ENTITY\_ID;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} tilePosition;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} currentFrame;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} frameCount;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     Uint32 lastUpdateTime;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} animationSpeed;}
+\DoxyCodeLine{19 \} \mbox{\hyperlink{struct_animation}{Animation}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} Animation\_init(\mbox{\hyperlink{struct_animation}{Animation}}* animations, \textcolor{keywordtype}{int} entity\_ID, \textcolor{keywordtype}{int}* total\_animationComponents, \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} tilePosition, \textcolor{keywordtype}{int} frameCount, \textcolor{keywordtype}{double} animationSpeed);}
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} Animation\_delete(\mbox{\hyperlink{struct_animation}{Animation}}* animations, \textcolor{keywordtype}{int} entity\_ID, \textcolor{keywordtype}{int}* total\_animationComponents);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} Animation\_deserialise(\mbox{\hyperlink{struct_animation}{Animation}}* animations, \textcolor{keywordtype}{int}* total\_animationComponents, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} Animation\_serialise(\mbox{\hyperlink{struct_animation}{Animation}}* animations, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+
+\end{DoxyCode}

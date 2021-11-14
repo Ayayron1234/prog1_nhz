@@ -39,10 +39,9 @@ void CollisionBox_update(int gameState, ComponentLists* components, CollisionBox
 	}
 }
 
-bool CollisionBox_isPointInside(ComponentLists* components, CollisionBox* collisionBox, Vec2 point)
+bool CollisionBox_isPointInside(Layout* currentLayout, CollisionBox* collisionBox, Vec2 point)
 {
-	Position* pos;
-	pos = ECS_getPositionComponent(components, collisionBox->ENTITY_ID);
+	Position* pos = ECS_getComponent(POSITION, *currentLayout, collisionBox->ENTITY_ID);
 	if (NULL == pos) {
 		exit(1);
 	}
@@ -62,8 +61,8 @@ bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* col
 }
 
 // ezt a tutorialt követtem: https://www.youtube.com/watch?v=8JJ-4JgR7Dg&t=790s
-bool CollisionBox_checkIfRayOverlapps(ComponentLists* components, CollisionBox* collisionBox, Ray2 ray, Vec2* contactPoint, Vec2* contactNormal, double* tHitNear) {
-	Position* pos = ECS_getPositionComponent(components, collisionBox->ENTITY_ID);
+bool CollisionBox_checkIfRayOverlapps(Layout* currentLayout, CollisionBox* collisionBox, Ray2 ray, Vec2* contactPoint, Vec2* contactNormal, double* tHitNear) {
+	Position* pos = ECS_getComponent(POSITION, *currentLayout, collisionBox->ENTITY_ID);
 	if (NULL == pos) return false;
 
 	*contactNormal = (Vec2){ 0, 0 };
@@ -90,8 +89,8 @@ bool CollisionBox_checkIfRayOverlapps(ComponentLists* components, CollisionBox* 
 
 	if (tNear.x > tFar.y || tNear.y > tFar.x) return false;
 
-	*tHitNear = Math_maxDouble(&(double[2]){tNear.x, tNear.y}, 2);
-	double tHitFar = Math_minDouble(&(double[2]) { tFar.x, tFar.y }, 2);
+	*tHitNear = Math_maxDouble(2, tNear.x, tNear.y);
+	double tHitFar = Math_minDouble(2, tFar.x, tFar.y);
 
 	if (tHitFar <= 0) return false;
 

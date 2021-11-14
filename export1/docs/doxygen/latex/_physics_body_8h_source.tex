@@ -1,0 +1,28 @@
+\hypertarget{_physics_body_8h_source}{}\doxysection{Physics\+Body.\+h}
+\label{_physics_body_8h_source}\index{D:/Projects/\_nhz/NHZ1/PhysicsBody.h@{D:/Projects/\_nhz/NHZ1/PhysicsBody.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_physics_body}{PhysicsBody}} \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{int} ENTITY\_ID;}
+\DoxyCodeLine{10     }
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} mass;}
+\DoxyCodeLine{12     \mbox{\hyperlink{struct_vec2}{Vec2}} gravitationalAcceleration;}
+\DoxyCodeLine{13     \mbox{\hyperlink{struct_vec2}{Vec2}} velocity;}
+\DoxyCodeLine{14     \mbox{\hyperlink{struct_vec2}{Vec2}} acceleration;}
+\DoxyCodeLine{15 \} \mbox{\hyperlink{struct_physics_body}{PhysicsBody}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} PhysicsBody\_init(\mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodies, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_physicsBodyComponents, \textcolor{keywordtype}{double} mass);}
+\DoxyCodeLine{18 \textcolor{keywordtype}{void} PhysicsBody\_delete(\mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodies, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_physicsBodyComponents);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keywordtype}{void} PhysicsBody\_deserialise(\mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodies, \textcolor{keywordtype}{int}* total\_physicsBodyComponents, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} PhysicsBody\_serialise(\mbox{\hyperlink{struct_physics_body}{PhysicsBody}}* physicsBodies, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{22 }
+
+\end{DoxyCode}

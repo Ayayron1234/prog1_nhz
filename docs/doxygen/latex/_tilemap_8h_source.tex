@@ -1,0 +1,29 @@
+\hypertarget{_tilemap_8h_source}{}\doxysection{Tilemap.\+h}
+\label{_tilemap_8h_source}\index{D:/Projects/\_nhz/NHZ1/Tilemap.h@{D:/Projects/\_nhz/NHZ1/Tilemap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SDL\_image.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_render_properties}{RenderProperties}} \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{bool} isVisible;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{double} opacity;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} scale;}
+\DoxyCodeLine{12 \} \mbox{\hyperlink{struct_render_properties}{RenderProperties}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_tilemap}{Tilemap}} \{}
+\DoxyCodeLine{15     SDL\_Texture *texture;}
+\DoxyCodeLine{16     }
+\DoxyCodeLine{17     \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} tileSize;}
+\DoxyCodeLine{18 \} \mbox{\hyperlink{struct_tilemap}{Tilemap}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} Tilemap\_init(\mbox{\hyperlink{struct_tilemap}{Tilemap}}* dst, \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} tileSize, SDL\_Renderer* renderer, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 SDL\_Rect Tilemap\_getSourceRect(\mbox{\hyperlink{struct_tilemap}{Tilemap}}* tilemap, \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} tilePosition);}
+
+\end{DoxyCode}

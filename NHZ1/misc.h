@@ -1,4 +1,5 @@
 #pragma once
+#include "Tilemap.h"
 
 typedef struct RGBAColor {
 	int r;
@@ -17,3 +18,7 @@ enum gameState {
 	GAME_MODE = 0,
 	EDIT_MODE = 1
 };
+
+typedef struct GameResources {
+	Tilemap tilemap;
+} GameResources;

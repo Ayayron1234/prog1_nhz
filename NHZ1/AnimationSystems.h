@@ -5,4 +5,4 @@
 #include "ECS.h"
 
 
-void Animation_update(ComponentLists* components, Animation* animation);
+void Animation_update(Layout currentLayout, Animation* animation);

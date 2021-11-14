@@ -1,0 +1,23 @@
+\hypertarget{_editor_systems_8h_source}{}\doxysection{Editor\+Systems.\+h}
+\label{_editor_systems_8h_source}\index{D:/Projects/\_nhz/NHZ1/EditorSystems.h@{D:/Projects/\_nhz/NHZ1/EditorSystems.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}ECS.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SDL\_ttf.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keywordtype}{void} Editor\_render(\textcolor{keywordtype}{int} gameState, \mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_editor}{Editor}}* editor, SDL\_Renderer* renderer);}
+\DoxyCodeLine{8 \textcolor{comment}{//void Editor\_renderForSprite(ComponentLists* components, Editor* editor, SDL\_Renderer* renderer);}}
+\DoxyCodeLine{9 \textcolor{comment}{//void Editor\_renderForTile(ComponentLists* components, Editor* editor, SDL\_Renderer* renderer);}}
+\DoxyCodeLine{10 \textcolor{keywordtype}{void} Editor\_renderPositionData(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \mbox{\hyperlink{struct_editor}{Editor}}* editor, SDL\_Renderer* renderer);}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keywordtype}{int} Editor\_getSelected(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components);}
+\DoxyCodeLine{13 \textcolor{keywordtype}{void} Editor\_select(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{14 \textcolor{keywordtype}{void} Editor\_deselectAll(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keywordtype}{void} Editor\_copy(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} Editor\_paste(\mbox{\hyperlink{struct_component_lists}{ComponentLists}}* components, \textcolor{keywordtype}{int} newEntityID);}
+
+\end{DoxyCode}

@@ -1,0 +1,33 @@
+\hypertarget{_text_8h_source}{}\doxysection{Text.\+h}
+\label{_text_8h_source}\index{D:/Projects/\_nhz/NHZ1/Text.h@{D:/Projects/\_nhz/NHZ1/Text.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}misc.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Math.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Tilemap.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_text}{Text}} \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} ENTITY\_ID;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{char} value[255];}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} fontSize;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{char} fontFamily[255];}
+\DoxyCodeLine{16     \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}} fontColor;}
+\DoxyCodeLine{17     \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} textBoxSize;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{struct_render_properties}{RenderProperties}} renderProps;}
+\DoxyCodeLine{20 \} \mbox{\hyperlink{struct_text}{Text}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keywordtype}{void} Text\_init(\mbox{\hyperlink{struct_text}{Text}}* texts, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_textComponents,}
+\DoxyCodeLine{23     \textcolor{keywordtype}{char} value[255], \textcolor{keywordtype}{int} fontSize, \textcolor{keywordtype}{char} fontFamily[255], \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}} fontColor, \mbox{\hyperlink{struct_vec2_int}{Vec2Int}} textBoxSize);}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} Text\_delete(\mbox{\hyperlink{struct_text}{Text}}* texts, \textcolor{keywordtype}{int} entityID, \textcolor{keywordtype}{int}* total\_textComponents);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} Text\_deserialise(\mbox{\hyperlink{struct_text}{Text}}* texts, \textcolor{keywordtype}{int}* total\_textComponents, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+\DoxyCodeLine{27 \textcolor{keywordtype}{void} Text\_serialise(\mbox{\hyperlink{struct_text}{Text}}* texts, \textcolor{keywordtype}{int} maxNumberOfComponents, \textcolor{keywordtype}{char} path[255]);}
+
+\end{DoxyCode}
