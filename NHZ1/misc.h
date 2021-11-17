@@ -1,5 +1,6 @@
 #pragma once
 #include "Tilemap.h"
+#include "SDL_ttf.h"
 
 typedef struct RGBAColor {
 	int r;
@@ -14,11 +15,12 @@ typedef struct RGBColor {
 	int b;
 } RGBColor;
 
-enum gameState {
+typedef enum GameState {
 	GAME_MODE = 0,
 	EDIT_MODE = 1
-};
+} GameState;
 
 typedef struct GameResources {
 	Tilemap tilemap;
+	TTF_Font* mainFont;
 } GameResources;

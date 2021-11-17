@@ -1,12 +1,12 @@
 #include "EditorSystems.h"
 
 
-void Editor_render(int gameState, ComponentLists* components, Editor* editor, SDL_Renderer* renderer) {
+void Editor_render(int gameState, Layout* currentLayout, Editor* editor, SDL_Renderer* renderer) {
 	if (gameState == EDIT_MODE) {
 		if (editor->isSelected == true || editor->copied == true) {
-			Position* position = ECS_getPositionComponent(components, editor->ENTITY_ID);
+			Position* position = ECS_getComponent(POSITION, *currentLayout, editor->ENTITY_ID);
 			if (NULL == position) exit(1);
-			CollisionBox* collisionBox = ECS_getCollisionBoxComponent(components, editor->ENTITY_ID);
+			CollisionBox* collisionBox = ECS_getComponent(COLLISION_BOX, *currentLayout, editor->ENTITY_ID);
 			if (NULL == collisionBox) exit(1);
 
 			SDL_Rect rect = { .x = position->value.x - 1, .y = position->value.y - 1,
@@ -24,13 +24,13 @@ void Editor_render(int gameState, ComponentLists* components, Editor* editor, SD
 			SDL_RenderDrawRect(renderer, &rect);
 		}
 
-		Editor_renderPositionData(components, editor, renderer);
+		Editor_renderPositionData(currentLayout, editor, renderer);
 	}
 }
 
-void Editor_renderPositionData(ComponentLists* components, Editor* editor, SDL_Renderer* renderer) {
+void Editor_renderPositionData(Layout* currentLayout, Editor* editor, SDL_Renderer* renderer) {
 	if (editor->isSelected == true) {
-		Position* position = ECS_getPositionComponent(components, editor->ENTITY_ID);
+		Position* position = ECS_getComponent(POSITION, *currentLayout, editor->ENTITY_ID);
 		if (NULL == position) exit(1);
 
 		// create font properties
@@ -78,27 +78,59 @@ void Editor_renderPositionData(ComponentLists* components, Editor* editor, SDL_R
 	}
 }
 
-int Editor_getSelected(ComponentLists* components) {
-	for (int i = 0; i < components->total_editorComponents; i++) {
-		if (components->editorComponents[i].isSelected == true)
-			return components->editorComponents[i].ENTITY_ID;
+void Editor_update(GameState gameState, Layout* currentLayout, Editor* editor) {
+	if (gameState == EDIT_MODE) {
+		// select clicked entity
+		void** entity = ECS_getEntity(*currentLayout, editor->ENTITY_ID);
+
+		// get position and collision box data from entity
+		Position* position = entity[POSITION];
+		CollisionBox* collisionBox = entity[COLLISION_BOX];
+
+		if (NULL != position && NULL != collisionBox) {
+			// get mouse position
+			Uint32 buttons;
+			Vec2Int mousePos;
+			SDL_PumpEvents();
+			buttons = SDL_GetMouseState(&mousePos.x, &mousePos.y);
+
+			// check if left clicking
+			if ((buttons & SDL_BUTTON_LMASK) != 0) {
+				// check if cursor is over entity
+				if (CollisionBox_isPointInside(currentLayout, collisionBox, (Vec2) { mousePos.x, mousePos.y })) {
+					// check if entity isn't allready selected
+					if (editor->isSelected == false) {
+						ECS_printEntityData(currentLayout, collisionBox->ENTITY_ID);
+						Editor_select(currentLayout, collisionBox->ENTITY_ID);
+					}
+				}
+			}
+		}
+
+		ECS_freeEntity(entity);
+	}
+}
+
+int Editor_getSelected(Layout* currentLayout) {
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *currentLayout); i++) {
+		if (((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->isSelected == true)
+			return ((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->ENTITY_ID;
 	}
 	return 0;
 }
 
-void Editor_select(ComponentLists* components, int entityID) {
-	for (int i = 0; i < components->total_editorComponents; i++) {
-		if (components->editorComponents[i].ENTITY_ID == entityID)
-			components->editorComponents[i].isSelected = true;
+void Editor_select(Layout* currentLayout, int entityID) {
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *currentLayout); i++) {
+		if (((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->ENTITY_ID == entityID)
+			((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->isSelected = true;
 		else
-			components->editorComponents[i].isSelected = false;
+			((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->isSelected = false;
 	}
 }
 
-void Editor_deselectAll(ComponentLists* components) {
-	for (int i = 0; i < components->total_editorComponents; i++) {
-		components->editorComponents[i].isSelected = false;
-	}
+void Editor_deselectAll(Layout* currentLayout) {
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *currentLayout); i++)
+		((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->isSelected = false;
 }
 
 void Editor_copy(ComponentLists* components, int entityID)

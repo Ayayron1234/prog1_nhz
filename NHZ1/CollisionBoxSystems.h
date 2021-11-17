@@ -13,7 +13,7 @@ typedef struct Ray2 {
 
 
 // these functions will change in the future. 
-void CollisionBox_update(int gameState, ComponentLists* components, CollisionBox* collisionBox);
+void CollisionBox_update(int gameState, Layout* currentLayout, CollisionBox* collisionBox);
 
 bool CollisionBox_isPointInside(Layout* currentLayout, CollisionBox* collisionBox, Vec2 point);
 bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* collisionBoxA, CollisionBox* collisionBoxB);

@@ -121,41 +121,45 @@ void ECS_deleteEntity(ComponentLists* components, int entityID) {
 	PhysicsBody_delete(components->physicsBodyComponents, entityID, &components->total_physicsBodyComponents);
 }
 
-void ECS_printEntityData(ComponentLists* components, int entityID) {
-	printf("\n\nEntity #%d", entityID);
+void ECS_printEntityData(Layout* currentLayout, int entityID) {
+	void** entity = ECS_getEntity(*currentLayout, entityID);
 	
-	Position* pos = ECS_getPositionComponent(components, entityID);
+	printf("\n\nEntity #%d", entityID);
+
+	Position* pos = entity[POSITION];
 	if (pos != NULL) 
 		printf("\n   >Position\n     .value=Vec2(%g, %g)", pos->value.x, pos->value.y);
-	CollisionBox* collisionBox = ECS_getCollisionBoxComponent(components, entityID);
+	CollisionBox* collisionBox = entity[COLLISION_BOX];
 	if (collisionBox != NULL)
 		printf("\n   >CollisionBox\n     .size=Vec2(%g, %g)", collisionBox->size.x, collisionBox->size.y);
-	Sprite* sprite = ECS_getSpriteComponent(components, entityID);
+	Sprite* sprite = entity[SPRITE];
 	if (sprite != NULL) 
 		printf("\n   >Sprite\n     .tilePosition=Vec2Int(%d, %d)", sprite->tilePosition.x, sprite->tilePosition.y);
-	Animation* animation = ECS_getAnimationComponent(components, entityID);
+	Animation* animation = entity[ANIMATION];
 	if (animation != NULL)
 		printf("\n   >Animation\n     .tilePosition=Vec2Int(%d, %d)\n     .frameCount=%d\n     .animationSpeed=%g",
 			animation->tilePosition.x, animation->tilePosition.y, animation->frameCount, animation->animationSpeed);
-	Tile* tile = ECS_getTileComponent(components, entityID);
+	Tile* tile = entity[TILE];
 	if (tile != NULL)
 		printf("\n   >Tile\n     .tilePosition=Vec2Int(%d, %d)\n     .size=Vec2Int(%d, %d)",
 			tile->tilePosition.x, tile->tilePosition.y, tile->size.x, tile->size.y);
-	Text* text = ECS_getTextComponent(components, entityID);
+	Text* text = entity[TEXT];
 	if (text != NULL)
 		printf("\n   >Text\n     .value=%s\n     .textBoxSize=Vec2Int(%d, %d)\n     .fontColor=RGB(%d, %d, %d)",
 			text->value, text->textBoxSize.x, text->textBoxSize.y, text->fontColor.r, text->fontColor.g, text->fontColor.b);
-	Collider* collider = ECS_getColliderComponent(components, entityID);
+	Collider* collider = entity[COLLIDER];
 	if (collider != NULL)
 		printf("\n   >Collider\n     .type=%s", (collider->type == DYNAMIC) ? "DYNAMIC" : "STATIC");
-	PhysicsBody* physicsBody = ECS_getPhysicsBodyComponent(components, entityID);
+	PhysicsBody* physicsBody = entity[PHYSICS_BODY];
 	if (physicsBody != NULL)
 		printf("\n   >PhysicsBody\n     .mass=%g\n     .gravitationalAcceleration=Vec2(%g, %g)\n     .velocity=Vec2(%g, %g)\n     .acceleration=Vec2(%g, %g)", 
 			physicsBody->mass, physicsBody->gravitationalAcceleration.x, physicsBody->gravitationalAcceleration.y, physicsBody->velocity.x, physicsBody->velocity.y,
 			physicsBody->acceleration.x, physicsBody->acceleration.y);
-	Editor* editor = ECS_getEditorComponent(components, entityID);
+	Editor* editor = entity[EDITOR];
 	if (editor != NULL)
 		printf("\n   >Editor\n     .copied=%s\n", (editor->copied) ? "true": "false");
+
+	ECS_freeEntity(entity);
 }
 
 //void ECS_serialise(int nComponentLists, ComponentLists* components) {
@@ -315,6 +319,7 @@ void ECS_load(Layout** layoutsPtr, void*** componentListsPtr, char path[255], Ga
 		fread(&serialisationMapFragments[componentTypeIndex].total_layouts, sizeof(int), 1, f);
 	}
 
+	// load component lists
 	if (NULL == componentLists) exit(1);
 	for (int componentTypeIndex = 0; componentTypeIndex < numberOfComponentTypes; componentTypeIndex++) {
 		int total_components = serialisationMapFragments[componentTypeIndex].total_components;
@@ -332,8 +337,8 @@ void ECS_load(Layout** layoutsPtr, void*** componentListsPtr, char path[255], Ga
 			((Tile*)componentLists[componentTypeIndex])[i].tilemap = &resources->tilemap;
 		if (componentTypeIndex == SPRITE) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
 			((Sprite*)componentLists[componentTypeIndex])[i].tilemap = &resources->tilemap;
-		//if (componentTypeIndex == EDITOR) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
-		//	((Editor*)componentLists[componentTypeIndex])[i].copied = false;
+		if (componentTypeIndex == EDITOR) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++)
+			((Editor*)componentLists[componentTypeIndex])[i].copied = false;
 		if (componentTypeIndex == ANIMATION) for (int i = 0; i < serialisationMapFragments[componentTypeIndex].total_components; i++) {
 			((Animation*)componentLists[componentTypeIndex])[i].currentFrame = 0;
 			((Animation*)componentLists[componentTypeIndex])[i].lastUpdateTime = SDL_GetTicks();
@@ -345,10 +350,6 @@ void ECS_load(Layout** layoutsPtr, void*** componentListsPtr, char path[255], Ga
 
 	*layoutsPtr = layouts;
 	*componentListsPtr = componentLists;
-
-	//Position test[61];
-	//for (int i = 0; i < serialisationMapFragments[POSITION].total_components; i++)
-	//	test[i] = ((Position*)layouts->componentListsPointers[POSITION])[i];
 }
 
 SerialisationMapFragment* ECS_serialise(Layout* layouts, int numberOfLayouts) {
@@ -441,4 +442,8 @@ char** ECS_getEntity(Layout currentLayout, int enitity_ID) {
 	}
 
 	return components;
+}
+
+void ECS_freeEntity(void** entityComponents) {
+	free(entityComponents);
 }

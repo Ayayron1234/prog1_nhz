@@ -1,7 +1,7 @@
 #include "TextSystems.h"
 
 
-void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer) {
+void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer, TTF_Font* ttfFont) {
 	// get position of text
 	Position* position = ECS_getComponent(POSITION, *currentLayout, text->ENTITY_ID);
 	if (NULL == position) {
@@ -10,7 +10,7 @@ void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer) {
 	}
 
 	// create properties
-	TTF_Font* font = TTF_OpenFont(text->fontFamily, text->fontSize);
+	TTF_Font* font = (NULL == ttfFont) ? ttfFont : TTF_OpenFont(text->fontFamily, text->fontSize);
 	SDL_Color color = { text->fontColor.r, text->fontColor.g, text->fontColor.b };
 
 	// initiate surface

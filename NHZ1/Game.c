@@ -8,19 +8,20 @@ void Game_init(Game *game, char windowName[255], Vec2Int windowDimensions, bool 
 
 	// initialise sdl
 	Game_sdlInit(game);
+	game->resources.mainFont = TTF_OpenFont("uni.ttf", 16);
 
 	// load tilemap
 	Tilemap_init(&game->tilemap, (Vec2Int) { 48, 48 }, game->renderer, "./saves/tilemap.png");
 	Tilemap_init(&game->resources.tilemap, (Vec2Int) { 48, 48 }, game->renderer, "./saves/tilemap.png");
 
 	// load components to heap
-	game->components = ECS_init(128, true, "./saves/", &game->tilemap);
+	//game->components = ECS_init(128, true, "./saves/", &game->tilemap);
 
 	// set gamestate
 	game->state = EDIT_MODE;
 
-	ECS_getPositionComponent(&game->components, 4)->value = (Vec2){ 768, 336 };
-	ECS_getPhysicsBodyComponent(&game->components, 4)->velocity = (Vec2){ 100, 0 };
+	//ECS_getPositionComponent(&game->components, 4)->value = (Vec2){ 768, 336 };
+	//ECS_getPhysicsBodyComponent(&game->components, 4)->velocity = (Vec2){ 100, 0 };
 
 	//game->componentLists = malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*));
 	//if (NULL == game->componentLists) exit(1);
@@ -65,6 +66,8 @@ void Game_init(Game *game, char windowName[255], Vec2Int windowDimensions, bool 
 	game->numberOfLayouts = 1;
 	game->currentLayout = &game->layouts[0];
 	//strcpy(game->currentLayout->LAYOUT_NAME, "map1");
+
+	((Text*)ECS_getComponent(TEXT, *game->currentLayout, 22))->fontSize = 16;
 
 	Sprite test[61];
 	for (int i = 0; i < 3; i++)
@@ -130,57 +133,59 @@ void Game_update(Game* game)
 	game->time.deltaT = now - game->time.lastUpdateTime;
 	game->time.lastUpdateTime = now;
 
-	// deselect everything if nothing was clicked
-	int x, y;
-	Uint32 buttons;
-	SDL_PumpEvents();
-	buttons = SDL_GetMouseState(&x, &y);
-	if ((buttons & SDL_BUTTON_LMASK) != 0) {
-		bool clickedNothing = true;
-		for (int i = 0; i < game->components.total_spriteComponents; i++) {
-			if (Sprite_isPointInside(&game->components, &game->components.spriteComponents[i], (Vec2) { x, y }))
-				clickedNothing = false;
-		}
-		for (int i = 0; i < game->components.total_tileComponents; i++) {
-			if (Tile_isPointInside(&game->components, &game->components.tileComponents[i], (Vec2) { x, y }))
-				clickedNothing = false;
-		}
-		if (clickedNothing)
-			Editor_deselectAll(&game->components);
-	}
+	//// deselect everything if nothing was clicked
+	//int x, y;
+	//Uint32 buttons;
+	//SDL_PumpEvents();
+	//buttons = SDL_GetMouseState(&x, &y);
+	//if ((buttons & SDL_BUTTON_LMASK) != 0) {
+	//	bool clickedNothing = true;
+	//	for (int i = 0; i < game->components.total_spriteComponents; i++) {
+	//		if (Sprite_isPointInside(&game->components, &game->components.spriteComponents[i], (Vec2) { x, y }))
+	//			clickedNothing = false;
+	//	}
+	//	for (int i = 0; i < game->components.total_tileComponents; i++) {
+	//		if (Tile_isPointInside(&game->components, &game->components.tileComponents[i], (Vec2) { x, y }))
+	//			clickedNothing = false;
+	//	}
+	//	if (clickedNothing)
+	//		Editor_deselectAll(game->currentLayout);
+	//}
 
 	void** mario = ECS_getEntity(*game->currentLayout, 1);
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT] != 0) {
-		((Animation*)mario[ANIMATION])->tilePosition.x = 2;
-		((Animation*)mario[ANIMATION])->frameCount = 3;
-		((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = -300;
-	}
-	else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] != 0) {
-		((Animation*)mario[ANIMATION])->tilePosition.x = 7;
-		((Animation*)mario[ANIMATION])->frameCount = 3;
-		((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = 300;
-	}
-	else {
-		((Animation*)mario[ANIMATION])->tilePosition.x = 5;
-		((Animation*)mario[ANIMATION])->frameCount = 1;
-		((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = 0;
-	}
-	if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP] != 0) {
-		Vec2 pos = ((Position*)mario[POSITION])->value;
-		Vec2 size = ((CollisionBox*)mario[COLLISION_BOX])->size;
-		Vec2 a = { pos.x, pos.y + size.y + 1 };
-		Vec2 b = { pos.x + size.x, pos.y + size.y + 1 };
-
-		bool isOnFloor = false;
-		for (int i = 0; i < ECS_getNumberOfComponents(COLLIDER, *game->currentLayout); i++) {
-			CollisionBox* box = ECS_getNthComponent(COLLISION_BOX, game->currentLayout, i);
-			if (NULL == box) continue;
-			if (CollisionBox_isPointInside(game->currentLayout, box, a) || CollisionBox_isPointInside(game->currentLayout, box, b)) isOnFloor = true;
+	if (NULL != mario) {
+		if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LEFT] != 0) {
+			((Animation*)mario[ANIMATION])->tilePosition.x = 2;
+			((Animation*)mario[ANIMATION])->frameCount = 3;
+			((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = -300;
 		}
-		if (isOnFloor)
-			((PhysicsBody*)mario[PHYSICS_BODY])->velocity.y = -800;
+		else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RIGHT] != 0) {
+			((Animation*)mario[ANIMATION])->tilePosition.x = 7;
+			((Animation*)mario[ANIMATION])->frameCount = 3;
+			((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = 300;
+		}
+		else {
+			((Animation*)mario[ANIMATION])->tilePosition.x = 5;
+			((Animation*)mario[ANIMATION])->frameCount = 1;
+			((PhysicsBody*)mario[PHYSICS_BODY])->velocity.x = 0;
+		}
+		if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_UP] != 0) {
+			Vec2 pos = ((Position*)mario[POSITION])->value;
+			Vec2 size = ((CollisionBox*)mario[COLLISION_BOX])->size;
+			Vec2 a = { pos.x, pos.y + size.y + 1 };
+			Vec2 b = { pos.x + size.x, pos.y + size.y + 1 };
+
+			bool isOnFloor = false;
+			for (int i = 0; i < ECS_getNumberOfComponents(COLLIDER, *game->currentLayout); i++) {
+				CollisionBox* box = ECS_getNthComponent(COLLISION_BOX, game->currentLayout, i);
+				if (NULL == box) continue;
+				if (CollisionBox_isPointInside(game->currentLayout, box, a) || CollisionBox_isPointInside(game->currentLayout, box, b)) isOnFloor = true;
+			}
+			if (isOnFloor)
+				((PhysicsBody*)mario[PHYSICS_BODY])->velocity.y = -800;
+		}
+		ECS_freeEntity(mario);
 	}
-	free(mario);
 
 	// update components
 	if (game->state == EDIT_MODE) {
@@ -193,10 +198,12 @@ void Game_update(Game* game)
 		for (int i = 0; i < ECS_getNumberOfComponents(PHYSICS_BODY, *game->currentLayout); i++)
 			PhysicsBody_update(game->currentLayout, ECS_getNthComponent(PHYSICS_BODY, game->currentLayout, i), game->time.deltaT / 1000.0);
 	}
-	//for (int i = 0; i < game->components.total_collisionBoxComponents; i++)
-	//	CollisionBox_update(game->state, &game->components, &game->components.collisionBoxComponents[i]);
+	for (int i = 0; i < ECS_getNumberOfComponents(COLLISION_BOX, *game->currentLayout); i++)
+		CollisionBox_update(game->state, game->currentLayout, ECS_getNthComponent(COLLISION_BOX, game->currentLayout, i));
 	for (int i = 0; i < ECS_getNumberOfComponents(ANIMATION, *game->currentLayout); i++)
 		Animation_update(*game->currentLayout, ECS_getNthComponent(ANIMATION, game->currentLayout, i));
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *game->currentLayout); i++)
+		Editor_update(game->state, game->currentLayout, ECS_getNthComponent(EDITOR, game->currentLayout, i));
 }
 
 void Game_handleSDLEvents(Game* game)
@@ -208,15 +215,15 @@ void Game_handleSDLEvents(Game* game)
 	{
 	case SDL_QUIT:
 		// serialise_components
-		Position_serialise(game->components.positionComponents, 128, "./saves/position.data");
-		Sprite_serialise(game->components.spriteComponents, 128, "./saves/sprite.data");
-		Editor_serialise(game->components.editorComponents, 128, "./saves/editor.data");
-		Animation_serialise(game->components.animationComponents, 128, "./saves/animation.data");
-		Tile_serialise(game->components.tileComponents, 128, "./saves/tile.data");
-		Text_serialise(game->components.textComponents, 128, "./saves/text.data");
-		CollisionBox_serialise(game->components.collisionBoxComponents, 128, "./saves/collisionBox.data");
-		Collider_serialise(game->components.colliderComponents, 128, "./saves/collider.data");
-		Collider_serialise(game->components.physicsBodyComponents, 128, "./saves/physicsBody.data");
+		//Position_serialise(game->components.positionComponents, 128, "./saves/position.data");
+		//Sprite_serialise(game->components.spriteComponents, 128, "./saves/sprite.data");
+		//Editor_serialise(game->components.editorComponents, 128, "./saves/editor.data");
+		//Animation_serialise(game->components.animationComponents, 128, "./saves/animation.data");
+		//Tile_serialise(game->components.tileComponents, 128, "./saves/tile.data");
+		//Text_serialise(game->components.textComponents, 128, "./saves/text.data");
+		//CollisionBox_serialise(game->components.collisionBoxComponents, 128, "./saves/collisionBox.data");
+		//Collider_serialise(game->components.colliderComponents, 128, "./saves/collider.data");
+		//PhysicsBody_serialise(game->components.physicsBodyComponents, 128, "./saves/physicsBody.data");
 		// stop game
 		game->isRunning = false;
 		break;
@@ -229,67 +236,67 @@ void Game_handleSDLEvents(Game* game)
 		case SDLK_LEFT:
 			if (game->state == EDIT_MODE) {
 				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->size.x = (tile->size.x > 1) ? tile->size.x - 1 : 1;
 				}
 				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->tilePosition.x = (tile->tilePosition.x > 0) ? tile->tilePosition.x - 1 : 0;
 				}
 				else {
-					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { -12, 0 });
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(game->currentLayout)), (Vec2) { -12, 0 });
 				}
 			}
 			break;
 		case SDLK_UP:
 			if (game->state == EDIT_MODE) {
 				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->size.y = (tile->size.y > 1) ? tile->size.y - 1 : 1;
 				}
 				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->tilePosition.y = (tile->tilePosition.y > 0) ? tile->tilePosition.y - 1 : 0;
 				}
 				else {
-					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)),(Vec2) { 0, -12 });
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(game->currentLayout)),(Vec2) { 0, -12 });
 				}
 			}
 			break;
 		case SDLK_RIGHT:
 			if (game->state == EDIT_MODE) {
 				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->size.x = tile->size.x + 1;
 				}
 				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->tilePosition.x = tile->tilePosition.x + 1;
 				}
 				else {
-					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { 12, 0 });
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(game->currentLayout)), (Vec2) { 12, 0 });
 				}
 			}
 			break;
 		case SDLK_DOWN:
 			if (game->state == EDIT_MODE) {
 				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->size.y = tile->size.y + 1;
 				}
 				else if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
-					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+					Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 					if (NULL != tile) tile->tilePosition.y = tile->tilePosition.y + 1;
 				}
 				else {
-					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(&game->components)), (Vec2) { 0, 12 });
+					Position_moveBy(ECS_getPositionComponent(&game->components, Editor_getSelected(game->currentLayout)), (Vec2) { 0, 12 });
 				}
 			}
 			break;
 		case SDLK_c:
 			if (game->state == EDIT_MODE) {
 				if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LCTRL] != 0) {
-					Editor_copy(&game->components, Editor_getSelected(&game->components));
+					Editor_copy(&game->components, Editor_getSelected(game->currentLayout));
 				}
 			}
 			break;
@@ -303,7 +310,7 @@ void Game_handleSDLEvents(Game* game)
 			break;
 		case SDLK_DELETE:
 			if (game->state == EDIT_MODE) {
-				ECS_deleteEntity(&game->components, Editor_getSelected(&game->components));
+				ECS_deleteEntity(&game->components, Editor_getSelected(game->currentLayout));
 			}
 		default:
 			break;
@@ -325,17 +332,14 @@ void Game_renderElements(Game* game)
 		Sprite_render(game->currentLayout, &((Sprite*)ECS_getComponentList(SPRITE, *game->currentLayout))[i], game->renderer);
 	}
 	for (int i = 0; i < ECS_getNumberOfComponents(TEXT, *game->currentLayout); i++) {
-		Text_render(game->currentLayout, &((Text*)ECS_getComponentList(TEXT, *game->currentLayout))[i], game->renderer);
+		Text_render(game->currentLayout, &((Text*)ECS_getComponentList(TEXT, *game->currentLayout))[i], game->renderer, game->resources.mainFont);
 	}
-	//for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *game->currentLayout); i++) {
-	//	Editor_render(game->state, &game->components, &((Editor*)ECS_getComponentList(EDITOR, *game->currentLayout))[i], game->renderer);
-	//}
-	//for (int i = 0; i < game->components.total_editorComponents; i++) {
-	//	Editor_render(game->state, &game->components, &game->components.editorComponents[i], game->renderer);
-	//}
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *game->currentLayout); i++) {
+		Editor_render(game->state, game->currentLayout, &((Editor*)ECS_getComponentList(EDITOR, *game->currentLayout))[i], game->renderer);
+	}
 
 	if (game->state == EDIT_MODE) {
-		Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(&game->components));
+		Tile* tile = ECS_getTileComponent(&game->components, Editor_getSelected(game->currentLayout));
 		if (NULL != tile && SDL_GetKeyboardState(NULL)[SDL_SCANCODE_LALT] != 0) {
 			SDL_Rect rect = { 40, 40, game->tilemap.tileSize.x / 0.2, game->tilemap.tileSize.y / 0.2 };
 			SDL_RenderCopy(game->renderer, game->tilemap.texture, NULL, &rect);

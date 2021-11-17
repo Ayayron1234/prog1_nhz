@@ -24,7 +24,7 @@ int main(void) {
 		ticksum += newtick - lastUpdateTime;
 		ticklist[tickindex] = newtick - lastUpdateTime;
 		tickindex = (tickindex + 1) % MAXSAMPLES;
-		sprintf_s(ECS_getTextComponent(&game.components, 22)->value,
+		sprintf_s(((Text*)ECS_getComponent(TEXT, *game.currentLayout, 22))->value,
 			255, "FPS: %.0f", 1000.0 / ((double)ticksum / MAXSAMPLES));
 		lastUpdateTime = newtick;
 		// -------------------------------------------------
@@ -41,10 +41,10 @@ int main(void) {
 	//for (int i = 0; i < 128; i++) {
 	//	spr[i] = game.components.spriteComponents[i];
 	//}
-	Position pos[128];
-	for (int i = 0; i < 128; i++) {
-		pos[i] = game.components.positionComponents[i];
-	}
+	//Position pos[128];
+	//for (int i = 0; i < 128; i++) {
+	//	pos[i] = game.components.positionComponents[i];
+	//}
 	//Editor edt[128];
 	//for (int i = 0; i < 128; i++) {
 	//	edt[i] = game.components.editorComponents[i];
@@ -144,18 +144,20 @@ int main(void) {
 	//	test2[i] = loaded[i];
 	//}
 
-	free(game.components.positionComponents);
-	free(game.components.spriteComponents);
-	free(game.components.editorComponents);
-	free(game.components.animationComponents);
-	free(game.components.tileComponents);
-	free(game.components.textComponents);
-	free(game.components.collisionBoxComponents);
-	free(game.components.colliderComponents);
-	free(game.components.physicsBodyComponents);
+	//free(game.components.positionComponents);
+	//free(game.components.spriteComponents);
+	//free(game.components.editorComponents);
+	//free(game.components.animationComponents);
+	//free(game.components.tileComponents);
+	//free(game.components.textComponents);
+	//free(game.components.collisionBoxComponents);
+	//free(game.components.colliderComponents);
+	//free(game.components.physicsBodyComponents);
 	SDL_DestroyTexture(game.tilemap.texture);
 
 	SDL_Quit();
 	TTF_Quit();
+
+	debugmalloc_log_file("./debugmalloc.log");
 	return 0;
 }

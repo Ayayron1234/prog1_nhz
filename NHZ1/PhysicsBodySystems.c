@@ -26,5 +26,5 @@ void PhysicsBody_update(Layout* currentLayout, PhysicsBody* physicsBody, double 
 	} 
 	Position_moveBy(position, Vec2_imul(physicsBody->velocity, deltaT));
 
-	free(dynamicComps);
+	ECS_freeEntity(dynamicComps);
 }

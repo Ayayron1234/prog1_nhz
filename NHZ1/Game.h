@@ -14,6 +14,7 @@
 #include "TextSystems.h"
 #include "CollisionBoxSystems.h"
 #include "PhysicsBodySystems.h"
+#include "debugmalloc.h"
 
 
 typedef struct GameAppearance {

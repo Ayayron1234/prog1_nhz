@@ -5,5 +5,4 @@
 #include "ECS.h"
 #include "Text.h"
 
-void Text_render(ComponentLists* components, Text* text, SDL_Renderer* renderer);
-
+void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer, TTF_Font* font);

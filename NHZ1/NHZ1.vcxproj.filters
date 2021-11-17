@@ -209,5 +209,8 @@
     <ClInclude Include="PhysicsBodySystems.h">
       <Filter>Header Files\Systems\Physics</Filter>
     </ClInclude>
+    <ClInclude Include="debugmalloc.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

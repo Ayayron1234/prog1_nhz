@@ -1,0 +1,236 @@
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/286. rekord:
+  00000253EB508000, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 2/286. rekord:
+  00000253EB4FB000, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 3/286. rekord:
+  00000253EB507010, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 4/286. rekord:
+  00000253EB506020, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 5/286. rekord:
+  00000253EB4E6020, 912 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:328, malloc(total_components * componentSize)
+      0000  06 00 00 00 00 00 00 00 00 00 00 00 00 ffffffc0 ffffff95 40   ...............@
+      0010  00 00 00 00 00 00 62 40 07 00 00 00 00 00 00 00   ......b@........
+      0020  00 00 00 00 00 00 48 40 00 00 00 00 00 00 48 40   ......H@......H@
+      0030  0c 00 00 00 00 00 00 00 00 00 00 00 00 00 48 40   ..............H@
+** 6/286. rekord:
+  00000253EB505030, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 7/286. rekord:
+  00000253EB46D030, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 8/286. rekord:
+  00000253EB4A0050, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+** 9/286. rekord:
+  00000253EB421050, 312 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:302, calloc(numberOfLayouts, sizeof(Layout))
+      0000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+      0010  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+      0020  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+      0030  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+** 10/286. rekord:
+  00000253EB4BE060, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:440, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(char*))
+ ..
+      0010  ffffffb0 23 42 ffffffeb 53 02 00 00 00 00 00 00 00 00 00 00   .#B.S...........
+      0020  00 00 00 00 00 00 00 00 30 61 4a ffffffeb 53 02 00 00   ........0aJ.S...
+ ..
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************
+****************************************************
+* Debugmalloc: nincs memoriaszivargas a programban.
+* Osszes foglalas: 0 blokk, 0 bajt.
+****************************************************

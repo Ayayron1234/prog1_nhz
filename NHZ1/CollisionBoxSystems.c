@@ -1,50 +1,51 @@
 #include "CollisionBoxSystems.h"
 
-void CollisionBox_update(int gameState, ComponentLists* components, CollisionBox* collisionBox) {
-	Tile* tile = ECS_getTileComponent(components, collisionBox->ENTITY_ID);
+void CollisionBox_update(int gameState, Layout* currentLayout, CollisionBox* collisionBox) {
+	void** entity = ECS_getEntity(*currentLayout, collisionBox->ENTITY_ID);
+	Tile* tile = entity[TILE];
 	if (NULL != tile) {
 		collisionBox->size = (Vec2){ tile->tilemap->tileSize.x * tile->size.x, tile->tilemap->tileSize.y * tile->size.y};
 	}
-	Sprite* sprite = ECS_getSpriteComponent(components, collisionBox->ENTITY_ID);
+	Sprite* sprite = entity[SPRITE];
 	if (NULL != sprite) {
 		collisionBox->size = (Vec2){ sprite->tilemap->tileSize.x, sprite->tilemap->tileSize.y };
 	}
-	Text* text = ECS_getTextComponent(components, collisionBox->ENTITY_ID);
+	Text* text = entity[TEXT];
 	if (NULL != text) {
 		collisionBox->size = (Vec2){ text->textBoxSize.x, text->textBoxSize.y };
 	}
 
-	if (gameState == EDIT_MODE) {
-		int x, y;
-		Uint32 buttons;
-		SDL_PumpEvents();
-		buttons = SDL_GetMouseState(&x, &y);
+	//if (gameState == EDIT_MODE) {
+	//	int x, y;
+	//	Uint32 buttons;
+	//	SDL_PumpEvents();
+	//	buttons = SDL_GetMouseState(&x, &y);
 
-		Editor* editor = ECS_getEditorComponent(components, collisionBox->ENTITY_ID);
-		if (NULL == editor) {
-			SDL_Log("To update a sprite in edit mode, the sprite's parent entity has to have a Editor component. ");
-			exit(1);
-		}
-		Position* position = ECS_getPositionComponent(components, collisionBox->ENTITY_ID);
-		if (NULL == position) exit(1);
+	//	Editor* editor = entity[EDITOR];
+	//	if (NULL == editor) {
+	//		SDL_Log("To update a sprite in edit mode, the sprite's parent entity has to have a Editor component. ");
+	//		exit(1);
+	//	}
+	//	Position* position = entity[POSITION];
+	//	if (NULL == position) exit(1);
 
-		if ((buttons & SDL_BUTTON_LMASK) != 0) {
-			if (CollisionBox_isPointInside(components, collisionBox, (Vec2) { x, y })) {
-				if (editor->isSelected == false) {
-					ECS_printEntityData(components, collisionBox->ENTITY_ID);
-					Editor_select(components, collisionBox->ENTITY_ID);
-				}
-			}
-		}
-	}
+	//	if ((buttons & SDL_BUTTON_LMASK) != 0) {
+	//		if (CollisionBox_isPointInside(currentLayout, collisionBox, (Vec2) { x, y })) {
+	//			if (editor->isSelected == false) {
+	//				ECS_printEntityData(currentLayout, collisionBox->ENTITY_ID);
+	//				Editor_select(currentLayout, collisionBox->ENTITY_ID);
+	//			}
+	//		}
+	//	}
+	//}
+
+	ECS_freeEntity(entity);
 }
 
 bool CollisionBox_isPointInside(Layout* currentLayout, CollisionBox* collisionBox, Vec2 point)
 {
 	Position* pos = ECS_getComponent(POSITION, *currentLayout, collisionBox->ENTITY_ID);
-	if (NULL == pos) {
-		exit(1);
-	}
+	if (NULL == pos) exit(1);
 
 	return (point.x > pos->value.x && point.x < pos->value.x + collisionBox->size.x) && (point.y > pos->value.y && point.y < pos->value.y + collisionBox->size.y);
 }

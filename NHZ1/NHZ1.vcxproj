@@ -176,6 +176,7 @@
     <ClInclude Include="AnimationSystems.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionBoxSystems.h" />
+    <ClInclude Include="debugmalloc.h" />
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="EditorSystems.h" />

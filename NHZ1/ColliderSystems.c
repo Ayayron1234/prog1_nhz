@@ -48,7 +48,7 @@ bool Collider_checkForCollision(Layout* currentLayout, Collider* dynamicC, Colli
 	Vec2_increaseByVec(&targetCollisionBox->size, Vec2_imul(dynamicCollisionBox->size, -1));
 	Vec2_increaseByVec(&targetPosition->value, Vec2_imul(dynamicCollisionBox->size, (1.0 / 2.0)));
 
-	free(dynamic);
-	free(target);
+	ECS_freeEntity(dynamic);
+	ECS_freeEntity(target);
 	return false;
 }
