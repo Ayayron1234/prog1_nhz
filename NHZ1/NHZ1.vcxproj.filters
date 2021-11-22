@@ -212,5 +212,8 @@
     <ClInclude Include="debugmalloc.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="EntityRenderer.h">
+      <Filter>Header Files\Components\Visual</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

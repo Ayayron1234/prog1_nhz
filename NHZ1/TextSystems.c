@@ -19,9 +19,13 @@ void Text_render(Layout* currentLayout, Text* text, SDL_Renderer* renderer, TTF_
 	// convert surface to texture
 	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
+	Vec2 parallax = { 0, 0 };
+	EntityRenderer* entityRenderer = ECS_getComponent(ENTITY_RENDERER, *currentLayout, text->ENTITY_ID);
+	if (NULL != entityRenderer) parallax = currentLayout->layers[entityRenderer->layerIndex].parallax;
+
 	// init textbox
 	SDL_Rect Message_rect = { 
-		.x = position->value.x, .y = position->value.y, 
+		.x = position->value.x - currentLayout->camera.x * parallax.x, .y = position->value.y - currentLayout->camera.y * parallax.y,
 		.w = textSurface->w, .h = textSurface->h };
 
 	// render texture

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "prog1_nzh_devdocs.md",
+            "file": "prog1_nzh_todo.md",
             "mode": "preview"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "prog1_nzh_devdocs.md",
+                "file": "prog1_nzh_todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,7 +88,7 @@
   },
   "active": "7db45c5ea955e68f",
   "lastOpenFiles": [
-    "prog1_nzh_devdocs.md",
-    "prog1_nzh_todo.md"
+    "prog1_nzh_todo.md",
+    "prog1_nzh_devdocs.md"
   ]
 }

@@ -1,5 +1,6 @@
-﻿  ECS.c
-D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c(124,34): warning C4028: formal parameter 1 different from declaration
-D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c(436,60): warning C4142: 'ECS_getEntity': benign redefinition of type
-D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.h(143): message : see declaration of 'ECS_getEntity'
+﻿  Game.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(275,90): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(275,57): warning C4024: 'Editor_paste': different types for formal and actual parameter 3
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(325,55): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(325,87): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe

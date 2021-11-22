@@ -16,5 +16,5 @@ typedef struct Ray2 {
 void CollisionBox_update(int gameState, Layout* currentLayout, CollisionBox* collisionBox);
 
 bool CollisionBox_isPointInside(Layout* currentLayout, CollisionBox* collisionBox, Vec2 point);
-bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* collisionBoxA, CollisionBox* collisionBoxB);
+//bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* collisionBoxA, CollisionBox* collisionBoxB);
 bool CollisionBox_checkIfRayOverlapps(Layout* currentLayout, CollisionBox* collisionBox, Ray2 ray, Vec2* contactPoint, Vec2* contactNormal, double* tHitNear);

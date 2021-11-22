@@ -6,6 +6,6 @@
 
 
 void Sprite_render(Layout* currentLayout, Sprite* sprite, SDL_Renderer* renderer);
-bool Sprite_isPointInside(ComponentLists* components, Sprite* sprite, Vec2 point);
-
-void Sprite_edit_update(ComponentLists* components, Sprite* sprite, SDL_Renderer* renderer);
+//bool Sprite_isPointInside(ComponentLists* components, Sprite* sprite, Vec2 point);
+//
+//void Sprite_edit_update(ComponentLists* components, Sprite* sprite, SDL_Renderer* renderer);

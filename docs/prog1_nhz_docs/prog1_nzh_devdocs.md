@@ -101,7 +101,7 @@ typedef struct Layout {
 - **componentLists**: Egy pointer a játék komponens listáihoz. Ennek csak az a létjogosultsága, hogy ha egy függvénynek hozzá kell férnie egy layout-on belüli komponensekhez, akkor elég legyen paraméterként egy layout-ot adni neki. 
 ---
 ## Magyarázat a komplikáltabb folyamatokhoz
-- [[#^saveAndLoad|Mentés és betöltés]] 
+- [[#^saveAndLoad|Mentés és betöltés]]
 ---
 ### Mentés és betöltés[[#Magyarázat a komplikáltabb folyamatokhoz|^]]
 ^saveAndLoad

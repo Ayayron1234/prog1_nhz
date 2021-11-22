@@ -15,6 +15,7 @@ void Editor_update(GameState gameState, Layout* currentLayout, Editor* editor);
 int Editor_getSelected(Layout* currentLayout);
 void Editor_select(Layout* currentLayout, int entityID);
 void Editor_deselectAll(Layout* currentLayout);
+void Editor_selectEntityAtClick(Layout* currentLayout, Vec2 mousePosition);
 
-void Editor_copy(ComponentLists* components, int entityID);
-void Editor_paste(ComponentLists* components, int newEntityID);
+void Editor_copy(Layout* currentLayout, int entityID);
+void Editor_paste(Layout* layouts, int numberOfLayouts, char* layoutName);

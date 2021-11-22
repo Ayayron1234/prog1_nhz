@@ -180,6 +180,7 @@
     <ClInclude Include="ECS.h" />
     <ClInclude Include="Editor.h" />
     <ClInclude Include="EditorSystems.h" />
+    <ClInclude Include="EntityRenderer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="misc.h" />

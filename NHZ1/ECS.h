@@ -11,6 +11,7 @@
 #include "CollisionBox.h"
 #include "Collider.h"
 #include "PhysicsBody.h"
+#include "EntityRenderer.h"
 //#include "debugmalloc.h"
 
 typedef struct Layer {
@@ -18,7 +19,7 @@ typedef struct Layer {
 	Vec2 parallax;
 } Layer;
 
-#define NUMBER_OF_COMPONENT_TYPES 9
+#define NUMBER_OF_COMPONENT_TYPES 10
 typedef enum ComponentType {
 	POSITION = 0,
 	EDITOR = 1,
@@ -28,7 +29,8 @@ typedef enum ComponentType {
 	ANIMATION = 5,
 	COLLIDER = 6,
 	COLLISION_BOX = 7,
-	PHYSICS_BODY = 8
+	PHYSICS_BODY = 8,
+	ENTITY_RENDERER = 9
 } ComponentType;
 
 typedef struct LayoutMap {
@@ -39,7 +41,7 @@ typedef struct LayoutMap {
 typedef struct Layout {
 	char LAYOUT_NAME[255];
 	Vec2 camera;
-	Layer layers;
+	Layer layers[16];
 
 	LayoutMap* componentMaps;
 	void** componentListsPointers;
@@ -54,6 +56,8 @@ typedef struct SerialisationMapFragment {
 	LayoutMap* layoutMaps;       // array of serialised layouts
 } SerialisationMapFragment;
 
+void ECS_save(Layout* layouts, int numberOfLayouts, char playerName[255]);
+
 /**
 * Creates layout structure from serialisationMapFragments. 
 */
@@ -66,7 +70,7 @@ void ECS_deserialise(Layout** layouts, int numberOfLayouts, void*** componentLis
 * @param path The path of the file. (Relative. eg.: "./saves/original.data")
 * @param resources The resources which should be used when constructing components. (Eg.: tilemaps, fonts)
 */
-void ECS_load(Layout** layoutsPtr, void*** componentListsPtr, char path[255], GameResources* resources);
+void ECS_load(Layout** layoutsPtr, int* numberOfLayouts, char path[255], GameResources* resources);
 
 /**
 * Creates serialisation map fragments of the layouts. (More precise explanation in the prog1_nzh_devdocs)
@@ -110,47 +114,23 @@ void* ECS_getNthComponent(ComponentType componentType, Layout* currentLayout, in
 */
 int ECS_getNumberOfComponents(ComponentType componentType, Layout currentLayout);
 
+int ECS_getFreeID(Layout* currentLayout);
+
 /**
 *
 */
 void** ECS_getEntity(Layout currentLayout, int enitity_ID);
 void ECS_freeEntity(void** entityComponents);
 
-typedef struct ComponentLists {
-	int total_positionComponents;
-	Position *positionComponents;
-	int total_spriteComponents;
-	Sprite *spriteComponents;
-	int total_editorComponents;
-	Editor* editorComponents;
-	int total_animationComponents;
-	Animation* animationComponents;
-	int total_tileComponents;
-	Tile* tileComponents;
-	int total_textComponents;
-	Text* textComponents;
-	int total_collisionBoxComponents;
-	CollisionBox* collisionBoxComponents;
-	int total_colliderComponents;
-	Collider* colliderComponents;
-	int total_physicsBodyComponents;
-	PhysicsBody* physicsBodyComponents;
-} ComponentLists;
+int* ECS_getEntityIDPtr(ComponentType componentType, void* component);
 
-// temp --------------------------------------------------------
-Position* ECS_getPositionComponent(ComponentLists* components, int entityID);
-Sprite* ECS_getSpriteComponent(ComponentLists* components, int entityID);
-Editor* ECS_getEditorComponent(ComponentLists* components, int entityID);
-Animation* ECS_getAnimationComponent(ComponentLists* components, int entityID);
-Tile* ECS_getTileComponent(ComponentLists* components, int entityID);
-Text* ECS_getTextComponent(ComponentLists* components, int entityID);
-CollisionBox* ECS_getCollisionBoxComponent(ComponentLists* components, int entityID);
-Collider* ECS_getColliderComponent(ComponentLists* components, int entityID);
-PhysicsBody* ECS_getPhysicsBodyComponent(ComponentLists* components, int entityID);
-// temp --------------------------------------------------------
+void ECS_createLayout(Layout** layoutsPtr, int* numberOfLayouts, char layoutName[255]);
 
-ComponentLists ECS_init(int maxNumberOfComponents, bool doDeserialisation, char saveDirectory[255], Tilemap *tilemap);
+void ECS_deleteComponent(ComponentType componentType, Layout* layouts, int numberOfLayouts, char* layoutName, int entity_ID);
 
-int ECS_createEntity(ComponentLists* components, int maxNumberOfComponents);
-void ECS_deleteEntity(ComponentLists* components, int entityID);
-void ECS_printEntityData(ComponentLists* components, int entityID);
+bool ECS_layoutHasName(Layout* currentLayout, char* name);
+Layout* ECS_getLayout(Layout* layouts, int numberOfLayouts, char* LAYOUT_NAME);
+int ECS_getLayoutIndex(Layout* layouts, int numberOfLayouts, char* LAYOUT_NAME);
+void ECS_freeData(Layout* layouts, int numberOfLayouts);
+
+void* ECS_createComponent(ComponentType componentType, Layout* layouts, int numberOfLayouts, char* layoutName, int enitity_ID);

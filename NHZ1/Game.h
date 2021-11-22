@@ -32,10 +32,11 @@ typedef struct GameTime {
 
 /**
 This is the main structure. All game data is stored in this object. 
+game->componentLists
 */
 typedef struct Game
 {
-	ComponentLists components;
+	//ComponentLists components;
 
 	int numberOfLayouts;
 	Layout* layouts;
@@ -43,7 +44,7 @@ typedef struct Game
 	void** componentLists;
 
 	GameResources resources;
-
+	
 	SDL_Window* window;
 	SDL_Surface* windowSurface;
 	SDL_Renderer* renderer;
@@ -87,4 +88,3 @@ void Game_handleSDLEvents(Game* game);
 * @param layout The layout in which the components should be rendered.
 */
 void Game_renderElements(Game* game);
-

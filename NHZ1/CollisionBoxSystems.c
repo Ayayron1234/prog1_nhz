@@ -50,16 +50,16 @@ bool CollisionBox_isPointInside(Layout* currentLayout, CollisionBox* collisionBo
 	return (point.x > pos->value.x && point.x < pos->value.x + collisionBox->size.x) && (point.y > pos->value.y && point.y < pos->value.y + collisionBox->size.y);
 }
 
-bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* collisionBoxA, CollisionBox* collisionBoxB) {
-	Position *posA, *posB;
-	posA = ECS_getPositionComponent(components, collisionBoxA->ENTITY_ID);
-	if (NULL == posA) exit(1);
-	posB = ECS_getPositionComponent(components, collisionBoxB->ENTITY_ID);
-	if (NULL == posB) exit(1);
-
-	return (posA->value.x < posB->value.x + collisionBoxB->size.x && posA->value.x + collisionBoxA->size.x > posB->value.x
-		&& posA->value.y < posB->value.y + collisionBoxB->size.y && posA->value.y + collisionBoxA->size.y > posB->value.y);
-}
+//bool CollisionBox_checkForOverlapp(ComponentLists* components, CollisionBox* collisionBoxA, CollisionBox* collisionBoxB) {
+//	Position *posA, *posB;
+//	posA = ECS_getPositionComponent(components, collisionBoxA->ENTITY_ID);
+//	if (NULL == posA) exit(1);
+//	posB = ECS_getPositionComponent(components, collisionBoxB->ENTITY_ID);
+//	if (NULL == posB) exit(1);
+//
+//	return (posA->value.x < posB->value.x + collisionBoxB->size.x && posA->value.x + collisionBoxA->size.x > posB->value.x
+//		&& posA->value.y < posB->value.y + collisionBoxB->size.y && posA->value.y + collisionBoxA->size.y > posB->value.y);
+//}
 
 // ezt a tutorialt követtem: https://www.youtube.com/watch?v=8JJ-4JgR7Dg&t=790s
 bool CollisionBox_checkIfRayOverlapps(Layout* currentLayout, CollisionBox* collisionBox, Ray2 ray, Vec2* contactPoint, Vec2* contactNormal, double* tHitNear) {

@@ -70,36 +70,38 @@ int main(void) {
 	//	phisicsBdy[i] = game.components.physicsBodyComponents[i];
 	//}
 
-	SerialisationMapFragment* serialisationMapFragments = ECS_serialise(game.layouts, 1);
+	ECS_save(game.layouts, game.numberOfLayouts, "aaron");
 
-	SerialisationMapFragment test[NUMBER_OF_COMPONENT_TYPES];
-	for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
-		test[i] = serialisationMapFragments[i];
-	}
+	//SerialisationMapFragment* serialisationMapFragments = ECS_serialise(game.layouts, 1);
 
-	FILE* f;
-	fopen_s(&f, "./saves/aaron.data", "wb");
-	if (NULL == f) exit(1);
-	int numberOfComponents = NUMBER_OF_COMPONENT_TYPES;
-	fwrite(&numberOfComponents, sizeof(int), 1, f);
-	fclose(f);
+	//SerialisationMapFragment test[NUMBER_OF_COMPONENT_TYPES];
+	//for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
+	//	test[i] = serialisationMapFragments[i];
+	//}
 
-	fopen_s(&f, "./saves/aaron.data", "ab");
-	if (NULL == f) exit(1);
-	fwrite(&game.numberOfLayouts, sizeof(int), 1, f);
-	for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
-		fwrite(&serialisationMapFragments[i].componentSize, sizeof(size_t), 1, f);
-		fwrite(&serialisationMapFragments[i].componentType, sizeof(int), 1, f);
-		fwrite(serialisationMapFragments[i].layoutMaps, sizeof(LayoutMap), game.numberOfLayouts, f);
-		fwrite(&serialisationMapFragments[i].total_components, sizeof(int), 1, f);
-		fwrite(&serialisationMapFragments[i].total_layouts, sizeof(int), 1, f);
-	}	
-	for (int componentTypeIndex = 0; componentTypeIndex < NUMBER_OF_COMPONENT_TYPES; componentTypeIndex++) {
-		fwrite(game.componentLists[componentTypeIndex], ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL), serialisationMapFragments[componentTypeIndex].total_components, f);
-		//fwrite(game.layouts[0].componentListsPointers[i], ECS_getSizeAndTypeOfComponent(i, NULL), serialisationMapFragments[i].total_components, f);
-	}
+	//FILE* f;
+	//fopen_s(&f, "./saves/aaron.data", "wb");
+	//if (NULL == f) exit(1);
+	//int numberOfComponents = NUMBER_OF_COMPONENT_TYPES;
+	//fwrite(&numberOfComponents, sizeof(int), 1, f);
+	//fclose(f);
 
-	fclose(f);
+	//fopen_s(&f, "./saves/aaron.data", "ab");
+	//if (NULL == f) exit(1);
+	//fwrite(&game.numberOfLayouts, sizeof(int), 1, f);
+	//for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
+	//	fwrite(&serialisationMapFragments[i].componentSize, sizeof(size_t), 1, f);
+	//	fwrite(&serialisationMapFragments[i].componentType, sizeof(int), 1, f);
+	//	fwrite(serialisationMapFragments[i].layoutMaps, sizeof(LayoutMap), game.numberOfLayouts, f);
+	//	fwrite(&serialisationMapFragments[i].total_components, sizeof(int), 1, f);
+	//	fwrite(&serialisationMapFragments[i].total_layouts, sizeof(int), 1, f);
+	//}	
+	//for (int componentTypeIndex = 0; componentTypeIndex < NUMBER_OF_COMPONENT_TYPES; componentTypeIndex++) {
+	//	fwrite(game.componentLists[componentTypeIndex], ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL), serialisationMapFragments[componentTypeIndex].total_components, f);
+	//	//fwrite(game.layouts[0].componentListsPointers[i], ECS_getSizeAndTypeOfComponent(i, NULL), serialisationMapFragments[i].total_components, f);
+	//}
+
+	//fclose(f);
 
 
 	//fopen_s(&f, "./saves/aaron.data", "rb");
@@ -158,6 +160,8 @@ int main(void) {
 	SDL_Quit();
 	TTF_Quit();
 
-	debugmalloc_log_file("./debugmalloc.log");
+	ECS_freeData(game.layouts, game.numberOfLayouts);
+
+	//debugmalloc_log_file("./debugmalloc.log");
 	return 0;
 }

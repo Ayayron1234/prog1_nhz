@@ -9,7 +9,11 @@ void Editor_render(int gameState, Layout* currentLayout, Editor* editor, SDL_Ren
 			CollisionBox* collisionBox = ECS_getComponent(COLLISION_BOX, *currentLayout, editor->ENTITY_ID);
 			if (NULL == collisionBox) exit(1);
 
-			SDL_Rect rect = { .x = position->value.x - 1, .y = position->value.y - 1,
+			Vec2 parallax = { 0, 0 };
+			EntityRenderer* entityRenderer = ECS_getComponent(ENTITY_RENDERER, *currentLayout, editor->ENTITY_ID);
+			if (NULL != entityRenderer) parallax = currentLayout->layers[entityRenderer->layerIndex].parallax;
+
+			SDL_Rect rect = { .x = (position->value.x - 1) - currentLayout->camera.x * parallax.x, .y = (position->value.y - 1) - currentLayout->camera.y * parallax.y,
 				.w = collisionBox->size.x + 2, .h = collisionBox->size.y + 2 };
 
 			if (editor->isSelected)
@@ -46,18 +50,22 @@ void Editor_renderPositionData(Layout* currentLayout, Editor* editor, SDL_Render
 		char IDText[255];
 		sprintf_s(&IDText, 255, "#%d", position->ENTITY_ID);
 		SDL_Surface* IDSurface = TTF_RenderText_Solid(font, IDText, color);
-
 	
 		// convert surface to texture
 		SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, positionSurface);
 		SDL_Texture* IDTexture = SDL_CreateTextureFromSurface(renderer, IDSurface);
 
+		// get parallax
+		Vec2 parallax = { 0, 0 };
+		EntityRenderer* entityRenderer = ECS_getComponent(ENTITY_RENDERER, *currentLayout, editor->ENTITY_ID);
+		if (NULL != entityRenderer) parallax = currentLayout->layers[entityRenderer->layerIndex].parallax;
+
 		// init textbox
 		SDL_Rect position_rect = {
-			.x = position->value.x, .y = position->value.y - positionSurface->h - 3,
+			.x = position->value.x - currentLayout->camera.x * parallax.x, .y = position->value.y - positionSurface->h - 3 - currentLayout->camera.y * parallax.y,
 			.w = positionSurface->w, .h = positionSurface->h };
 		SDL_Rect ID_rect = {
-		.x = position->value.x, .y = position->value.y,
+		.x = position->value.x - currentLayout->camera.x * parallax.x, .y = position->value.y - currentLayout->camera.y * parallax.y,
 		.w = IDSurface->w, .h = IDSurface->h };
 
 
@@ -79,36 +87,62 @@ void Editor_renderPositionData(Layout* currentLayout, Editor* editor, SDL_Render
 }
 
 void Editor_update(GameState gameState, Layout* currentLayout, Editor* editor) {
-	if (gameState == EDIT_MODE) {
-		// select clicked entity
-		void** entity = ECS_getEntity(*currentLayout, editor->ENTITY_ID);
+	//if (gameState == EDIT_MODE) {
+	//	// select clicked entity
+	//	void** entity = ECS_getEntity(*currentLayout, editor->ENTITY_ID);
 
-		// get position and collision box data from entity
-		Position* position = entity[POSITION];
-		CollisionBox* collisionBox = entity[COLLISION_BOX];
+	//	// get position and collision box data from entity
+	//	Position* position = entity[POSITION];
+	//	CollisionBox* collisionBox = entity[COLLISION_BOX];
 
-		if (NULL != position && NULL != collisionBox) {
-			// get mouse position
-			Uint32 buttons;
-			Vec2Int mousePos;
-			SDL_PumpEvents();
-			buttons = SDL_GetMouseState(&mousePos.x, &mousePos.y);
+	//	if (NULL != position && NULL != collisionBox) {
+	//		// get mouse position
+	//		Uint32 buttons;
+	//		Vec2Int mousePos;
+	//		SDL_PumpEvents();
+	//		buttons = SDL_GetMouseState(&mousePos.x, &mousePos.y);
 
-			// check if left clicking
-			if ((buttons & SDL_BUTTON_LMASK) != 0) {
-				// check if cursor is over entity
-				if (CollisionBox_isPointInside(currentLayout, collisionBox, (Vec2) { mousePos.x, mousePos.y })) {
-					// check if entity isn't allready selected
-					if (editor->isSelected == false) {
-						ECS_printEntityData(currentLayout, collisionBox->ENTITY_ID);
-						Editor_select(currentLayout, collisionBox->ENTITY_ID);
-					}
-				}
-			}
+	//		// check if left clicking
+	//		if ((buttons & SDL_BUTTON_LMASK) != 0) {
+	//			// check if cursor is over entity
+	//			if (CollisionBox_isPointInside(currentLayout, collisionBox, (Vec2) { mousePos.x, mousePos.y })) {
+	//				// check if entity isn't allready selected
+	//				if (editor->isSelected == false) {
+	//					ECS_printEntityData(currentLayout, collisionBox->ENTITY_ID);
+	//					Editor_select(currentLayout, collisionBox->ENTITY_ID);
+	//				}
+	//			}
+	//		}
+	//	}
+
+	//	ECS_freeEntity(entity);
+	//}
+}
+
+void Editor_selectEntityAtClick(Layout* currentLayout, Vec2 mousePosition) {
+	bool nothingClicked = true;
+	for (int i = 0; i < ECS_getNumberOfComponents(COLLISION_BOX, *currentLayout); i++) {
+		CollisionBox* collisionBox = ECS_getNthComponent(COLLISION_BOX, currentLayout, i);
+
+		// transform mouse position based on the camera's position and the entity's parent layer's parallax
+		Vec2 parallax = { 0, 0 };
+		EntityRenderer* entityRenderer = ECS_getComponent(ENTITY_RENDERER, *currentLayout, collisionBox->ENTITY_ID);
+		if (NULL != entityRenderer) parallax = currentLayout->layers[entityRenderer->layerIndex].parallax;
+		Vec2 transformedPosition = Vec2_add(mousePosition, (Vec2) { currentLayout->camera.x * parallax.x, currentLayout->camera.y * parallax.y });
+
+		if (CollisionBox_isPointInside(currentLayout, collisionBox, transformedPosition)) {
+			nothingClicked = false;
+
+			Editor* editor = ECS_getComponent(EDITOR, *currentLayout, collisionBox->ENTITY_ID);
+
+			if (!editor->isSelected) {
+				Editor_select(currentLayout, editor->ENTITY_ID);
+				ECS_printEntityData(currentLayout, editor->ENTITY_ID);
+			} 			
 		}
-
-		ECS_freeEntity(entity);
 	}
+
+	if (nothingClicked) Editor_deselectAll(currentLayout);
 }
 
 int Editor_getSelected(Layout* currentLayout) {
@@ -133,77 +167,63 @@ void Editor_deselectAll(Layout* currentLayout) {
 		((Editor*)ECS_getNthComponent(EDITOR, currentLayout, i))->isSelected = false;
 }
 
-void Editor_copy(ComponentLists* components, int entityID)
+void Editor_copy(Layout* currentLayout, int entityID)
 {
-	for (int i = 0; i < components->total_editorComponents; i++) {
-		if (components->editorComponents[i].ENTITY_ID == entityID)
-			components->editorComponents[i].copied = true;
+	for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, *currentLayout); i++) {
+		Editor* editor = ECS_getNthComponent(EDITOR, currentLayout, i);
+		if (editor->ENTITY_ID == entityID)
+			editor->copied = true;
 		else
-			components->editorComponents[i].copied = false;
+			editor->copied = false;
 	}
 }
 
-void Editor_paste(ComponentLists* components, int newEntityID) {
-	int selected = Editor_getSelected(components);
-	int copied = 0;
-	for (int i = 0; i < components->total_editorComponents; i++)
-		if (components->editorComponents[i].copied == true) copied = components->editorComponents[i].ENTITY_ID;
-	if (NULL == copied) return;
+void Editor_paste(Layout* layouts, int numberOfLayouts, char* layoutName) {
+	Layout* currentLayout = ECS_getLayout(layouts, numberOfLayouts, layoutName);
+	
+	// get first free entity on the target layout
+	int newEntityID = ECS_getFreeID(currentLayout);
 
-	Position* position;
+	// get selected entity
+	int selectedID = Editor_getSelected(currentLayout);
+	if (selectedID == 0) return;
+	void** selected = ECS_getEntity(*currentLayout, selectedID);
 	if (selected != NULL)
-		position = ECS_getPositionComponent(components, selected); 
-	else
-		position = ECS_getPositionComponent(components, copied);
-	if (NULL != position) {
-		Position_init(newEntityID, &components->total_positionComponents, components->positionComponents, (Vec2) { position->value.x + 12, position->value.y + 12 });
+		((Editor*)selected[EDITOR])->isSelected = false;
+
+	// get copied entity
+	int copiedID = 0;
+	int layoutIndex;
+	for (layoutIndex = 0; layoutIndex < numberOfLayouts; layoutIndex++) {
+		for (int i = 0; i < ECS_getNumberOfComponents(EDITOR, layouts[layoutIndex]); i++)
+			if (((Editor*)ECS_getNthComponent(EDITOR, &layouts[layoutIndex], i))->copied == true) {
+				copiedID = ((Editor*)ECS_getNthComponent(EDITOR, &layouts[layoutIndex], i))->ENTITY_ID;
+				break;
+			}
+		if (copiedID != 0) break;
+	}
+	if (NULL == copiedID) return;
+	void** copied = ECS_getEntity(layouts[layoutIndex], copiedID);
+	if (copied == NULL) return;
+
+	// create new component
+	for (int componentTypeIndex = 0; componentTypeIndex < NUMBER_OF_COMPONENT_TYPES; componentTypeIndex++) {
+		if (copied[componentTypeIndex] != NULL) {
+			void* newComponent = ECS_createComponent(componentTypeIndex, layouts, numberOfLayouts, layoutName, newEntityID);
+			memcpy(newComponent, copied[componentTypeIndex], ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL));
+
+			*ECS_getEntityIDPtr(componentTypeIndex, newComponent) = newEntityID;
+
+			if (componentTypeIndex == POSITION && selected != NULL)
+				((Position*)newComponent)->value = Vec2_add(((Position*)selected[POSITION])->value, (Vec2){ 12, 12 });
+
+			if (componentTypeIndex == EDITOR) {
+				((Editor*)newComponent)->copied = false;
+				((Editor*)newComponent)->isSelected = true;
+			}
+		}
 	}
 
-	Sprite* sprite = ECS_getSpriteComponent(components, copied);
-	if (NULL != sprite) {
-		Sprite_init(components->spriteComponents, newEntityID, &components->total_spriteComponents, sprite->tilemap, sprite->tilePosition);
-		ECS_getSpriteComponent(components, newEntityID)->renderProps = sprite->renderProps;
-	}
-
-	Animation* animation = ECS_getAnimationComponent(components, copied);
-	if (NULL != animation) {
-		Animation_init(components->animationComponents, newEntityID, &components->total_animationComponents, animation->tilePosition, animation->frameCount, animation->animationSpeed);
-		ECS_getAnimationComponent(components, newEntityID)->currentFrame = animation->currentFrame;
-		ECS_getAnimationComponent(components, newEntityID)->lastUpdateTime = animation->lastUpdateTime;
-	}
-
-	Tile* tile = ECS_getTileComponent(components, copied);
-	if (NULL != tile) {
-		Tile_init(components->tileComponents, newEntityID, &components->total_tileComponents, tile->tilemap, tile->tilePosition, tile->size);
-		ECS_getTileComponent(components, newEntityID)->renderProps = tile->renderProps;
-	}
-
-	Text* text = ECS_getTextComponent(components, copied);
-	if (NULL != text) {
-		Text_init(components->textComponents, newEntityID, &components->total_textComponents, "", text->fontSize, "", text->fontColor, text->textBoxSize);
-		ECS_getTextComponent(components, newEntityID)->renderProps = text->renderProps;
-		strcpy_s(ECS_getTextComponent(components, newEntityID)->value, 255, text->value, 255);
-		strcpy_s(ECS_getTextComponent(components, newEntityID)->fontFamily, 255, text->fontFamily, 255);
-	}
-
-	CollisionBox* collisionBox = ECS_getCollisionBoxComponent(components, copied);
-	if (NULL != collisionBox) {
-		CollisionBox_init(components->collisionBoxComponents, newEntityID, &components->total_collisionBoxComponents, collisionBox->size);
-	}
-
-	Collider* collider = ECS_getColliderComponent(components, copied);
-	if (NULL != collider) {
-		Collider_init(components->colliderComponents, newEntityID, &components->total_colliderComponents, collider->type);
-	}
-
-	PhysicsBody* physicsBody = ECS_getPhysicsBodyComponent(components, copied);
-	if (NULL != physicsBody) {
-		PhysicsBody_init(components->physicsBodyComponents, newEntityID, &components->total_physicsBodyComponents, physicsBody->mass);
-		ECS_getPhysicsBodyComponent(components, newEntityID)->gravitationalAcceleration = physicsBody->gravitationalAcceleration;
-		ECS_getPhysicsBodyComponent(components, newEntityID)->velocity = physicsBody->velocity;
-		ECS_getPhysicsBodyComponent(components, newEntityID)->acceleration = physicsBody->acceleration;
-	}
-
-	Editor_init(components->editorComponents, newEntityID, &components->total_editorComponents);
-	Editor_select(components, newEntityID);
+	ECS_freeEntity(selected);
+	ECS_freeEntity(copied);
 }
