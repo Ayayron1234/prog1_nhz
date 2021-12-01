@@ -1,0 +1,78 @@
+.TH "Game" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Game
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Game\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBplayer\fP [255]"
+.br
+.ti -1c
+.RI "int \fBnumberOfLayouts\fP"
+.br
+.ti -1c
+.RI "\fBLayout\fP * \fBlayouts\fP"
+.br
+.ti -1c
+.RI "\fBLayout\fP * \fBcurrentLayout\fP"
+.br
+.ti -1c
+.RI "\fBGameResources\fP \fBresources\fP"
+.br
+.ti -1c
+.RI "int \fBstate\fP"
+.br
+.ti -1c
+.RI "bool \fBisRunning\fP"
+.br
+.ti -1c
+.RI "\fBGameAppearance\fP \fBappearance\fP"
+.br
+.ti -1c
+.RI "\fBGameTime\fP \fBtime\fP"
+.br
+.ti -1c
+.RI "SDL_Window * \fBwindow\fP"
+.br
+.ti -1c
+.RI "SDL_Renderer * \fBrenderer\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the main structure\&. All game data is stored in this object\&. game->componentLists 
+.SH "Field Documentation"
+.PP 
+.SS "\fBGameAppearance\fP appearance"
+
+.SS "\fBLayout\fP* currentLayout"
+
+.SS "bool isRunning"
+
+.SS "\fBLayout\fP* layouts"
+
+.SS "int numberOfLayouts"
+
+.SS "char player[255]"
+
+.SS "SDL_Renderer* renderer"
+
+.SS "\fBGameResources\fP resources"
+
+.SS "int state"
+
+.SS "\fBGameTime\fP time"
+
+.SS "SDL_Window* window"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

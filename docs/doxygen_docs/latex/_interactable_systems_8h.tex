@@ -1,0 +1,155 @@
+\hypertarget{_interactable_systems_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Interactable\+Systems.h File Reference}
+\label{_interactable_systems_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.h}}
+{\ttfamily \#include \char`\"{}ECS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Editor\+Systems.\+h\char`\"{}}\newline
+Include dependency graph for Interactable\+Systems.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_interaction_data__collision}{Interaction\+Data\+\_\+collision}}
+\item 
+struct \mbox{\hyperlink{struct_interaction_data__overlap}{Interaction\+Data\+\_\+overlap}}
+\item 
+struct \mbox{\hyperlink{struct_interaction_data__click}{Interaction\+Data\+\_\+click}}
+\item 
+struct \mbox{\hyperlink{struct_interaction_data__hold}{Interaction\+Data\+\_\+hold}}
+\item 
+struct \mbox{\hyperlink{struct_interaction_data__keydown}{Interaction\+Data\+\_\+keydown}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction_data__collision}{Interaction\+Data\+\_\+collision}} \mbox{\hyperlink{_interactable_systems_8h_a6b1e27dab54430aae33783bbe68b609e}{Interaction\+Data\+\_\+collision}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction_data__overlap}{Interaction\+Data\+\_\+overlap}} \mbox{\hyperlink{_interactable_systems_8h_a70576ba7622c88a0054e3d2bd0bb0e16}{Interaction\+Data\+\_\+overlap}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction_data__click}{Interaction\+Data\+\_\+click}} \mbox{\hyperlink{_interactable_systems_8h_ad1baf5ce5a934dfb5cde769a4ebecf46}{Interaction\+Data\+\_\+click}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction_data__hold}{Interaction\+Data\+\_\+hold}} \mbox{\hyperlink{_interactable_systems_8h_a37da984fc4b3c1918a5e079d7eb11f83}{Interaction\+Data\+\_\+hold}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction_data__keydown}{Interaction\+Data\+\_\+keydown}} \mbox{\hyperlink{_interactable_systems_8h_a56ca751739e9b1ecc8b0965f867723f3}{Interaction\+Data\+\_\+keydown}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_a6e0478ade55d2948c19f10ace30de161}{Interactable\+\_\+interact}} (\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}} interaction\+Type, void $\ast$interaction\+Data)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_ab7e982b57adb8ff955d90d40e890dfaf}{Interactable\+\_\+update}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$current\+Layout\+Name, \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+State)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_acb7bc993c906da3377e35ff6eb3ca1d9}{Interactable\+\_\+resolve\+Interaction}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$current\+Layout\+Name, \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{struct_interaction}{Interaction}} $\ast$interaction, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+State, bool $\ast$active\+Interactions)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_a43634ad62afa6fee220b0f91a17b5a8a}{Interactable\+\_\+lose\+Focus\+For\+All}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_a14eff960cb901bd6e42815f83d9bc3da}{Interactable\+\_\+focus}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int entity\+ID)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8h_ae85fd338eff1e8618710640569df7b4b}{Interactable\+\_\+focus\+Entity\+At\+Click}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_vec2}{Vec2}} mouse\+Position)
+\item 
+\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$ \mbox{\hyperlink{_interactable_systems_8h_a51d94afd2b9c02c6b0af04fcafa1b564}{Interactabe\+\_\+get\+Focused}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_interactable_systems_8h_ad1baf5ce5a934dfb5cde769a4ebecf46}\label{_interactable_systems_8h_ad1baf5ce5a934dfb5cde769a4ebecf46}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!InteractionData\_click@{InteractionData\_click}}
+\index{InteractionData\_click@{InteractionData\_click}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{InteractionData\_click}{InteractionData\_click}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction_data__click}{Interaction\+Data\+\_\+click}} \mbox{\hyperlink{struct_interaction_data__click}{Interaction\+Data\+\_\+click}}}
+
+\mbox{\Hypertarget{_interactable_systems_8h_a6b1e27dab54430aae33783bbe68b609e}\label{_interactable_systems_8h_a6b1e27dab54430aae33783bbe68b609e}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!InteractionData\_collision@{InteractionData\_collision}}
+\index{InteractionData\_collision@{InteractionData\_collision}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{InteractionData\_collision}{InteractionData\_collision}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction_data__collision}{Interaction\+Data\+\_\+collision}} \mbox{\hyperlink{struct_interaction_data__collision}{Interaction\+Data\+\_\+collision}}}
+
+\mbox{\Hypertarget{_interactable_systems_8h_a37da984fc4b3c1918a5e079d7eb11f83}\label{_interactable_systems_8h_a37da984fc4b3c1918a5e079d7eb11f83}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!InteractionData\_hold@{InteractionData\_hold}}
+\index{InteractionData\_hold@{InteractionData\_hold}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{InteractionData\_hold}{InteractionData\_hold}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction_data__hold}{Interaction\+Data\+\_\+hold}} \mbox{\hyperlink{struct_interaction_data__hold}{Interaction\+Data\+\_\+hold}}}
+
+\mbox{\Hypertarget{_interactable_systems_8h_a56ca751739e9b1ecc8b0965f867723f3}\label{_interactable_systems_8h_a56ca751739e9b1ecc8b0965f867723f3}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!InteractionData\_keydown@{InteractionData\_keydown}}
+\index{InteractionData\_keydown@{InteractionData\_keydown}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{InteractionData\_keydown}{InteractionData\_keydown}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction_data__keydown}{Interaction\+Data\+\_\+keydown}} \mbox{\hyperlink{struct_interaction_data__keydown}{Interaction\+Data\+\_\+keydown}}}
+
+\mbox{\Hypertarget{_interactable_systems_8h_a70576ba7622c88a0054e3d2bd0bb0e16}\label{_interactable_systems_8h_a70576ba7622c88a0054e3d2bd0bb0e16}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!InteractionData\_overlap@{InteractionData\_overlap}}
+\index{InteractionData\_overlap@{InteractionData\_overlap}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{InteractionData\_overlap}{InteractionData\_overlap}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction_data__overlap}{Interaction\+Data\+\_\+overlap}} \mbox{\hyperlink{struct_interaction_data__overlap}{Interaction\+Data\+\_\+overlap}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_interactable_systems_8h_a51d94afd2b9c02c6b0af04fcafa1b564}\label{_interactable_systems_8h_a51d94afd2b9c02c6b0af04fcafa1b564}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactabe\_getFocused@{Interactabe\_getFocused}}
+\index{Interactabe\_getFocused@{Interactabe\_getFocused}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactabe\_getFocused()}{Interactabe\_getFocused()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$ Interactabe\+\_\+get\+Focused (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_interactable_systems_8h_a14eff960cb901bd6e42815f83d9bc3da}\label{_interactable_systems_8h_a14eff960cb901bd6e42815f83d9bc3da}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_focus@{Interactable\_focus}}
+\index{Interactable\_focus@{Interactable\_focus}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_focus()}{Interactable\_focus()}}
+{\footnotesize\ttfamily void Interactable\+\_\+focus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{entity\+ID }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{_interactable_systems_8h_ae85fd338eff1e8618710640569df7b4b}\label{_interactable_systems_8h_ae85fd338eff1e8618710640569df7b4b}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_focusEntityAtClick@{Interactable\_focusEntityAtClick}}
+\index{Interactable\_focusEntityAtClick@{Interactable\_focusEntityAtClick}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_focusEntityAtClick()}{Interactable\_focusEntityAtClick()}}
+{\footnotesize\ttfamily void Interactable\+\_\+focus\+Entity\+At\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{mouse\+Position }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{_interactable_systems_8h_a6e0478ade55d2948c19f10ace30de161}\label{_interactable_systems_8h_a6e0478ade55d2948c19f10ace30de161}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_interact@{Interactable\_interact}}
+\index{Interactable\_interact@{Interactable\_interact}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_interact()}{Interactable\_interact()}}
+{\footnotesize\ttfamily void Interactable\+\_\+interact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}}}]{interaction\+Type,  }\item[{void $\ast$}]{interaction\+Data }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{_interactable_systems_8h_a43634ad62afa6fee220b0f91a17b5a8a}\label{_interactable_systems_8h_a43634ad62afa6fee220b0f91a17b5a8a}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_loseFocusForAll@{Interactable\_loseFocusForAll}}
+\index{Interactable\_loseFocusForAll@{Interactable\_loseFocusForAll}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_loseFocusForAll()}{Interactable\_loseFocusForAll()}}
+{\footnotesize\ttfamily void Interactable\+\_\+lose\+Focus\+For\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{_interactable_systems_8h_acb7bc993c906da3377e35ff6eb3ca1d9}\label{_interactable_systems_8h_acb7bc993c906da3377e35ff6eb3ca1d9}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_resolveInteraction@{Interactable\_resolveInteraction}}
+\index{Interactable\_resolveInteraction@{Interactable\_resolveInteraction}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_resolveInteraction()}{Interactable\_resolveInteraction()}}
+{\footnotesize\ttfamily void Interactable\+\_\+resolve\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{current\+Layout\+Name,  }\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{struct_interaction}{Interaction}} $\ast$}]{interaction,  }\item[{\mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}]{game\+State,  }\item[{bool $\ast$}]{active\+Interactions }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{_interactable_systems_8h_ab7e982b57adb8ff955d90d40e890dfaf}\label{_interactable_systems_8h_ab7e982b57adb8ff955d90d40e890dfaf}} 
+\index{InteractableSystems.h@{InteractableSystems.h}!Interactable\_update@{Interactable\_update}}
+\index{Interactable\_update@{Interactable\_update}!InteractableSystems.h@{InteractableSystems.h}}
+\doxysubsubsection{\texorpdfstring{Interactable\_update()}{Interactable\_update()}}
+{\footnotesize\ttfamily void Interactable\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{current\+Layout\+Name,  }\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}]{game\+State }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14

@@ -1,0 +1,47 @@
+\hypertarget{_tile_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Tile.c File Reference}
+\label{_tile_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Tile.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Tile.c}}
+{\ttfamily \#include \char`\"{}Tile.\+h\char`\"{}}\newline
+Include dependency graph for Tile.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_tile_8c_a969f77794e1aa1db7d9fdff83649fb0e}{Tile\+\_\+init}} (\mbox{\hyperlink{struct_tile}{Tile}} $\ast$tiles, int entity\+ID, int $\ast$total\+\_\+tile\+Components, \mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$tilemap, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} tile\+Position, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} size)
+\item 
+void \mbox{\hyperlink{_tile_8c_ab2da0ac641f216b7540d454a06d28f09}{Tile\+\_\+delete}} (\mbox{\hyperlink{struct_tile}{Tile}} $\ast$tiles, int entity\+ID, int $\ast$total\+\_\+tile\+Components)
+\item 
+void \mbox{\hyperlink{_tile_8c_ac4ece1e58356b14e6109cd0d0ddeb34b}{Tile\+\_\+deserialise}} (\mbox{\hyperlink{struct_tile}{Tile}} $\ast$tiles, int $\ast$total\+\_\+tile\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$tilemap)
+\item 
+void \mbox{\hyperlink{_tile_8c_a7993233fa49d9c709025e19bf458bf5b}{Tile\+\_\+serialise}} (\mbox{\hyperlink{struct_tile}{Tile}} $\ast$tiles, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_tile_8c_ab2da0ac641f216b7540d454a06d28f09}\label{_tile_8c_ab2da0ac641f216b7540d454a06d28f09}} 
+\index{Tile.c@{Tile.c}!Tile\_delete@{Tile\_delete}}
+\index{Tile\_delete@{Tile\_delete}!Tile.c@{Tile.c}}
+\doxysubsubsection{\texorpdfstring{Tile\_delete()}{Tile\_delete()}}
+{\footnotesize\ttfamily void Tile\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tile}{Tile}} $\ast$}]{tiles,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+tile\+Components }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_tile_8c_ac4ece1e58356b14e6109cd0d0ddeb34b}\label{_tile_8c_ac4ece1e58356b14e6109cd0d0ddeb34b}} 
+\index{Tile.c@{Tile.c}!Tile\_deserialise@{Tile\_deserialise}}
+\index{Tile\_deserialise@{Tile\_deserialise}!Tile.c@{Tile.c}}
+\doxysubsubsection{\texorpdfstring{Tile\_deserialise()}{Tile\_deserialise()}}
+{\footnotesize\ttfamily void Tile\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tile}{Tile}} $\ast$}]{tiles,  }\item[{int $\ast$}]{total\+\_\+tile\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{tilemap }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_tile_8c_a969f77794e1aa1db7d9fdff83649fb0e}\label{_tile_8c_a969f77794e1aa1db7d9fdff83649fb0e}} 
+\index{Tile.c@{Tile.c}!Tile\_init@{Tile\_init}}
+\index{Tile\_init@{Tile\_init}!Tile.c@{Tile.c}}
+\doxysubsubsection{\texorpdfstring{Tile\_init()}{Tile\_init()}}
+{\footnotesize\ttfamily void Tile\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tile}{Tile}} $\ast$}]{tiles,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+tile\+Components,  }\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{tilemap,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{tile\+Position,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_tile_8c_a7993233fa49d9c709025e19bf458bf5b}\label{_tile_8c_a7993233fa49d9c709025e19bf458bf5b}} 
+\index{Tile.c@{Tile.c}!Tile\_serialise@{Tile\_serialise}}
+\index{Tile\_serialise@{Tile\_serialise}!Tile.c@{Tile.c}}
+\doxysubsubsection{\texorpdfstring{Tile\_serialise()}{Tile\_serialise()}}
+{\footnotesize\ttfamily void Tile\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tile}{Tile}} $\ast$}]{tiles,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

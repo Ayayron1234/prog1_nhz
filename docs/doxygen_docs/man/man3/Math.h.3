@@ -1,0 +1,149 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Math.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Math.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdarg\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBVec2\fP"
+.br
+.ti -1c
+.RI "struct \fBVec2Int\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBVec2\fP \fBVec2\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBVec2Int\fP \fBVec2Int\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBMath_maxInt\fP (int n_args,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "double \fBMath_maxDouble\fP (int n_args,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "double \fBMath_minDouble\fP (int n_args,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "\fBVec2\fP \fBVec2_add\fP (\fBVec2\fP a, \fBVec2\fP b)"
+.br
+.ti -1c
+.RI "\fBVec2\fP \fBVec2_imul\fP (\fBVec2\fP a, double n)"
+.br
+.ti -1c
+.RI "void \fBVec2_increaseByVec\fP (\fBVec2\fP *target, \fBVec2\fP value)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBVec2\fP \fBVec2\fP"
+
+.SS "typedef struct \fBVec2Int\fP \fBVec2Int\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "double Math_maxDouble (int n_args,  \&.\&.\&.)"
+Gets the maximum of a given list of doubles\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn_args\fP number of doubles\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The double with the greatest value\&. 
+.RE
+.PP
+
+.SS "int Math_maxInt (int n_args,  \&.\&.\&.)"
+Gets the maximum of a given list of integers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn_args\fP number of integers\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The integer with the greatest value\&. 
+.RE
+.PP
+
+.SS "double Math_minDouble (int n_args,  \&.\&.\&.)"
+Gets the minimum of a given list of doubles\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn_args\fP number of doubles\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The double with the smallest value\&. 
+.RE
+.PP
+
+.SS "\fBVec2\fP Vec2_add (\fBVec2\fP a, \fBVec2\fP b)"
+Calculates the sum of two two dimensional vectors\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP The first vector\&. 
+.br
+\fIb\fP The second vector\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The sum of the two given vectors\&. 
+.RE
+.PP
+
+.SS "\fBVec2\fP Vec2_imul (\fBVec2\fP a, double n)"
+Calculates the result of a vector multiplied by a number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP a two dimensional vector 
+.br
+\fIm\fP The value which the vector's members should be multiplied by\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The resulting two dimensional vector\&. 
+.RE
+.PP
+
+.SS "void Vec2_increaseByVec (\fBVec2\fP * target, \fBVec2\fP value)"
+Increases a vector by another vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItarget\fP A pointer to the vector which should be increased\&. 
+.br
+\fIvalue\fP A two dimensional vector which the target should be increased by\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

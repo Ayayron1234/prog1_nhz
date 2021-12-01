@@ -1,0 +1,47 @@
+\hypertarget{_animation_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Animation.c File Reference}
+\label{_animation_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Animation.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Animation.c}}
+{\ttfamily \#include \char`\"{}Animation.\+h\char`\"{}}\newline
+Include dependency graph for Animation.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_animation_8c_acd5e6c15203549f360546b8fd0194ea0}{Animation\+\_\+init}} (\mbox{\hyperlink{struct_animation}{Animation}} $\ast$animations, int entity\+\_\+\+ID, int $\ast$total\+\_\+animation\+Components, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} tile\+Position, int frame\+Count, double animation\+Speed)
+\item 
+void \mbox{\hyperlink{_animation_8c_a8625ea65a14079b39a2d0e0c80121b4f}{Animation\+\_\+delete}} (\mbox{\hyperlink{struct_animation}{Animation}} $\ast$animations, int entity\+\_\+\+ID, int $\ast$total\+\_\+animation\+Components)
+\item 
+void \mbox{\hyperlink{_animation_8c_a89cce9ecc5721c69f8f3d40a2c79b10f}{Animation\+\_\+deserialise}} (\mbox{\hyperlink{struct_animation}{Animation}} $\ast$animations, int $\ast$total\+\_\+animation\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_animation_8c_a89db8ed20d2f5b7944caafe5f9422207}{Animation\+\_\+serialise}} (\mbox{\hyperlink{struct_animation}{Animation}} $\ast$animations, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_animation_8c_a8625ea65a14079b39a2d0e0c80121b4f}\label{_animation_8c_a8625ea65a14079b39a2d0e0c80121b4f}} 
+\index{Animation.c@{Animation.c}!Animation\_delete@{Animation\_delete}}
+\index{Animation\_delete@{Animation\_delete}!Animation.c@{Animation.c}}
+\doxysubsubsection{\texorpdfstring{Animation\_delete()}{Animation\_delete()}}
+{\footnotesize\ttfamily void Animation\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_animation}{Animation}} $\ast$}]{animations,  }\item[{int}]{entity\+\_\+\+ID,  }\item[{int $\ast$}]{total\+\_\+animation\+Components }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_animation_8c_a89cce9ecc5721c69f8f3d40a2c79b10f}\label{_animation_8c_a89cce9ecc5721c69f8f3d40a2c79b10f}} 
+\index{Animation.c@{Animation.c}!Animation\_deserialise@{Animation\_deserialise}}
+\index{Animation\_deserialise@{Animation\_deserialise}!Animation.c@{Animation.c}}
+\doxysubsubsection{\texorpdfstring{Animation\_deserialise()}{Animation\_deserialise()}}
+{\footnotesize\ttfamily void Animation\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_animation}{Animation}} $\ast$}]{animations,  }\item[{int $\ast$}]{total\+\_\+animation\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_animation_8c_acd5e6c15203549f360546b8fd0194ea0}\label{_animation_8c_acd5e6c15203549f360546b8fd0194ea0}} 
+\index{Animation.c@{Animation.c}!Animation\_init@{Animation\_init}}
+\index{Animation\_init@{Animation\_init}!Animation.c@{Animation.c}}
+\doxysubsubsection{\texorpdfstring{Animation\_init()}{Animation\_init()}}
+{\footnotesize\ttfamily void Animation\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_animation}{Animation}} $\ast$}]{animations,  }\item[{int}]{entity\+\_\+\+ID,  }\item[{int $\ast$}]{total\+\_\+animation\+Components,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{tile\+Position,  }\item[{int}]{frame\+Count,  }\item[{double}]{animation\+Speed }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_animation_8c_a89db8ed20d2f5b7944caafe5f9422207}\label{_animation_8c_a89db8ed20d2f5b7944caafe5f9422207}} 
+\index{Animation.c@{Animation.c}!Animation\_serialise@{Animation\_serialise}}
+\index{Animation\_serialise@{Animation\_serialise}!Animation.c@{Animation.c}}
+\doxysubsubsection{\texorpdfstring{Animation\_serialise()}{Animation\_serialise()}}
+{\footnotesize\ttfamily void Animation\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_animation}{Animation}} $\ast$}]{animations,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

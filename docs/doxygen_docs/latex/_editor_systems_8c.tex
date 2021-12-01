@@ -1,0 +1,179 @@
+\hypertarget{_editor_systems_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Editor\+Systems.c File Reference}
+\label{_editor_systems_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/EditorSystems.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/EditorSystems.c}}
+{\ttfamily \#include \char`\"{}Editor\+Systems.\+h\char`\"{}}\newline
+Include dependency graph for Editor\+Systems.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_a7bfec97c1f55f8265a882d023cbd4a01}{Editor\+\_\+render}} (int game\+State, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_editor}{Editor}} $\ast$editor, SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$ttf\+Font)
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_ad08e7838f6b162c92832272682e8a159}{Editor\+\_\+render\+Position\+Data}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_editor}{Editor}} $\ast$editor, SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$ttf\+Font)
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_a0be42ead2aee7a61cbff0bedd5db3a78}{Editor\+\_\+select\+Entity\+At\+Click}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_vec2}{Vec2}} mouse\+Position)
+\item 
+int \mbox{\hyperlink{_editor_systems_8c_aff7a561b811a11cb63123e08d1200fd4}{Editor\+\_\+get\+Selected}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_ab67232b13a49d2ea398831201e72f261}{Editor\+\_\+select}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int entity\+ID)
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_a149e7c435f50f3a46ec8d1b59d949b74}{Editor\+\_\+deselect\+All}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_editor_systems_8c_a9f949608a550d6d3ed3a528a9580bd18}{Editor\+\_\+copy}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int entity\+ID)
+\item 
+int \mbox{\hyperlink{_editor_systems_8c_aff3eddf012fafe777631e26bee40eabf}{Editor\+\_\+paste}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$layout\+Name, void $\ast$$\ast$copied)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_editor_systems_8c_a9f949608a550d6d3ed3a528a9580bd18}\label{_editor_systems_8c_a9f949608a550d6d3ed3a528a9580bd18}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_copy@{Editor\_copy}}
+\index{Editor\_copy@{Editor\_copy}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_copy()}{Editor\_copy()}}
+{\footnotesize\ttfamily void Editor\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{entity\+ID }\end{DoxyParamCaption})}
+
+Sets the copied attribute of the given entity to true. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we want to copy the entity from. \\
+\hline
+{\em entity\+ID} & The ID of the entity we want to copy. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_editor_systems_8c_a149e7c435f50f3a46ec8d1b59d949b74}\label{_editor_systems_8c_a149e7c435f50f3a46ec8d1b59d949b74}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_deselectAll@{Editor\_deselectAll}}
+\index{Editor\_deselectAll@{Editor\_deselectAll}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_deselectAll()}{Editor\_deselectAll()}}
+{\footnotesize\ttfamily void Editor\+\_\+deselect\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Deselects all entities. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout whos child entities we want to deselect. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_editor_systems_8c_aff7a561b811a11cb63123e08d1200fd4}\label{_editor_systems_8c_aff7a561b811a11cb63123e08d1200fd4}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_getSelected@{Editor\_getSelected}}
+\index{Editor\_getSelected@{Editor\_getSelected}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_getSelected()}{Editor\_getSelected()}}
+{\footnotesize\ttfamily int Editor\+\_\+get\+Selected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Returns the selected entity\textquotesingle{}s ID. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we want to look for the selected entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entity\textquotesingle{}s ID. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{_editor_systems_8c_aff3eddf012fafe777631e26bee40eabf}\label{_editor_systems_8c_aff3eddf012fafe777631e26bee40eabf}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_paste@{Editor\_paste}}
+\index{Editor\_paste@{Editor\_paste}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_paste()}{Editor\_paste()}}
+{\footnotesize\ttfamily int Editor\+\_\+paste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{layout\+Name,  }\item[{void $\ast$$\ast$}]{copied }\end{DoxyParamCaption})}
+
+Duplicates the copied entity. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & List of layouts. \\
+\hline
+{\em number\+OFlayouts} & The number of layouts. \\
+\hline
+{\em layout\+Name} & The name of the layout where we want to paste the new enity in. \\
+\hline
+{\em copied} & The list of components that belong to the copied entity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of the new component. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 7
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{_editor_systems_8c_a7bfec97c1f55f8265a882d023cbd4a01}\label{_editor_systems_8c_a7bfec97c1f55f8265a882d023cbd4a01}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_render@{Editor\_render}}
+\index{Editor\_render@{Editor\_render}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_render()}{Editor\_render()}}
+{\footnotesize\ttfamily void Editor\+\_\+render (\begin{DoxyParamCaption}\item[{int}]{game\+State,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editor,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{ttf\+Font }\end{DoxyParamCaption})}
+
+Renders a box around the selected entity if the game state is EDIT\+\_\+\+MODE. 
+\begin{DoxyParams}{Parameters}
+{\em game\+State} & The game\textquotesingle{}s state. \\
+\hline
+{\em current\+Layout} & The layout where we want to display the box, and the parent layout of the selected entity. \\
+\hline
+{\em editor} & The editor we want to render. \\
+\hline
+{\em renderer} & The rendering context where we want to render the box. \\
+\hline
+{\em ttf\+Font} & A pointer to the loaded font family which we want to use to display data about the entity. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{_editor_systems_8c_ad08e7838f6b162c92832272682e8a159}\label{_editor_systems_8c_ad08e7838f6b162c92832272682e8a159}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_renderPositionData@{Editor\_renderPositionData}}
+\index{Editor\_renderPositionData@{Editor\_renderPositionData}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_renderPositionData()}{Editor\_renderPositionData()}}
+{\footnotesize\ttfamily void Editor\+\_\+render\+Position\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editor,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{ttf\+Font }\end{DoxyParamCaption})}
+
+Renders position and layout data, and displays the entity\textquotesingle{}s ID. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we want to display the box, and the parent layout of the selected entity. \\
+\hline
+{\em editor} & The editor we want to render. \\
+\hline
+{\em renderer} & The rendering context where we want to render the box. \\
+\hline
+{\em ttf\+Font} & A pointer to the loaded font family which we want to use to display data about the entity. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{_editor_systems_8c_ab67232b13a49d2ea398831201e72f261}\label{_editor_systems_8c_ab67232b13a49d2ea398831201e72f261}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_select@{Editor\_select}}
+\index{Editor\_select@{Editor\_select}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_select()}{Editor\_select()}}
+{\footnotesize\ttfamily void Editor\+\_\+select (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{entity\+ID }\end{DoxyParamCaption})}
+
+Selects an entity with a given ID. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout were we want to select the entity. \\
+\hline
+{\em entity\+ID} & The ID of the entity we want to select. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{_editor_systems_8c_a0be42ead2aee7a61cbff0bedd5db3a78}\label{_editor_systems_8c_a0be42ead2aee7a61cbff0bedd5db3a78}} 
+\index{EditorSystems.c@{EditorSystems.c}!Editor\_selectEntityAtClick@{Editor\_selectEntityAtClick}}
+\index{Editor\_selectEntityAtClick@{Editor\_selectEntityAtClick}!EditorSystems.c@{EditorSystems.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_selectEntityAtClick()}{Editor\_selectEntityAtClick()}}
+{\footnotesize\ttfamily void Editor\+\_\+select\+Entity\+At\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{mouse\+Position }\end{DoxyParamCaption})}
+
+Selects entity at a given location. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we want to select the entity. \\
+\hline
+{\em mouse\+Position} & The cursor\textquotesingle{}s position relative to the game window. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16

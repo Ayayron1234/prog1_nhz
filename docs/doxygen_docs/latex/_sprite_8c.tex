@@ -1,0 +1,47 @@
+\hypertarget{_sprite_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Sprite.c File Reference}
+\label{_sprite_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Sprite.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Sprite.c}}
+{\ttfamily \#include \char`\"{}Sprite.\+h\char`\"{}}\newline
+Include dependency graph for Sprite.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_sprite_8c_a060d809dcb59164183576830e27d323e}{Sprite\+\_\+init}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$dest, int entity\+ID, int $\ast$total\+\_\+sprite\+Components, \mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$tilemap, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} tile\+Position)
+\item 
+void \mbox{\hyperlink{_sprite_8c_a101bf65baedc0da1e058aab44e53fa62}{Sprite\+\_\+delete}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$sprites, int entity\+ID, int $\ast$total\+\_\+sprite\+Components)
+\item 
+void \mbox{\hyperlink{_sprite_8c_a5c9c67958d319008e21ed42f93533f8b}{Sprite\+\_\+deserialise}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$sprites, int $\ast$total\+\_\+sprite\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$tilemap)
+\item 
+void \mbox{\hyperlink{_sprite_8c_ad1ee6ae001a10e97c1c490167d2416e0}{Sprite\+\_\+serialise}} (\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$sprites, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_sprite_8c_a101bf65baedc0da1e058aab44e53fa62}\label{_sprite_8c_a101bf65baedc0da1e058aab44e53fa62}} 
+\index{Sprite.c@{Sprite.c}!Sprite\_delete@{Sprite\_delete}}
+\index{Sprite\_delete@{Sprite\_delete}!Sprite.c@{Sprite.c}}
+\doxysubsubsection{\texorpdfstring{Sprite\_delete()}{Sprite\_delete()}}
+{\footnotesize\ttfamily void Sprite\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{sprites,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+sprite\+Components }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_sprite_8c_a5c9c67958d319008e21ed42f93533f8b}\label{_sprite_8c_a5c9c67958d319008e21ed42f93533f8b}} 
+\index{Sprite.c@{Sprite.c}!Sprite\_deserialise@{Sprite\_deserialise}}
+\index{Sprite\_deserialise@{Sprite\_deserialise}!Sprite.c@{Sprite.c}}
+\doxysubsubsection{\texorpdfstring{Sprite\_deserialise()}{Sprite\_deserialise()}}
+{\footnotesize\ttfamily void Sprite\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{sprites,  }\item[{int $\ast$}]{total\+\_\+sprite\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{tilemap }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_sprite_8c_a060d809dcb59164183576830e27d323e}\label{_sprite_8c_a060d809dcb59164183576830e27d323e}} 
+\index{Sprite.c@{Sprite.c}!Sprite\_init@{Sprite\_init}}
+\index{Sprite\_init@{Sprite\_init}!Sprite.c@{Sprite.c}}
+\doxysubsubsection{\texorpdfstring{Sprite\_init()}{Sprite\_init()}}
+{\footnotesize\ttfamily void Sprite\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{dest,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+sprite\+Components,  }\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{tilemap,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{tile\+Position }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_sprite_8c_ad1ee6ae001a10e97c1c490167d2416e0}\label{_sprite_8c_ad1ee6ae001a10e97c1c490167d2416e0}} 
+\index{Sprite.c@{Sprite.c}!Sprite\_serialise@{Sprite\_serialise}}
+\index{Sprite\_serialise@{Sprite\_serialise}!Sprite.c@{Sprite.c}}
+\doxysubsubsection{\texorpdfstring{Sprite\_serialise()}{Sprite\_serialise()}}
+{\footnotesize\ttfamily void Sprite\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sprite}{Sprite}} $\ast$}]{sprites,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

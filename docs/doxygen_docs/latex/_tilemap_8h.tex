@@ -1,0 +1,101 @@
+\hypertarget{_tilemap_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Tilemap.h File Reference}
+\label{_tilemap_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Tilemap.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Tilemap.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+image.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$crtdbg.\+h$>$}\newline
+Include dependency graph for Tilemap.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_render_properties}{Render\+Properties}}
+\item 
+struct \mbox{\hyperlink{struct_tilemap}{Tilemap}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_tilemap_8h_afc30e481f763a8d68a861dba91be7316}{\+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_render_properties}{Render\+Properties}} \mbox{\hyperlink{_tilemap_8h_a1fa54065f56cc4f8a7251305860152fd}{Render\+Properties}}
+\item 
+typedef struct \mbox{\hyperlink{struct_tilemap}{Tilemap}} \mbox{\hyperlink{_tilemap_8h_ab1b77d2fd54564f19d94fc480d59261a}{Tilemap}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_tilemap_8h_afce15ed3368896ec368cee1e48af6231}{Tilemap\+\_\+init}} (\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$dst, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} tile\+Size, SDL\+\_\+\+Renderer $\ast$renderer, char path\mbox{[}255\mbox{]})
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{_tilemap_8h_a987609327a251f6182700350b025bdfc}{Tilemap\+\_\+get\+Source\+Rect}} (\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$tilemap, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} tile\+Position)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_tilemap_8h_afc30e481f763a8d68a861dba91be7316}\label{_tilemap_8h_afc30e481f763a8d68a861dba91be7316}} 
+\index{Tilemap.h@{Tilemap.h}!\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}}
+\index{\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}!Tilemap.h@{Tilemap.h}}
+\doxysubsubsection{\texorpdfstring{\_CRTDBG\_MAP\_ALLOC}{\_CRTDBG\_MAP\_ALLOC}}
+{\footnotesize\ttfamily \#define \+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_tilemap_8h_a1fa54065f56cc4f8a7251305860152fd}\label{_tilemap_8h_a1fa54065f56cc4f8a7251305860152fd}} 
+\index{Tilemap.h@{Tilemap.h}!RenderProperties@{RenderProperties}}
+\index{RenderProperties@{RenderProperties}!Tilemap.h@{Tilemap.h}}
+\doxysubsubsection{\texorpdfstring{RenderProperties}{RenderProperties}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_render_properties}{Render\+Properties}} \mbox{\hyperlink{struct_render_properties}{Render\+Properties}}}
+
+Details of a component\textquotesingle{}s rendering. \mbox{\Hypertarget{_tilemap_8h_ab1b77d2fd54564f19d94fc480d59261a}\label{_tilemap_8h_ab1b77d2fd54564f19d94fc480d59261a}} 
+\index{Tilemap.h@{Tilemap.h}!Tilemap@{Tilemap}}
+\index{Tilemap@{Tilemap}!Tilemap.h@{Tilemap.h}}
+\doxysubsubsection{\texorpdfstring{Tilemap}{Tilemap}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_tilemap}{Tilemap}} \mbox{\hyperlink{struct_tilemap}{Tilemap}}}
+
+Stores the texture of all entities. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_tilemap_8h_a987609327a251f6182700350b025bdfc}\label{_tilemap_8h_a987609327a251f6182700350b025bdfc}} 
+\index{Tilemap.h@{Tilemap.h}!Tilemap\_getSourceRect@{Tilemap\_getSourceRect}}
+\index{Tilemap\_getSourceRect@{Tilemap\_getSourceRect}!Tilemap.h@{Tilemap.h}}
+\doxysubsubsection{\texorpdfstring{Tilemap\_getSourceRect()}{Tilemap\_getSourceRect()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect Tilemap\+\_\+get\+Source\+Rect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{tilemap,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{tile\+Position }\end{DoxyParamCaption})}
+
+Returns the position and dimensions of a given tile. 
+\begin{DoxyParams}{Parameters}
+{\em tilemap} & The tilemap from which we want to get the tile\textquotesingle{}s position and dimensions. \\
+\hline
+{\em tile\+Position} & the two dimensional index of where the tile is inside the tile map. This is not the same as the position that is returned by this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A rectangle, which corresponds to the part of the tilemap which contains the tile that we are looking for. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_tilemap_8h_afce15ed3368896ec368cee1e48af6231}\label{_tilemap_8h_afce15ed3368896ec368cee1e48af6231}} 
+\index{Tilemap.h@{Tilemap.h}!Tilemap\_init@{Tilemap\_init}}
+\index{Tilemap\_init@{Tilemap\_init}!Tilemap.h@{Tilemap.h}}
+\doxysubsubsection{\texorpdfstring{Tilemap\_init()}{Tilemap\_init()}}
+{\footnotesize\ttfamily void Tilemap\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_tilemap}{Tilemap}} $\ast$}]{dst,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{tile\+Size,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+Loads tilemap from the specified path and sets it\textquotesingle{}s dimensions. 
+\begin{DoxyParams}{Parameters}
+{\em dst} & Pointer to the tilemap where the data should be loaded. \\
+\hline
+{\em tile\+Size} & dimensions of an object in this tilemap. \\
+\hline
+{\em renderer} & SDL renderer where the tilemap will be rendered. \\
+\hline
+{\em path} & Path of the image file containing the tilemap. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 3

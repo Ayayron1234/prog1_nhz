@@ -1,0 +1,93 @@
+\hypertarget{_interactable_systems_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Interactable\+Systems.c File Reference}
+\label{_interactable_systems_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.c}}
+{\ttfamily \#include \char`\"{}Interactable\+Systems.\+h\char`\"{}}\newline
+Include dependency graph for Interactable\+Systems.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_a6e0478ade55d2948c19f10ace30de161}{Interactable\+\_\+interact}} (\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}} interaction\+Type, void $\ast$interaction\+Data)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_acb7bc993c906da3377e35ff6eb3ca1d9}{Interactable\+\_\+resolve\+Interaction}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$current\+Layout\+Name, \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{struct_interaction}{Interaction}} $\ast$interaction, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+State, bool $\ast$active\+Interactions)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_a43634ad62afa6fee220b0f91a17b5a8a}{Interactable\+\_\+lose\+Focus\+For\+All}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_a14eff960cb901bd6e42815f83d9bc3da}{Interactable\+\_\+focus}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int entity\+ID)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_ae85fd338eff1e8618710640569df7b4b}{Interactable\+\_\+focus\+Entity\+At\+Click}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_vec2}{Vec2}} mouse\+Position)
+\item 
+\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$ \mbox{\hyperlink{_interactable_systems_8c_a51d94afd2b9c02c6b0af04fcafa1b564}{Interactabe\+\_\+get\+Focused}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_interactable_systems_8c_ab7e982b57adb8ff955d90d40e890dfaf}{Interactable\+\_\+update}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$current\+Layout\+Name, \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$interactable, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+State)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_interactable_systems_8c_a51d94afd2b9c02c6b0af04fcafa1b564}\label{_interactable_systems_8c_a51d94afd2b9c02c6b0af04fcafa1b564}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactabe\_getFocused@{Interactabe\_getFocused}}
+\index{Interactabe\_getFocused@{Interactabe\_getFocused}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactabe\_getFocused()}{Interactabe\_getFocused()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$ Interactabe\+\_\+get\+Focused (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_interactable_systems_8c_a14eff960cb901bd6e42815f83d9bc3da}\label{_interactable_systems_8c_a14eff960cb901bd6e42815f83d9bc3da}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_focus@{Interactable\_focus}}
+\index{Interactable\_focus@{Interactable\_focus}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_focus()}{Interactable\_focus()}}
+{\footnotesize\ttfamily void Interactable\+\_\+focus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{entity\+ID }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_interactable_systems_8c_ae85fd338eff1e8618710640569df7b4b}\label{_interactable_systems_8c_ae85fd338eff1e8618710640569df7b4b}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_focusEntityAtClick@{Interactable\_focusEntityAtClick}}
+\index{Interactable\_focusEntityAtClick@{Interactable\_focusEntityAtClick}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_focusEntityAtClick()}{Interactable\_focusEntityAtClick()}}
+{\footnotesize\ttfamily void Interactable\+\_\+focus\+Entity\+At\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{mouse\+Position }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{_interactable_systems_8c_a6e0478ade55d2948c19f10ace30de161}\label{_interactable_systems_8c_a6e0478ade55d2948c19f10ace30de161}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_interact@{Interactable\_interact}}
+\index{Interactable\_interact@{Interactable\_interact}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_interact()}{Interactable\_interact()}}
+{\footnotesize\ttfamily void Interactable\+\_\+interact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}}}]{interaction\+Type,  }\item[{void $\ast$}]{interaction\+Data }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{_interactable_systems_8c_a43634ad62afa6fee220b0f91a17b5a8a}\label{_interactable_systems_8c_a43634ad62afa6fee220b0f91a17b5a8a}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_loseFocusForAll@{Interactable\_loseFocusForAll}}
+\index{Interactable\_loseFocusForAll@{Interactable\_loseFocusForAll}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_loseFocusForAll()}{Interactable\_loseFocusForAll()}}
+{\footnotesize\ttfamily void Interactable\+\_\+lose\+Focus\+For\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{_interactable_systems_8c_acb7bc993c906da3377e35ff6eb3ca1d9}\label{_interactable_systems_8c_acb7bc993c906da3377e35ff6eb3ca1d9}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_resolveInteraction@{Interactable\_resolveInteraction}}
+\index{Interactable\_resolveInteraction@{Interactable\_resolveInteraction}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_resolveInteraction()}{Interactable\_resolveInteraction()}}
+{\footnotesize\ttfamily void Interactable\+\_\+resolve\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{current\+Layout\+Name,  }\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{struct_interaction}{Interaction}} $\ast$}]{interaction,  }\item[{\mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}]{game\+State,  }\item[{bool $\ast$}]{active\+Interactions }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{_interactable_systems_8c_ab7e982b57adb8ff955d90d40e890dfaf}\label{_interactable_systems_8c_ab7e982b57adb8ff955d90d40e890dfaf}} 
+\index{InteractableSystems.c@{InteractableSystems.c}!Interactable\_update@{Interactable\_update}}
+\index{Interactable\_update@{Interactable\_update}!InteractableSystems.c@{InteractableSystems.c}}
+\doxysubsubsection{\texorpdfstring{Interactable\_update()}{Interactable\_update()}}
+{\footnotesize\ttfamily void Interactable\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{current\+Layout\+Name,  }\item[{\mbox{\hyperlink{struct_interactable}{Interactable}} $\ast$}]{interactable,  }\item[{\mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}]{game\+State }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13

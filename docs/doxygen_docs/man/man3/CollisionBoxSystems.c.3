@@ -1,0 +1,85 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/CollisionBoxSystems.c" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/CollisionBoxSystems.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'CollisionBoxSystems\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCollisionBox_update\fP (int gameState, \fBLayout\fP *currentLayout, \fBCollisionBox\fP *collisionBox)"
+.br
+.ti -1c
+.RI "bool \fBCollisionBox_isPointInside\fP (\fBLayout\fP *currentLayout, \fBCollisionBox\fP *collisionBox, \fBVec2\fP point)"
+.br
+.ti -1c
+.RI "bool \fBCollisionBox_checkForOverlapp\fP (SDL_Rect A, SDL_Rect B)"
+.br
+.ti -1c
+.RI "bool \fBCollisionBox_checkIfRayOverlapps\fP (\fBLayout\fP *currentLayout, \fBCollisionBox\fP *collisionBox, \fBRay2\fP ray, \fBVec2\fP *contactPoint, \fBVec2\fP *contactNormal, double *tHitNear)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "bool CollisionBox_checkForOverlapp (SDL_Rect A, SDL_Rect B)"
+Checks if two rectangles boxs overlap\&. @pararm A An SDL_Rect rectangle\&. @pararm B An SDL_Rect rectangle\&. 
+.PP
+\fBReturns\fP
+.RS 4
+logic true if they overlap, false if they don't\&. 
+.RE
+.PP
+
+.SS "bool CollisionBox_checkIfRayOverlapps (\fBLayout\fP * currentLayout, \fBCollisionBox\fP * collisionBox, \fBRay2\fP ray, \fBVec2\fP * contactPoint, \fBVec2\fP * contactNormal, double * tHitNear)"
+Checks if ray overlapps with collision box\&. This is used in collision detection\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The collision box's parent layout\&. 
+.br
+\fIcollisionBox\fP The collision box which we want to check the point against\&. 
+.br
+\fIray\fP The ray we want to check\&. 
+.br
+\fIcontactPoint\fP A pointer to the 2d vector where we want to store the contact point of the ray and the collision box\&. 
+.br
+\fIcontactNormal\fP A pointer to the 2d vector where we want to store the normal vector of the collision\&. 
+.br
+\fItHitNear\fP A double representing where the collision happened on teh ray\&. If the value is between 0 and 1, than there was a collision\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+logic true if they collide, false if they don't\&. 
+.RE
+.PP
+
+.SS "bool CollisionBox_isPointInside (\fBLayout\fP * currentLayout, \fBCollisionBox\fP * collisionBox, \fBVec2\fP point)"
+Checks if a point is inside the collision box\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The collision box's parent layout\&. 
+.br
+\fIcollisionBox\fP The collision box which we want to check the point against\&. 
+.br
+\fIpoint\fP The point we want to check\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+logic true if the point is inside, false if it is outside\&. 
+.RE
+.PP
+
+.SS "void CollisionBox_update (int gameState, \fBLayout\fP * currentLayout, \fBCollisionBox\fP * collisionBox)"
+Update size of collision box components\&.Gets called in each frame\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

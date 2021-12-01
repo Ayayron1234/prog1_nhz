@@ -1,0 +1,112 @@
+\hypertarget{struct_game}{}\doxysection{Game Struct Reference}
+\label{struct_game}\index{Game@{Game}}
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+
+
+Collaboration diagram for Game\+:
+% FIG 0
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{struct_game_ae02e3ec27a14b82232e2d41603b55079}{player}} \mbox{[}255\mbox{]}
+\item 
+int \mbox{\hyperlink{struct_game_abb730096dc11e78c1cdc36481e193780}{number\+Of\+Layouts}}
+\item 
+\mbox{\hyperlink{struct_layout}{Layout}} $\ast$ \mbox{\hyperlink{struct_game_aaa9a626c2a6c54a2fc5b0b3933134dc9}{layouts}}
+\item 
+\mbox{\hyperlink{struct_layout}{Layout}} $\ast$ \mbox{\hyperlink{struct_game_a2cafa5b40d3b52139752a2eca6d51c55}{current\+Layout}}
+\item 
+\mbox{\hyperlink{struct_game_resources}{Game\+Resources}} \mbox{\hyperlink{struct_game_a60588b77149f5364d613e31b89af8f25}{resources}}
+\item 
+int \mbox{\hyperlink{struct_game_a89f234133d3efe315836311cbf21c64b}{state}}
+\item 
+bool \mbox{\hyperlink{struct_game_a35e1fbda907c4c69651e7ffed1543106}{is\+Running}}
+\item 
+\mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}} \mbox{\hyperlink{struct_game_aca2dd28626fd6043e035404c4346aa88}{appearance}}
+\item 
+\mbox{\hyperlink{struct_game_time}{Game\+Time}} \mbox{\hyperlink{struct_game_a22d76ea8a2c1ff73a3934797f96d65aa}{time}}
+\item 
+SDL\+\_\+\+Window $\ast$ \mbox{\hyperlink{struct_game_aaa8e409e04dcf575ef63fd5fb3db06f9}{window}}
+\item 
+SDL\+\_\+\+Renderer $\ast$ \mbox{\hyperlink{struct_game_a966da7a60c4ea3ba301e26ccc5efe452}{renderer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the main structure. All game data is stored in this object. game-\/\texorpdfstring{$>$}{>}component\+Lists 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_game_aca2dd28626fd6043e035404c4346aa88}\label{struct_game_aca2dd28626fd6043e035404c4346aa88}} 
+\index{Game@{Game}!appearance@{appearance}}
+\index{appearance@{appearance}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{appearance}{appearance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}} appearance}
+
+\mbox{\Hypertarget{struct_game_a2cafa5b40d3b52139752a2eca6d51c55}\label{struct_game_a2cafa5b40d3b52139752a2eca6d51c55}} 
+\index{Game@{Game}!currentLayout@{currentLayout}}
+\index{currentLayout@{currentLayout}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{currentLayout}{currentLayout}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layout}{Layout}}$\ast$ current\+Layout}
+
+\mbox{\Hypertarget{struct_game_a35e1fbda907c4c69651e7ffed1543106}\label{struct_game_a35e1fbda907c4c69651e7ffed1543106}} 
+\index{Game@{Game}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{isRunning}{isRunning}}
+{\footnotesize\ttfamily bool is\+Running}
+
+\mbox{\Hypertarget{struct_game_aaa9a626c2a6c54a2fc5b0b3933134dc9}\label{struct_game_aaa9a626c2a6c54a2fc5b0b3933134dc9}} 
+\index{Game@{Game}!layouts@{layouts}}
+\index{layouts@{layouts}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{layouts}{layouts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layout}{Layout}}$\ast$ layouts}
+
+\mbox{\Hypertarget{struct_game_abb730096dc11e78c1cdc36481e193780}\label{struct_game_abb730096dc11e78c1cdc36481e193780}} 
+\index{Game@{Game}!numberOfLayouts@{numberOfLayouts}}
+\index{numberOfLayouts@{numberOfLayouts}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{numberOfLayouts}{numberOfLayouts}}
+{\footnotesize\ttfamily int number\+Of\+Layouts}
+
+\mbox{\Hypertarget{struct_game_ae02e3ec27a14b82232e2d41603b55079}\label{struct_game_ae02e3ec27a14b82232e2d41603b55079}} 
+\index{Game@{Game}!player@{player}}
+\index{player@{player}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily char player\mbox{[}255\mbox{]}}
+
+\mbox{\Hypertarget{struct_game_a966da7a60c4ea3ba301e26ccc5efe452}\label{struct_game_a966da7a60c4ea3ba301e26ccc5efe452}} 
+\index{Game@{Game}!renderer@{renderer}}
+\index{renderer@{renderer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily SDL\+\_\+\+Renderer$\ast$ renderer}
+
+\mbox{\Hypertarget{struct_game_a60588b77149f5364d613e31b89af8f25}\label{struct_game_a60588b77149f5364d613e31b89af8f25}} 
+\index{Game@{Game}!resources@{resources}}
+\index{resources@{resources}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{resources}{resources}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_resources}{Game\+Resources}} resources}
+
+\mbox{\Hypertarget{struct_game_a89f234133d3efe315836311cbf21c64b}\label{struct_game_a89f234133d3efe315836311cbf21c64b}} 
+\index{Game@{Game}!state@{state}}
+\index{state@{state}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily int state}
+
+\mbox{\Hypertarget{struct_game_a22d76ea8a2c1ff73a3934797f96d65aa}\label{struct_game_a22d76ea8a2c1ff73a3934797f96d65aa}} 
+\index{Game@{Game}!time@{time}}
+\index{time@{time}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_game_time}{Game\+Time}} time}
+
+\mbox{\Hypertarget{struct_game_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{struct_game_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
+\index{Game@{Game}!window@{window}}
+\index{window@{window}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily SDL\+\_\+\+Window$\ast$ window}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\mbox{\hyperlink{_game_8h}{Game.\+h}}\end{DoxyCompactItemize}

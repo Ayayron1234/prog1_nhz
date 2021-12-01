@@ -1,3 +1,7 @@
+---
+tags: [documentation, development]
+---
+
 # Programozói dokumentáció
 - változó és függvénynevek: 
 	- camelCase
@@ -37,7 +41,7 @@
 #### ECS.h függvényeinek használata
 Az *#1* ID-jú entity *position* komponensére mutató pointer megszerzése: 
 ```c
-Position* pos = ((Position*)ECS_getComponent(POSITION, game->currentLayout, 1));
+Position* pos = ECS_getComponent(POSITION, game->currentLayout, 1);
 ```
 Egy layout *position* komponensein végig loop-olás:
 ```c
@@ -61,9 +65,9 @@ az alábbi kódrészlet nem tartalmazza az egész *Game* struktúrát, csak a fo
 ```c
 typedef struct Game {
 	char playerName[255];		// name of the current player
+	bool isRunning;
 
 	Layouts* layouts;			// list of layouts (more on layouts later)
-	void** componentLists;		// list of all components in all layouts
 	
 	Tilemap tilemap;
 	GameTime time;
@@ -102,6 +106,7 @@ typedef struct Layout {
 ---
 ## Magyarázat a komplikáltabb folyamatokhoz
 - [[#^saveAndLoad|Mentés és betöltés]]
+- [[#^interactionSystem|Interaction System]]
 ---
 ### Mentés és betöltés[[#Magyarázat a komplikáltabb folyamatokhoz|^]]
 ^saveAndLoad
@@ -181,3 +186,16 @@ Ha megvannak a *serialisationMapFragment*-ek akkor ezek alapján be tudjuk olvas
 ##### Néhány probléma a betöltés kapcsán
 - Figyelni kell arra, hogy a beolvasott komponensek mérete megegyezzen a jelenlegi komponens méretekkel. Ez akkor tud hibás lenni, ha a mentés óta megváltozott az egyik komponens struktúrája. 
 - Néhány komponens adatait felül kell írni mentés után. Ilyenek lehetnek azok a komponensek amikben pointer van egy másik adathalmazra, például egy tilemap-re, vagy azok a komponensek amik időpillanatot tárolnak magukban (pl.: Animation)
+---
+### Interaction System [[#Magyarázat a komplikáltabb folyamatokhoz|^]]
+^interactionSystem
+
+---
+## Debug
+
+^debug
+
+- [[#Memory leaks]]
+---
+### Memory leaks [[#^debug|^]]
+A memóriaszivárgások debug-olásához a crtdbg.h modult használom. 

@@ -1,0 +1,542 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/ECS.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/ECS.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'misc\&.h'\fP
+.br
+\fC#include 'Position\&.h'\fP
+.br
+\fC#include 'Sprite\&.h'\fP
+.br
+\fC#include 'Editor\&.h'\fP
+.br
+\fC#include 'Animation\&.h'\fP
+.br
+\fC#include 'Tile\&.h'\fP
+.br
+\fC#include 'Text\&.h'\fP
+.br
+\fC#include 'CollisionBox\&.h'\fP
+.br
+\fC#include 'Collider\&.h'\fP
+.br
+\fC#include 'PhysicsBody\&.h'\fP
+.br
+\fC#include 'EntityRenderer\&.h'\fP
+.br
+\fC#include 'MovementController\&.h'\fP
+.br
+\fC#include 'Interactable\&.h'\fP
+.br
+\fC#include <crtdbg\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBLayer\fP"
+.br
+.ti -1c
+.RI "struct \fBLayoutMap\fP"
+.br
+.ti -1c
+.RI "struct \fBLayout\fP"
+.br
+.ti -1c
+.RI "struct \fBSerialisationMapFragment\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRTDBG_MAP_ALLOC\fP"
+.br
+.ti -1c
+.RI "#define \fBNUMBER_OF_COMPONENT_TYPES\fP   12"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBLayer\fP \fBLayer\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBComponentType\fP \fBComponentType\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBLayoutMap\fP \fBLayoutMap\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBLayout\fP \fBLayout\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBSerialisationMapFragment\fP \fBSerialisationMapFragment\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBComponentType\fP { \fBPOSITION\fP = 0, \fBEDITOR\fP = 1, \fBSPRITE\fP = 2, \fBTILE\fP = 3, \fBTEXT\fP = 4, \fBANIMATION\fP = 5, \fBCOLLIDER\fP = 6, \fBCOLLISION_BOX\fP = 7, \fBPHYSICS_BODY\fP = 8, \fBENTITY_RENDERER\fP = 9, \fBMOVEMENT_CONTROLLER\fP = 10, \fBINTERACTABLE\fP = 11 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBECS_save\fP (\fBLayout\fP *layouts, int numberOfLayouts, char playerName[255])"
+.br
+.ti -1c
+.RI "void \fBECS_deserialise\fP (\fBLayout\fP **layouts, int numberOfLayouts, void ***componentLists, \fBSerialisationMapFragment\fP *serialisationMapFragments, int numberOfComponentTypes)"
+.br
+.ti -1c
+.RI "void \fBECS_load\fP (\fBLayout\fP **layoutsPtr, int *numberOfLayouts, char playerName[255], \fBGameResources\fP *resources)"
+.br
+.ti -1c
+.RI "\fBSerialisationMapFragment\fP * \fBECS_serialise\fP (\fBLayout\fP *layouts, int numberOfLayouts)"
+.br
+.ti -1c
+.RI "size_t \fBECS_getSizeAndTypeOfComponent\fP (\fBComponentType\fP componentType, char *componentTypePtr)"
+.br
+.ti -1c
+.RI "void * \fBECS_getComponent\fP (\fBComponentType\fP componentType, \fBLayout\fP currentLayout, int entity_ID)"
+.br
+.ti -1c
+.RI "void * \fBECS_getComponentList\fP (\fBComponentType\fP componentType, \fBLayout\fP currentLayout)"
+.br
+.ti -1c
+.RI "void * \fBECS_getNthComponent\fP (\fBComponentType\fP componentType, \fBLayout\fP *currentLayout, int index)"
+.br
+.ti -1c
+.RI "int \fBECS_getNumberOfComponents\fP (\fBComponentType\fP componentType, \fBLayout\fP currentLayout)"
+.br
+.ti -1c
+.RI "int \fBECS_getFreeID\fP (\fBLayout\fP *currentLayout)"
+.br
+.ti -1c
+.RI "void ** \fBECS_getEntity\fP (\fBLayout\fP currentLayout, int enitity_ID)"
+.br
+.ti -1c
+.RI "void \fBECS_freeEntity\fP (void **entityComponents)"
+.br
+.ti -1c
+.RI "int * \fBECS_getEntityIDPtr\fP (\fBComponentType\fP componentType, void *component)"
+.br
+.ti -1c
+.RI "void \fBECS_createLayout\fP (\fBLayout\fP **layoutsPtr, int *numberOfLayouts, char layoutName[255])"
+.br
+.ti -1c
+.RI "void \fBECS_deleteComponent\fP (\fBComponentType\fP componentType, \fBLayout\fP *layouts, int numberOfLayouts, char *layoutName, int entity_ID)"
+.br
+.ti -1c
+.RI "bool \fBECS_layoutHasName\fP (\fBLayout\fP *currentLayout, char *name)"
+.br
+.ti -1c
+.RI "\fBLayout\fP * \fBECS_getLayout\fP (\fBLayout\fP *layouts, int numberOfLayouts, char *LAYOUT_NAME)"
+.br
+.ti -1c
+.RI "int \fBECS_getLayoutIndex\fP (\fBLayout\fP *layouts, int numberOfLayouts, char *LAYOUT_NAME)"
+.br
+.ti -1c
+.RI "void \fBECS_freeData\fP (\fBLayout\fP *layouts, int numberOfLayouts)"
+.br
+.ti -1c
+.RI "void * \fBECS_createComponent\fP (\fBComponentType\fP componentType, \fBLayout\fP *layouts, int numberOfLayouts, char *layoutName, int enitity_ID)"
+.br
+.ti -1c
+.RI "void \fBECS_switchToPlayer\fP (char *currentPlayer, char *player, \fBLayout\fP **layoutsPtr, int *numberOfLayouts, \fBLayout\fP **currentLayoutPtr, \fBGameResources\fP *resources)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "SDL_Renderer * \fBECS__debug_renderer\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRTDBG_MAP_ALLOC"
+
+.SS "#define NUMBER_OF_COMPONENT_TYPES   12"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBComponentType\fP \fBComponentType\fP"
+This is an integer which represents a certain type of component\&. 
+.SS "typedef struct \fBLayer\fP \fBLayer\fP"
+A struct containing parallax data, and tells the renderer which order should the entities be rendered in\&. 
+.SS "typedef struct \fBLayout\fP \fBLayout\fP"
+
+.SS "typedef struct \fBLayoutMap\fP \fBLayoutMap\fP"
+
+.SS "typedef struct \fBSerialisationMapFragment\fP \fBSerialisationMapFragment\fP"
+A struct containing data about a certain type of component\&. This struct is used in saving or loading game data\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBComponentType\fP"
+This is an integer which represents a certain type of component\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPOSITION \fP\fP
+.TP
+\fB\fIEDITOR \fP\fP
+.TP
+\fB\fISPRITE \fP\fP
+.TP
+\fB\fITILE \fP\fP
+.TP
+\fB\fITEXT \fP\fP
+.TP
+\fB\fIANIMATION \fP\fP
+.TP
+\fB\fICOLLIDER \fP\fP
+.TP
+\fB\fICOLLISION_BOX \fP\fP
+.TP
+\fB\fIPHYSICS_BODY \fP\fP
+.TP
+\fB\fIENTITY_RENDERER \fP\fP
+.TP
+\fB\fIMOVEMENT_CONTROLLER \fP\fP
+.TP
+\fB\fIINTERACTABLE \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "void * ECS_createComponent (\fBComponentType\fP componentType, \fBLayout\fP * layouts, int numberOfLayouts, char * layoutName, int enitity_ID)"
+Creates a a new component of a given type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP Type of the component\&. 
+.br
+\fIlayouts\fP The list of layouts\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts\&. 
+.br
+\fIlayoutName\fP The name of the layout where the component should be created\&. 
+.br
+\fIentity_ID\fP The component's parent entity's ID\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the created component\&. 
+.RE
+.PP
+
+.SS "void ECS_createLayout (\fBLayout\fP ** layoutsPtr, int * numberOfLayouts, char layoutName[255])"
+Creates a new layout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayoutsPtr\fP A pointer to the list of layouts in the game object\&. 
+.br
+\fInumberOfLayouts\fP A pointer to the integer in the game object, that stores the number of layouts\&. 
+.br
+\fIlayoutName\fP Name of the layout to be created\&. 
+.RE
+.PP
+
+.SS "void ECS_deleteComponent (\fBComponentType\fP componentType, \fBLayout\fP * layouts, int numberOfLayouts, char * layoutName, int entity_ID)"
+Deletes a given component\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponent\fP Type Type of the component\&. 
+.br
+\fIlayouts\fP The list of layouts stored in the game object\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts\&. 
+.br
+\fIlayoutName\fP Name of the layout where the component should be deleted from\&. 
+.br
+\fIentity_ID\fP ID of the component to be deleted\&. 
+.RE
+.PP
+
+.SS "void ECS_deserialise (\fBLayout\fP ** layouts, int numberOfLayouts, void *** componentLists, \fBSerialisationMapFragment\fP * serialisationMapFragments, int numberOfComponentTypes)"
+Creates layout structure from serialisationMapFragments\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP A pointer to the list of layouts where the data should be writen\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts in the save-file\&. 
+.br
+\fIcomponentLists\fP A pointer to the list of pointers which point to their respective component type\&. 
+.br
+\fIserialisationMapFragments\fP A list of serialisation map fragments\&. This is used, when constructing layout infrastructure\&. 
+.br
+\fInumberOfComponentTypes\fP The number of component types found in the save-file\&. 
+.RE
+.PP
+
+.SS "void ECS_freeData (\fBLayout\fP * layouts, int numberOfLayouts)"
+Frees the data of all layouts\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP The list of layouts\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts\&. 
+.RE
+.PP
+
+.SS "void ECS_freeEntity (void ** entityComponents)"
+Frees the list of pointers allocated by the ECS_getEntity function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIentityComponents\fP A pointer to the allocated memory that is to be freed\&. 
+.RE
+.PP
+
+.SS "void * ECS_getComponent (\fBComponentType\fP componentType, \fBLayout\fP currentLayout, int entity_ID)"
+Get a certain type of component from a layout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP The type of the component\&. 
+.br
+\fIcurrentLayout\fP The parent layout of the component\&. 
+.br
+\fIentity_ID\fP The id of the component\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A void pointer to the component\&. 
+.RE
+.PP
+
+.SS "void * ECS_getComponentList (\fBComponentType\fP componentType, \fBLayout\fP currentLayout)"
+Get list of components of a certain type belonging to a given layout\&. Works in combination with ECS_getNumberOfComponents(\&.\&.\&.) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP The type of the components\&. 
+.br
+\fIcurrentLayout\fP The layout to which the components should belong to\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A void pointer to the beginning of the components belonging to the layout\&. 
+.RE
+.PP
+
+.SS "void ** ECS_getEntity (\fBLayout\fP currentLayout, int enitity_ID)"
+Returns a list of components which belonge to an entity with a given ID\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we want to collect the component data from\&. 
+.br
+\fIentity_ID\fP ID of the entity which we are looking for\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A dynamic list of pointers\&. Each of these pointers point to a diferent type of component\&. 
+.RE
+.PP
+
+.SS "int * ECS_getEntityIDPtr (\fBComponentType\fP componentType, void * component)"
+Returns a pointer to a component's ID\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP Type of the component\&. 
+.br
+\fIcomponent\fP A pointer to the component\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the component's ID\&. 
+.RE
+.PP
+
+.SS "int ECS_getFreeID (\fBLayout\fP * currentLayout)"
+Returns the first unused ID in a given layout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we are looking for the free ID\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The first unused ID\&. 
+.RE
+.PP
+
+.SS "\fBLayout\fP * ECS_getLayout (\fBLayout\fP * layouts, int numberOfLayouts, char * LAYOUT_NAME)"
+Returns a pointer to a layout with a given name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP The list of layouts\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts\&. 
+.br
+\fILAYOUT_NAME\fP The name of the layout we are looking for\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the layout\&. 
+.RE
+.PP
+
+.SS "int ECS_getLayoutIndex (\fBLayout\fP * layouts, int numberOfLayouts, char * LAYOUT_NAME)"
+Returns the index of the layout whith a given name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP The list of layouts\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts\&. 
+.br
+\fILAYOUT_NAME\fP The name of the layout we are looking for\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The index\&. 
+.RE
+.PP
+
+.SS "void * ECS_getNthComponent (\fBComponentType\fP componentType, \fBLayout\fP * currentLayout, int index)"
+Return the nth element of a given type in the current layout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP The type of the components\&. 
+.br
+\fIcurrentLayout\fP The layout where we want to get the component from\&. 
+.br
+\fIindex\fP The index of the component in the list\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the component\&. 
+.RE
+.PP
+
+.SS "int ECS_getNumberOfComponents (\fBComponentType\fP componentType, \fBLayout\fP currentLayout)"
+Returns the number of a given component type in a given layout\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP The type of the components\&. 
+.br
+\fIcurrentLayout\fP The layout where we want to get the component from\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of components on the layout\&. 
+.RE
+.PP
+
+.SS "size_t ECS_getSizeAndTypeOfComponent (\fBComponentType\fP componentType, char * componentTypePtr)"
+Returns the size and name of a given component type\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcomponentType\fP Type of component which's data should be recieved\&. 
+.br
+\fIcomponentTypePtr\fP a pointer to a string where the component type should be stored\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+size of the given component 
+.RE
+.PP
+
+.SS "bool ECS_layoutHasName (\fBLayout\fP * currentLayout, char * name)"
+Checks whether a given layout's name matches a given string\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP A pointer to the layout\&. 
+.br
+\fIname\fP The string which the layout's name should be compared with\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Logic true if the strings match, false if they don't\&. 
+.RE
+.PP
+
+.SS "void ECS_load (\fBLayout\fP ** layoutsPtr, int * numberOfLayouts, char playerName[255], \fBGameResources\fP * resources)"
+Load game data from file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayoutsPtr\fP A pointer to the layouts list in the game object\&. This is where the layouts will be constructed from the instructions stored in the save file\&. 
+.br
+\fIcomponentListsPtr\fP A pointer the the component lists in the game object\&. This is where the components will be loaded to from save file\&. 
+.br
+\fIpath\fP The path of the file\&. (Relative\&. eg\&.: '\&./saves/original\&.data') 
+.br
+\fIresources\fP The resources which should be used when constructing components\&. (Eg\&.: tilemaps, fonts) 
+.RE
+.PP
+
+.SS "void ECS_save (\fBLayout\fP * layouts, int numberOfLayouts, char playerName[255])"
+Saves the game data a file at a specified path\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP List of layouts\&. 
+.br
+\fInumberOfLayouts\fP The number of layouts in the game object\&. 
+.br
+\fIplayerName\fP The name of the current player\&. This will be the save-file's name (\&./saves/<playerName>\&.data) 
+.RE
+.PP
+
+.SS "\fBSerialisationMapFragment\fP * ECS_serialise (\fBLayout\fP * layouts, int numberOfLayouts)"
+Creates serialisation map fragments of the layouts\&. (More precise explanation in the prog1_nzh_devdocs) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP list of layouts from which the serialisationMapFragments should be constructed\&. 
+.br
+\fInumberOfLayouts\fP number of layouts\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a list of SerialisationMapFragments\&. 
+.RE
+.PP
+
+.SS "void ECS_switchToPlayer (char * currentPlayer, char * player, \fBLayout\fP ** layoutsPtr, int * numberOfLayouts, \fBLayout\fP ** currentLayoutPtr, \fBGameResources\fP * resources)"
+Saves game and loads another player's game\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "SDL_Renderer* ECS__debug_renderer"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

@@ -1,0 +1,81 @@
+\hypertarget{struct_layout}{}\doxysection{Layout Struct Reference}
+\label{struct_layout}\index{Layout@{Layout}}
+
+
+{\ttfamily \#include $<$ECS.\+h$>$}
+
+
+
+Collaboration diagram for Layout\+:
+% FIG 0
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{struct_layout_a8f772b4320ef765f568542f778df2a0f}{LAYOUT\+\_\+\+NAME}} \mbox{[}255\mbox{]}
+\begin{DoxyCompactList}\small\item\em Name of the layout. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_layout_af06ca8f630505e27f6a611a4394e3b46}{camera}}
+\begin{DoxyCompactList}\small\item\em A 2d vector, representing the camera. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_layer}{Layer}} \mbox{\hyperlink{struct_layout_a685ac2f6bb54918e39f8e644d59da70a}{layers}} \mbox{[}16\mbox{]}
+\begin{DoxyCompactList}\small\item\em 16 member array containing the layout\textquotesingle{}s layers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_layout_map}{Layout\+Map}} $\ast$ \mbox{\hyperlink{struct_layout_af657332ccc66e7abcffbef021a39f831}{component\+Maps}}
+\begin{DoxyCompactList}\small\item\em A layout map, which contains data of the layout\textquotesingle{}s child enities\textquotesingle{} location in their list. \end{DoxyCompactList}\item 
+void $\ast$$\ast$ \mbox{\hyperlink{struct_layout_abd6fb5ad5a98e805796153d9d87ee6ad}{component\+Lists\+Pointers}}
+\begin{DoxyCompactList}\small\item\em An array of pointers. Each pointer points to a different component type\textquotesingle{}s list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_layout_af06ca8f630505e27f6a611a4394e3b46}\label{struct_layout_af06ca8f630505e27f6a611a4394e3b46}} 
+\index{Layout@{Layout}!camera@{camera}}
+\index{camera@{camera}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec2}{Vec2}} camera}
+
+
+
+A 2d vector, representing the camera. 
+
+\mbox{\Hypertarget{struct_layout_abd6fb5ad5a98e805796153d9d87ee6ad}\label{struct_layout_abd6fb5ad5a98e805796153d9d87ee6ad}} 
+\index{Layout@{Layout}!componentListsPointers@{componentListsPointers}}
+\index{componentListsPointers@{componentListsPointers}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{componentListsPointers}{componentListsPointers}}
+{\footnotesize\ttfamily void$\ast$$\ast$ component\+Lists\+Pointers}
+
+
+
+An array of pointers. Each pointer points to a different component type\textquotesingle{}s list. 
+
+\mbox{\Hypertarget{struct_layout_af657332ccc66e7abcffbef021a39f831}\label{struct_layout_af657332ccc66e7abcffbef021a39f831}} 
+\index{Layout@{Layout}!componentMaps@{componentMaps}}
+\index{componentMaps@{componentMaps}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{componentMaps}{componentMaps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layout_map}{Layout\+Map}}$\ast$ component\+Maps}
+
+
+
+A layout map, which contains data of the layout\textquotesingle{}s child enities\textquotesingle{} location in their list. 
+
+\mbox{\Hypertarget{struct_layout_a685ac2f6bb54918e39f8e644d59da70a}\label{struct_layout_a685ac2f6bb54918e39f8e644d59da70a}} 
+\index{Layout@{Layout}!layers@{layers}}
+\index{layers@{layers}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{layers}{layers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layer}{Layer}} layers\mbox{[}16\mbox{]}}
+
+
+
+16 member array containing the layout\textquotesingle{}s layers. 
+
+\mbox{\Hypertarget{struct_layout_a8f772b4320ef765f568542f778df2a0f}\label{struct_layout_a8f772b4320ef765f568542f778df2a0f}} 
+\index{Layout@{Layout}!LAYOUT\_NAME@{LAYOUT\_NAME}}
+\index{LAYOUT\_NAME@{LAYOUT\_NAME}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{LAYOUT\_NAME}{LAYOUT\_NAME}}
+{\footnotesize\ttfamily char LAYOUT\+\_\+\+NAME\mbox{[}255\mbox{]}}
+
+
+
+Name of the layout. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\mbox{\hyperlink{_e_c_s_8h}{ECS.\+h}}\end{DoxyCompactItemize}

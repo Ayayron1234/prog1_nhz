@@ -1,0 +1,25 @@
+digraph "ECS_printEntityData"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ECS_printEntityData",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ECS_freeEntity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a42aef0c5363771d491bc60b86c2cc642",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="ECS_getEntity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a9c56e4a452bdea39ebee813646ecee83",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="ECS_getComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#aed416a426c4e471a5203374cf03ea86f",tooltip=" "];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ECS_getEntityIDPtr",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#aca802be6fd112425bb560ef0272c99d8",tooltip=" "];
+  Node4 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ECS_getNthComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a502db47e783a46764a323c04c4a4f42c",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ECS_getComponentList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a7d1878011294407e746f9c5300cde210",tooltip=" "];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ECS_getSizeAndTypeOfComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#abbd0af0b96da7d9033e545d9204fd371",tooltip=" "];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="ECS_getNumberOfComponents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a631bfc25a33ae6773eb9173dc568b138",tooltip=" "];
+}

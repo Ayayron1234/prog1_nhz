@@ -1,0 +1,102 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Tilemap.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Tilemap.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'Math\&.h'\fP
+.br
+\fC#include 'SDL\&.h'\fP
+.br
+\fC#include 'SDL_image\&.h'\fP
+.br
+\fC#include <crtdbg\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBRenderProperties\fP"
+.br
+.ti -1c
+.RI "struct \fBTilemap\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRTDBG_MAP_ALLOC\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBRenderProperties\fP \fBRenderProperties\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBTilemap\fP \fBTilemap\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTilemap_init\fP (\fBTilemap\fP *dst, \fBVec2Int\fP tileSize, SDL_Renderer *renderer, char path[255])"
+.br
+.ti -1c
+.RI "SDL_Rect \fBTilemap_getSourceRect\fP (\fBTilemap\fP *tilemap, \fBVec2Int\fP tilePosition)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRTDBG_MAP_ALLOC"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBRenderProperties\fP \fBRenderProperties\fP"
+Details of a component's rendering\&. 
+.SS "typedef struct \fBTilemap\fP \fBTilemap\fP"
+Stores the texture of all entities\&. 
+.SH "Function Documentation"
+.PP 
+.SS "SDL_Rect Tilemap_getSourceRect (\fBTilemap\fP * tilemap, \fBVec2Int\fP tilePosition)"
+Returns the position and dimensions of a given tile\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItilemap\fP The tilemap from which we want to get the tile's position and dimensions\&. 
+.br
+\fItilePosition\fP the two dimensional index of where the tile is inside the tile map\&. This is not the same as the position that is returned by this function\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A rectangle, which corresponds to the part of the tilemap which contains the tile that we are looking for\&. 
+.RE
+.PP
+
+.SS "void Tilemap_init (\fBTilemap\fP * dst, \fBVec2Int\fP tileSize, SDL_Renderer * renderer, char path[255])"
+Loads tilemap from the specified path and sets it's dimensions\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdst\fP Pointer to the tilemap where the data should be loaded\&. 
+.br
+\fItileSize\fP dimensions of an object in this tilemap\&. 
+.br
+\fIrenderer\fP SDL renderer where the tilemap will be rendered\&. 
+.br
+\fIpath\fP Path of the image file containing the tilemap\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

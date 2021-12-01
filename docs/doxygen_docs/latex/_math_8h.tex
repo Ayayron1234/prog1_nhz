@@ -1,0 +1,151 @@
+\hypertarget{_math_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Math.h File Reference}
+\label{_math_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Math.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Math.h}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+Include dependency graph for Math.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_vec2}{Vec2}}
+\item 
+struct \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{_math_8h_af5ef9466b1253e714b5ded8b25d06246}{Vec2}}
+\item 
+typedef struct \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} \mbox{\hyperlink{_math_8h_a9ee5e2cfc1ea9b323ada48cea5a8fd99}{Vec2\+Int}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_math_8h_ab6d7200d8cf6e0faaf427f2e24424232}{Math\+\_\+max\+Int}} (int n\+\_\+args,...)
+\item 
+double \mbox{\hyperlink{_math_8h_a2529ff518191b625dbfe90455b19b473}{Math\+\_\+max\+Double}} (int n\+\_\+args,...)
+\item 
+double \mbox{\hyperlink{_math_8h_a282b93bbff5f6476a085d93c74d22f4c}{Math\+\_\+min\+Double}} (int n\+\_\+args,...)
+\item 
+\mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{_math_8h_a171657a3bdb316ede2a2bb1f24a69446}{Vec2\+\_\+add}} (\mbox{\hyperlink{struct_vec2}{Vec2}} a, \mbox{\hyperlink{struct_vec2}{Vec2}} b)
+\item 
+\mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{_math_8h_a4083bb184a1e4f0cb982bbf6e2726332}{Vec2\+\_\+imul}} (\mbox{\hyperlink{struct_vec2}{Vec2}} a, double n)
+\item 
+void \mbox{\hyperlink{_math_8h_a04d11c02df95f77862b719826c5515cf}{Vec2\+\_\+increase\+By\+Vec}} (\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$target, \mbox{\hyperlink{struct_vec2}{Vec2}} value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_math_8h_af5ef9466b1253e714b5ded8b25d06246}\label{_math_8h_af5ef9466b1253e714b5ded8b25d06246}} 
+\index{Math.h@{Math.h}!Vec2@{Vec2}}
+\index{Vec2@{Vec2}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Vec2}{Vec2}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_vec2}{Vec2}}}
+
+\mbox{\Hypertarget{_math_8h_a9ee5e2cfc1ea9b323ada48cea5a8fd99}\label{_math_8h_a9ee5e2cfc1ea9b323ada48cea5a8fd99}} 
+\index{Math.h@{Math.h}!Vec2Int@{Vec2Int}}
+\index{Vec2Int@{Vec2Int}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Vec2Int}{Vec2Int}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_math_8h_a2529ff518191b625dbfe90455b19b473}\label{_math_8h_a2529ff518191b625dbfe90455b19b473}} 
+\index{Math.h@{Math.h}!Math\_maxDouble@{Math\_maxDouble}}
+\index{Math\_maxDouble@{Math\_maxDouble}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Math\_maxDouble()}{Math\_maxDouble()}}
+{\footnotesize\ttfamily double Math\+\_\+max\+Double (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+args,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Gets the maximum of a given list of doubles. 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+args} & number of doubles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double with the greatest value. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_math_8h_ab6d7200d8cf6e0faaf427f2e24424232}\label{_math_8h_ab6d7200d8cf6e0faaf427f2e24424232}} 
+\index{Math.h@{Math.h}!Math\_maxInt@{Math\_maxInt}}
+\index{Math\_maxInt@{Math\_maxInt}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Math\_maxInt()}{Math\_maxInt()}}
+{\footnotesize\ttfamily int Math\+\_\+max\+Int (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+args,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Gets the maximum of a given list of integers. 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+args} & number of integers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The integer with the greatest value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_8h_a282b93bbff5f6476a085d93c74d22f4c}\label{_math_8h_a282b93bbff5f6476a085d93c74d22f4c}} 
+\index{Math.h@{Math.h}!Math\_minDouble@{Math\_minDouble}}
+\index{Math\_minDouble@{Math\_minDouble}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Math\_minDouble()}{Math\_minDouble()}}
+{\footnotesize\ttfamily double Math\+\_\+min\+Double (\begin{DoxyParamCaption}\item[{int}]{n\+\_\+args,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Gets the minimum of a given list of doubles. 
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+args} & number of doubles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The double with the smallest value. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_math_8h_a171657a3bdb316ede2a2bb1f24a69446}\label{_math_8h_a171657a3bdb316ede2a2bb1f24a69446}} 
+\index{Math.h@{Math.h}!Vec2\_add@{Vec2\_add}}
+\index{Vec2\_add@{Vec2\_add}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_add()}{Vec2\_add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec2}{Vec2}} Vec2\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{a,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{b }\end{DoxyParamCaption})}
+
+Calculates the sum of two two dimensional vectors. 
+\begin{DoxyParams}{Parameters}
+{\em a} & The first vector. \\
+\hline
+{\em b} & The second vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The sum of the two given vectors. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_math_8h_a4083bb184a1e4f0cb982bbf6e2726332}\label{_math_8h_a4083bb184a1e4f0cb982bbf6e2726332}} 
+\index{Math.h@{Math.h}!Vec2\_imul@{Vec2\_imul}}
+\index{Vec2\_imul@{Vec2\_imul}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_imul()}{Vec2\_imul()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec2}{Vec2}} Vec2\+\_\+imul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{a,  }\item[{double}]{n }\end{DoxyParamCaption})}
+
+Calculates the result of a vector multiplied by a number. 
+\begin{DoxyParams}{Parameters}
+{\em a} & a two dimensional vector \\
+\hline
+{\em m} & The value which the vector\textquotesingle{}s members should be multiplied by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting two dimensional vector. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{_math_8h_a04d11c02df95f77862b719826c5515cf}\label{_math_8h_a04d11c02df95f77862b719826c5515cf}} 
+\index{Math.h@{Math.h}!Vec2\_increaseByVec@{Vec2\_increaseByVec}}
+\index{Vec2\_increaseByVec@{Vec2\_increaseByVec}!Math.h@{Math.h}}
+\doxysubsubsection{\texorpdfstring{Vec2\_increaseByVec()}{Vec2\_increaseByVec()}}
+{\footnotesize\ttfamily void Vec2\+\_\+increase\+By\+Vec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{target,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{value }\end{DoxyParamCaption})}
+
+Increases a vector by another vector. 
+\begin{DoxyParams}{Parameters}
+{\em target} & A pointer to the vector which should be increased. \\
+\hline
+{\em value} & A two dimensional vector which the target should be increased by. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 6

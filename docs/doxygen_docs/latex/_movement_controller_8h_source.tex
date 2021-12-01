@@ -1,0 +1,33 @@
+\hypertarget{_movement_controller_8h_source}{}\doxysection{Movement\+Controller.\+h}
+\label{_movement_controller_8h_source}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/MovementController.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/MovementController.h}}
+\mbox{\hyperlink{_movement_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_math_8h}{Math.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{_movement_controller_8h_a4480893f8b6e40fc74ebe0588a21db2b}{MovementStyle}} \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_movement_controller_8h_a4480893f8b6e40fc74ebe0588a21db2ba985950ff8c39c7461bb4c8fc6692deb8}{PLATFORMER}} = 0,}
+\DoxyCodeLine{7     \mbox{\hyperlink{_movement_controller_8h_a4480893f8b6e40fc74ebe0588a21db2ba2ddf438bc3a83901f7559421f4ce7d9c}{GOOMBA}} = 1,}
+\DoxyCodeLine{8 \} \mbox{\hyperlink{_movement_controller_8h_a4480893f8b6e40fc74ebe0588a21db2b}{MovementStyle}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_movement_controller}{MovementController}} \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_movement_controller_adab85220e5f280aaa3e9c7ab53c84776}{ENTITY\_ID}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{_movement_controller_8h_a4480893f8b6e40fc74ebe0588a21db2b}{MovementStyle}} \mbox{\hyperlink{struct_movement_controller_a97b7dc9a121f0dee2a0de68c3e72e4c3}{movementStyle}};}
+\DoxyCodeLine{14     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_movement_controller_a4a72d3c020ae1fbe4cdf3227b6ceba80}{collisionNormal}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_movement_controller_ac5c9d09efe0b839e7ead776ec60cfbce}{previousDirection}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a56c14dba37ff0bfeff1ffd62dc7300d2}{maxSpeed}};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a24df1cc087cfeb6f8b7cb95deada4f19}{acceleration}};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a4767ec2d4cc6f09358b555f4df96f28a}{deceleration}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a3579b66806264a66761682a3a2d36f32}{maxFallSpeed}};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a922f2c43a75edbe2ee21ea7ba7b5cb2c}{gravity}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a6a4df0aa62a55cf82df505c2c80f472a}{jumpHeight}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_movement_controller_a306e173c15e5b61f443e7ef91fc14f78}{timeToApex}};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_movement_controller_a1dc54128b26fe6976eeeb561bf1f11dd}{doubleJump}};}
+\DoxyCodeLine{27 \} \mbox{\hyperlink{_movement_controller_8h_ab1c8fb77190eb44086f8964e6608e96a}{MovementController}};}
+
+\end{DoxyCode}

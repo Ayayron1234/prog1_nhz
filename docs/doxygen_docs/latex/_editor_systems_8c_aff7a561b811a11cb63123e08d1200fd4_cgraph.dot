@@ -1,0 +1,17 @@
+digraph "Editor_getSelected"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Editor_getSelected",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ECS_getNthComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a502db47e783a46764a323c04c4a4f42c",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ECS_getComponentList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a7d1878011294407e746f9c5300cde210",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ECS_getSizeAndTypeOfComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#abbd0af0b96da7d9033e545d9204fd371",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="ECS_getNumberOfComponents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_e_c_s_8c.html#a631bfc25a33ae6773eb9173dc568b138",tooltip=" "];
+}

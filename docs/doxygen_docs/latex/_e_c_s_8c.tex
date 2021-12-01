@@ -1,0 +1,466 @@
+\hypertarget{_e_c_s_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+ECS.c File Reference}
+\label{_e_c_s_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/ECS.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/ECS.c}}
+{\ttfamily \#include \char`\"{}ECS.\+h\char`\"{}}\newline
+Include dependency graph for ECS.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_ab7771cd068d13fb1560388b4114a6343}{ECS\+\_\+print\+Entity\+Data}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int entity\+ID)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_a19541577aec48c0861e5933c6e665c6d}{ECS\+\_\+deserialise}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$layouts, int number\+Of\+Layouts, void $\ast$$\ast$$\ast$component\+Lists, \mbox{\hyperlink{struct_serialisation_map_fragment}{Serialisation\+Map\+Fragment}} $\ast$serialisation\+Map\+Fragments, int number\+Of\+Component\+Types)
+\item 
+\mbox{\hyperlink{struct_serialisation_map_fragment}{Serialisation\+Map\+Fragment}} $\ast$ \mbox{\hyperlink{_e_c_s_8c_a386edcab0e6d608a0f490d1db71f9bc2}{ECS\+\_\+serialise}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_abc5bc356c810020e1b30c1ec0c1f3f81}{ECS\+\_\+save}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char player\+Name\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_ab76a7717f7bc3824825a511588c577c6}{ECS\+\_\+load}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$layouts\+Ptr, int $\ast$number\+Of\+Layouts, char player\+Name\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_game_resources}{Game\+Resources}} $\ast$resources)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_aab928d07e976d5615c2efaa075f70358}{ECS\+\_\+free\+Data}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts)
+\item 
+void $\ast$ \mbox{\hyperlink{_e_c_s_8c_a26b1c807141d22e5ca3e407fda22a9ea}{ECS\+\_\+create\+Component}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$layout\+Name, int enitity\+\_\+\+ID)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_a38a6c171b970fed9827c6240571685c4}{ECS\+\_\+delete\+Component}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$layout\+Name, int entity\+\_\+\+ID)
+\item 
+void $\ast$ \mbox{\hyperlink{_e_c_s_8c_aed416a426c4e471a5203374cf03ea86f}{ECS\+\_\+get\+Component}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} current\+Layout, int entity\+\_\+\+ID)
+\item 
+size\+\_\+t \mbox{\hyperlink{_e_c_s_8c_abbd0af0b96da7d9033e545d9204fd371}{ECS\+\_\+get\+Size\+And\+Type\+Of\+Component}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, char $\ast$component\+Type\+Ptr)
+\item 
+void $\ast$ \mbox{\hyperlink{_e_c_s_8c_a7d1878011294407e746f9c5300cde210}{ECS\+\_\+get\+Component\+List}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} current\+Layout)
+\item 
+void $\ast$ \mbox{\hyperlink{_e_c_s_8c_a502db47e783a46764a323c04c4a4f42c}{ECS\+\_\+get\+Nth\+Component}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, int index)
+\item 
+int \mbox{\hyperlink{_e_c_s_8c_a631bfc25a33ae6773eb9173dc568b138}{ECS\+\_\+get\+Number\+Of\+Components}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, \mbox{\hyperlink{struct_layout}{Layout}} current\+Layout)
+\item 
+char $\ast$$\ast$ \mbox{\hyperlink{_e_c_s_8c_a9c56e4a452bdea39ebee813646ecee83}{ECS\+\_\+get\+Entity}} (\mbox{\hyperlink{struct_layout}{Layout}} current\+Layout, int enitity\+\_\+\+ID)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_a42aef0c5363771d491bc60b86c2cc642}{ECS\+\_\+free\+Entity}} (void $\ast$$\ast$entity\+Components)
+\item 
+int $\ast$ \mbox{\hyperlink{_e_c_s_8c_aca802be6fd112425bb560ef0272c99d8}{ECS\+\_\+get\+Entity\+IDPtr}} (\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type, void $\ast$component)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_a1584f945ce6a38c3198d113d9f793807}{ECS\+\_\+create\+Layout}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$layouts\+Ptr, int $\ast$number\+Of\+Layouts, char layout\+Name\mbox{[}255\mbox{]})
+\item 
+bool \mbox{\hyperlink{_e_c_s_8c_aa0d4c1f274b10e4362d1d2425f8b661c}{ECS\+\_\+layout\+Has\+Name}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, char $\ast$name)
+\item 
+\mbox{\hyperlink{struct_layout}{Layout}} $\ast$ \mbox{\hyperlink{_e_c_s_8c_aec9590b537bc4cf1a37081c789b61969}{ECS\+\_\+get\+Layout}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$LAYOUT\+\_\+\+NAME)
+\item 
+int \mbox{\hyperlink{_e_c_s_8c_a2454dee07d22915509a6dc18c1c7bfec}{ECS\+\_\+get\+Layout\+Index}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$layouts, int number\+Of\+Layouts, char $\ast$LAYOUT\+\_\+\+NAME)
+\item 
+int \mbox{\hyperlink{_e_c_s_8c_a252835dd7eb060f5a586b7190d36aaea}{ECS\+\_\+get\+Free\+ID}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout)
+\item 
+void \mbox{\hyperlink{_e_c_s_8c_a5ee7baf92e594c3c0a1c2cb0170df127}{ECS\+\_\+switch\+To\+Player}} (char $\ast$current\+Player, char $\ast$player, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$layouts\+Ptr, int $\ast$number\+Of\+Layouts, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$current\+Layout\+Ptr, \mbox{\hyperlink{struct_game_resources}{Game\+Resources}} $\ast$resources)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_e_c_s_8c_a26b1c807141d22e5ca3e407fda22a9ea}\label{_e_c_s_8c_a26b1c807141d22e5ca3e407fda22a9ea}} 
+\index{ECS.c@{ECS.c}!ECS\_createComponent@{ECS\_createComponent}}
+\index{ECS\_createComponent@{ECS\_createComponent}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_createComponent()}{ECS\_createComponent()}}
+{\footnotesize\ttfamily void $\ast$ ECS\+\_\+create\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{layout\+Name,  }\item[{int}]{enitity\+\_\+\+ID }\end{DoxyParamCaption})}
+
+Creates a a new component of a given type. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & Type of the component. \\
+\hline
+{\em layouts} & The list of layouts. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts. \\
+\hline
+{\em layout\+Name} & The name of the layout where the component should be created. \\
+\hline
+{\em entity\+\_\+\+ID} & The component\textquotesingle{}s parent entity\textquotesingle{}s ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created component. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_e_c_s_8c_a1584f945ce6a38c3198d113d9f793807}\label{_e_c_s_8c_a1584f945ce6a38c3198d113d9f793807}} 
+\index{ECS.c@{ECS.c}!ECS\_createLayout@{ECS\_createLayout}}
+\index{ECS\_createLayout@{ECS\_createLayout}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_createLayout()}{ECS\_createLayout()}}
+{\footnotesize\ttfamily void ECS\+\_\+create\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$}]{layouts\+Ptr,  }\item[{int $\ast$}]{number\+Of\+Layouts,  }\item[{char}]{layout\+Name\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+Creates a new layout. 
+\begin{DoxyParams}{Parameters}
+{\em layouts\+Ptr} & A pointer to the list of layouts in the game object. \\
+\hline
+{\em number\+Of\+Layouts} & A pointer to the integer in the game object, that stores the number of layouts. \\
+\hline
+{\em layout\+Name} & Name of the layout to be created. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_e_c_s_8c_a38a6c171b970fed9827c6240571685c4}\label{_e_c_s_8c_a38a6c171b970fed9827c6240571685c4}} 
+\index{ECS.c@{ECS.c}!ECS\_deleteComponent@{ECS\_deleteComponent}}
+\index{ECS\_deleteComponent@{ECS\_deleteComponent}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_deleteComponent()}{ECS\_deleteComponent()}}
+{\footnotesize\ttfamily void ECS\+\_\+delete\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{layout\+Name,  }\item[{int}]{entity\+\_\+\+ID }\end{DoxyParamCaption})}
+
+Deletes a given component. 
+\begin{DoxyParams}{Parameters}
+{\em component} & Type Type of the component. \\
+\hline
+{\em layouts} & The list of layouts stored in the game object. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts. \\
+\hline
+{\em layout\+Name} & Name of the layout where the component should be deleted from. \\
+\hline
+{\em entity\+\_\+\+ID} & ID of the component to be deleted. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_e_c_s_8c_a19541577aec48c0861e5933c6e665c6d}\label{_e_c_s_8c_a19541577aec48c0861e5933c6e665c6d}} 
+\index{ECS.c@{ECS.c}!ECS\_deserialise@{ECS\_deserialise}}
+\index{ECS\_deserialise@{ECS\_deserialise}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_deserialise()}{ECS\_deserialise()}}
+{\footnotesize\ttfamily void ECS\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{void $\ast$$\ast$$\ast$}]{component\+Lists,  }\item[{\mbox{\hyperlink{struct_serialisation_map_fragment}{Serialisation\+Map\+Fragment}} $\ast$}]{serialisation\+Map\+Fragments,  }\item[{int}]{number\+Of\+Component\+Types }\end{DoxyParamCaption})}
+
+Creates layout structure from serialisation\+Map\+Fragments. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & A pointer to the list of layouts where the data should be writen. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts in the save-\/file. \\
+\hline
+{\em component\+Lists} & A pointer to the list of pointers which point to their respective component type. \\
+\hline
+{\em serialisation\+Map\+Fragments} & A list of serialisation map fragments. This is used, when constructing layout infrastructure. \\
+\hline
+{\em number\+Of\+Component\+Types} & The number of component types found in the save-\/file. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{_e_c_s_8c_aab928d07e976d5615c2efaa075f70358}\label{_e_c_s_8c_aab928d07e976d5615c2efaa075f70358}} 
+\index{ECS.c@{ECS.c}!ECS\_freeData@{ECS\_freeData}}
+\index{ECS\_freeData@{ECS\_freeData}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_freeData()}{ECS\_freeData()}}
+{\footnotesize\ttfamily void ECS\+\_\+free\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts }\end{DoxyParamCaption})}
+
+Frees the data of all layouts. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & The list of layouts. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{_e_c_s_8c_a42aef0c5363771d491bc60b86c2cc642}\label{_e_c_s_8c_a42aef0c5363771d491bc60b86c2cc642}} 
+\index{ECS.c@{ECS.c}!ECS\_freeEntity@{ECS\_freeEntity}}
+\index{ECS\_freeEntity@{ECS\_freeEntity}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_freeEntity()}{ECS\_freeEntity()}}
+{\footnotesize\ttfamily void ECS\+\_\+free\+Entity (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{entity\+Components }\end{DoxyParamCaption})}
+
+Frees the list of pointers allocated by the ECS\+\_\+get\+Entity function. 
+\begin{DoxyParams}{Parameters}
+{\em entity\+Components} & A pointer to the allocated memory that is to be freed. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{_e_c_s_8c_aed416a426c4e471a5203374cf03ea86f}\label{_e_c_s_8c_aed416a426c4e471a5203374cf03ea86f}} 
+\index{ECS.c@{ECS.c}!ECS\_getComponent@{ECS\_getComponent}}
+\index{ECS\_getComponent@{ECS\_getComponent}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getComponent()}{ECS\_getComponent()}}
+{\footnotesize\ttfamily void $\ast$ ECS\+\_\+get\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}}}]{current\+Layout,  }\item[{int}]{entity\+\_\+\+ID }\end{DoxyParamCaption})}
+
+Get a certain type of component from a layout. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & The type of the component. \\
+\hline
+{\em current\+Layout} & The parent layout of the component. \\
+\hline
+{\em entity\+\_\+\+ID} & The id of the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A void pointer to the component. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{_e_c_s_8c_a7d1878011294407e746f9c5300cde210}\label{_e_c_s_8c_a7d1878011294407e746f9c5300cde210}} 
+\index{ECS.c@{ECS.c}!ECS\_getComponentList@{ECS\_getComponentList}}
+\index{ECS\_getComponentList@{ECS\_getComponentList}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getComponentList()}{ECS\_getComponentList()}}
+{\footnotesize\ttfamily void $\ast$ ECS\+\_\+get\+Component\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}}}]{current\+Layout }\end{DoxyParamCaption})}
+
+Get list of components of a certain type belonging to a given layout. Works in combination with ECS\+\_\+get\+Number\+Of\+Components(...) 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & The type of the components. \\
+\hline
+{\em current\+Layout} & The layout to which the components should belong to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A void pointer to the beginning of the components belonging to the layout. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{_e_c_s_8c_a9c56e4a452bdea39ebee813646ecee83}\label{_e_c_s_8c_a9c56e4a452bdea39ebee813646ecee83}} 
+\index{ECS.c@{ECS.c}!ECS\_getEntity@{ECS\_getEntity}}
+\index{ECS\_getEntity@{ECS\_getEntity}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getEntity()}{ECS\_getEntity()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ ECS\+\_\+get\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}}}]{current\+Layout,  }\item[{int}]{enitity\+\_\+\+ID }\end{DoxyParamCaption})}
+
+Returns a list of components which belonge to an entity with a given ID. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we want to collect the component data from. \\
+\hline
+{\em entity\+\_\+\+ID} & ID of the entity which we are looking for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dynamic list of pointers. Each of these pointers point to a diferent type of component. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{_e_c_s_8c_aca802be6fd112425bb560ef0272c99d8}\label{_e_c_s_8c_aca802be6fd112425bb560ef0272c99d8}} 
+\index{ECS.c@{ECS.c}!ECS\_getEntityIDPtr@{ECS\_getEntityIDPtr}}
+\index{ECS\_getEntityIDPtr@{ECS\_getEntityIDPtr}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getEntityIDPtr()}{ECS\_getEntityIDPtr()}}
+{\footnotesize\ttfamily int $\ast$ ECS\+\_\+get\+Entity\+IDPtr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{void $\ast$}]{component }\end{DoxyParamCaption})}
+
+Returns a pointer to a component\textquotesingle{}s ID. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & Type of the component. \\
+\hline
+{\em component} & A pointer to the component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component\textquotesingle{}s ID. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{_e_c_s_8c_a252835dd7eb060f5a586b7190d36aaea}\label{_e_c_s_8c_a252835dd7eb060f5a586b7190d36aaea}} 
+\index{ECS.c@{ECS.c}!ECS\_getFreeID@{ECS\_getFreeID}}
+\index{ECS\_getFreeID@{ECS\_getFreeID}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getFreeID()}{ECS\_getFreeID()}}
+{\footnotesize\ttfamily int ECS\+\_\+get\+Free\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout }\end{DoxyParamCaption})}
+
+Returns the first unused ID in a given layout. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The layout where we are looking for the free ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The first unused ID. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{_e_c_s_8c_aec9590b537bc4cf1a37081c789b61969}\label{_e_c_s_8c_aec9590b537bc4cf1a37081c789b61969}} 
+\index{ECS.c@{ECS.c}!ECS\_getLayout@{ECS\_getLayout}}
+\index{ECS\_getLayout@{ECS\_getLayout}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getLayout()}{ECS\_getLayout()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layout}{Layout}} $\ast$ ECS\+\_\+get\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{LAYOUT\+\_\+\+NAME }\end{DoxyParamCaption})}
+
+Returns a pointer to a layout with a given name. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & The list of layouts. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts. \\
+\hline
+{\em LAYOUT\+\_\+\+NAME} & The name of the layout we are looking for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the layout. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 17
+Here is the caller graph for this function\+:
+% FIG 18
+\mbox{\Hypertarget{_e_c_s_8c_a2454dee07d22915509a6dc18c1c7bfec}\label{_e_c_s_8c_a2454dee07d22915509a6dc18c1c7bfec}} 
+\index{ECS.c@{ECS.c}!ECS\_getLayoutIndex@{ECS\_getLayoutIndex}}
+\index{ECS\_getLayoutIndex@{ECS\_getLayoutIndex}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getLayoutIndex()}{ECS\_getLayoutIndex()}}
+{\footnotesize\ttfamily int ECS\+\_\+get\+Layout\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char $\ast$}]{LAYOUT\+\_\+\+NAME }\end{DoxyParamCaption})}
+
+Returns the index of the layout whith a given name. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & The list of layouts. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts. \\
+\hline
+{\em LAYOUT\+\_\+\+NAME} & The name of the layout we are looking for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 19
+Here is the caller graph for this function\+:
+% FIG 20
+\mbox{\Hypertarget{_e_c_s_8c_a502db47e783a46764a323c04c4a4f42c}\label{_e_c_s_8c_a502db47e783a46764a323c04c4a4f42c}} 
+\index{ECS.c@{ECS.c}!ECS\_getNthComponent@{ECS\_getNthComponent}}
+\index{ECS\_getNthComponent@{ECS\_getNthComponent}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getNthComponent()}{ECS\_getNthComponent()}}
+{\footnotesize\ttfamily void $\ast$ ECS\+\_\+get\+Nth\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+Return the nth element of a given type in the current layout. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & The type of the components. \\
+\hline
+{\em current\+Layout} & The layout where we want to get the component from. \\
+\hline
+{\em index} & The index of the component in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the component. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 21
+Here is the caller graph for this function\+:
+% FIG 22
+\mbox{\Hypertarget{_e_c_s_8c_a631bfc25a33ae6773eb9173dc568b138}\label{_e_c_s_8c_a631bfc25a33ae6773eb9173dc568b138}} 
+\index{ECS.c@{ECS.c}!ECS\_getNumberOfComponents@{ECS\_getNumberOfComponents}}
+\index{ECS\_getNumberOfComponents@{ECS\_getNumberOfComponents}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getNumberOfComponents()}{ECS\_getNumberOfComponents()}}
+{\footnotesize\ttfamily int ECS\+\_\+get\+Number\+Of\+Components (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}}}]{current\+Layout }\end{DoxyParamCaption})}
+
+Returns the number of a given component type in a given layout. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & The type of the components. \\
+\hline
+{\em current\+Layout} & The layout where we want to get the component from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of components on the layout. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 23
+\mbox{\Hypertarget{_e_c_s_8c_abbd0af0b96da7d9033e545d9204fd371}\label{_e_c_s_8c_abbd0af0b96da7d9033e545d9204fd371}} 
+\index{ECS.c@{ECS.c}!ECS\_getSizeAndTypeOfComponent@{ECS\_getSizeAndTypeOfComponent}}
+\index{ECS\_getSizeAndTypeOfComponent@{ECS\_getSizeAndTypeOfComponent}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_getSizeAndTypeOfComponent()}{ECS\_getSizeAndTypeOfComponent()}}
+{\footnotesize\ttfamily size\+\_\+t ECS\+\_\+get\+Size\+And\+Type\+Of\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{component\+Type,  }\item[{char $\ast$}]{component\+Type\+Ptr }\end{DoxyParamCaption})}
+
+Returns the size and name of a given component type. 
+\begin{DoxyParams}{Parameters}
+{\em component\+Type} & Type of component which\textquotesingle{}s data should be recieved. \\
+\hline
+{\em component\+Type\+Ptr} & a pointer to a string where the component type should be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of the given component 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 24
+\mbox{\Hypertarget{_e_c_s_8c_aa0d4c1f274b10e4362d1d2425f8b661c}\label{_e_c_s_8c_aa0d4c1f274b10e4362d1d2425f8b661c}} 
+\index{ECS.c@{ECS.c}!ECS\_layoutHasName@{ECS\_layoutHasName}}
+\index{ECS\_layoutHasName@{ECS\_layoutHasName}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_layoutHasName()}{ECS\_layoutHasName()}}
+{\footnotesize\ttfamily bool ECS\+\_\+layout\+Has\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Checks whether a given layout\textquotesingle{}s name matches a given string. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & A pointer to the layout. \\
+\hline
+{\em name} & The string which the layout\textquotesingle{}s name should be compared with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Logic true if the strings match, false if they don\textquotesingle{}t. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 25
+\mbox{\Hypertarget{_e_c_s_8c_ab76a7717f7bc3824825a511588c577c6}\label{_e_c_s_8c_ab76a7717f7bc3824825a511588c577c6}} 
+\index{ECS.c@{ECS.c}!ECS\_load@{ECS\_load}}
+\index{ECS\_load@{ECS\_load}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_load()}{ECS\_load()}}
+{\footnotesize\ttfamily void ECS\+\_\+load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$}]{layouts\+Ptr,  }\item[{int $\ast$}]{number\+Of\+Layouts,  }\item[{char}]{player\+Name\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_game_resources}{Game\+Resources}} $\ast$}]{resources }\end{DoxyParamCaption})}
+
+Load game data from file. 
+\begin{DoxyParams}{Parameters}
+{\em layouts\+Ptr} & A pointer to the layouts list in the game object. This is where the layouts will be constructed from the instructions stored in the save file. \\
+\hline
+{\em component\+Lists\+Ptr} & A pointer the the component lists in the game object. This is where the components will be loaded to from save file. \\
+\hline
+{\em path} & The path of the file. (Relative. eg.\+: \char`\"{}./saves/original.\+data\char`\"{}) \\
+\hline
+{\em resources} & The resources which should be used when constructing components. (Eg.\+: tilemaps, fonts) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 26
+Here is the caller graph for this function\+:
+% FIG 27
+\mbox{\Hypertarget{_e_c_s_8c_ab7771cd068d13fb1560388b4114a6343}\label{_e_c_s_8c_ab7771cd068d13fb1560388b4114a6343}} 
+\index{ECS.c@{ECS.c}!ECS\_printEntityData@{ECS\_printEntityData}}
+\index{ECS\_printEntityData@{ECS\_printEntityData}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_printEntityData()}{ECS\_printEntityData()}}
+{\footnotesize\ttfamily void ECS\+\_\+print\+Entity\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{int}]{entity\+ID }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 28
+Here is the caller graph for this function\+:
+% FIG 29
+\mbox{\Hypertarget{_e_c_s_8c_abc5bc356c810020e1b30c1ec0c1f3f81}\label{_e_c_s_8c_abc5bc356c810020e1b30c1ec0c1f3f81}} 
+\index{ECS.c@{ECS.c}!ECS\_save@{ECS\_save}}
+\index{ECS\_save@{ECS\_save}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_save()}{ECS\_save()}}
+{\footnotesize\ttfamily void ECS\+\_\+save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts,  }\item[{char}]{player\+Name\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+Saves the game data a file at a specified path. 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & List of layouts. \\
+\hline
+{\em number\+Of\+Layouts} & The number of layouts in the game object. \\
+\hline
+{\em player\+Name} & The name of the current player. This will be the save-\/file\textquotesingle{}s name (./saves/$<$player\+Name$>$.data) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 30
+Here is the caller graph for this function\+:
+% FIG 31
+\mbox{\Hypertarget{_e_c_s_8c_a386edcab0e6d608a0f490d1db71f9bc2}\label{_e_c_s_8c_a386edcab0e6d608a0f490d1db71f9bc2}} 
+\index{ECS.c@{ECS.c}!ECS\_serialise@{ECS\_serialise}}
+\index{ECS\_serialise@{ECS\_serialise}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_serialise()}{ECS\_serialise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_serialisation_map_fragment}{Serialisation\+Map\+Fragment}} $\ast$ ECS\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{layouts,  }\item[{int}]{number\+Of\+Layouts }\end{DoxyParamCaption})}
+
+Creates serialisation map fragments of the layouts. (More precise explanation in the prog1\+\_\+nzh\+\_\+devdocs) 
+\begin{DoxyParams}{Parameters}
+{\em layouts} & list of layouts from which the serialisation\+Map\+Fragments should be constructed. \\
+\hline
+{\em number\+Of\+Layouts} & number of layouts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of Serialisation\+Map\+Fragments. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 32
+Here is the caller graph for this function\+:
+% FIG 33
+\mbox{\Hypertarget{_e_c_s_8c_a5ee7baf92e594c3c0a1c2cb0170df127}\label{_e_c_s_8c_a5ee7baf92e594c3c0a1c2cb0170df127}} 
+\index{ECS.c@{ECS.c}!ECS\_switchToPlayer@{ECS\_switchToPlayer}}
+\index{ECS\_switchToPlayer@{ECS\_switchToPlayer}!ECS.c@{ECS.c}}
+\doxysubsubsection{\texorpdfstring{ECS\_switchToPlayer()}{ECS\_switchToPlayer()}}
+{\footnotesize\ttfamily void ECS\+\_\+switch\+To\+Player (\begin{DoxyParamCaption}\item[{char $\ast$}]{current\+Player,  }\item[{char $\ast$}]{player,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$}]{layouts\+Ptr,  }\item[{int $\ast$}]{number\+Of\+Layouts,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$$\ast$}]{current\+Layout\+Ptr,  }\item[{\mbox{\hyperlink{struct_game_resources}{Game\+Resources}} $\ast$}]{resources }\end{DoxyParamCaption})}
+
+Saves game and loads another player\textquotesingle{}s game. Here is the call graph for this function\+:
+% FIG 34
+Here is the caller graph for this function\+:
+% FIG 35

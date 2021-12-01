@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "73fae3024bb87be9",
+    "type": "split",
+    "children": [
+      {
+        "id": "0aeb2fa6cf488f78",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "prog1_nzh_userdocs.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1bedc4b386af1584",
+    "type": "split",
+    "children": [
+      {
+        "id": "08239e9a8c20e583",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe97fd5c38bf4d4a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "71d8e14d4db3a0fb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e3f88fb81fbebc8c",
+    "type": "split",
+    "children": [
+      {
+        "id": "974be7f6b2dd8e34",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4af7b62bd5211f86",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "prog1_nzh_userdocs.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "0aeb2fa6cf488f78",
+  "lastOpenFiles": [
+    "prog1_nzh_userdocs.md",
+    "prog1_nzh_devdocs.md",
+    "prog1_nzh_todo.md"
+  ]
+}

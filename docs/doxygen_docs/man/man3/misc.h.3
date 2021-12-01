@@ -1,0 +1,75 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/misc.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/misc.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Tilemap\&.h'\fP
+.br
+\fC#include 'SDL_ttf\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBRGBAColor\fP"
+.br
+.ti -1c
+.RI "struct \fBRGBColor\fP"
+.br
+.ti -1c
+.RI "struct \fBGameResources\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBRGBAColor\fP \fBRGBAColor\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBRGBColor\fP \fBRGBColor\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBGameState\fP \fBGameState\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBGameResources\fP \fBGameResources\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBGameState\fP { \fBGAME_MODE\fP = 0, \fBEDIT_MODE\fP = 1, \fBVICTORY\fP = 2 }"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBGameResources\fP \fBGameResources\fP"
+Outside data that is used by the game\&. This is used when loading game objects, because than the pointers have to be reset\&. 
+.SS "typedef enum \fBGameState\fP \fBGameState\fP"
+State of the game\&. Some game logic works differently depending what state the game is in\&. 
+.SS "typedef struct \fBRGBAColor\fP \fBRGBAColor\fP"
+RGB color values with an alpha channel\&. 
+.SS "typedef struct \fBRGBColor\fP \fBRGBColor\fP"
+RGB color values 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBGameState\fP"
+State of the game\&. Some game logic works differently depending what state the game is in\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGAME_MODE \fP\fP
+.TP
+\fB\fIEDIT_MODE \fP\fP
+.TP
+\fB\fIVICTORY \fP\fP
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

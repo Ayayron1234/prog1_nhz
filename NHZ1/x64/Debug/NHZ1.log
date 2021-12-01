@@ -1,6 +1,6 @@
-﻿  Game.c
-D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(275,90): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[255]'
-D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(275,57): warning C4024: 'Editor_paste': different types for formal and actual parameter 3
-D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(325,55): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(325,87): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  InteractableSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\InteractableSystems.c(145,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\InteractableSystems.c(245,24): warning C4013: 'ECS_printEntityData' undefined; assuming extern returning int
   NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe

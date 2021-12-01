@@ -1,0 +1,31 @@
+\hypertarget{_collision_box_systems_8h_source}{}\doxysection{Collision\+Box\+Systems.\+h}
+\label{_collision_box_systems_8h_source}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/CollisionBoxSystems.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/CollisionBoxSystems.h}}
+\mbox{\hyperlink{_collision_box_systems_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_e_c_s_8h}{ECS.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_editor_systems_8h}{EditorSystems.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_math_8h}{Math.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_ray2}{Ray2}} \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_ray2_abcee6757938973b7cb8dbaecfaf30b76}{origin}};          }
+\DoxyCodeLine{14     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_ray2_a51253baa96a59e154ca0caee29015f85}{destination}};        }
+\DoxyCodeLine{15 \} \mbox{\hyperlink{_collision_box_systems_8h_a42383dc6a29dea66ba2d0931e6146d3c}{Ray2}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} \mbox{\hyperlink{_collision_box_systems_8h_a8b6cf8bdbbfc2e06b3f5d971de4141d4}{CollisionBox\_update}}(\textcolor{keywordtype}{int} gameState, \mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_collision_box_systems_8h_aaa64d01005e915c93f76dfaffa29db45}{CollisionBox\_isPointInside}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox, \mbox{\hyperlink{struct_vec2}{Vec2}} point);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_collision_box_systems_8h_a525ca9b971c350651d21068fd0f5a121}{CollisionBox\_checkForOverlapp}}(SDL\_Rect A, SDL\_Rect B);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_collision_box_systems_8h_a7df0444e4d49678e516b8e8b8c8c2884}{CollisionBox\_checkIfRayOverlapps}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_collision_box}{CollisionBox}}* collisionBox, \mbox{\hyperlink{struct_ray2}{Ray2}} ray, \mbox{\hyperlink{struct_vec2}{Vec2}}* contactPoint, \mbox{\hyperlink{struct_vec2}{Vec2}}* contactNormal, \textcolor{keywordtype}{double}* tHitNear);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Camera.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Camera.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'Vec2\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCamera\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBCamera\fP \fBCamera\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCamera_init\fP (\fBCamera\fP *cameras, int entityID, int *total_cameraComponents)"
+.br
+.ti -1c
+.RI "void \fBCamera_delete\fP (\fBCamera\fP *cameras, int entityID, int *total_cameraComponents)"
+.br
+.ti -1c
+.RI "void \fBCamera_deserialise\fP (\fBCamera\fP *cameras, int *total_cameraComponents, int maxNumberOfComponents, char path[255])"
+.br
+.ti -1c
+.RI "void \fBCamera_serialise\fP (\fBCamera\fP *cameras, int maxNumberOfComponents, char path[255])"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBCamera\fP \fBCamera\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void Camera_delete (\fBCamera\fP * cameras, int entityID, int * total_cameraComponents)"
+
+.SS "void Camera_deserialise (\fBCamera\fP * cameras, int * total_cameraComponents, int maxNumberOfComponents, char path[255])"
+
+.SS "void Camera_init (\fBCamera\fP * cameras, int entityID, int * total_cameraComponents)"
+
+.SS "void Camera_serialise (\fBCamera\fP * cameras, int maxNumberOfComponents, char path[255])"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

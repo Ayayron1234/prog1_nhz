@@ -1,0 +1,109 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Interactable.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Interactable.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'Math\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBInteraction\fP"
+.br
+.ti -1c
+.RI "struct \fBInteractable\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNUMBER_OF_INTERACTION_TYPES\fP   5"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBInteractionType\fP \fBInteractionType\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteraction\fP \fBInteraction\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBInteractableType\fP \fBInteractableType\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteractable\fP \fBInteractable\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBInteractionType\fP { \fBCLICK\fP = 0, \fBCOLLISION\fP = 1, \fBOVERLAP\fP = 2, \fBHOLD\fP = 3, \fBKEYDOWN\fP = 4 }"
+.br
+.ti -1c
+.RI "enum \fBInteractableType\fP { \fBBUTTON\fP, \fBTEXTBOX\fP, \fBLUCKY_BLOCK\fP, \fBENEMY\fP, \fBHEALTH_PICKUP\fP, \fBCOIN\fP, \fBFINISH\fP }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define NUMBER_OF_INTERACTION_TYPES   5"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBInteractable\fP \fBInteractable\fP"
+
+.SS "typedef enum \fBInteractableType\fP \fBInteractableType\fP"
+
+.SS "typedef struct \fBInteraction\fP \fBInteraction\fP"
+
+.SS "typedef enum \fBInteractionType\fP \fBInteractionType\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBInteractableType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIBUTTON \fP\fP
+.TP
+\fB\fITEXTBOX \fP\fP
+.TP
+\fB\fILUCKY_BLOCK \fP\fP
+.TP
+\fB\fIENEMY \fP\fP
+.TP
+\fB\fIHEALTH_PICKUP \fP\fP
+.TP
+\fB\fICOIN \fP\fP
+.TP
+\fB\fIFINISH \fP\fP
+.SS "enum \fBInteractionType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICLICK \fP\fP
+.TP
+\fB\fICOLLISION \fP\fP
+.TP
+\fB\fIOVERLAP \fP\fP
+.TP
+\fB\fIHOLD \fP\fP
+.TP
+\fB\fIKEYDOWN \fP\fP
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

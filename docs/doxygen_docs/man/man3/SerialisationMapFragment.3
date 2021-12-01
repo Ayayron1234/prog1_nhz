@@ -1,0 +1,63 @@
+.TH "SerialisationMapFragment" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SerialisationMapFragment
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ECS\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBComponentType\fP \fBcomponentType\fP"
+.br
+.RI "An integer, representing the component's type\&. (eg\&.: \fBPosition(0)\fP, \fBSprite(2)\fP, \&.\&.\&.) "
+.ti -1c
+.RI "int \fBtotal_components\fP"
+.br
+.RI "The number of components of the serialisation map fragment's components' type\&. "
+.ti -1c
+.RI "size_t \fBcomponentSize\fP"
+.br
+.RI "The size of a type of component which this map represents\&. (eg\&.: sizeof(Position)) "
+.ti -1c
+.RI "int \fBtotal_layouts\fP"
+.br
+.RI "The number of layouts\&. "
+.ti -1c
+.RI "\fBLayoutMap\fP * \fBlayoutMaps\fP"
+.br
+.RI "An array of serialised layouts\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A struct containing data about a certain type of component\&. This struct is used in saving or loading game data\&. 
+.SH "Field Documentation"
+.PP 
+.SS "size_t componentSize"
+
+.PP
+The size of a type of component which this map represents\&. (eg\&.: sizeof(Position)) 
+.SS "\fBComponentType\fP componentType"
+
+.PP
+An integer, representing the component's type\&. (eg\&.: \fBPosition(0)\fP, \fBSprite(2)\fP, \&.\&.\&.) 
+.SS "\fBLayoutMap\fP* layoutMaps"
+
+.PP
+An array of serialised layouts\&. 
+.SS "int total_components"
+
+.PP
+The number of components of the serialisation map fragment's components' type\&. 
+.SS "int total_layouts"
+
+.PP
+The number of layouts\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

@@ -1,0 +1,33 @@
+\hypertarget{_editor_systems_8h_source}{}\doxysection{Editor\+Systems.\+h}
+\label{_editor_systems_8h_source}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/EditorSystems.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/EditorSystems.h}}
+\mbox{\hyperlink{_editor_systems_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_e_c_s_8h}{ECS.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}SDL.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SDL\_ttf.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_collision_box_systems_8h}{CollisionBoxSystems.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{17 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_a7bfec97c1f55f8265a882d023cbd4a01}{Editor\_render}}(\textcolor{keywordtype}{int} gameState, \mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_editor}{Editor}}* editor, SDL\_Renderer* renderer, TTF\_Font* ttfFont);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_ad08e7838f6b162c92832272682e8a159}{Editor\_renderPositionData}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_editor}{Editor}}* editor, SDL\_Renderer* renderer, TTF\_Font* ttfFont);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33 \textcolor{keywordtype}{int} \mbox{\hyperlink{_editor_systems_8h_aff7a561b811a11cb63123e08d1200fd4}{Editor\_getSelected}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_ab67232b13a49d2ea398831201e72f261}{Editor\_select}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_a149e7c435f50f3a46ec8d1b59d949b74}{Editor\_deselectAll}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_a0be42ead2aee7a61cbff0bedd5db3a78}{Editor\_selectEntityAtClick}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_vec2}{Vec2}} mousePosition);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} \mbox{\hyperlink{_editor_systems_8h_a9f949608a550d6d3ed3a528a9580bd18}{Editor\_copy}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{70 \textcolor{keywordtype}{int} \mbox{\hyperlink{_editor_systems_8h_aff3eddf012fafe777631e26bee40eabf}{Editor\_paste}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* layoutName, \textcolor{keywordtype}{void}** copied);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+
+\end{DoxyCode}

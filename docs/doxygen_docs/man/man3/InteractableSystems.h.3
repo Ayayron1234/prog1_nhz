@@ -1,0 +1,107 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/InteractableSystems.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/InteractableSystems.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ECS\&.h'\fP
+.br
+\fC#include 'EditorSystems\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBInteractionData_collision\fP"
+.br
+.ti -1c
+.RI "struct \fBInteractionData_overlap\fP"
+.br
+.ti -1c
+.RI "struct \fBInteractionData_click\fP"
+.br
+.ti -1c
+.RI "struct \fBInteractionData_hold\fP"
+.br
+.ti -1c
+.RI "struct \fBInteractionData_keydown\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBInteractionData_collision\fP \fBInteractionData_collision\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteractionData_overlap\fP \fBInteractionData_overlap\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteractionData_click\fP \fBInteractionData_click\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteractionData_hold\fP \fBInteractionData_hold\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBInteractionData_keydown\fP \fBInteractionData_keydown\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInteractable_interact\fP (\fBInteractable\fP *interactable, \fBInteractionType\fP interactionType, void *interactionData)"
+.br
+.ti -1c
+.RI "void \fBInteractable_update\fP (\fBLayout\fP *layouts, int numberOfLayouts, char *currentLayoutName, \fBInteractable\fP *interactable, \fBGameState\fP gameState)"
+.br
+.ti -1c
+.RI "void \fBInteractable_resolveInteraction\fP (\fBLayout\fP *layouts, int numberOfLayouts, char *currentLayoutName, \fBInteractable\fP *interactable, \fBInteraction\fP *interaction, \fBGameState\fP gameState, bool *activeInteractions)"
+.br
+.ti -1c
+.RI "void \fBInteractable_loseFocusForAll\fP (\fBLayout\fP *currentLayout)"
+.br
+.ti -1c
+.RI "void \fBInteractable_focus\fP (\fBLayout\fP *currentLayout, int entityID)"
+.br
+.ti -1c
+.RI "void \fBInteractable_focusEntityAtClick\fP (\fBLayout\fP *currentLayout, \fBVec2\fP mousePosition)"
+.br
+.ti -1c
+.RI "\fBInteractable\fP * \fBInteractabe_getFocused\fP (\fBLayout\fP *currentLayout)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBInteractionData_click\fP \fBInteractionData_click\fP"
+
+.SS "typedef struct \fBInteractionData_collision\fP \fBInteractionData_collision\fP"
+
+.SS "typedef struct \fBInteractionData_hold\fP \fBInteractionData_hold\fP"
+
+.SS "typedef struct \fBInteractionData_keydown\fP \fBInteractionData_keydown\fP"
+
+.SS "typedef struct \fBInteractionData_overlap\fP \fBInteractionData_overlap\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBInteractable\fP * Interactabe_getFocused (\fBLayout\fP * currentLayout)"
+
+.SS "void Interactable_focus (\fBLayout\fP * currentLayout, int entityID)"
+
+.SS "void Interactable_focusEntityAtClick (\fBLayout\fP * currentLayout, \fBVec2\fP mousePosition)"
+
+.SS "void Interactable_interact (\fBInteractable\fP * interactable, \fBInteractionType\fP interactionType, void * interactionData)"
+
+.SS "void Interactable_loseFocusForAll (\fBLayout\fP * currentLayout)"
+
+.SS "void Interactable_resolveInteraction (\fBLayout\fP * layouts, int numberOfLayouts, char * currentLayoutName, \fBInteractable\fP * interactable, \fBInteraction\fP * interaction, \fBGameState\fP gameState, bool * activeInteractions)"
+
+.SS "void Interactable_update (\fBLayout\fP * layouts, int numberOfLayouts, char * currentLayoutName, \fBInteractable\fP * interactable, \fBGameState\fP gameState)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

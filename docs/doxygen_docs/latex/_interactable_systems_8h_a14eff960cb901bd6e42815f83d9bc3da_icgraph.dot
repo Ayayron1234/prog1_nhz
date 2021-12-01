@@ -1,0 +1,20 @@
+digraph "Interactable_focus"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Interactable_focus",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Interactable_focusEntity\lAtClick",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_interactable_systems_8c.html#ae85fd338eff1e8618710640569df7b4b",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Game_update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_game_8c.html#a1fdb232da8445ef611c99a0baff40778",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Interactable_resolveInteraction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_interactable_systems_8c.html#acb7bc993c906da3377e35ff6eb3ca1d9",tooltip=" "];
+  Node5 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Interactable_update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_interactable_systems_8c.html#ab7e982b57adb8ff955d90d40e890dfaf",tooltip=" "];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

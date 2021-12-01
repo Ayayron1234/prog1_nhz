@@ -1,0 +1,152 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/EditorSystems.c" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/EditorSystems.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'EditorSystems\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBEditor_render\fP (int gameState, \fBLayout\fP *currentLayout, \fBEditor\fP *editor, SDL_Renderer *renderer, TTF_Font *ttfFont)"
+.br
+.ti -1c
+.RI "void \fBEditor_renderPositionData\fP (\fBLayout\fP *currentLayout, \fBEditor\fP *editor, SDL_Renderer *renderer, TTF_Font *ttfFont)"
+.br
+.ti -1c
+.RI "void \fBEditor_selectEntityAtClick\fP (\fBLayout\fP *currentLayout, \fBVec2\fP mousePosition)"
+.br
+.ti -1c
+.RI "int \fBEditor_getSelected\fP (\fBLayout\fP *currentLayout)"
+.br
+.ti -1c
+.RI "void \fBEditor_select\fP (\fBLayout\fP *currentLayout, int entityID)"
+.br
+.ti -1c
+.RI "void \fBEditor_deselectAll\fP (\fBLayout\fP *currentLayout)"
+.br
+.ti -1c
+.RI "void \fBEditor_copy\fP (\fBLayout\fP *currentLayout, int entityID)"
+.br
+.ti -1c
+.RI "int \fBEditor_paste\fP (\fBLayout\fP *layouts, int numberOfLayouts, char *layoutName, void **copied)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void Editor_copy (\fBLayout\fP * currentLayout, int entityID)"
+Sets the copied attribute of the given entity to true\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we want to copy the entity from\&. 
+.br
+\fIentityID\fP The ID of the entity we want to copy\&. 
+.RE
+.PP
+
+.SS "void Editor_deselectAll (\fBLayout\fP * currentLayout)"
+Deselects all entities\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout whos child entities we want to deselect\&. 
+.RE
+.PP
+
+.SS "int Editor_getSelected (\fBLayout\fP * currentLayout)"
+Returns the selected entity's ID\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we want to look for the selected entity\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The entity's ID\&. 
+.RE
+.PP
+
+.SS "int Editor_paste (\fBLayout\fP * layouts, int numberOfLayouts, char * layoutName, void ** copied)"
+Duplicates the copied entity\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayouts\fP List of layouts\&. 
+.br
+\fInumberOFlayouts\fP The number of layouts\&. 
+.br
+\fIlayoutName\fP The name of the layout where we want to paste the new enity in\&. 
+.br
+\fIcopied\fP The list of components that belong to the copied entity\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The ID of the new component\&. 
+.RE
+.PP
+
+.SS "void Editor_render (int gameState, \fBLayout\fP * currentLayout, \fBEditor\fP * editor, SDL_Renderer * renderer, TTF_Font * ttfFont)"
+Renders a box around the selected entity if the game state is EDIT_MODE\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgameState\fP The game's state\&. 
+.br
+\fIcurrentLayout\fP The layout where we want to display the box, and the parent layout of the selected entity\&. 
+.br
+\fIeditor\fP The editor we want to render\&. 
+.br
+\fIrenderer\fP The rendering context where we want to render the box\&. 
+.br
+\fIttfFont\fP A pointer to the loaded font family which we want to use to display data about the entity\&. 
+.RE
+.PP
+
+.SS "void Editor_renderPositionData (\fBLayout\fP * currentLayout, \fBEditor\fP * editor, SDL_Renderer * renderer, TTF_Font * ttfFont)"
+Renders position and layout data, and displays the entity's ID\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we want to display the box, and the parent layout of the selected entity\&. 
+.br
+\fIeditor\fP The editor we want to render\&. 
+.br
+\fIrenderer\fP The rendering context where we want to render the box\&. 
+.br
+\fIttfFont\fP A pointer to the loaded font family which we want to use to display data about the entity\&. 
+.RE
+.PP
+
+.SS "void Editor_select (\fBLayout\fP * currentLayout, int entityID)"
+Selects an entity with a given ID\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout were we want to select the entity\&. 
+.br
+\fIentityID\fP The ID of the entity we want to select\&. 
+.RE
+.PP
+
+.SS "void Editor_selectEntityAtClick (\fBLayout\fP * currentLayout, \fBVec2\fP mousePosition)"
+Selects entity at a given location\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrentLayout\fP The layout where we want to select the entity\&. 
+.br
+\fImousePosition\fP The cursor's position relative to the game window\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

@@ -1,0 +1,44 @@
+\hypertarget{struct_layer}{}\doxysection{Layer Struct Reference}
+\label{struct_layer}\index{Layer@{Layer}}
+
+
+{\ttfamily \#include $<$ECS.\+h$>$}
+
+
+
+Collaboration diagram for Layer\+:
+% FIG 0
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_layer_a5e86ae03bfc1114757058679ce26e746}{z\+Index}}
+\begin{DoxyCompactList}\small\item\em Represents the z coordinate of the layer\textquotesingle{}s child entities. The higher it is, the later the element will be rendered. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_layer_a1f1487498e5ba9acedf28a5254d8a042}{parallax}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct containing parallax data, and tells the renderer which order should the entities be rendered in. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_layer_a1f1487498e5ba9acedf28a5254d8a042}\label{struct_layer_a1f1487498e5ba9acedf28a5254d8a042}} 
+\index{Layer@{Layer}!parallax@{parallax}}
+\index{parallax@{parallax}!Layer@{Layer}}
+\doxysubsubsection{\texorpdfstring{parallax}{parallax}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vec2}{Vec2}} parallax}
+
+A 2d vector which tells the renderer the amount it should transform an element by the cameras vector. If 0, the entity will be stationary if 1, the entity moves to the opposite direction from the camera. \mbox{\Hypertarget{struct_layer_a5e86ae03bfc1114757058679ce26e746}\label{struct_layer_a5e86ae03bfc1114757058679ce26e746}} 
+\index{Layer@{Layer}!zIndex@{zIndex}}
+\index{zIndex@{zIndex}!Layer@{Layer}}
+\doxysubsubsection{\texorpdfstring{zIndex}{zIndex}}
+{\footnotesize\ttfamily int z\+Index}
+
+
+
+Represents the z coordinate of the layer\textquotesingle{}s child entities. The higher it is, the later the element will be rendered. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\mbox{\hyperlink{_e_c_s_8h}{ECS.\+h}}\end{DoxyCompactItemize}

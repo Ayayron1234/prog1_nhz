@@ -1,0 +1,116 @@
+\hypertarget{_e_c_s_8h_source}{}\doxysection{ECS.\+h}
+\label{_e_c_s_8h_source}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/ECS.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/ECS.h}}
+\mbox{\hyperlink{_e_c_s_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{misc_8h}{misc.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_position_8h}{Position.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sprite_8h}{Sprite.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_editor_8h}{Editor.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_animation_8h}{Animation.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tile_8h}{Tile.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_8h}{Text.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_collision_box_8h}{CollisionBox.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_collider_8h}{Collider.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_physics_body_8h}{PhysicsBody.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_renderer_8h}{EntityRenderer.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_movement_controller_8h}{MovementController.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_interactable_8h}{Interactable.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define \_CRTDBG\_MAP\_ALLOC}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <crtdbg.h>}}
+\DoxyCodeLine{20 \textcolor{comment}{//\#include "{}debugmalloc.h"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// debug}}
+\DoxyCodeLine{23 SDL\_Renderer* \mbox{\hyperlink{_e_c_s_8h_ad084e4794bacb2842f5b8f89d0dfda00}{ECS\_\_debug\_renderer}};}
+\DoxyCodeLine{24 \textcolor{comment}{// debug}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layer}{Layer}} \{}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_layer_a5e86ae03bfc1114757058679ce26e746}{zIndex}};                       }
+\DoxyCodeLine{35     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_layer_a1f1487498e5ba9acedf28a5254d8a042}{parallax}};}
+\DoxyCodeLine{36 \} \mbox{\hyperlink{_e_c_s_8h_a0a0b68a32dcbcdb0bdcdfc430c27732a}{Layer}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define NUMBER\_OF\_COMPONENT\_TYPES 12}}
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0ad34d5395053a1781444508e570283be1}{POSITION}} = 0,}
+\DoxyCodeLine{44     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0acd88c7ae2b15e95f236caae09eaa1f56}{EDITOR}} = 1,}
+\DoxyCodeLine{45     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0a2dd609ad1f04fe6e979d97ae1276f880}{SPRITE}} = 2,}
+\DoxyCodeLine{46     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0afd8331de7faa8b5fa5c0a0370f1c9342}{TILE}} = 3,}
+\DoxyCodeLine{47     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0a9a4a47c1606e295076055a9cc4373197}{TEXT}} = 4,}
+\DoxyCodeLine{48     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0af3b49771c99e24d1407f9fc662fc7a6f}{ANIMATION}} = 5,}
+\DoxyCodeLine{49     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac9df2ffb1989b7486f0d321baf6f9b21}{COLLIDER}} = 6,}
+\DoxyCodeLine{50     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac0018cdd08558388b90668b6bb69798a}{COLLISION\_BOX}} = 7,}
+\DoxyCodeLine{51     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0a8e1eb17da468e744573350e5c568fa13}{PHYSICS\_BODY}} = 8,}
+\DoxyCodeLine{52     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4b3a4a9c29951a439c1ce0a7f3b04974}{ENTITY\_RENDERER}} = 9,}
+\DoxyCodeLine{53     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0acb665a54cb60dc11c65d1273c1a5dc42}{MOVEMENT\_CONTROLLER}} = 10,}
+\DoxyCodeLine{54     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0ae7824b15b60189897b1de762369d034f}{INTERACTABLE}} = 11}
+\DoxyCodeLine{55 \} \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layout_map}{LayoutMap}} \{}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_layout_map_a37722a150250e2a5a98e5e0d11e53449}{start}};                     }
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_layout_map_abce9f5dc9c83f2639b72024fdee5d388}{end}};                     }
+\DoxyCodeLine{60 \} \mbox{\hyperlink{_e_c_s_8h_af9619b4d3b0c92eea0d800dc700c4aa8}{LayoutMap}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_layout}{Layout}} \{}
+\DoxyCodeLine{63     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_layout_a8f772b4320ef765f568542f778df2a0f}{LAYOUT\_NAME}}[255];           }
+\DoxyCodeLine{64     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_layout_af06ca8f630505e27f6a611a4394e3b46}{camera}};                  }
+\DoxyCodeLine{65     \mbox{\hyperlink{struct_layer}{Layer}} \mbox{\hyperlink{struct_layout_a685ac2f6bb54918e39f8e644d59da70a}{layers}}[16];                }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{struct_layout_map}{LayoutMap}}* \mbox{\hyperlink{struct_layout_af657332ccc66e7abcffbef021a39f831}{componentMaps}};     }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void}** \mbox{\hyperlink{struct_layout_abd6fb5ad5a98e805796153d9d87ee6ad}{componentListsPointers}};    }
+\DoxyCodeLine{69 \} \mbox{\hyperlink{_e_c_s_8h_a219c36478a9a3d4973ebc7c33a294548}{Layout}};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{74 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}} \{}
+\DoxyCodeLine{75     \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} \mbox{\hyperlink{struct_serialisation_map_fragment_a7099bfab771f68643c3805a24030b942}{componentType}};  }
+\DoxyCodeLine{76     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_serialisation_map_fragment_a9e24842a6cb9be03dc27a58b0dc3a31f}{total\_components}};           }
+\DoxyCodeLine{77     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct_serialisation_map_fragment_a78b09bda324ddcb866339a437c3bfe4d}{componentSize}};          }
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_serialisation_map_fragment_a833e85042a9ad8700e7111d181d00d42}{total\_layouts}};             }
+\DoxyCodeLine{80     \mbox{\hyperlink{struct_layout_map}{LayoutMap}}* \mbox{\hyperlink{struct_serialisation_map_fragment_a0ebe10b6a8c61fc1919958bea2e6a8ad}{layoutMaps}};           }
+\DoxyCodeLine{81 \} \mbox{\hyperlink{_e_c_s_8h_a2c4300504fd19398a0379751b093a64d}{SerialisationMapFragment}};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_abc5bc356c810020e1b30c1ec0c1f3f81}{ECS\_save}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char} playerName[255]);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_a19541577aec48c0861e5933c6e665c6d}{ECS\_deserialise}}(\mbox{\hyperlink{struct_layout}{Layout}}** layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{void}*** componentLists, \mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}}* serialisationMapFragments, \textcolor{keywordtype}{int} numberOfComponentTypes);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_ab76a7717f7bc3824825a511588c577c6}{ECS\_load}}(\mbox{\hyperlink{struct_layout}{Layout}}** layoutsPtr, \textcolor{keywordtype}{int}* numberOfLayouts, \textcolor{keywordtype}{char} playerName[255], \mbox{\hyperlink{struct_game_resources}{GameResources}}* resources);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{116 \mbox{\hyperlink{struct_serialisation_map_fragment}{SerialisationMapFragment}}* \mbox{\hyperlink{_e_c_s_8h_a386edcab0e6d608a0f490d1db71f9bc2}{ECS\_serialise}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{124 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{_e_c_s_8h_abbd0af0b96da7d9033e545d9204fd371}{ECS\_getSizeAndTypeOfComponent}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \textcolor{keywordtype}{char}* componentTypePtr);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{133 \textcolor{keywordtype}{void}* \mbox{\hyperlink{_e_c_s_8h_aed416a426c4e471a5203374cf03ea86f}{ECS\_getComponent}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout, \textcolor{keywordtype}{int} entity\_ID);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{141 \textcolor{keywordtype}{void}* \mbox{\hyperlink{_e_c_s_8h_a7d1878011294407e746f9c5300cde210}{ECS\_getComponentList}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{150 \textcolor{keywordtype}{void}* \mbox{\hyperlink{_e_c_s_8h_a502db47e783a46764a323c04c4a4f42c}{ECS\_getNthComponent}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{158 \textcolor{keywordtype}{int} \mbox{\hyperlink{_e_c_s_8h_a631bfc25a33ae6773eb9173dc568b138}{ECS\_getNumberOfComponents}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}} currentLayout);}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{165 \textcolor{keywordtype}{int} \mbox{\hyperlink{_e_c_s_8h_a252835dd7eb060f5a586b7190d36aaea}{ECS\_getFreeID}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout);}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{173 \textcolor{keywordtype}{void}** \mbox{\hyperlink{_e_c_s_8h_a4b874f83e809972240855174e0dd97de}{ECS\_getEntity}}(\mbox{\hyperlink{struct_layout}{Layout}} currentLayout, \textcolor{keywordtype}{int} enitity\_ID);}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{179 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_a42aef0c5363771d491bc60b86c2cc642}{ECS\_freeEntity}}(\textcolor{keywordtype}{void}** entityComponents);}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{187 \textcolor{keywordtype}{int}* \mbox{\hyperlink{_e_c_s_8h_aca802be6fd112425bb560ef0272c99d8}{ECS\_getEntityIDPtr}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \textcolor{keywordtype}{void}* component);}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{195 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_a1584f945ce6a38c3198d113d9f793807}{ECS\_createLayout}}(\mbox{\hyperlink{struct_layout}{Layout}}** layoutsPtr, \textcolor{keywordtype}{int}* numberOfLayouts, \textcolor{keywordtype}{char} layoutName[255]);}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{205 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_a38a6c171b970fed9827c6240571685c4}{ECS\_deleteComponent}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* layoutName, \textcolor{keywordtype}{int} entity\_ID);}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{213 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_e_c_s_8h_aa0d4c1f274b10e4362d1d2425f8b661c}{ECS\_layoutHasName}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \textcolor{keywordtype}{char}* name);}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{222 \mbox{\hyperlink{struct_layout}{Layout}}* \mbox{\hyperlink{_e_c_s_8h_aec9590b537bc4cf1a37081c789b61969}{ECS\_getLayout}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* LAYOUT\_NAME);}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{231 \textcolor{keywordtype}{int} \mbox{\hyperlink{_e_c_s_8h_a2454dee07d22915509a6dc18c1c7bfec}{ECS\_getLayoutIndex}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* LAYOUT\_NAME);}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{238 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_aab928d07e976d5615c2efaa075f70358}{ECS\_freeData}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts);}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{249 \textcolor{keywordtype}{void}* \mbox{\hyperlink{_e_c_s_8h_a26b1c807141d22e5ca3e407fda22a9ea}{ECS\_createComponent}}(\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}} componentType, \mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* layoutName, \textcolor{keywordtype}{int} enitity\_ID);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{254 \textcolor{keywordtype}{void} \mbox{\hyperlink{_e_c_s_8h_a5ee7baf92e594c3c0a1c2cb0170df127}{ECS\_switchToPlayer}}(\textcolor{keywordtype}{char}* currentPlayer, \textcolor{keywordtype}{char}* player, \mbox{\hyperlink{struct_layout}{Layout}}** layoutsPtr, \textcolor{keywordtype}{int}* numberOfLayouts, \mbox{\hyperlink{struct_layout}{Layout}}** currentLayoutPtr, \mbox{\hyperlink{struct_game_resources}{GameResources}}* resources);}
+
+\end{DoxyCode}

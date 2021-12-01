@@ -1,0 +1,90 @@
+\hypertarget{_collision_box_systems_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Collision\+Box\+Systems.c File Reference}
+\label{_collision_box_systems_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/CollisionBoxSystems.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/CollisionBoxSystems.c}}
+{\ttfamily \#include \char`\"{}Collision\+Box\+Systems.\+h\char`\"{}}\newline
+Include dependency graph for Collision\+Box\+Systems.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_collision_box_systems_8c_a8b6cf8bdbbfc2e06b3f5d971de4141d4}{Collision\+Box\+\_\+update}} (int game\+State, \mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$collision\+Box)
+\item 
+bool \mbox{\hyperlink{_collision_box_systems_8c_aaa64d01005e915c93f76dfaffa29db45}{Collision\+Box\+\_\+is\+Point\+Inside}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$collision\+Box, \mbox{\hyperlink{struct_vec2}{Vec2}} point)
+\item 
+bool \mbox{\hyperlink{_collision_box_systems_8c_a525ca9b971c350651d21068fd0f5a121}{Collision\+Box\+\_\+check\+For\+Overlapp}} (SDL\+\_\+\+Rect A, SDL\+\_\+\+Rect B)
+\item 
+bool \mbox{\hyperlink{_collision_box_systems_8c_a7df0444e4d49678e516b8e8b8c8c2884}{Collision\+Box\+\_\+check\+If\+Ray\+Overlapps}} (\mbox{\hyperlink{struct_layout}{Layout}} $\ast$current\+Layout, \mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$collision\+Box, \mbox{\hyperlink{struct_ray2}{Ray2}} ray, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$contact\+Point, \mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$contact\+Normal, double $\ast$t\+Hit\+Near)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_collision_box_systems_8c_a525ca9b971c350651d21068fd0f5a121}\label{_collision_box_systems_8c_a525ca9b971c350651d21068fd0f5a121}} 
+\index{CollisionBoxSystems.c@{CollisionBoxSystems.c}!CollisionBox\_checkForOverlapp@{CollisionBox\_checkForOverlapp}}
+\index{CollisionBox\_checkForOverlapp@{CollisionBox\_checkForOverlapp}!CollisionBoxSystems.c@{CollisionBoxSystems.c}}
+\doxysubsubsection{\texorpdfstring{CollisionBox\_checkForOverlapp()}{CollisionBox\_checkForOverlapp()}}
+{\footnotesize\ttfamily bool Collision\+Box\+\_\+check\+For\+Overlapp (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{A,  }\item[{SDL\+\_\+\+Rect}]{B }\end{DoxyParamCaption})}
+
+Checks if two rectangles boxs overlap. @pararm A An SDL\+\_\+\+Rect rectangle. @pararm B An SDL\+\_\+\+Rect rectangle. \begin{DoxyReturn}{Returns}
+logic true if they overlap, false if they don\textquotesingle{}t. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_collision_box_systems_8c_a7df0444e4d49678e516b8e8b8c8c2884}\label{_collision_box_systems_8c_a7df0444e4d49678e516b8e8b8c8c2884}} 
+\index{CollisionBoxSystems.c@{CollisionBoxSystems.c}!CollisionBox\_checkIfRayOverlapps@{CollisionBox\_checkIfRayOverlapps}}
+\index{CollisionBox\_checkIfRayOverlapps@{CollisionBox\_checkIfRayOverlapps}!CollisionBoxSystems.c@{CollisionBoxSystems.c}}
+\doxysubsubsection{\texorpdfstring{CollisionBox\_checkIfRayOverlapps()}{CollisionBox\_checkIfRayOverlapps()}}
+{\footnotesize\ttfamily bool Collision\+Box\+\_\+check\+If\+Ray\+Overlapps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$}]{collision\+Box,  }\item[{\mbox{\hyperlink{struct_ray2}{Ray2}}}]{ray,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{contact\+Point,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}} $\ast$}]{contact\+Normal,  }\item[{double $\ast$}]{t\+Hit\+Near }\end{DoxyParamCaption})}
+
+Checks if ray overlapps with collision box. This is used in collision detection. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The collision box\textquotesingle{}s parent layout. \\
+\hline
+{\em collision\+Box} & The collision box which we want to check the point against. \\
+\hline
+{\em ray} & The ray we want to check. \\
+\hline
+{\em contact\+Point} & A pointer to the 2d vector where we want to store the contact point of the ray and the collision box. \\
+\hline
+{\em contact\+Normal} & A pointer to the 2d vector where we want to store the normal vector of the collision. \\
+\hline
+{\em t\+Hit\+Near} & A double representing where the collision happened on teh ray. If the value is between 0 and 1, than there was a collision. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+logic true if they collide, false if they don\textquotesingle{}t. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_collision_box_systems_8c_aaa64d01005e915c93f76dfaffa29db45}\label{_collision_box_systems_8c_aaa64d01005e915c93f76dfaffa29db45}} 
+\index{CollisionBoxSystems.c@{CollisionBoxSystems.c}!CollisionBox\_isPointInside@{CollisionBox\_isPointInside}}
+\index{CollisionBox\_isPointInside@{CollisionBox\_isPointInside}!CollisionBoxSystems.c@{CollisionBoxSystems.c}}
+\doxysubsubsection{\texorpdfstring{CollisionBox\_isPointInside()}{CollisionBox\_isPointInside()}}
+{\footnotesize\ttfamily bool Collision\+Box\+\_\+is\+Point\+Inside (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$}]{collision\+Box,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{point }\end{DoxyParamCaption})}
+
+Checks if a point is inside the collision box. 
+\begin{DoxyParams}{Parameters}
+{\em current\+Layout} & The collision box\textquotesingle{}s parent layout. \\
+\hline
+{\em collision\+Box} & The collision box which we want to check the point against. \\
+\hline
+{\em point} & The point we want to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+logic true if the point is inside, false if it is outside. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{_collision_box_systems_8c_a8b6cf8bdbbfc2e06b3f5d971de4141d4}\label{_collision_box_systems_8c_a8b6cf8bdbbfc2e06b3f5d971de4141d4}} 
+\index{CollisionBoxSystems.c@{CollisionBoxSystems.c}!CollisionBox\_update@{CollisionBox\_update}}
+\index{CollisionBox\_update@{CollisionBox\_update}!CollisionBoxSystems.c@{CollisionBoxSystems.c}}
+\doxysubsubsection{\texorpdfstring{CollisionBox\_update()}{CollisionBox\_update()}}
+{\footnotesize\ttfamily void Collision\+Box\+\_\+update (\begin{DoxyParamCaption}\item[{int}]{game\+State,  }\item[{\mbox{\hyperlink{struct_layout}{Layout}} $\ast$}]{current\+Layout,  }\item[{\mbox{\hyperlink{struct_collision_box}{Collision\+Box}} $\ast$}]{collision\+Box }\end{DoxyParamCaption})}
+
+Update size of collision box components.\+Gets called in each frame. Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7

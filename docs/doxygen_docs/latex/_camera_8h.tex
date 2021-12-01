@@ -1,0 +1,63 @@
+\hypertarget{_camera_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Camera.h File Reference}
+\label{_camera_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Camera.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Camera.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Vec2.\+h\char`\"{}}\newline
+Include dependency graph for Camera.\+h\+:
+% FIG 0
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_camera}{Camera}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_camera}{Camera}} \mbox{\hyperlink{_camera_8h_a78750a39b09d6562fd9b910c7743cfca}{Camera}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_camera_8h_a46d3212d4f0e6bbe0c057381df10005b}{Camera\+\_\+init}} (\mbox{\hyperlink{struct_camera}{Camera}} $\ast$cameras, int entity\+ID, int $\ast$total\+\_\+camera\+Components)
+\item 
+void \mbox{\hyperlink{_camera_8h_ab150190207f4500d045eec48cf93f51b}{Camera\+\_\+delete}} (\mbox{\hyperlink{struct_camera}{Camera}} $\ast$cameras, int entity\+ID, int $\ast$total\+\_\+camera\+Components)
+\item 
+void \mbox{\hyperlink{_camera_8h_afedd2434ce129e2163b00d28764ce707}{Camera\+\_\+deserialise}} (\mbox{\hyperlink{struct_camera}{Camera}} $\ast$cameras, int $\ast$total\+\_\+camera\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_camera_8h_a11f367ddded2ee2401bcfe22e5d5edcf}{Camera\+\_\+serialise}} (\mbox{\hyperlink{struct_camera}{Camera}} $\ast$cameras, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_camera_8h_a78750a39b09d6562fd9b910c7743cfca}\label{_camera_8h_a78750a39b09d6562fd9b910c7743cfca}} 
+\index{Camera.h@{Camera.h}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{Camera}{Camera}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_camera}{Camera}} \mbox{\hyperlink{struct_camera}{Camera}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_camera_8h_ab150190207f4500d045eec48cf93f51b}\label{_camera_8h_ab150190207f4500d045eec48cf93f51b}} 
+\index{Camera.h@{Camera.h}!Camera\_delete@{Camera\_delete}}
+\index{Camera\_delete@{Camera\_delete}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{Camera\_delete()}{Camera\_delete()}}
+{\footnotesize\ttfamily void Camera\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_camera}{Camera}} $\ast$}]{cameras,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+camera\+Components }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_camera_8h_afedd2434ce129e2163b00d28764ce707}\label{_camera_8h_afedd2434ce129e2163b00d28764ce707}} 
+\index{Camera.h@{Camera.h}!Camera\_deserialise@{Camera\_deserialise}}
+\index{Camera\_deserialise@{Camera\_deserialise}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{Camera\_deserialise()}{Camera\_deserialise()}}
+{\footnotesize\ttfamily void Camera\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_camera}{Camera}} $\ast$}]{cameras,  }\item[{int $\ast$}]{total\+\_\+camera\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_camera_8h_a46d3212d4f0e6bbe0c057381df10005b}\label{_camera_8h_a46d3212d4f0e6bbe0c057381df10005b}} 
+\index{Camera.h@{Camera.h}!Camera\_init@{Camera\_init}}
+\index{Camera\_init@{Camera\_init}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{Camera\_init()}{Camera\_init()}}
+{\footnotesize\ttfamily void Camera\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_camera}{Camera}} $\ast$}]{cameras,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+camera\+Components }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_camera_8h_a11f367ddded2ee2401bcfe22e5d5edcf}\label{_camera_8h_a11f367ddded2ee2401bcfe22e5d5edcf}} 
+\index{Camera.h@{Camera.h}!Camera\_serialise@{Camera\_serialise}}
+\index{Camera\_serialise@{Camera\_serialise}!Camera.h@{Camera.h}}
+\doxysubsubsection{\texorpdfstring{Camera\_serialise()}{Camera\_serialise()}}
+{\footnotesize\ttfamily void Camera\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_camera}{Camera}} $\ast$}]{cameras,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

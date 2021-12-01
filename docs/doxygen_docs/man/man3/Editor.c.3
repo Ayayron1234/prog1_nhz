@@ -1,0 +1,62 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Editor.c" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Editor.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Editor\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBEditor_init\fP (\fBEditor\fP *editors, int entityID, int *total_editorComponents)"
+.br
+.ti -1c
+.RI "void \fBEditor_delete\fP (\fBEditor\fP *editors, int entityID, int *total_editorComponents)"
+.br
+.ti -1c
+.RI "void \fBEditor_deserialise\fP (\fBEditor\fP *editors, int *total_EditorComponents, int maxNumberOfComponents, char path[255])"
+.br
+.ti -1c
+.RI "void \fBEditor_serialise\fP (\fBEditor\fP *editors, int maxNumberOfComponents, char path[255])"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void Editor_delete (\fBEditor\fP * editors, int entityID, int * total_editorComponents)"
+Deletes a given entity's \fBEditor\fP component\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIThe\fP array from which the component should be deleted\&. 
+.br
+\fIentityID\fP The ID of the component's parent entity\&. 
+.br
+\fItotal_editorComponents\fP A pointer to the variable which stores the number of components of this kind in it's parent layout\&. 
+.RE
+.PP
+
+.SS "void Editor_deserialise (\fBEditor\fP * editors, int * total_EditorComponents, int maxNumberOfComponents, char path[255])"
+
+.SS "void Editor_init (\fBEditor\fP * editors, int entityID, int * total_editorComponents)"
+Create \fBEditor\fP component in a given ComponentLists\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIeditors\fP The array in which the component should be created\&. 
+.br
+\fIentityID\fP The ID of the component's parent entity\&. 
+.br
+\fItotal_editorComponents\fP A pointer to the variable which stores the number of components of this kind in it's parent layout\&. 
+.RE
+.PP
+
+.SS "void Editor_serialise (\fBEditor\fP * editors, int maxNumberOfComponents, char path[255])"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

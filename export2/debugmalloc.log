@@ -1,0 +1,59 @@
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/1. rekord:
+  0000026BBDB128A0, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:154, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*))
+ ....k...
+ ....k...
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/1. rekord:
+  0000014F909A5EB0, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:154, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*))
+ .-..O...
+ ..O.......O...
+ ..O.......O...
+ p...O...
+** DEBUGMALLOC DUMP VEGE *******************************
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/1. rekord:
+  000001B0CEEF2C70, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:154, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*))
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/1. rekord:
+  0000015644923820, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:154, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*))
+      0000  50 16 ffffff89 44 56 01 00 00 ffffffe0 1b ffffff89 44 56 01 00 00   P..DV......DV...
+      0010  10 1e ffffff89 44 56 01 00 00 fffffff0 1f ffffff89 44 56 01 00 00   ...DV......DV...
+      0020  ffffffd0 5c ffffff96 44 56 01 00 00 70 2e ffffff90 44 56 01 00 00   .\.DV...p..DV...
+      0030  60 3e ffffff96 44 56 01 00 00 00 62 ffffff96 44 56 01 00 00   `>.DV....b.DV...
+** DEBUGMALLOC DUMP VEGE *******************************
+
+********************************************************
+* MEMORIASZIVARGAS VAN A PROGRAMBAN!!!
+********************************************************
+
+** DEBUGMALLOC DUMP ************************************
+** 1/1. rekord:
+  0000028AC913BE80, 72 bajt, kanari: ok
+  D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c:154, malloc(NUMBER_OF_COMPONENT_TYPES * sizeof(void*))
+ ........
+ ........

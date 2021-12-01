@@ -1,0 +1,57 @@
+\hypertarget{_position_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Position.c File Reference}
+\label{_position_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Position.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Position.c}}
+{\ttfamily \#include \char`\"{}Position.\+h\char`\"{}}\newline
+Include dependency graph for Position.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_position_8c_acbc51eab15099e3ed6de228b3a181377}{Position\+\_\+init}} (int entity\+ID, int $\ast$total\+\_\+position\+Components, \mbox{\hyperlink{struct_position}{Position}} $\ast$dest, \mbox{\hyperlink{struct_vec2}{Vec2}} value)
+\item 
+void \mbox{\hyperlink{_position_8c_a3fc9c1122b392b571549bca942d516f5}{Position\+\_\+delete}} (int entity\+ID, int $\ast$total\+\_\+position\+Components, \mbox{\hyperlink{struct_position}{Position}} $\ast$positions)
+\item 
+void \mbox{\hyperlink{_position_8c_a52f9ce290cedaeb417d629d53c63254d}{Position\+\_\+deserialise}} (\mbox{\hyperlink{struct_position}{Position}} $\ast$positions, int $\ast$total\+\_\+\+Position\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_position_8c_a6ba9f73cc67f46d68d9bea55a08f4bc1}{Position\+\_\+serialise}} (\mbox{\hyperlink{struct_position}{Position}} $\ast$positions, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_position_8c_a42daf09cfc2d6681a2623fa5b7d9bb96}{Position\+\_\+move\+By}} (\mbox{\hyperlink{struct_position}{Position}} $\ast$position, \mbox{\hyperlink{struct_vec2}{Vec2}} amount)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_position_8c_a3fc9c1122b392b571549bca942d516f5}\label{_position_8c_a3fc9c1122b392b571549bca942d516f5}} 
+\index{Position.c@{Position.c}!Position\_delete@{Position\_delete}}
+\index{Position\_delete@{Position\_delete}!Position.c@{Position.c}}
+\doxysubsubsection{\texorpdfstring{Position\_delete()}{Position\_delete()}}
+{\footnotesize\ttfamily void Position\+\_\+delete (\begin{DoxyParamCaption}\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+position\+Components,  }\item[{\mbox{\hyperlink{struct_position}{Position}} $\ast$}]{positions }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_position_8c_a52f9ce290cedaeb417d629d53c63254d}\label{_position_8c_a52f9ce290cedaeb417d629d53c63254d}} 
+\index{Position.c@{Position.c}!Position\_deserialise@{Position\_deserialise}}
+\index{Position\_deserialise@{Position\_deserialise}!Position.c@{Position.c}}
+\doxysubsubsection{\texorpdfstring{Position\_deserialise()}{Position\_deserialise()}}
+{\footnotesize\ttfamily void Position\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} $\ast$}]{positions,  }\item[{int $\ast$}]{total\+\_\+\+Position\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_position_8c_acbc51eab15099e3ed6de228b3a181377}\label{_position_8c_acbc51eab15099e3ed6de228b3a181377}} 
+\index{Position.c@{Position.c}!Position\_init@{Position\_init}}
+\index{Position\_init@{Position\_init}!Position.c@{Position.c}}
+\doxysubsubsection{\texorpdfstring{Position\_init()}{Position\_init()}}
+{\footnotesize\ttfamily void Position\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+position\+Components,  }\item[{\mbox{\hyperlink{struct_position}{Position}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_position_8c_a42daf09cfc2d6681a2623fa5b7d9bb96}\label{_position_8c_a42daf09cfc2d6681a2623fa5b7d9bb96}} 
+\index{Position.c@{Position.c}!Position\_moveBy@{Position\_moveBy}}
+\index{Position\_moveBy@{Position\_moveBy}!Position.c@{Position.c}}
+\doxysubsubsection{\texorpdfstring{Position\_moveBy()}{Position\_moveBy()}}
+{\footnotesize\ttfamily void Position\+\_\+move\+By (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} $\ast$}]{position,  }\item[{\mbox{\hyperlink{struct_vec2}{Vec2}}}]{amount }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_position_8c_a6ba9f73cc67f46d68d9bea55a08f4bc1}\label{_position_8c_a6ba9f73cc67f46d68d9bea55a08f4bc1}} 
+\index{Position.c@{Position.c}!Position\_serialise@{Position\_serialise}}
+\index{Position\_serialise@{Position\_serialise}!Position.c@{Position.c}}
+\doxysubsubsection{\texorpdfstring{Position\_serialise()}{Position\_serialise()}}
+{\footnotesize\ttfamily void Position\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_position}{Position}} $\ast$}]{positions,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

@@ -1,0 +1,36 @@
+.TH "Layer" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Layer
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ECS\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBzIndex\fP"
+.br
+.RI "Represents the z coordinate of the layer's child entities\&. The higher it is, the later the element will be rendered\&. "
+.ti -1c
+.RI "\fBVec2\fP \fBparallax\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A struct containing parallax data, and tells the renderer which order should the entities be rendered in\&. 
+.SH "Field Documentation"
+.PP 
+.SS "\fBVec2\fP parallax"
+A 2d vector which tells the renderer the amount it should transform an element by the cameras vector\&. If 0, the entity will be stationary if 1, the entity moves to the opposite direction from the camera\&. 
+.SS "int zIndex"
+
+.PP
+Represents the z coordinate of the layer's child entities\&. The higher it is, the later the element will be rendered\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

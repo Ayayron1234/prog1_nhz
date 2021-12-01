@@ -1,0 +1,181 @@
+\hypertarget{_game_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Game.h File Reference}
+\label{_game_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Game.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Game.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+ttf.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ECS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}misc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sprite\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Position\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Animation\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tile\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Text\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision\+Box\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Physics\+Body\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Movement\+Controller\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Interactable\+Systems.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$crtdbg.\+h$>$}\newline
+Include dependency graph for Game.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}}
+\item 
+struct \mbox{\hyperlink{struct_game_time}{Game\+Time}}
+\item 
+struct \mbox{\hyperlink{struct_game}{Game}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_game_8h_afc30e481f763a8d68a861dba91be7316}{\+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}} \mbox{\hyperlink{_game_8h_aa61264b2f6701328166f379f97d77e73}{Game\+Appearance}}
+\item 
+typedef struct \mbox{\hyperlink{struct_game_time}{Game\+Time}} \mbox{\hyperlink{_game_8h_acc0f38761c8c7b0eb0cb909f2914dd4e}{Game\+Time}}
+\item 
+typedef struct \mbox{\hyperlink{struct_game}{Game}} \mbox{\hyperlink{_game_8h_a69b5df78d315f81ed77df30fdbfb7002}{Game}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_8h_a1851b2ffb57454b79bbf468793fa1ddb}{Game\+\_\+init}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game, char window\+Name\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} window\+Dimensions, bool is\+Full\+Screen, \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}} background\+Color)
+\item 
+void \mbox{\hyperlink{_game_8h_a1476ad33e261f4f7e0aa253115eb4421}{Game\+\_\+setup}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8h_a2a1844809b1c86ed8e46d4a5edb31609}{Game\+\_\+sdl\+Init}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8h_a1fdb232da8445ef611c99a0baff40778}{Game\+\_\+update}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8h_a9911473d14630a4538712be4c4ae08ef}{Game\+\_\+handle\+SDLEvents}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8h_ad46903a3036d0f002b4289b39410fa0a}{Game\+\_\+render\+Elements}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_game_8h_afc30e481f763a8d68a861dba91be7316}\label{_game_8h_afc30e481f763a8d68a861dba91be7316}} 
+\index{Game.h@{Game.h}!\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}}
+\index{\_CRTDBG\_MAP\_ALLOC@{\_CRTDBG\_MAP\_ALLOC}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{\_CRTDBG\_MAP\_ALLOC}{\_CRTDBG\_MAP\_ALLOC}}
+{\footnotesize\ttfamily \#define \+\_\+\+CRTDBG\+\_\+\+MAP\+\_\+\+ALLOC}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_game_8h_a69b5df78d315f81ed77df30fdbfb7002}\label{_game_8h_a69b5df78d315f81ed77df30fdbfb7002}} 
+\index{Game.h@{Game.h}!Game@{Game}}
+\index{Game@{Game}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game}{Game}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_game}{Game}} \mbox{\hyperlink{struct_game}{Game}}}
+
+This is the main structure. All game data is stored in this object. game-\/\texorpdfstring{$>$}{>}component\+Lists \mbox{\Hypertarget{_game_8h_aa61264b2f6701328166f379f97d77e73}\label{_game_8h_aa61264b2f6701328166f379f97d77e73}} 
+\index{Game.h@{Game.h}!GameAppearance@{GameAppearance}}
+\index{GameAppearance@{GameAppearance}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{GameAppearance}{GameAppearance}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}} \mbox{\hyperlink{struct_game_appearance}{Game\+Appearance}}}
+
+\mbox{\Hypertarget{_game_8h_acc0f38761c8c7b0eb0cb909f2914dd4e}\label{_game_8h_acc0f38761c8c7b0eb0cb909f2914dd4e}} 
+\index{Game.h@{Game.h}!GameTime@{GameTime}}
+\index{GameTime@{GameTime}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{GameTime}{GameTime}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_game_time}{Game\+Time}} \mbox{\hyperlink{struct_game_time}{Game\+Time}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_game_8h_a9911473d14630a4538712be4c4ae08ef}\label{_game_8h_a9911473d14630a4538712be4c4ae08ef}} 
+\index{Game.h@{Game.h}!Game\_handleSDLEvents@{Game\_handleSDLEvents}}
+\index{Game\_handleSDLEvents@{Game\_handleSDLEvents}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_handleSDLEvents()}{Game\_handleSDLEvents()}}
+{\footnotesize\ttfamily void Game\+\_\+handle\+SDLEvents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Handle sdl events, like the quit event. Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{_game_8h_a1851b2ffb57454b79bbf468793fa1ddb}\label{_game_8h_a1851b2ffb57454b79bbf468793fa1ddb}} 
+\index{Game.h@{Game.h}!Game\_init@{Game\_init}}
+\index{Game\_init@{Game\_init}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_init()}{Game\_init()}}
+{\footnotesize\ttfamily void Game\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game,  }\item[{char}]{window\+Name\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{window\+Dimensions,  }\item[{bool}]{is\+Full\+Screen,  }\item[{\mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}}}]{background\+Color }\end{DoxyParamCaption})}
+
+Initialises the game. Loads components from file, initialises sdl. 
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game object we want to initialise. \\
+\hline
+{\em window\+Name} & The name of the window in wich the game will render. \\
+\hline
+{\em window\+Dimensions} & Width and height of the game window. \\
+\hline
+{\em is\+Full\+Screen} & true if game should open in fullscreen mode. \\
+\hline
+{\em background\+Color} & rgba value of the background color of the game window. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{_game_8h_ad46903a3036d0f002b4289b39410fa0a}\label{_game_8h_ad46903a3036d0f002b4289b39410fa0a}} 
+\index{Game.h@{Game.h}!Game\_renderElements@{Game\_renderElements}}
+\index{Game\_renderElements@{Game\_renderElements}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_renderElements()}{Game\_renderElements()}}
+{\footnotesize\ttfamily void Game\+\_\+render\+Elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Renders components in the current layout 
+\begin{DoxyParams}{Parameters}
+{\em layout} & The layout in which the components should be rendered. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{_game_8h_a2a1844809b1c86ed8e46d4a5edb31609}\label{_game_8h_a2a1844809b1c86ed8e46d4a5edb31609}} 
+\index{Game.h@{Game.h}!Game\_sdlInit@{Game\_sdlInit}}
+\index{Game\_sdlInit@{Game\_sdlInit}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_sdlInit()}{Game\_sdlInit()}}
+{\footnotesize\ttfamily void Game\+\_\+sdl\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Initialises sdl. 
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game object. The function will store pointers to the renderer and window in this object. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{_game_8h_a1476ad33e261f4f7e0aa253115eb4421}\label{_game_8h_a1476ad33e261f4f7e0aa253115eb4421}} 
+\index{Game.h@{Game.h}!Game\_setup@{Game\_setup}}
+\index{Game\_setup@{Game\_setup}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_setup()}{Game\_setup()}}
+{\footnotesize\ttfamily void Game\+\_\+setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{_game_8h_a1fdb232da8445ef611c99a0baff40778}\label{_game_8h_a1fdb232da8445ef611c99a0baff40778}} 
+\index{Game.h@{Game.h}!Game\_update@{Game\_update}}
+\index{Game\_update@{Game\_update}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{Game\_update()}{Game\_update()}}
+{\footnotesize\ttfamily void Game\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Updates components in the current layout 
+\begin{DoxyParams}{Parameters}
+{\em layout} & The layout in which the components should be updated. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12

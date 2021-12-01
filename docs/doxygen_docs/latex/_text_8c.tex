@@ -1,0 +1,47 @@
+\hypertarget{_text_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Text.c File Reference}
+\label{_text_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Text.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Text.c}}
+{\ttfamily \#include \char`\"{}Text.\+h\char`\"{}}\newline
+Include dependency graph for Text.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_text_8c_aac9f0a144635464b9c3d51ed7274f6c3}{Text\+\_\+init}} (\mbox{\hyperlink{struct_text}{Text}} $\ast$texts, int entity\+ID, int $\ast$total\+\_\+text\+Components, char value\mbox{[}255\mbox{]}, int font\+Size, char font\+Family\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}} font\+Color, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} text\+Box\+Size)
+\item 
+void \mbox{\hyperlink{_text_8c_a12581f138ec34afa0626669e5c6db60a}{Text\+\_\+delete}} (\mbox{\hyperlink{struct_text}{Text}} $\ast$texts, int entity\+ID, int $\ast$total\+\_\+text\+Components)
+\item 
+void \mbox{\hyperlink{_text_8c_a3d31f1b41dfc049a52e22bb05857b4d4}{Text\+\_\+deserialise}} (\mbox{\hyperlink{struct_text}{Text}} $\ast$texts, int $\ast$total\+\_\+text\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_text_8c_ad8be0c38a423a1d088dcfa826bc7dfe9}{Text\+\_\+serialise}} (\mbox{\hyperlink{struct_text}{Text}} $\ast$texts, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_text_8c_a12581f138ec34afa0626669e5c6db60a}\label{_text_8c_a12581f138ec34afa0626669e5c6db60a}} 
+\index{Text.c@{Text.c}!Text\_delete@{Text\_delete}}
+\index{Text\_delete@{Text\_delete}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{Text\_delete()}{Text\_delete()}}
+{\footnotesize\ttfamily void Text\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text}{Text}} $\ast$}]{texts,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+text\+Components }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{_text_8c_a3d31f1b41dfc049a52e22bb05857b4d4}\label{_text_8c_a3d31f1b41dfc049a52e22bb05857b4d4}} 
+\index{Text.c@{Text.c}!Text\_deserialise@{Text\_deserialise}}
+\index{Text\_deserialise@{Text\_deserialise}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{Text\_deserialise()}{Text\_deserialise()}}
+{\footnotesize\ttfamily void Text\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text}{Text}} $\ast$}]{texts,  }\item[{int $\ast$}]{total\+\_\+text\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_text_8c_aac9f0a144635464b9c3d51ed7274f6c3}\label{_text_8c_aac9f0a144635464b9c3d51ed7274f6c3}} 
+\index{Text.c@{Text.c}!Text\_init@{Text\_init}}
+\index{Text\_init@{Text\_init}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{Text\_init()}{Text\_init()}}
+{\footnotesize\ttfamily void Text\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text}{Text}} $\ast$}]{texts,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+text\+Components,  }\item[{char}]{value\mbox{[}255\mbox{]},  }\item[{int}]{font\+Size,  }\item[{char}]{font\+Family\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_r_g_b_color}{RGBColor}}}]{font\+Color,  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{text\+Box\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_text_8c_ad8be0c38a423a1d088dcfa826bc7dfe9}\label{_text_8c_ad8be0c38a423a1d088dcfa826bc7dfe9}} 
+\index{Text.c@{Text.c}!Text\_serialise@{Text\_serialise}}
+\index{Text\_serialise@{Text\_serialise}!Text.c@{Text.c}}
+\doxysubsubsection{\texorpdfstring{Text\_serialise()}{Text\_serialise()}}
+{\footnotesize\ttfamily void Text\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text}{Text}} $\ast$}]{texts,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

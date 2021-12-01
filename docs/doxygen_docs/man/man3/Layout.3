@@ -1,0 +1,60 @@
+.TH "Layout" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Layout
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ECS\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBLAYOUT_NAME\fP [255]"
+.br
+.RI "Name of the layout\&. "
+.ti -1c
+.RI "\fBVec2\fP \fBcamera\fP"
+.br
+.RI "A 2d vector, representing the camera\&. "
+.ti -1c
+.RI "\fBLayer\fP \fBlayers\fP [16]"
+.br
+.RI "16 member array containing the layout's layers\&. "
+.ti -1c
+.RI "\fBLayoutMap\fP * \fBcomponentMaps\fP"
+.br
+.RI "A layout map, which contains data of the layout's child enities' location in their list\&. "
+.ti -1c
+.RI "void ** \fBcomponentListsPointers\fP"
+.br
+.RI "An array of pointers\&. Each pointer points to a different component type's list\&. "
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "\fBVec2\fP camera"
+
+.PP
+A 2d vector, representing the camera\&. 
+.SS "void** componentListsPointers"
+
+.PP
+An array of pointers\&. Each pointer points to a different component type's list\&. 
+.SS "\fBLayoutMap\fP* componentMaps"
+
+.PP
+A layout map, which contains data of the layout's child enities' location in their list\&. 
+.SS "\fBLayer\fP layers[16]"
+
+.PP
+16 member array containing the layout's layers\&. 
+.SS "char LAYOUT_NAME[255]"
+
+.PP
+Name of the layout\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

@@ -1,0 +1,157 @@
+\hypertarget{_interactable_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Interactable.h File Reference}
+\label{_interactable_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Interactable.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Interactable.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Math.\+h\char`\"{}}\newline
+Include dependency graph for Interactable.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_interaction}{Interaction}}
+\item 
+struct \mbox{\hyperlink{struct_interactable}{Interactable}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_interactable_8h_a470bbc6a9199ac1adc669c224e7338ec}{NUMBER\+\_\+\+OF\+\_\+\+INTERACTION\+\_\+\+TYPES}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}} \mbox{\hyperlink{_interactable_8h_abf92632fa3507ff51007f217afedf191}{Interaction\+Type}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interaction}{Interaction}} \mbox{\hyperlink{_interactable_8h_ab7ae35cdd96f1533f05924d8e640e631}{Interaction}}
+\item 
+typedef enum \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6}{Interactable\+Type}} \mbox{\hyperlink{_interactable_8h_af0c336aae8125d26d8d6848d2aaad635}{Interactable\+Type}}
+\item 
+typedef struct \mbox{\hyperlink{struct_interactable}{Interactable}} \mbox{\hyperlink{_interactable_8h_a966ce36f950ee5da4d65c712ca378918}{Interactable}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}} \{ \newline
+\mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ab03e8ec91b0d074a03df67327675f025}{CLICK}} = 0
+, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ad5384d1822c72da119100438c5051831}{COLLISION}} = 1
+, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35acb2f0de53b7bc584fc5838a34911189c}{OVERLAP}} = 2
+, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a9cfa27b414cab750fb14ec07cdf5cf6a}{HOLD}} = 3
+, \newline
+\mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a6225590ae6caaccd86633209772d5b47}{KEYDOWN}} = 4
+ \}
+\item 
+enum \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6}{Interactable\+Type}} \{ \newline
+\mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a7d67f007544f534278ecca3cdca12565}{BUTTON}}
+, \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6accba5b31f181364f9d34bb6eb03a1e76}{TEXTBOX}}
+, \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a36d84698ee04d4cfd65c75a217e42b89}{LUCKY\+\_\+\+BLOCK}}
+, \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a5ce368bdfc444a87fef6c208b4101571}{ENEMY}}
+, \newline
+\mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a10e04e7513cf4a1dd98c4f7babee6ba5}{HEALTH\+\_\+\+PICKUP}}
+, \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a3db211bb0d30db282da5a13b354f69c8}{COIN}}
+, \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6a8b9af67858708d770f017e4aae85900d}{FINISH}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_interactable_8h_a470bbc6a9199ac1adc669c224e7338ec}\label{_interactable_8h_a470bbc6a9199ac1adc669c224e7338ec}} 
+\index{Interactable.h@{Interactable.h}!NUMBER\_OF\_INTERACTION\_TYPES@{NUMBER\_OF\_INTERACTION\_TYPES}}
+\index{NUMBER\_OF\_INTERACTION\_TYPES@{NUMBER\_OF\_INTERACTION\_TYPES}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_INTERACTION\_TYPES}{NUMBER\_OF\_INTERACTION\_TYPES}}
+{\footnotesize\ttfamily \#define NUMBER\+\_\+\+OF\+\_\+\+INTERACTION\+\_\+\+TYPES~5}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_interactable_8h_a966ce36f950ee5da4d65c712ca378918}\label{_interactable_8h_a966ce36f950ee5da4d65c712ca378918}} 
+\index{Interactable.h@{Interactable.h}!Interactable@{Interactable}}
+\index{Interactable@{Interactable}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{Interactable}{Interactable}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interactable}{Interactable}} \mbox{\hyperlink{struct_interactable}{Interactable}}}
+
+\mbox{\Hypertarget{_interactable_8h_af0c336aae8125d26d8d6848d2aaad635}\label{_interactable_8h_af0c336aae8125d26d8d6848d2aaad635}} 
+\index{Interactable.h@{Interactable.h}!InteractableType@{InteractableType}}
+\index{InteractableType@{InteractableType}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{InteractableType}{InteractableType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6}{Interactable\+Type}} \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6}{Interactable\+Type}}}
+
+\mbox{\Hypertarget{_interactable_8h_ab7ae35cdd96f1533f05924d8e640e631}\label{_interactable_8h_ab7ae35cdd96f1533f05924d8e640e631}} 
+\index{Interactable.h@{Interactable.h}!Interaction@{Interaction}}
+\index{Interaction@{Interaction}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{Interaction}{Interaction}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_interaction}{Interaction}} \mbox{\hyperlink{struct_interaction}{Interaction}}}
+
+\mbox{\Hypertarget{_interactable_8h_abf92632fa3507ff51007f217afedf191}\label{_interactable_8h_abf92632fa3507ff51007f217afedf191}} 
+\index{Interactable.h@{Interactable.h}!InteractionType@{InteractionType}}
+\index{InteractionType@{InteractionType}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{InteractionType}{InteractionType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}} \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6}} 
+\index{Interactable.h@{Interactable.h}!InteractableType@{InteractableType}}
+\index{InteractableType@{InteractableType}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{InteractableType}{InteractableType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_interactable_8h_a0a5435f3af503519459db244e67500e6}{Interactable\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BUTTON@{BUTTON}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!BUTTON@{BUTTON}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a7d67f007544f534278ecca3cdca12565}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a7d67f007544f534278ecca3cdca12565}} 
+BUTTON&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEXTBOX@{TEXTBOX}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!TEXTBOX@{TEXTBOX}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6accba5b31f181364f9d34bb6eb03a1e76}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6accba5b31f181364f9d34bb6eb03a1e76}} 
+TEXTBOX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LUCKY\_BLOCK@{LUCKY\_BLOCK}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!LUCKY\_BLOCK@{LUCKY\_BLOCK}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a36d84698ee04d4cfd65c75a217e42b89}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a36d84698ee04d4cfd65c75a217e42b89}} 
+LUCKY\+\_\+\+BLOCK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENEMY@{ENEMY}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!ENEMY@{ENEMY}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a5ce368bdfc444a87fef6c208b4101571}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a5ce368bdfc444a87fef6c208b4101571}} 
+ENEMY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HEALTH\_PICKUP@{HEALTH\_PICKUP}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!HEALTH\_PICKUP@{HEALTH\_PICKUP}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a10e04e7513cf4a1dd98c4f7babee6ba5}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a10e04e7513cf4a1dd98c4f7babee6ba5}} 
+HEALTH\+\_\+\+PICKUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COIN@{COIN}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!COIN@{COIN}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a3db211bb0d30db282da5a13b354f69c8}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a3db211bb0d30db282da5a13b354f69c8}} 
+COIN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FINISH@{FINISH}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!FINISH@{FINISH}}}\mbox{\Hypertarget{_interactable_8h_a0a5435f3af503519459db244e67500e6a8b9af67858708d770f017e4aae85900d}\label{_interactable_8h_a0a5435f3af503519459db244e67500e6a8b9af67858708d770f017e4aae85900d}} 
+FINISH&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}} 
+\index{Interactable.h@{Interactable.h}!InteractionType@{InteractionType}}
+\index{InteractionType@{InteractionType}!Interactable.h@{Interactable.h}}
+\doxysubsubsection{\texorpdfstring{InteractionType}{InteractionType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{Interaction\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CLICK@{CLICK}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!CLICK@{CLICK}}}\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ab03e8ec91b0d074a03df67327675f025}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ab03e8ec91b0d074a03df67327675f025}} 
+CLICK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLLISION@{COLLISION}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!COLLISION@{COLLISION}}}\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ad5384d1822c72da119100438c5051831}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35ad5384d1822c72da119100438c5051831}} 
+COLLISION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERLAP@{OVERLAP}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!OVERLAP@{OVERLAP}}}\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35acb2f0de53b7bc584fc5838a34911189c}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35acb2f0de53b7bc584fc5838a34911189c}} 
+OVERLAP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOLD@{HOLD}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!HOLD@{HOLD}}}\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a9cfa27b414cab750fb14ec07cdf5cf6a}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a9cfa27b414cab750fb14ec07cdf5cf6a}} 
+HOLD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{KEYDOWN@{KEYDOWN}!Interactable.h@{Interactable.h}}\index{Interactable.h@{Interactable.h}!KEYDOWN@{KEYDOWN}}}\mbox{\Hypertarget{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a6225590ae6caaccd86633209772d5b47}\label{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35a6225590ae6caaccd86633209772d5b47}} 
+KEYDOWN&\\
+\hline
+
+\end{DoxyEnumFields}

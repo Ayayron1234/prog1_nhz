@@ -1,0 +1,110 @@
+\hypertarget{_game_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Game.c File Reference}
+\label{_game_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Game.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Game.c}}
+{\ttfamily \#include \char`\"{}Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}windows.\+h\char`\"{}}\newline
+Include dependency graph for Game.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_8c_a1851b2ffb57454b79bbf468793fa1ddb}{Game\+\_\+init}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game, char window\+Name\mbox{[}255\mbox{]}, \mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}} window\+Dimensions, bool is\+Full\+Screen, \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}} background\+Color)
+\item 
+void \mbox{\hyperlink{_game_8c_a2a1844809b1c86ed8e46d4a5edb31609}{Game\+\_\+sdl\+Init}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8c_a1476ad33e261f4f7e0aa253115eb4421}{Game\+\_\+setup}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8c_a9911473d14630a4538712be4c4ae08ef}{Game\+\_\+handle\+SDLEvents}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8c_a1fdb232da8445ef611c99a0baff40778}{Game\+\_\+update}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\item 
+void \mbox{\hyperlink{_game_8c_ad46903a3036d0f002b4289b39410fa0a}{Game\+\_\+render\+Elements}} (\mbox{\hyperlink{struct_game}{Game}} $\ast$game)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_game_8c_a9911473d14630a4538712be4c4ae08ef}\label{_game_8c_a9911473d14630a4538712be4c4ae08ef}} 
+\index{Game.c@{Game.c}!Game\_handleSDLEvents@{Game\_handleSDLEvents}}
+\index{Game\_handleSDLEvents@{Game\_handleSDLEvents}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_handleSDLEvents()}{Game\_handleSDLEvents()}}
+{\footnotesize\ttfamily void Game\+\_\+handle\+SDLEvents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Handle sdl events, like the quit event. Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{_game_8c_a1851b2ffb57454b79bbf468793fa1ddb}\label{_game_8c_a1851b2ffb57454b79bbf468793fa1ddb}} 
+\index{Game.c@{Game.c}!Game\_init@{Game\_init}}
+\index{Game\_init@{Game\_init}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_init()}{Game\_init()}}
+{\footnotesize\ttfamily void Game\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game,  }\item[{char}]{window\+Name\mbox{[}255\mbox{]},  }\item[{\mbox{\hyperlink{struct_vec2_int}{Vec2\+Int}}}]{window\+Dimensions,  }\item[{bool}]{is\+Full\+Screen,  }\item[{\mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}}}]{background\+Color }\end{DoxyParamCaption})}
+
+Initialises the game. Loads components from file, initialises sdl. 
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game object we want to initialise. \\
+\hline
+{\em window\+Name} & The name of the window in wich the game will render. \\
+\hline
+{\em window\+Dimensions} & Width and height of the game window. \\
+\hline
+{\em is\+Full\+Screen} & true if game should open in fullscreen mode. \\
+\hline
+{\em background\+Color} & rgba value of the background color of the game window. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 3
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{_game_8c_ad46903a3036d0f002b4289b39410fa0a}\label{_game_8c_ad46903a3036d0f002b4289b39410fa0a}} 
+\index{Game.c@{Game.c}!Game\_renderElements@{Game\_renderElements}}
+\index{Game\_renderElements@{Game\_renderElements}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_renderElements()}{Game\_renderElements()}}
+{\footnotesize\ttfamily void Game\+\_\+render\+Elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Renders components in the current layout 
+\begin{DoxyParams}{Parameters}
+{\em layout} & The layout in which the components should be rendered. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{_game_8c_a2a1844809b1c86ed8e46d4a5edb31609}\label{_game_8c_a2a1844809b1c86ed8e46d4a5edb31609}} 
+\index{Game.c@{Game.c}!Game\_sdlInit@{Game\_sdlInit}}
+\index{Game\_sdlInit@{Game\_sdlInit}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_sdlInit()}{Game\_sdlInit()}}
+{\footnotesize\ttfamily void Game\+\_\+sdl\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Initialises sdl. 
+\begin{DoxyParams}{Parameters}
+{\em game} & A pointer to the game object. The function will store pointers to the renderer and window in this object. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{_game_8c_a1476ad33e261f4f7e0aa253115eb4421}\label{_game_8c_a1476ad33e261f4f7e0aa253115eb4421}} 
+\index{Game.c@{Game.c}!Game\_setup@{Game\_setup}}
+\index{Game\_setup@{Game\_setup}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_setup()}{Game\_setup()}}
+{\footnotesize\ttfamily void Game\+\_\+setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{_game_8c_a1fdb232da8445ef611c99a0baff40778}\label{_game_8c_a1fdb232da8445ef611c99a0baff40778}} 
+\index{Game.c@{Game.c}!Game\_update@{Game\_update}}
+\index{Game\_update@{Game\_update}!Game.c@{Game.c}}
+\doxysubsubsection{\texorpdfstring{Game\_update()}{Game\_update()}}
+{\footnotesize\ttfamily void Game\+\_\+update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_game}{Game}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+Updates components in the current layout 
+\begin{DoxyParams}{Parameters}
+{\em layout} & The layout in which the components should be updated. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 10
+Here is the caller graph for this function\+:
+% FIG 11

@@ -1,0 +1,84 @@
+\hypertarget{struct_serialisation_map_fragment}{}\doxysection{Serialisation\+Map\+Fragment Struct Reference}
+\label{struct_serialisation_map_fragment}\index{SerialisationMapFragment@{SerialisationMapFragment}}
+
+
+{\ttfamily \#include $<$ECS.\+h$>$}
+
+
+
+Collaboration diagram for Serialisation\+Map\+Fragment\+:
+% FIG 0
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} \mbox{\hyperlink{struct_serialisation_map_fragment_a7099bfab771f68643c3805a24030b942}{component\+Type}}
+\begin{DoxyCompactList}\small\item\em An integer, representing the component\textquotesingle{}s type. (eg.\+: \mbox{\hyperlink{struct_position}{Position(0)}}, \mbox{\hyperlink{struct_sprite}{Sprite(2)}}, ...) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_serialisation_map_fragment_a9e24842a6cb9be03dc27a58b0dc3a31f}{total\+\_\+components}}
+\begin{DoxyCompactList}\small\item\em The number of components of the serialisation map fragment\textquotesingle{}s components\textquotesingle{} type. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{struct_serialisation_map_fragment_a78b09bda324ddcb866339a437c3bfe4d}{component\+Size}}
+\begin{DoxyCompactList}\small\item\em The size of a type of component which this map represents. (eg.\+: sizeof(\+Position)) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_serialisation_map_fragment_a833e85042a9ad8700e7111d181d00d42}{total\+\_\+layouts}}
+\begin{DoxyCompactList}\small\item\em The number of layouts. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_layout_map}{Layout\+Map}} $\ast$ \mbox{\hyperlink{struct_serialisation_map_fragment_a0ebe10b6a8c61fc1919958bea2e6a8ad}{layout\+Maps}}
+\begin{DoxyCompactList}\small\item\em An array of serialised layouts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct containing data about a certain type of component. This struct is used in saving or loading game data. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_serialisation_map_fragment_a78b09bda324ddcb866339a437c3bfe4d}\label{struct_serialisation_map_fragment_a78b09bda324ddcb866339a437c3bfe4d}} 
+\index{SerialisationMapFragment@{SerialisationMapFragment}!componentSize@{componentSize}}
+\index{componentSize@{componentSize}!SerialisationMapFragment@{SerialisationMapFragment}}
+\doxysubsubsection{\texorpdfstring{componentSize}{componentSize}}
+{\footnotesize\ttfamily size\+\_\+t component\+Size}
+
+
+
+The size of a type of component which this map represents. (eg.\+: sizeof(\+Position)) 
+
+\mbox{\Hypertarget{struct_serialisation_map_fragment_a7099bfab771f68643c3805a24030b942}\label{struct_serialisation_map_fragment_a7099bfab771f68643c3805a24030b942}} 
+\index{SerialisationMapFragment@{SerialisationMapFragment}!componentType@{componentType}}
+\index{componentType@{componentType}!SerialisationMapFragment@{SerialisationMapFragment}}
+\doxysubsubsection{\texorpdfstring{componentType}{componentType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_e_c_s_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} component\+Type}
+
+
+
+An integer, representing the component\textquotesingle{}s type. (eg.\+: \mbox{\hyperlink{struct_position}{Position(0)}}, \mbox{\hyperlink{struct_sprite}{Sprite(2)}}, ...) 
+
+\mbox{\Hypertarget{struct_serialisation_map_fragment_a0ebe10b6a8c61fc1919958bea2e6a8ad}\label{struct_serialisation_map_fragment_a0ebe10b6a8c61fc1919958bea2e6a8ad}} 
+\index{SerialisationMapFragment@{SerialisationMapFragment}!layoutMaps@{layoutMaps}}
+\index{layoutMaps@{layoutMaps}!SerialisationMapFragment@{SerialisationMapFragment}}
+\doxysubsubsection{\texorpdfstring{layoutMaps}{layoutMaps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_layout_map}{Layout\+Map}}$\ast$ layout\+Maps}
+
+
+
+An array of serialised layouts. 
+
+\mbox{\Hypertarget{struct_serialisation_map_fragment_a9e24842a6cb9be03dc27a58b0dc3a31f}\label{struct_serialisation_map_fragment_a9e24842a6cb9be03dc27a58b0dc3a31f}} 
+\index{SerialisationMapFragment@{SerialisationMapFragment}!total\_components@{total\_components}}
+\index{total\_components@{total\_components}!SerialisationMapFragment@{SerialisationMapFragment}}
+\doxysubsubsection{\texorpdfstring{total\_components}{total\_components}}
+{\footnotesize\ttfamily int total\+\_\+components}
+
+
+
+The number of components of the serialisation map fragment\textquotesingle{}s components\textquotesingle{} type. 
+
+\mbox{\Hypertarget{struct_serialisation_map_fragment_a833e85042a9ad8700e7111d181d00d42}\label{struct_serialisation_map_fragment_a833e85042a9ad8700e7111d181d00d42}} 
+\index{SerialisationMapFragment@{SerialisationMapFragment}!total\_layouts@{total\_layouts}}
+\index{total\_layouts@{total\_layouts}!SerialisationMapFragment@{SerialisationMapFragment}}
+\doxysubsubsection{\texorpdfstring{total\_layouts}{total\_layouts}}
+{\footnotesize\ttfamily int total\+\_\+layouts}
+
+
+
+The number of layouts. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\mbox{\hyperlink{_e_c_s_8h}{ECS.\+h}}\end{DoxyCompactItemize}

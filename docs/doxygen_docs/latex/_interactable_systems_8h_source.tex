@@ -1,0 +1,49 @@
+\hypertarget{_interactable_systems_8h_source}{}\doxysection{Interactable\+Systems.\+h}
+\label{_interactable_systems_8h_source}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/InteractableSystems.h}}
+\mbox{\hyperlink{_interactable_systems_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_e_c_s_8h}{ECS.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_editor_systems_8h}{EditorSystems.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{comment}{//\#include "{}debugmalloc.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_interaction_data__collision}{InteractionData\_collision}} \{}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_interaction_data__collision_ab8ed3debabe082554e7df7751c56b1b3}{entityID}};}
+\DoxyCodeLine{8     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_interaction_data__collision_a4a72d3c020ae1fbe4cdf3227b6ceba80}{collisionNormal}};}
+\DoxyCodeLine{9     \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}* \mbox{\hyperlink{struct_interaction_data__collision_aaa48a2c726cdf1649723178cfa61c8ea}{gameState}};}
+\DoxyCodeLine{10 \} \mbox{\hyperlink{_interactable_systems_8h_a6b1e27dab54430aae33783bbe68b609e}{InteractionData\_collision}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_interaction_data__overlap}{InteractionData\_overlap}} \{}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_interaction_data__overlap_ab8ed3debabe082554e7df7751c56b1b3}{entityID}};}
+\DoxyCodeLine{14 \} \mbox{\hyperlink{_interactable_systems_8h_a70576ba7622c88a0054e3d2bd0bb0e16}{InteractionData\_overlap}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_interaction_data__click}{InteractionData\_click}} \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_interaction_data__click_a7022839508fbd5d2038937b2c4f8be83}{mousePosition}};}
+\DoxyCodeLine{18 \} \mbox{\hyperlink{_interactable_systems_8h_ad1baf5ce5a934dfb5cde769a4ebecf46}{InteractionData\_click}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_interaction_data__hold}{InteractionData\_hold}} \{}
+\DoxyCodeLine{21     \mbox{\hyperlink{struct_vec2}{Vec2}} \mbox{\hyperlink{struct_interaction_data__hold_a7022839508fbd5d2038937b2c4f8be83}{mousePosition}};}
+\DoxyCodeLine{22 \} \mbox{\hyperlink{_interactable_systems_8h_a37da984fc4b3c1918a5e079d7eb11f83}{InteractionData\_hold}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_interaction_data__keydown}{InteractionData\_keydown}} \{}
+\DoxyCodeLine{25     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_interaction_data__keydown_acad36f7a1211e9e9da68e181667d9c3f}{key}};}
+\DoxyCodeLine{26     Uint16 \mbox{\hyperlink{struct_interaction_data__keydown_a09294cbc86473d2bcb27513748b81aec}{mod}};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_interaction_data__keydown_a0806399d6d841785ca15e187b37f8bc0}{specialKey}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{struct_layout}{Layout}}** \mbox{\hyperlink{struct_interaction_data__keydown_aef904f5caf42554321612284f907f8bd}{layoutsPtr}};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int}* \mbox{\hyperlink{struct_interaction_data__keydown_aec2077c7b8a68a46f356593daea2a19d}{numberOfLayoutsPtr}};}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct_game_resources}{GameResources}}* \mbox{\hyperlink{struct_interaction_data__keydown_ab7900c2898d75165652d44c142617685}{gameResourcesPtr}};}
+\DoxyCodeLine{32     \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_interaction_data__keydown_a8c820364f1de27e4d00497d099d5ee12}{playerName}};}
+\DoxyCodeLine{33     \mbox{\hyperlink{struct_layout}{Layout}}** \mbox{\hyperlink{struct_interaction_data__keydown_a30e515abc6efbb6887425ad18b2f7ac5}{currentLayoutPtr}};}
+\DoxyCodeLine{34 \} \mbox{\hyperlink{_interactable_systems_8h_a56ca751739e9b1ecc8b0965f867723f3}{InteractionData\_keydown}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_a6e0478ade55d2948c19f10ace30de161}{Interactable\_interact}}(\mbox{\hyperlink{struct_interactable}{Interactable}}* interactable, \mbox{\hyperlink{_interactable_8h_a9a40fc7400eafce3fb17486772fdea35}{InteractionType}} interactionType, \textcolor{keywordtype}{void}* interactionData);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_ab7e982b57adb8ff955d90d40e890dfaf}{Interactable\_update}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* currentLayoutName, \mbox{\hyperlink{struct_interactable}{Interactable}}* interactable, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} gameState);}
+\DoxyCodeLine{38 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_acb7bc993c906da3377e35ff6eb3ca1d9}{Interactable\_resolveInteraction}}(\mbox{\hyperlink{struct_layout}{Layout}}* layouts, \textcolor{keywordtype}{int} numberOfLayouts, \textcolor{keywordtype}{char}* currentLayoutName, \mbox{\hyperlink{struct_interactable}{Interactable}}* interactable, \mbox{\hyperlink{struct_interaction}{Interaction}}* interaction, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} gameState, \textcolor{keywordtype}{bool}* activeInteractions);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_a43634ad62afa6fee220b0f91a17b5a8a}{Interactable\_loseFocusForAll}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout);}
+\DoxyCodeLine{41 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_a14eff960cb901bd6e42815f83d9bc3da}{Interactable\_focus}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \textcolor{keywordtype}{int} entityID);}
+\DoxyCodeLine{42 \textcolor{keywordtype}{void} \mbox{\hyperlink{_interactable_systems_8h_ae85fd338eff1e8618710640569df7b4b}{Interactable\_focusEntityAtClick}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout, \mbox{\hyperlink{struct_vec2}{Vec2}} mousePosition);}
+\DoxyCodeLine{43 \mbox{\hyperlink{struct_interactable}{Interactable}}* \mbox{\hyperlink{_interactable_systems_8h_a51d94afd2b9c02c6b0af04fcafa1b564}{Interactabe\_getFocused}}(\mbox{\hyperlink{struct_layout}{Layout}}* currentLayout);}
+
+\end{DoxyCode}

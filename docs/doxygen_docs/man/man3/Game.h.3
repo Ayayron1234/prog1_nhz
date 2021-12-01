@@ -1,0 +1,165 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Game.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Game.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <SDL\&.h>\fP
+.br
+\fC#include 'SDL_ttf\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'ECS\&.h'\fP
+.br
+\fC#include 'misc\&.h'\fP
+.br
+\fC#include 'Math\&.h'\fP
+.br
+\fC#include 'SpriteSystems\&.h'\fP
+.br
+\fC#include 'PositionSystems\&.h'\fP
+.br
+\fC#include 'AnimationSystems\&.h'\fP
+.br
+\fC#include 'Tile\&.h'\fP
+.br
+\fC#include 'TileSystems\&.h'\fP
+.br
+\fC#include 'TextSystems\&.h'\fP
+.br
+\fC#include 'CollisionBoxSystems\&.h'\fP
+.br
+\fC#include 'PhysicsBodySystems\&.h'\fP
+.br
+\fC#include 'MovementControllerSystems\&.h'\fP
+.br
+\fC#include 'InteractableSystems\&.h'\fP
+.br
+\fC#include <crtdbg\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGameAppearance\fP"
+.br
+.ti -1c
+.RI "struct \fBGameTime\fP"
+.br
+.ti -1c
+.RI "struct \fBGame\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRTDBG_MAP_ALLOC\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBGameAppearance\fP \fBGameAppearance\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBGameTime\fP \fBGameTime\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBGame\fP \fBGame\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBGame_init\fP (\fBGame\fP *game, char windowName[255], \fBVec2Int\fP windowDimensions, bool isFullScreen, \fBRGBAColor\fP backgroundColor)"
+.br
+.ti -1c
+.RI "void \fBGame_setup\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBGame_sdlInit\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBGame_update\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBGame_handleSDLEvents\fP (\fBGame\fP *game)"
+.br
+.ti -1c
+.RI "void \fBGame_renderElements\fP (\fBGame\fP *game)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRTDBG_MAP_ALLOC"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBGame\fP \fBGame\fP"
+This is the main structure\&. All game data is stored in this object\&. game->componentLists 
+.SS "typedef struct \fBGameAppearance\fP \fBGameAppearance\fP"
+
+.SS "typedef struct \fBGameTime\fP \fBGameTime\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void Game_handleSDLEvents (\fBGame\fP * game)"
+Handle sdl events, like the quit event\&. 
+.SS "void Game_init (\fBGame\fP * game, char windowName[255], \fBVec2Int\fP windowDimensions, bool isFullScreen, \fBRGBAColor\fP backgroundColor)"
+Initialises the game\&. Loads components from file, initialises sdl\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgame\fP A pointer to the game object we want to initialise\&. 
+.br
+\fIwindowName\fP The name of the window in wich the game will render\&. 
+.br
+\fIwindowDimensions\fP Width and height of the game window\&. 
+.br
+\fIisFullScreen\fP true if game should open in fullscreen mode\&. 
+.br
+\fIbackgroundColor\fP rgba value of the background color of the game window\&. 
+.RE
+.PP
+
+.SS "void Game_renderElements (\fBGame\fP * game)"
+Renders components in the current layout 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayout\fP The layout in which the components should be rendered\&. 
+.RE
+.PP
+
+.SS "void Game_sdlInit (\fBGame\fP * game)"
+Initialises sdl\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgame\fP A pointer to the game object\&. The function will store pointers to the renderer and window in this object\&. 
+.RE
+.PP
+
+.SS "void Game_setup (\fBGame\fP * game)"
+
+.SS "void Game_update (\fBGame\fP * game)"
+Updates components in the current layout 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlayout\fP The layout in which the components should be updated\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

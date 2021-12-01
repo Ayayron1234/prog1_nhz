@@ -1,0 +1,86 @@
+\hypertarget{misc_8h}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/misc.h File Reference}
+\label{misc_8h}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/misc.h@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/misc.h}}
+{\ttfamily \#include \char`\"{}Tilemap.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL\+\_\+ttf.\+h\char`\"{}}\newline
+Include dependency graph for misc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}}
+\item 
+struct \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}}
+\item 
+struct \mbox{\hyperlink{struct_game_resources}{Game\+Resources}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}} \mbox{\hyperlink{misc_8h_abc009d65320c723058646795b54f9b53}{RGBAColor}}
+\item 
+typedef struct \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}} \mbox{\hyperlink{misc_8h_a1f6a0956934595fc6b25ed1a0c3b9a00}{RGBColor}}
+\item 
+typedef enum \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{misc_8h_a2185b55f783b76da98f60ddfedae594d}{Game\+State}}
+\item 
+typedef struct \mbox{\hyperlink{struct_game_resources}{Game\+Resources}} \mbox{\hyperlink{misc_8h_a976796deccc91923bb36079ff7472853}{Game\+Resources}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \{ \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a4bb048d303545e49a47eb5454d8409ed}{GAME\+\_\+\+MODE}} = 0
+, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0d8908fb7bb65f2713caa476b2d0e93b}{EDIT\+\_\+\+MODE}} = 1
+, \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a38088c60165dc5b369946da1d8797d00}{VICTORY}} = 2
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{misc_8h_a976796deccc91923bb36079ff7472853}\label{misc_8h_a976796deccc91923bb36079ff7472853}} 
+\index{misc.h@{misc.h}!GameResources@{GameResources}}
+\index{GameResources@{GameResources}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{GameResources}{GameResources}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_game_resources}{Game\+Resources}} \mbox{\hyperlink{struct_game_resources}{Game\+Resources}}}
+
+Outside data that is used by the game. This is used when loading game objects, because than the pointers have to be reset. \mbox{\Hypertarget{misc_8h_a2185b55f783b76da98f60ddfedae594d}\label{misc_8h_a2185b55f783b76da98f60ddfedae594d}} 
+\index{misc.h@{misc.h}!GameState@{GameState}}
+\index{GameState@{GameState}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}
+
+State of the game. Some game logic works differently depending what state the game is in. \mbox{\Hypertarget{misc_8h_abc009d65320c723058646795b54f9b53}\label{misc_8h_abc009d65320c723058646795b54f9b53}} 
+\index{misc.h@{misc.h}!RGBAColor@{RGBAColor}}
+\index{RGBAColor@{RGBAColor}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{RGBAColor}{RGBAColor}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}} \mbox{\hyperlink{struct_r_g_b_a_color}{RGBAColor}}}
+
+RGB color values with an alpha channel. \mbox{\Hypertarget{misc_8h_a1f6a0956934595fc6b25ed1a0c3b9a00}\label{misc_8h_a1f6a0956934595fc6b25ed1a0c3b9a00}} 
+\index{misc.h@{misc.h}!RGBColor@{RGBColor}}
+\index{RGBColor@{RGBColor}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{RGBColor}{RGBColor}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}} \mbox{\hyperlink{struct_r_g_b_color}{RGBColor}}}
+
+RGB color values 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}\label{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}} 
+\index{misc.h@{misc.h}!GameState@{GameState}}
+\index{GameState@{GameState}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}
+
+State of the game. Some game logic works differently depending what state the game is in. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAME\_MODE@{GAME\_MODE}!misc.h@{misc.h}}\index{misc.h@{misc.h}!GAME\_MODE@{GAME\_MODE}}}\mbox{\Hypertarget{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a4bb048d303545e49a47eb5454d8409ed}\label{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a4bb048d303545e49a47eb5454d8409ed}} 
+GAME\+\_\+\+MODE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EDIT\_MODE@{EDIT\_MODE}!misc.h@{misc.h}}\index{misc.h@{misc.h}!EDIT\_MODE@{EDIT\_MODE}}}\mbox{\Hypertarget{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0d8908fb7bb65f2713caa476b2d0e93b}\label{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0d8908fb7bb65f2713caa476b2d0e93b}} 
+EDIT\+\_\+\+MODE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VICTORY@{VICTORY}!misc.h@{misc.h}}\index{misc.h@{misc.h}!VICTORY@{VICTORY}}}\mbox{\Hypertarget{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a38088c60165dc5b369946da1d8797d00}\label{misc_8h_a7899b65f1ea0f655e4bbf8d2a5714285a38088c60165dc5b369946da1d8797d00}} 
+VICTORY&\\
+\hline
+
+\end{DoxyEnumFields}

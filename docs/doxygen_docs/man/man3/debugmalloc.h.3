@@ -1,0 +1,102 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/debugmalloc.h" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/debugmalloc.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <ctype\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdarg\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBDebugmallocEntry\fP"
+.br
+.ti -1c
+.RI "struct \fBDebugmallocData\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBmalloc\fP(S)   debugmalloc_malloc_full((S), 'malloc', #S, __FILE__, __LINE__, false)"
+.br
+.ti -1c
+.RI "#define \fBcalloc\fP(N,  S)   debugmalloc_malloc_full((N)*(S), 'calloc', #N ', ' #S, __FILE__, __LINE__, true)"
+.br
+.ti -1c
+.RI "#define \fBrealloc\fP(P,  S)   debugmalloc_realloc_full((P), (S), 'realloc', #S, __FILE__, __LINE__)"
+.br
+.ti -1c
+.RI "#define \fBfree\fP(P)   debugmalloc_free_full((P), 'free', __FILE__, __LINE__)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBDebugmallocEntry\fP \fBDebugmallocEntry\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBDebugmallocData\fP \fBDebugmallocData\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBdebugmalloc_canary_size\fP = 64, \fBdebugmalloc_canary_char\fP = 'K', \fBdebugmalloc_tablesize\fP = 256, \fBdebugmalloc_max_block_size_default\fP = 1048576 }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define calloc(N, S)   debugmalloc_malloc_full((N)*(S), 'calloc', #N ', ' #S, __FILE__, __LINE__, true)"
+
+.SS "#define free(P)   debugmalloc_free_full((P), 'free', __FILE__, __LINE__)"
+
+.SS "#define malloc(S)   debugmalloc_malloc_full((S), 'malloc', #S, __FILE__, __LINE__, false)"
+
+.SS "#define realloc(P, S)   debugmalloc_realloc_full((P), (S), 'realloc', #S, __FILE__, __LINE__)"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBDebugmallocData\fP \fBDebugmallocData\fP"
+
+.SS "typedef struct \fBDebugmallocEntry\fP \fBDebugmallocEntry\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIdebugmalloc_canary_size \fP\fP
+.TP
+\fB\fIdebugmalloc_canary_char \fP\fP
+.TP
+\fB\fIdebugmalloc_tablesize \fP\fP
+.TP
+\fB\fIdebugmalloc_max_block_size_default \fP\fP
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.

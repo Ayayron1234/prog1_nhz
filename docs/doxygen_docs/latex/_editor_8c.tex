@@ -1,0 +1,61 @@
+\hypertarget{_editor_8c}{}\doxysection{D\+:/\+Projects/\+BME/\+Prog 1/\+\_\+nhz/\+NHZ1/\+Editor.c File Reference}
+\label{_editor_8c}\index{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Editor.c@{D:/Projects/BME/Prog 1/\_nhz/NHZ1/Editor.c}}
+{\ttfamily \#include \char`\"{}Editor.\+h\char`\"{}}\newline
+Include dependency graph for Editor.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_editor_8c_ad99dcb5a369681306d8744aed5ed398e}{Editor\+\_\+init}} (\mbox{\hyperlink{struct_editor}{Editor}} $\ast$editors, int entity\+ID, int $\ast$total\+\_\+editor\+Components)
+\item 
+void \mbox{\hyperlink{_editor_8c_a8475bd2acd380324b59f0aad1e689713}{Editor\+\_\+delete}} (\mbox{\hyperlink{struct_editor}{Editor}} $\ast$editors, int entity\+ID, int $\ast$total\+\_\+editor\+Components)
+\item 
+void \mbox{\hyperlink{_editor_8c_ab89d503e382c9b992ad6732303162db6}{Editor\+\_\+deserialise}} (\mbox{\hyperlink{struct_editor}{Editor}} $\ast$editors, int $\ast$total\+\_\+\+Editor\+Components, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\item 
+void \mbox{\hyperlink{_editor_8c_a9ae6b76f5f21e41edd0c40302bfc9fcd}{Editor\+\_\+serialise}} (\mbox{\hyperlink{struct_editor}{Editor}} $\ast$editors, int max\+Number\+Of\+Components, char path\mbox{[}255\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_editor_8c_a8475bd2acd380324b59f0aad1e689713}\label{_editor_8c_a8475bd2acd380324b59f0aad1e689713}} 
+\index{Editor.c@{Editor.c}!Editor\_delete@{Editor\_delete}}
+\index{Editor\_delete@{Editor\_delete}!Editor.c@{Editor.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_delete()}{Editor\_delete()}}
+{\footnotesize\ttfamily void Editor\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editors,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+editor\+Components }\end{DoxyParamCaption})}
+
+Deletes a given entity\textquotesingle{}s \mbox{\hyperlink{struct_editor}{Editor}} component. 
+\begin{DoxyParams}{Parameters}
+{\em The} & array from which the component should be deleted. \\
+\hline
+{\em entity\+ID} & The ID of the component\textquotesingle{}s parent entity. \\
+\hline
+{\em total\+\_\+editor\+Components} & A pointer to the variable which stores the number of components of this kind in it\textquotesingle{}s parent layout. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_editor_8c_ab89d503e382c9b992ad6732303162db6}\label{_editor_8c_ab89d503e382c9b992ad6732303162db6}} 
+\index{Editor.c@{Editor.c}!Editor\_deserialise@{Editor\_deserialise}}
+\index{Editor\_deserialise@{Editor\_deserialise}!Editor.c@{Editor.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_deserialise()}{Editor\_deserialise()}}
+{\footnotesize\ttfamily void Editor\+\_\+deserialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editors,  }\item[{int $\ast$}]{total\+\_\+\+Editor\+Components,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_editor_8c_ad99dcb5a369681306d8744aed5ed398e}\label{_editor_8c_ad99dcb5a369681306d8744aed5ed398e}} 
+\index{Editor.c@{Editor.c}!Editor\_init@{Editor\_init}}
+\index{Editor\_init@{Editor\_init}!Editor.c@{Editor.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_init()}{Editor\_init()}}
+{\footnotesize\ttfamily void Editor\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editors,  }\item[{int}]{entity\+ID,  }\item[{int $\ast$}]{total\+\_\+editor\+Components }\end{DoxyParamCaption})}
+
+Create \mbox{\hyperlink{struct_editor}{Editor}} component in a given Component\+Lists. 
+\begin{DoxyParams}{Parameters}
+{\em editors} & The array in which the component should be created. \\
+\hline
+{\em entity\+ID} & The ID of the component\textquotesingle{}s parent entity. \\
+\hline
+{\em total\+\_\+editor\+Components} & A pointer to the variable which stores the number of components of this kind in it\textquotesingle{}s parent layout. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_editor_8c_a9ae6b76f5f21e41edd0c40302bfc9fcd}\label{_editor_8c_a9ae6b76f5f21e41edd0c40302bfc9fcd}} 
+\index{Editor.c@{Editor.c}!Editor\_serialise@{Editor\_serialise}}
+\index{Editor\_serialise@{Editor\_serialise}!Editor.c@{Editor.c}}
+\doxysubsubsection{\texorpdfstring{Editor\_serialise()}{Editor\_serialise()}}
+{\footnotesize\ttfamily void Editor\+\_\+serialise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_editor}{Editor}} $\ast$}]{editors,  }\item[{int}]{max\+Number\+Of\+Components,  }\item[{char}]{path\mbox{[}255\mbox{]} }\end{DoxyParamCaption})}
+

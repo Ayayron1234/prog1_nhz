@@ -1,0 +1,45 @@
+.TH "D:/Projects/BME/Prog 1/_nhz/NHZ1/Position.c" 3 "Sat Nov 27 2021" "Version 1.02" "Prog1_nhz" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/BME/Prog 1/_nhz/NHZ1/Position.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'Position\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPosition_init\fP (int entityID, int *total_positionComponents, \fBPosition\fP *dest, \fBVec2\fP value)"
+.br
+.ti -1c
+.RI "void \fBPosition_delete\fP (int entityID, int *total_positionComponents, \fBPosition\fP *positions)"
+.br
+.ti -1c
+.RI "void \fBPosition_deserialise\fP (\fBPosition\fP *positions, int *total_PositionComponents, int maxNumberOfComponents, char path[255])"
+.br
+.ti -1c
+.RI "void \fBPosition_serialise\fP (\fBPosition\fP *positions, int maxNumberOfComponents, char path[255])"
+.br
+.ti -1c
+.RI "void \fBPosition_moveBy\fP (\fBPosition\fP *position, \fBVec2\fP amount)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void Position_delete (int entityID, int * total_positionComponents, \fBPosition\fP * positions)"
+
+.SS "void Position_deserialise (\fBPosition\fP * positions, int * total_PositionComponents, int maxNumberOfComponents, char path[255])"
+
+.SS "void Position_init (int entityID, int * total_positionComponents, \fBPosition\fP * dest, \fBVec2\fP value)"
+
+.SS "void Position_moveBy (\fBPosition\fP * position, \fBVec2\fP amount)"
+
+.SS "void Position_serialise (\fBPosition\fP * positions, int maxNumberOfComponents, char path[255])"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Prog1_nhz from the source code\&.
