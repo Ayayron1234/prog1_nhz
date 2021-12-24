@@ -58,6 +58,72 @@
     <Filter Include="Header Files\Components\Other">
       <UniqueIdentifier>{e94fe6da-7117-4cae-b012-1719272a3189}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Systems\Other">
+      <UniqueIdentifier>{ad6c6ce8-a797-4291-ac69-c61352a236df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems\Other">
+      <UniqueIdentifier>{a2d29f08-932e-4e53-8033-8263014c0994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{8c76bed6-bb15-4026-b653-b73387294050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Core">
+      <UniqueIdentifier>{19c678f0-ffc6-4ff6-9327-1435e739e7e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1">
+      <UniqueIdentifier>{29f46d19-5b99-4124-afda-f52e12f58b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Core">
+      <UniqueIdentifier>{66f4a1e8-6d72-4158-bbe8-303182ec30d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Core\CollisionBox">
+      <UniqueIdentifier>{1697ea5f-0d07-4862-8160-692fe9ea8a3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Core\Position">
+      <UniqueIdentifier>{930a1ce2-c132-4066-9ec3-8433e87d705d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Core\Editor">
+      <UniqueIdentifier>{4e2c4889-0e40-48da-b7e2-278a73cd9d6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Core\Interactable">
+      <UniqueIdentifier>{ebcbe9f8-16eb-4e8a-8ad3-f3b74c22ae79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual">
+      <UniqueIdentifier>{6f8b6287-fb83-4fd5-b128-7a0d7275fa5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual\Animation">
+      <UniqueIdentifier>{4fe2f582-7ff5-4546-8a3b-3e0cdc3ddf79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual\EntityRenderer">
+      <UniqueIdentifier>{5cf2133b-ca51-4594-a543-8e384ab95692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual\Sprite">
+      <UniqueIdentifier>{87f8aef6-a52c-4406-b3d7-8ff1c95a931b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual\Text">
+      <UniqueIdentifier>{172ac240-d80c-4039-9e2b-25d05b786d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Visual\Tile">
+      <UniqueIdentifier>{fdc4429a-6a9b-4a43-ac39-ab17e92d8aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Kinematics">
+      <UniqueIdentifier>{3c21e8bf-1c1a-4fd2-931e-d76af4a95697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Kinematics\MovementController">
+      <UniqueIdentifier>{2a0159c6-ef92-4e56-83d5-0c3bcacc2e15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Kinematics\PhysicsBody">
+      <UniqueIdentifier>{e5008cb7-b668-403f-b6c4-ff32593282fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Kinematics\Collider">
+      <UniqueIdentifier>{01b16948-576d-4729-8a06-c1673d01011a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Gameplay">
+      <UniqueIdentifier>{409972fa-5add-4d60-a636-7b3358ae6cf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components1\Gameplay\Health">
+      <UniqueIdentifier>{3597e8e7-c5f1-4aa2-a083-418298de4351}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -108,6 +174,12 @@
     <ClCompile Include="PositionSystems.c">
       <Filter>Source Files\Systems\Core</Filter>
     </ClCompile>
+    <ClCompile Include="HealthSystems.c">
+      <Filter>Source Files\Systems\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.c">
+      <Filter>Source Files\Components\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -138,9 +210,6 @@
       <Filter>Header Files\Components\Visual</Filter>
     </ClInclude>
     <ClInclude Include="CollisionBox.h">
-      <Filter>Header Files\Components\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Position.h">
       <Filter>Header Files\Components\Core</Filter>
     </ClInclude>
     <ClInclude Include="Editor.h">
@@ -199,6 +268,15 @@
     </ClInclude>
     <ClInclude Include="Health.h">
       <Filter>Header Files\Components\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthSystems.h">
+      <Filter>Header Files\Systems\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Header Files\Components\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentBluePrint.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

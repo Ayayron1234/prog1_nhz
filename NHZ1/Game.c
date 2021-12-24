@@ -3,6 +3,8 @@
 
 void Game_init(Game *game, char windowName[255], Vec2Int windowDimensions, bool isFullScreen, RGBAColor backgroundColor)
 {
+	ECS_BluePrintFunctions[0] = ECS_getBluePrint;
+
 	game->appearance = (GameAppearance){ .backgroundColor = backgroundColor, .isFullScrean = isFullScreen, .windowDimensions = windowDimensions};
 	strcpy(game->appearance.windowName, windowName);
 
@@ -67,7 +69,66 @@ void Game_sdlInit(Game *game) {
 }
 
 void Game_setup(Game* game) {
-	
+	Health *h = ECS_createComponent(HEALTH, game->layouts, game->numberOfLayouts, "map1", 79);
+	h->value = 1;
+	h->isInvulnerable = false;
+
+	Interactable* interactable = ECS_createComponent(INTERACTABLE, game->layouts, game->numberOfLayouts, "map1", 79);
+	interactable->type = ENEMY;
+
+	void** mario = ECS_getEntity(*ECS_getLayout(game->layouts, game->numberOfLayouts, "map1"), 1);
+	for (int i = 0; i < NUMBER_OF_COMPONENT_TYPES; i++) {
+		if (NULL != mario[i]) {
+			BluePrint p = ECS_getBluePrint(i, mario[i]);
+
+			switch (p.componentType)
+			{
+			case POSITION: printf("\nPosition: "); break;
+			case TILE: printf("\nTile: "); break;
+			case EDITOR: printf("\nEditor: "); break;
+			case SPRITE: printf("\nSprite: "); break;
+			case HEALTH: printf("\nHealth: "); break;
+			case ANIMATION: printf("\nAnimation: "); break;
+			case COLLIDER: printf("\nCollider: "); break;
+			case COLLISION_BOX: printf("\nCollisionBox: "); break;
+			case PHYSICS_BODY: printf("\nPhysicsBody: "); break;
+			case MOVEMENT_CONTROLLER: printf("\nMovementController: "); break;
+			case INTERACTABLE: printf("\nInteractable: "); break;
+			default:
+				break;
+			}
+			for (int i = 0; i < p.numberOfMembers; i++) {
+				printf("\n    .%s=", p.members[i].name);
+				if (strcmp(p.members[i].format, "%d") == 0) printf(p.members[i].format, *(int*)p.members[i].ptr);
+				else if (strcmp(p.members[i].format, "%g") == 0) printf(p.members[i].format, *(double*)p.members[i].ptr);
+				else if (strcmp(p.members[i].format, "Vec2(%g, %g)") == 0) printf(p.members[i].format, ((Vec2*)p.members[i].ptr)->x, ((Vec2*)p.members[i].ptr)->y);
+				else if (strcmp(p.members[i].format, "Vec2Int(%d, %d)") == 0) printf(p.members[i].format, ((Vec2Int*)p.members[i].ptr)->x, ((Vec2Int*)p.members[i].ptr)->y);
+				else if (strcmp(p.members[i].format, "bool(%d)") == 0) printf(*((bool*)p.members[i].ptr) ? "true" : "false");
+				else if (strcmp(p.members[i].format, "perc(%g)") == 0) printf("%g\%", *((double*)p.members[i].ptr) * 100);
+				else if (strcmp(p.members[i].format, "%c") == 0) printf(p.members[i].format, *(char*)p.members[i].ptr);
+				else if (strcmp(p.members[i].format, "%s") == 0) printf(p.members[i].format, (char*)p.members[i].ptr);
+			}
+		}
+	}
+	free(mario);
+
+	//BluePrint p = Position_getBluePrint(ECS_getComponent(POSITION, *ECS_getLayout(game->layouts, game->numberOfLayouts, "map1"), 1));
+	//BluePrintMember ptest[10];
+	//for (int i = 0; i < p.numberOfMembers; i++)
+	//	ptest[i] = p.members[i];
+	//for (int i = 0; i < p.numberOfMembers; i++) {
+	//	printf("\n    .%s=", p.members[i].name);
+	//	if (strcmp(p.members[i].format, "%d") == 0) printf(p.members[i].format, *(int*)p.members[i].ptr);
+	//	else if (strcmp(p.members[i].format, "%g") == 0) printf(p.members[i].format, *(double*)p.members[i].ptr);
+	//	else if (strcmp(p.members[i].format, "Vec2(%g, %g)") == 0) printf(p.members[i].format, ((Vec2*)p.members[i].ptr)->x, ((Vec2*)p.members[i].ptr)->y);
+	//	else if (strcmp(p.members[i].format, "Vec2Int(%d, %d)") == 0) printf(p.members[i].format, ((Vec2Int*)p.members[i].ptr)->x, ((Vec2Int*)p.members[i].ptr)->y);
+	//	else if (strcmp(p.members[i].format, "bool(%d)") == 0) printf(*((bool*)p.members[i].ptr) ? "true" : "false");
+	//	else if (strcmp(p.members[i].format, "perc(%g)") == 0) printf("%g\%", *((double*)p.members[i].ptr) * 100);
+	//	else if (strcmp(p.members[i].format, "%c") == 0) printf(p.members[i].format, *(char*)p.members[i].ptr);
+	//	else if (strcmp(p.members[i].format, "%s") == 0) printf(p.members[i].format, (char*)p.members[i].ptr);
+	//}
+
+	printf("");
 }
 
 void Game_handleSDLEvents(Game* game)
@@ -243,6 +304,11 @@ void Game_update(Game* game)
 		game->isRunning = false;
 	}
 
+	if (game->state == RESTART) {
+		ECS_restartGame(game->player, &game->layouts, &game->numberOfLayouts, &game->currentLayout, &game->resources);
+		game->state = GAME_MODE;
+	}
+
 	// update game time
 	long int now = SDL_GetTicks();
 	game->time.deltaT = now - game->time.lastUpdateTime;
@@ -307,8 +373,14 @@ void Game_update(Game* game)
 					game->currentLayout->camera = (Vec2){ marioPosition->value.x - windowWidth / 2 + windowWidth / 8, 0 };
 				if (game->currentLayout->camera.x < 0) game->currentLayout->camera = (Vec2){ 0, 0 };
 				
-				if (marioPosition->value.y > 1000)
+				if (marioPosition->value.y > 1000) {
 					marioPosition->value = (Vec2){ 281, 456 };
+					((Health*)mario[HEALTH])->value -= 1;
+				}
+
+				Health* marioHealth = mario[HEALTH];
+				if (marioHealth != NULL)
+					sprintf(((Text*)ECS_getComponent(TEXT, *game->currentLayout, 47))->value, "Lives: %d", (int)marioHealth->value);
 
 				ECS_freeEntity(mario);
 			}
@@ -331,10 +403,12 @@ void Game_update(Game* game)
 			PhysicsBody_update(game->currentLayout, ECS_getNthComponent(PHYSICS_BODY, game->currentLayout, i), game->time.deltaT / 1000.0, &game->state);
 		for (int i = 0; i < ECS_getNumberOfComponents(MOVEMENT_CONTROLLER, *game->currentLayout); i++)
 			MovementController_update(game->currentLayout, ECS_getNthComponent(MOVEMENT_CONTROLLER, game->currentLayout, i), game->time.deltaT);
+		for (int i = 0; i < ECS_getNumberOfComponents(HEALTH, *game->currentLayout); i++)
+			Health_update(game->layouts, game->numberOfLayouts, game->currentLayout->LAYOUT_NAME, ECS_getNthComponent(HEALTH, game->currentLayout, i), game->time.deltaT / 1000.0, &game->state);
 		for (int i = 0; i < ECS_getNumberOfComponents(INTERACTABLE, *game->currentLayout); i++)
 			Interactable_update(game->layouts, game->numberOfLayouts, game->currentLayout->LAYOUT_NAME, ECS_getNthComponent(INTERACTABLE, game->currentLayout, i), game->state);
 
-		// BUG: I shouldn't need to do this. Idk why it doesn't work without it
+		// TODO(bug): I shouldn't need to do this. Idk why it doesn't work without it
 		for (int i = 0; i < ECS_getNumberOfComponents(INTERACTABLE, *game->currentLayout); i++)
 			((Interactable*)ECS_getNthComponent(INTERACTABLE, game->currentLayout, i))->interactionHead = NULL;
 	}

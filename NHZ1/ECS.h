@@ -16,6 +16,7 @@
 #include "EntityRenderer.h"
 #include "MovementController.h"
 #include "Interactable.h"
+#include "Health.h"
 
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
@@ -56,6 +57,10 @@ typedef enum ComponentType {
 	INTERACTABLE = 11,
 	HEALTH = 12
 } ComponentType;
+
+//typedef struct BluePrintFunctions {
+//	BluePrintFunction functions[NUMBER_OF_COMPONENT_TYPES];
+//} BluePrintFunctions;
 
 typedef struct LayoutMap {
 	int start;						///< The index of the first element of the list of a certain type of components, which belongs to this layout.
@@ -255,6 +260,41 @@ void* ECS_createComponent(ComponentType componentType, Layout* layouts, int numb
  * Saves game and loads another player's game.
  */
 void ECS_switchToPlayer(char* currentPlayer, char* player, Layout** layoutsPtr, int* numberOfLayouts, Layout** currentLayoutPtr, GameResources* resources);
+
+typedef struct BluePrintMember {
+	char name[32];
+	size_t size;
+	void* ptr;
+	char format[32];
+} BluePrintMember;
+
+typedef struct BluePrint {
+	ComponentType componentType;
+	int numberOfMembers;
+	BluePrintMember* members;
+} BluePrint;
+
+void ECS_bluePringAddMember(BluePrint* bluePrint, BluePrintMember newMember);
+BluePrint ECS_getBluePrint(ComponentType componentType, void* componentPtr);
+BluePrint(*ECS_BluePrintFunctions[NUMBER_OF_COMPONENT_TYPES]) (ComponentType componentType, void* component);
+
+void ECS_restartGame(char* currentPlayer, Layout** layoutsPtr, int* numberOfLayouts, Layout** currentLayoutPtr, GameResources* resources);
+
+// TODO: Decrease the number of parameters passed to functions which have to create of delete components. 
+// maybe the struct bellow should be passed to functions as opposed to a list of it's members: (layouts and layoutname and numberoflayouts and so on).
+// (should check whether it would be easy to implement)
+// Also maybe a pointer to this object should be globaly accessable. (not sure if allowed in assignment)
+// -----------------
+//typedef struct ECS {
+//	char playerName[256];
+//
+//	Layout* currentLayout;
+//	Layout* layouts;
+//	int numberOfLayouts;
+//
+//	char resources; // not char
+//} ECS;
+// -----------------
 
 #endif // !ECS_H
 

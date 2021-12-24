@@ -151,11 +151,13 @@
     <ClCompile Include="ECS.c" />
     <ClCompile Include="EditorSystems.c" />
     <ClCompile Include="Game.c" />
+    <ClCompile Include="HealthSystems.c" />
     <ClCompile Include="InteractableSystems.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Math.c" />
     <ClCompile Include="MovementControllerSystems.c" />
     <ClCompile Include="PhysicsBodySystems.c" />
+    <ClCompile Include="Position.c" />
     <ClCompile Include="PositionSystems.c" />
     <ClCompile Include="SpriteSystems.c" />
     <ClCompile Include="TextSystems.c" />
@@ -163,7 +165,9 @@
     <ClCompile Include="TileSystems.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentBluePrint.h" />
     <ClInclude Include="Health.h" />
+    <ClInclude Include="HealthSystems.h" />
     <ClInclude Include="Interactable.h" />
     <ClInclude Include="InteractableSystems.h" />
     <ClInclude Include="MovementController.h" />

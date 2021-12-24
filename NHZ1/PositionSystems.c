@@ -7,3 +7,5 @@ void Position_moveBy(Position* position, Vec2 amount)
 		position->value.y += amount.y;
 	}
 }
+
+//BluePrint Position__getBluePrint() {}

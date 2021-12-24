@@ -62,6 +62,9 @@ void ECS_printEntityData(Layout* currentLayout, int entityID) {
 		}
 		printf("\n     .hasFocus=%s\n     .nextInFocus=%d", (interactable->hasFocus) ? "true" : "false", interactable->nextInFocus);
 	}
+	Health* health = entity[HEALTH];
+	if (health != NULL)
+		printf("\n   >Health\n     .isInvulnerable=%s\n     .timeSinceLastDamage=%g\n     .value=%g", (health->isInvulnerable) ? "true" : "false", health->timeSinceLastDamage, health->value);
 	Editor* editor = entity[EDITOR];
 	if (editor != NULL)
 		printf("\n   >Editor\n     .copied=%s\n", (editor->copied) ? "true": "false");
@@ -215,7 +218,8 @@ void ECS_load(Layout** layoutsPtr, int* numberOfLayouts, char playerName[255], G
 	if (NULL == componentLists) exit(1);
 	for (int componentTypeIndex = 0; componentTypeIndex < numberOfComponentTypes; componentTypeIndex++) {
 		int total_components = serialisationMapFragments[componentTypeIndex].total_components;
-		size_t componentSize = serialisationMapFragments[componentTypeIndex].componentSize;
+		
+		size_t componentSize = serialisationMapFragments[componentTypeIndex].componentSize;				
 		if (componentSize != ECS_getSizeAndTypeOfComponent(componentTypeIndex, NULL)) exit(1);
 
 		componentLists[componentTypeIndex] = (void*)malloc(total_components * componentSize);
@@ -374,6 +378,7 @@ size_t ECS_getSizeAndTypeOfComponent(ComponentType componentType, char* componen
 	case ENTITY_RENDERER: if (componentTypePtr != NULL) strcpy(componentTypePtr, "entity_renderer"); return sizeof(EntityRenderer); break;
 	case MOVEMENT_CONTROLLER: if (componentTypePtr != NULL) strcpy(componentTypePtr, "movement_controller"); return sizeof(MovementController); break;
 	case INTERACTABLE: if (componentTypePtr != NULL) strcpy(componentTypePtr, "interactable"); return sizeof(Interactable); break;
+	case HEALTH: if (componentTypePtr != NULL) strcpy(componentTypePtr, "health"); return sizeof(Health); break;
 	default:
 		return 0; break;
 	}
@@ -422,6 +427,7 @@ int* ECS_getEntityIDPtr(ComponentType componentType, void* component) {
 	case ENTITY_RENDERER: return &((EntityRenderer*)component)->ENTITY_ID; break;
 	case MOVEMENT_CONTROLLER: return &((MovementController*)component)->ENTITY_ID; break;
 	case INTERACTABLE: return &((Interactable*)component)->ENTITY_ID; break;
+	case HEALTH: return &((Health*)component)->ENTITY_ID; break;
 	default: return NULL;  break;
 	}
 }
@@ -485,6 +491,92 @@ int ECS_getFreeID(Layout* currentLayout) {
 	return 0;
 }
 
+// temp
+void ECS_bluePringAddMember(BluePrint* bluePrint, BluePrintMember newMember) {
+	BluePrintMember* newMembers = (BluePrintMember*)calloc(++bluePrint->numberOfMembers, sizeof(BluePrintMember));
+	if (newMembers == NULL) return;
+
+	if (bluePrint->numberOfMembers > 0) {
+		memcpy(newMembers, bluePrint->members, (bluePrint->numberOfMembers - 1) * sizeof(BluePrintMember));
+		free(bluePrint->members);
+	}
+
+	newMembers[bluePrint->numberOfMembers - 1] = newMember;
+
+	bluePrint->members = newMembers;
+}
+
+BluePrint (*ECS_BluePrintFunctions[NUMBER_OF_COMPONENT_TYPES]) (ComponentType componentType, void* component);
+
+BluePrint ECS_getBluePrint(ComponentType componentType, void* componentPtr) {
+	BluePrint bluePrint = { .componentType = componentType };
+
+	switch (componentType)
+	{
+	case POSITION: {
+		Position* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "value", .size = sizeof(Vec2), .ptr = &component->value, .format = "Vec2(%g, %g)" });
+		break;
+	}
+	case EDITOR: {
+		Editor* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "isSelected", .size = sizeof(bool), .ptr = &component->isSelected, .format = "bool(%d)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "copied", .size = sizeof(int), .ptr = &component->copied, .format = "bool(%d)" });
+		break;
+	}
+	case SPRITE: {
+		Sprite* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "renderProps", .size = sizeof(RenderProperties), .ptr = &component->renderProps, .format = "Render(%s)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "tilemap", .size = sizeof(Tilemap*), .ptr = &component->tilemap, .format = "%p" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "tilePosition", .size = sizeof(Vec2Int), .ptr = &component->tilePosition, .format = "Vec2Int(%d, %d)" });
+		break;
+	}
+	case TILE: {
+		Tile* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "renderProps", .size = sizeof(RenderProperties), .ptr = &component->renderProps, .format = "Render(%s)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "size", .size = sizeof(Vec2Int), .ptr = &component->size, .format = "Vec2Int(%d, %d)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "tilemap", .size = sizeof(Tilemap*), .ptr = &component->tilemap, .format = "%p" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "tilePosition", .size = sizeof(Vec2Int), .ptr = &component->tilePosition, .format = "Vec2Int(%d, %d)" });
+		break;
+	}
+	case ANIMATION: {
+		Animation* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "animationSpeed", .size = sizeof(double), .ptr = &component->animationSpeed, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "currentFrame", .size = sizeof(int), .ptr = &component->currentFrame, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "frameCount", .size = sizeof(int), .ptr = &component->frameCount, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "lastUpdateTime", .size = sizeof(Uint32), .ptr = &component->lastUpdateTime, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "tilePosition", .size = sizeof(Uint32), .ptr = &component->tilePosition, .format = "%d" });
+		break;
+	}
+	case TEXT: {
+		Text* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "fontColor", .size = sizeof(RGBColor), .ptr = &component->fontColor, .format = "RGB(%d, %d, %d)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "fontFamily", .size = sizeof(char[255]), .ptr = &component->fontFamily, .format = "\"%s\"" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "fontSize", .size = sizeof(int), .ptr = &component->fontSize, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "renderProps", .size = sizeof(RenderProperties), .ptr = &component->renderProps, .format = "Render(%s)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "textBoxSize", .size = sizeof(Vec2Int), .ptr = &component->textBoxSize, .format = "Vec2Int(%d, %d)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "value", .size = sizeof(char[255]), .ptr = &component->value, .format = "\"%s\"" });
+		break;
+	}
+	case COLLIDER: {
+		Collider* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "type", .size = sizeof(Collider_colliderType), .ptr = &component->type, .format = "%d" });
+		break;
+	}
+	default:
+		break;
+	}
+
+	return bluePrint;
+}
+
 void ECS_switchToPlayer(char *currentPlayer, char *player, Layout** layoutsPtr, int* numberOfLayouts, Layout** currentLayoutPtr, GameResources* resources) {
 	//char* nextPlayerName = (char*)malloc((strlen(player) + 1) * sizeof(char));
 	//if (NULL == nextPlayerName) return;
@@ -494,5 +586,12 @@ void ECS_switchToPlayer(char *currentPlayer, char *player, Layout** layoutsPtr, 
 	strcpy(currentPlayer, player);
 	ECS_freeData(*layoutsPtr, *numberOfLayouts);
 	ECS_load(layoutsPtr, numberOfLayouts, currentPlayer, resources);
+	*currentLayoutPtr = layoutsPtr[0];
+}
+
+void ECS_restartGame(char* currentPlayer, Layout** layoutsPtr, int* numberOfLayouts, Layout** currentLayoutPtr, GameResources* resources)
+{
+	ECS_freeData(*layoutsPtr, *numberOfLayouts);
+	ECS_load(layoutsPtr, numberOfLayouts, "original", resources);
 	*currentLayoutPtr = layoutsPtr[0];
 }

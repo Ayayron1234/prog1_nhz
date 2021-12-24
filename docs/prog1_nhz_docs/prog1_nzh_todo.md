@@ -6,6 +6,12 @@
 - A mentett file-ok egy egy mappába kerülnek. Ennek oka az hogy játékosonként már csak egy file-ra lesz szükség, ezért felesleges lenne őket külön mappába helyenzi. 
 
 ## implementációk
+- [ ] ECS type that includes layouts, currentLayout, playername, ...
+- [ ] versioning
+	- [ ] blueprints
+	- [ ] save blueprints
+- [ ] interactables should use generic algorithms
+- [ ] entityrenderer holds textures
 - [x] kamera *(req: map, layer)* 1h
 - [x] map
 - [x] save to one file
@@ -16,8 +22,8 @@
 - [x] collider *(req: collision box)*
 - [x] physics body
 - [x] platformer *(req: aabb)*
-- [ ] ellenség *(req: aabb, platformer)*
-- [ ] health *(req: platformer)*
+- [x] ellenség *(req: aabb, platformer)*
+- [x] health *(req: platformer)*
 - [x] pickups *(req: platformer)*
 - [ ] leaderboard *(req: kamera, főmenü)*
 

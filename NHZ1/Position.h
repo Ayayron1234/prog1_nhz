@@ -13,4 +13,10 @@ typedef struct Position {
 	Vec2 value;
 } Position;
 
+// TODO: versioning.
+// Bellow is a possible solution. 
+
+// temp
+
 #endif // !POSITION_H
+
