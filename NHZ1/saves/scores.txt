@@ -8,3 +8,7 @@ player3 14.5637
 player3 18.062
 player3 27.9337
 player4 14.4132
+player4 32.145
+player4 11.2966
+player4 5.2545
+player4 18.6944

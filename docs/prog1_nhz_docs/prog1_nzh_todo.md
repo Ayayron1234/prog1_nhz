@@ -96,11 +96,11 @@ Fixing memory leaks with debugmalloc
 	- [x] fix entity delete
 	- [x] layer
 	- [x] mentés tobb személyre
-- [ ] **11.23**
+- [x] **11.23**
 	Character controller component
 	- [x] player controller
 	- [x] goomba
-	- [ ] health
+	- [x] health
 - [x] **11.24**
 	Interactables (probably 1 component)
 	- [x] buttons

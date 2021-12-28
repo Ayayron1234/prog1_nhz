@@ -570,6 +570,68 @@ BluePrint ECS_getBluePrint(ComponentType componentType, void* componentPtr) {
 		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "type", .size = sizeof(Collider_colliderType), .ptr = &component->type, .format = "%d" });
 		break;
 	}
+	case PHYSICS_BODY: {
+		PhysicsBody* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "mass", .size = sizeof(double), .ptr = &component->mass, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "gravitationalAcceleration", .size = sizeof(Vec2), .ptr = &component->gravitationalAcceleration, .format = "Vec2(%g, %g)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "velocity", .size = sizeof(Vec2), .ptr = &component->velocity, .format = "Vec2(%g, %g)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "acceleration", .size = sizeof(Vec2), .ptr = &component->acceleration, .format = "Vec2(%g, %g)" });
+		break;
+	}
+	case COLLISION_BOX: {
+		CollisionBox* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "size", .size = sizeof(Vec2), .ptr = &component->size, .format = "Vec2(%g, %g)" });
+		break;
+	}
+	case ENTITY_RENDERER: {
+		EntityRenderer* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "layerIndex", .size = sizeof(int), .ptr = &component->layerIndex, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "filter", .size = sizeof(RenderFilter), .ptr = &component->filter, .format = "renderFilter(%d)" });
+		break;
+	}
+	case MOVEMENT_CONTROLLER: {
+		MovementController* component = componentPtr;
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "movementStyle", .size = sizeof(int), .ptr = &component->movementStyle, .format = "movementStyle(%d)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "collisionNormal", .size = sizeof(Vec2), .ptr = &component->collisionNormal, .format = "Vec2(%g, %g)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "previousDirection", .size = sizeof(Vec2), .ptr = &component->previousDirection, .format = "Vec2(%g, %g)" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "maxSpeed", .size = sizeof(double), .ptr = &component->maxSpeed, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "acceleration", .size = sizeof(double), .ptr = &component->acceleration, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "deceleration", .size = sizeof(double), .ptr = &component->deceleration, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "maxFallSpeed", .size = sizeof(double), .ptr = &component->maxFallSpeed, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "gravity", .size = sizeof(double), .ptr = &component->gravity, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "jumpHeight", .size = sizeof(double), .ptr = &component->jumpHeight, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "timeToApex", .size = sizeof(double), .ptr = &component->timeToApex, .format = "%g" });
+		ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "doubleJump", .size = sizeof(bool), .ptr = &component->doubleJump, .format = "bool(%d)" });
+		break;
+	}
+	//case INTERACTABLE: {
+	//	Interactable* component = componentPtr;
+	//	ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "ENTITY_ID", .size = sizeof(int), .ptr = &component->ENTITY_ID, .format = "%d" });
+	//	ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "type", .size = sizeof(InteractableType), .ptr = &component->type, .format = "interactableType(%d)" });
+	//	ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "nextInFocus", .size = sizeof(int), .ptr = &component->nextInFocus, .format = "%d" });
+	//	ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "hasFocus", .size = sizeof(bool), .ptr = &component->hasFocus, .format = "bool(%d)" });
+	//	ECS_bluePringAddMember(&bluePrint, (BluePrintMember) { .name = "activeInteractions", .size = sizeof(bool * NUMBER_OF_INTERACTION_TYPES), .ptr = &component->activeInteractions, .format = "bool(%d)" });
+
+	//	//typedef struct Interactable {
+	//	//	int ENTITY_ID;
+
+	//	//	InteractableType type;
+	//	//	// focus is transfered to this interactable when tab is pressed
+	//	//	int nextInFocus;
+
+	//	//	bool hasFocus;
+	//	//	bool activeInteractions[NUMBER_OF_INTERACTION_TYPES];
+
+	//	//	Interaction* interactionHead;
+	//	//	Interaction* latestInteraction;
+	//	//} Interactable;
+
+	//	break;
+	//}
 	default:
 		break;
 	}

@@ -1,17 +1,15 @@
-//#pragma once
-//
-//#include "ECS.h"
-//
-//typedef struct ComponentBluePrintMember {
-//	char name[32];
-//	char format[16];
-//
-//} ComponentBluePrintMember;
-//
-//typedef struct ComponentBluePrint {
-//	ComponentType type;
-//	char name[64];
-//
-//} ComponentBluePrint;
-//
-//ComponentBluePrint_get()
+#pragma once
+
+#include "Math.h"
+
+
+typedef struct ComponentBluePrintMember {
+	size_t size;
+	char name[16];
+	char format[16];
+	void *ptr;
+} ComponentBluePrintMember;
+
+typedef struct ComponentBluePrint {
+	
+} ComponentBluePrint;
