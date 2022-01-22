@@ -10,3 +10,7 @@ public:
 
 	ECS::ComponentVersionMap* getVersionMap();
 };
+
+template <> struct ECS::ComponentTypeSelect<ECS::POSITION_COMPONENT> {
+	typedef PositionComponent Type;
+};

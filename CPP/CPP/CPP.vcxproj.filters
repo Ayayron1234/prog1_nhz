@@ -13,30 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{a7fd81d9-c2c9-4c7e-9554-f9e1fbc8596f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Maths">
+      <UniqueIdentifier>{64b46023-ccab-40af-a33d-a861eef798bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Core">
+      <UniqueIdentifier>{6fcdbb02-7d42-49b2-80a5-8a13400c692e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{4b98a97d-cc97-4da4-9d1c-95ef5495d356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Core">
+      <UniqueIdentifier>{38bc5d22-743f-49b0-b7d8-78fa5f5dd214}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Systems">
+      <UniqueIdentifier>{bba31f58-af90-4225-bc40-92a328d98c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Maths">
+      <UniqueIdentifier>{430d3783-ced7-4051-bfb5-0dd94e7bc4d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vec2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Maths</Filter>
     </ClCompile>
     <ClCompile Include="PositionComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="ComponentBaseClass.cpp">
+      <Filter>Source Files\Components\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="VisualComponentSystems.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="ECS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vec2.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Maths</Filter>
     </ClInclude>
-    <ClInclude Include="PositionComponent.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="VisualComponent.h">
+      <Filter>Header Files\Components\Core</Filter>
     </ClInclude>
     <ClInclude Include="ComponentBaseClass.h">
+      <Filter>Header Files\Components\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PositionComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TileComponent.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentVersionMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWindow.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.hpp">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

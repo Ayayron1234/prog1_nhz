@@ -1,1 +1,2 @@
 D:\Projects\_nhz\CPP\CPP\x64\Debug\CPP.exe
+D:\Projects\BME\Prog 1\_nhz\CPP\CPP\x64\Debug\CPP.exe

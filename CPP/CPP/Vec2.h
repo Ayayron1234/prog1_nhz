@@ -1,7 +1,17 @@
 #pragma once
-
 #include <iostream>
 
+class Vec2Int
+{
+public:
+	int x;
+	int y;
+
+	Vec2Int(int x = 0, int y = 0) {
+		this->x = x;
+		this->y = y;
+	}
+};
 
 class Vec2 {
 public:
@@ -31,3 +41,6 @@ public:
 
 std::ostream& operator<< (std::ostream& os, Vec2 vec);
 std::istream& operator>> (std::istream& is, Vec2& vec);
+
+std::ostream& operator<< (std::ostream& os, Vec2Int vec);
+std::istream& operator>>(std::istream& is, Vec2Int& vec);

@@ -116,10 +116,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_ttf\include;D:\Projects\BME\Prog 1\_nhz\SDL2_image\include;D:\Projects\BME\Prog 1\_nhz\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Projects\BME\Prog 1\_nhz\SDL2_ttf\lib\x64;D:\Projects\BME\Prog 1\_nhz\SDL2_image\lib\x64;D:\Projects\BME\Prog 1\_nhz\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,14 +143,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ComponentBaseClass.cpp" />
+    <ClCompile Include="ECS.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PositionComponent.cpp" />
     <ClCompile Include="Vec2.cpp" />
+    <ClCompile Include="VisualComponentSystems.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComponentBaseClass.h" />
+    <ClInclude Include="ComponentVersionMap.h" />
+    <ClInclude Include="ECS.h" />
+    <ClInclude Include="GameWindow.hpp" />
+    <ClInclude Include="Layout.hpp" />
+    <ClInclude Include="misc.hpp" />
     <ClInclude Include="PositionComponent.h" />
+    <ClInclude Include="ResourceManager.hpp" />
+    <ClInclude Include="TileComponent.hpp" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="VisualComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,16 @@
 #include "ComponentBaseClass.h"
 #include "Vec2.h"
+#include "SDL.h"
 
 using namespace ECS;
 
+struct Matrix_2x2
+{
+	double _00;
+	double _01;
+	double _10;
+	double _11;
+};
 
 ComponentVersionMap* ComponentVersionMap::addMember(ComponentVersionMapMember member) {
 	this->members.push_back(member);
@@ -31,14 +39,21 @@ std::ostream& ECS::operator<<(std::ostream& os, ComponentVersionMapMember& membe
 		os << "\"";
 	}
 	else if (strcmp(member.format, "bool") == 0) os << *((bool*)member.ptr);
+	else if (strcmp(member.format, "ptr") == 0) os << member.ptr;
 	else if (strcmp(member.format, "Vec2") == 0) os << *((Vec2*)member.ptr);
-	else if (strcmp(member.format, "SAVE_TYPE") == 0) 
+	else if (strcmp(member.format, "Vec2Int") == 0) os << *((Vec2Int*)member.ptr);
+	else if (strcmp(member.format, "Matrix_2x2") == 0) {
+		Matrix_2x2 M = *(Matrix_2x2*)member.ptr;
+		os << "Matrix_2x2{ {" << M._00 << ", " << M._01 << "}, {" << M._10 << ", " << M._11 << "} }";
+	}
+	else if (strcmp(member.format, "SAVE_TYPE") == 0)
 		switch (*((Component::ComponenetSaveType*)member.ptr))
 		{
-		case Component::STATIC: os << "STATIC (0)"; break;
-		case Component::DYNAMIC: os << "DYNAMIC (1)"; break;
+		case Component::ComponenetSaveType::STATIC: os << "STATIC (0)"; break;
+		case Component::ComponenetSaveType::DYNAMIC: os << "DYNAMIC (1)"; break;
 		default: break;
 		}
+	else if (strcmp(member.format, "SDL_Rect") == 0) os << "SDL_Rect(x=" << (*(SDL_Rect*)member.ptr).x << ", y=" << (*(SDL_Rect*)member.ptr).y << ", w=" << (*(SDL_Rect*)member.ptr).w << ", h=" << (*(SDL_Rect*)member.ptr).h << ")";
 	os << "}";
 	return os;
 }
@@ -58,10 +73,13 @@ std::ostream& ECS::operator<<(std::ostream& os, ComponentVersionMap& bluePrint) 
 	return os;
 }
 
-ComponentVersionMap* Component::getVersionMap() {
-	ComponentVersionMap* bluePrint = new ComponentVersionMap(0);
-	bluePrint
-		->addMember(ComponentVersionMapMember::create("ENTITY_ID", sizeof(int), &this->ENTITY_ID, "int"));
-	return bluePrint;
+ComponentVersionMap* Component::getVersionMap(Component* component) {
+	if (component == nullptr) component = this;
+
+	ComponentVersionMap* versionMap = new ComponentVersionMap(0);
+	versionMap
+		->addMember(ComponentVersionMapMember::create("ENTITY_ID", sizeof(component->ENTITY_ID), &component->ENTITY_ID, "int"))
+		->addMember(ComponentVersionMapMember::create("SAVE_TYPE", sizeof(component->SAVE_TYPE), &component->SAVE_TYPE, "SAVE_TYPE"));
+	return versionMap;
 }
 

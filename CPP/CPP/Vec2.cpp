@@ -48,8 +48,21 @@ std::ostream& operator<< (std::ostream& os, Vec2 vec) {
 	os << "Vec2(" << vec.x << ", " << vec.y << ")";
 	return os;
 }
+std::ostream& operator<< (std::ostream& os, Vec2Int vec) {
+	os << "Vec2(" << vec.x << ", " << vec.y << ")";
+	return os;
+}
 
 std::istream& operator>>(std::istream& is, Vec2& vec)
+{
+	cout << "-------------\nVec2:\n   .x=\033[1m\033[33m";
+	is >> vec.x;
+	cout << "\033[0m   .y=\033[1m\033[33m";
+	is >> vec.y;
+	cout << "\033[0m";
+	return is;
+}
+std::istream& operator>>(std::istream& is, Vec2Int& vec)
 {
 	cout << "-------------\nVec2:\n   .x=\033[1m\033[33m";
 	is >> vec.x;

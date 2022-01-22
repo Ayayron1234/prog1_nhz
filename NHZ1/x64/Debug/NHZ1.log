@@ -1,1 +1,110 @@
-﻿  NHZ1.vcxproj -> D:\Projects\_nhz\NHZ1\x64\Debug\NHZ1.exe
+﻿  AnimationSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  ColliderSystems.c
+D:\Projects\BME\Prog 1\_nhz\NHZ1\ColliderSystems.c(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  CollisionBoxSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  ECS.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c(399,60): warning C4142: 'ECS_getEntity': benign redefinition of type
+D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.h(181): message : see declaration of 'ECS_getEntity'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c(461,43): warning C4047: 'function': 'const char *' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\ECS.c(461,16): warning C4024: 'strcmp': different types for formal and actual parameter 1
+  EditorSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(16,51): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(16,120): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(17,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(17,62): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(47,24): warning C4047: 'function': 'char *const ' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(47,11): warning C4024: 'sprintf': different types for formal and actual parameter 1
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(51,18): warning C4047: 'function': 'char *const ' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(51,11): warning C4024: 'sprintf': different types for formal and actual parameter 1
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(57,22): warning C4047: 'function': 'char *const ' differs in levels of indirection from 'char (*)[256]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(57,12): warning C4024: 'sprintf': different types for formal and actual parameter 1
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(71,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(71,115): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(74,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(74,90): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(77,27): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(77,127): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(119,24): warning C4013: 'ECS_printEntityData' undefined; assuming extern returning int
+D:\Projects\BME\Prog 1\_nhz\NHZ1\EditorSystems.c(190,23): warning C4047: '==': 'void *' differs in levels of indirection from 'int'
+  Game.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(23,22): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(23,9): warning C4024: 'strcpy': different types for formal and actual parameter 1
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(107,67): warning C4129: '%': unrecognized character escape sequence
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(107,67): warning C4778: 'printf' : unterminated format string '%'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(263,90): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[255]'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(263,57): warning C4024: 'Editor_paste': different types for formal and actual parameter 3
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(403,143): warning C4133: 'function': incompatible types - from 'int *' to 'GameState *'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(407,183): warning C4133: 'function': incompatible types - from 'int *' to 'GameState *'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(446,65): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\Game.c(446,107): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  HealthSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  InteractableSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\InteractableSystems.c(175,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\InteractableSystems.c(275,24): warning C4013: 'ECS_printEntityData' undefined; assuming extern returning int
+  main.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\main.c(6,16): warning C4026: function declared with formal parameter list
+  MovementControllerSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+  PhysicsBodySystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(30,41): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(30,86): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(31,62): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(31,138): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(39,45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(39,75): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(40,34): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PhysicsBodySystems.c(40,67): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  PositionSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\PositionSystems.c(5,54): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+  SpriteSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\SpriteSystems.c(13,24): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\SpriteSystems.c(13,71): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\SpriteSystems.c(14,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\SpriteSystems.c(14,73): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  TextSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(32,57): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(32,132): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(34,62): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(34,137): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(47,57): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(47,132): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(49,71): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(49,155): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(68,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TextSystems.c(68,89): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  TileSystems.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': macro redefinition
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\malloc.h(124): message : see previous definition of '_malloca'
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TileSystems.c(20,91): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TileSystems.c(21,91): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TileSystems.c(22,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Projects\BME\Prog 1\_nhz\NHZ1\TileSystems.c(23,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  NHZ1.vcxproj -> D:\Projects\BME\Prog 1\_nhz\NHZ1\x64\Debug\NHZ1.exe
