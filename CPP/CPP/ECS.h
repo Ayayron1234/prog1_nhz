@@ -21,7 +21,10 @@ namespace ECS {
 			ComponentList(int length = 0, ComponentVersionMap* versionMap = nullptr) {
 				this->length = length;
 				this->versionMap = versionMap;
-				this->list = nullptr;
+				//if (this->versionMap != nullptr)
+				//	this->list = operator new[](this->length * this->versionMap->componentSize);
+				//else 
+					this->list = nullptr;
 			}
 
 			template <int componentType> typename ComponentTypeSelect<componentType>::Type* at(int index) {
@@ -51,6 +54,17 @@ namespace ECS {
 				}
 				throw std::out_of_range("ComponentList: Maximum number of components reached. ");
 			}
+
+			//void operator=(ComponentList source) {
+			//	this->length = source.length;
+			//	this->versionMap = source.versionMap;
+
+			//	if (this->list == nullptr)
+			//	this->list = std::calloc(this->length, this->versionMap->componentSize);
+			//	
+			//	if (this->list == NULL) throw;
+			//	std::memcpy(this->list, source.list, this->length * this->versionMap->componentSize);
+			//}
 
 			~ComponentList() {
 				if (this->length > 0 && this->list != nullptr) {

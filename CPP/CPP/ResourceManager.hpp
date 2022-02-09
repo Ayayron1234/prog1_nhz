@@ -72,6 +72,16 @@ namespace ECS {
 			else throw;
 		}
 
+		Resource& operator=(Resource sourceRes) {
+			this->data = std::malloc(sourceRes.size);
+			this->size = sourceRes.size;
+			std::memcpy(this->data, sourceRes.data, sourceRes.size);
+			this->isLoaded = sourceRes.isLoaded;
+			this->next = sourceRes.next;
+			this->RESOURCE_UID = sourceRes.RESOURCE_UID;
+			this->type = sourceRes.type;
+		}
+
 		friend class ResourceManager;
 	};
 
